@@ -17,7 +17,7 @@
       "title": "Fal API key",
       "description": "Your Fal API key for image, video, and audio generation. Paid tasks require an approved production plan.",
       "sensitive": true,
-      "required": true
+      "required": false
     }
   },
   "mcpServers": {
@@ -25,7 +25,7 @@
       "command": "ruby",
       "args": ["${CLAUDE_PLUGIN_ROOT}/.claude/skills/motion-graphics-music-video/scripts/mcp.rb"],
       "env": {
-        "FAL_AI_API_KEY": "${user_config.FAL_AI_API_KEY}"
+        "FAL_AI_API_KEY_PLUGIN": "${user_config.FAL_AI_API_KEY}"
       }
     }
   }

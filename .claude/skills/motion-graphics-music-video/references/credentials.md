@@ -1,13 +1,13 @@
 # Fal credentials and plugin execution
 
-The plugin declares a required sensitive `FAL_AI_API_KEY` option. Claude Code collects and stores it in secure credential storage, then injects it into the `music-video` MCP server's environment. The model does not receive the value. Configure it through the plugin's configuration interface, never through chat or a command argument. Restart/reconnect the MCP server after changing the key.
+The plugin declares an optional sensitive `FAL_AI_API_KEY` option. Claude Code collects and stores it in secure credential storage, then injects it into the `music-video` MCP server's environment as `FAL_AI_API_KEY_PLUGIN`. When that value is empty the server uses `FAL_AI_API_KEY` from the environment Claude Code was launched in. The option is optional so the server starts, and `credential_status` can report a missing key, instead of Claude Code dropping the server. The model does not receive the value. Configure it through the plugin's configuration interface, never through chat or a command argument. Restart/reconnect the MCP server after changing the key.
 
 The server is `scripts/mcp.rb`, a Ruby stdio process using standard libraries. It starts before project dependencies are installed. Its tools delegate to `scripts/mv.rb`; Ruby remains the execution layer. No key is read from the user's home directory or written to project files. Only initialize and execute projects the user trusts: the toolkit intentionally loads the project's Ruby configuration and Rakefile.
 
 ## Plugin workflow
 
 1. Use the Ruby CLI to initialize a separate video project and run `setup`. File editing, local analysis, plan writing, and `plan:approve` stay in the CLI/native tools.
-2. Use `credential_status` on the `music-video` server. It returns only `configured: true/false`. If false, ask the user to configure the plugin; do not ask for the secret itself.
+2. Use `credential_status` on the `music-video` server. It returns only `configured: true/false`. If false, ask the user to configure the plugin (`/plugin configure motion-graphics-music-video`) or relaunch Claude Code with `FAL_AI_API_KEY` exported, then reconnect the server; do not ask for the secret itself.
 3. Run `doctor` through `run_task` for a complete dependency/credential check. Direct Bash calls do not inherit the plugin's sensitive option.
 4. After the user approves the plan and the CLI records that approval, run Fal-facing tasks through `run_task`. Translate Rake recipes into `project`, `task`, and string `options` fields:
 
@@ -36,4 +36,4 @@ export FAL_AI_API_KEY='your-fal-api-key'
 ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb --project /absolute/video-project doctor
 ```
 
-The same variable works when launching `scripts/mcp.rb` directly in a developer MCP configuration. The installed plugin uses its sensitive option, so setting a shell variable does not replace the plugin configuration prompt. `FAL_KEY` and the old home-directory key file are no longer supported. Keep real keys out of prompts, source files, command arguments, and commits.
+The same variable works when launching `scripts/mcp.rb` directly in a developer MCP configuration. The installed plugin's server also falls back to it when the plugin option is unset; a configured option takes precedence. `FAL_KEY` and the old home-directory key file are no longer supported. Keep real keys out of prompts, source files, command arguments, and commits.

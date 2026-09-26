@@ -98,6 +98,14 @@ RSpec.describe "Configured Fal credentials and MCP delivery", :core do
     expect(JSON.parse(result[:output])["key_digest"]).to eq(Digest::SHA256.hexdigest(""))
   end
 
+  it "prefers the plugin option and falls back to an exported key when it is unset" do
+    plugin = Toolkit::CredentialTasks::PLUGIN_KEY
+    expect(Toolkit::CredentialTasks.env_key(plugin => "plugin-key", "FAL_AI_API_KEY" => "shell-key")).to eq("plugin-key")
+    expect(Toolkit::CredentialTasks.env_key(plugin => "", "FAL_AI_API_KEY" => "shell-key")).to eq("shell-key")
+    expect(Toolkit::CredentialTasks.env_key(plugin => "${user_config.FAL_AI_API_KEY}", "FAL_AI_API_KEY" => "shell-key")).to eq("shell-key")
+    expect(Toolkit::CredentialTasks.env_key(plugin => "")).to eq("")
+  end
+
   it "keeps simultaneous job options separate and reports task failure" do
     runner = task_runner
     project = prepared_project

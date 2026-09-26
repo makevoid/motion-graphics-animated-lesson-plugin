@@ -4,6 +4,10 @@
 
 A Claude Code plugin containing a self-contained music video skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
 
+Example made with this skill: [“You knew how to fork” (@joshcirre)](https://youtu.be/b70F1bWZlwE)
+
+<a href="https://youtu.be/b70F1bWZlwE"><img src="https://i.ytimg.com/vi/b70F1bWZlwE/hqdefault.jpg" width="480" alt="Thumbnail of the “You knew how to fork” music video made with this skill"></a>
+
 Install the plugin below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
 
 [Skill instructions](.claude/skills/motion-graphics-music-video/SKILL.md) · [Task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) · [Testing](.claude/skills/motion-graphics-music-video/references/testing.md)
@@ -25,7 +29,7 @@ The user-scoped installation makes the plugin available across your projects. Cl
 
 Before generating a video, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
 
-When enabling the plugin, enter your Fal API key in its **Fal API key** configuration prompt. The required `FAL_AI_API_KEY` option is marked sensitive: Claude Code masks it and stores it in secure credential storage. The plugin passes it through the environment to its bundled Ruby MCP server, which runs Fal tasks without placing the key in prompts or tool arguments. Change it through the plugin's configuration interface and restart/reconnect the server afterward.
+Enter your Fal API key in the plugin's **Fal API key** option, via its configuration prompt or `/plugin configure motion-graphics-music-video`. The `FAL_AI_API_KEY` option is marked sensitive: Claude Code masks it and stores it in secure credential storage. The plugin passes it through the environment to its bundled Ruby MCP server, which runs Fal tasks without placing the key in prompts or tool arguments. The option is optional so the `music-video` server always starts: when it is unset, the server falls back to a `FAL_AI_API_KEY` exported in the environment that launched Claude Code, and `credential_status` reports `configured: false` if neither is present. Change it through the plugin's configuration interface and restart/reconnect the server afterward.
 
 For standalone development, set the environment variable in your terminal before running the Ruby toolkit:
 
@@ -33,7 +37,7 @@ For standalone development, set the environment variable in your terminal before
 export FAL_AI_API_KEY='your-fal-api-key'
 ```
 
-This developer setting applies to direct CLI calls or a directly launched `scripts/mcp.rb`; installed plugin users configure the sensitive option. The old `FAL_KEY` variable and home-directory key file are no longer used. Keep actual keys out of chat, source files, and commits. See [credential setup and MCP task usage](.claude/skills/motion-graphics-music-video/references/credentials.md).
+This setting applies to direct CLI calls, a directly launched `scripts/mcp.rb`, and the installed plugin's server when its option is unset; a configured plugin option takes precedence. The old `FAL_KEY` variable and home-directory key file are no longer used. Keep actual keys out of chat, source files, and commits. See [credential setup and MCP task usage](.claude/skills/motion-graphics-music-video/references/credentials.md).
 
 Start a new Claude Code session in the directory where you want to work:
 

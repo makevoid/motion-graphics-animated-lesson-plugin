@@ -15,15 +15,23 @@ module Toolkit
     OPTIONS = %w[RUN ONLY FORCE RECUT NEW_REQUEST VIDEO_RES SFX VFX REFRESH_UPLOAD].freeze
     OUTPUT_LIMIT = 20_000
     MAX_RUNNING = 10
+    PLUGIN_KEY = "FAL_AI_API_KEY_PLUGIN"
 
-    def initialize(entry: File.expand_path("../../mv.rb", __dir__), api_key: ENV["FAL_AI_API_KEY"])
+    # The plugin option arrives under its own name: when it is unset Claude Code
+    # passes "", which must not hide a FAL_AI_API_KEY exported by the launcher.
+    def self.env_key(env = ENV)
+      plugin = env[PLUGIN_KEY].to_s
+      usable?(plugin) ? plugin : env["FAL_AI_API_KEY"].to_s
+    end
+
+    def self.usable?(key) = !key.strip.empty? && !key.include?("${user_config.")
+
+    def initialize(entry: File.expand_path("../../mv.rb", __dir__), api_key: self.class.env_key)
       @entry, @api_key = entry, api_key.to_s
       @jobs, @lock = {}, Mutex.new
     end
 
-    def configured?
-      !@api_key.strip.empty? && !@api_key.include?("${user_config.")
-    end
+    def configured? = self.class.usable?(@api_key)
 
     def start(project:, task:, options: {})
       raise ArgumentError, "Configure the plugin's FAL_AI_API_KEY, or set it in the environment when launching mcp.rb" unless configured? || task == "doctor"
@@ -40,7 +48,7 @@ module Toolkit
         @jobs.delete(@jobs.find { |_, j| j[:state] != "running" }&.first) while @jobs.size >= 100
         id = SecureRandom.hex(12)
         # No shell command string, user-supplied executable, or secret argument.
-        environment = OPTIONS.to_h { |key| [key, nil] }.merge(options).merge("FAL_AI_API_KEY" => configured? ? @api_key : nil)
+        environment = OPTIONS.to_h { |key| [key, nil] }.merge(options).merge("FAL_AI_API_KEY" => configured? ? @api_key : nil, PLUGIN_KEY => nil)
         stdin, output, waiter = Open3.popen2e(environment, RbConfig.ruby, @entry,
           "--project", project, task, chdir: project, pgroup: true)
         stdin.close
