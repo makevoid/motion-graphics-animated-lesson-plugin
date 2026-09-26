@@ -6,6 +6,71 @@ Invoke `/motion-graphics-music-video` in Claude Code with this repository open. 
 
 [Skill instructions](.claude/skills/motion-graphics-music-video/SKILL.md) · [Task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) · [Testing](.claude/skills/motion-graphics-music-video/references/testing.md)
 
+## Installation
+
+### Use in this repository
+
+With Git and Claude Code installed, clone the repository:
+
+```sh
+git clone https://github.com/makevoid/motion-graphics-music-video-skill.git
+cd motion-graphics-music-video-skill
+```
+
+Claude Code discovers the skill in `.claude/skills/motion-graphics-music-video/` automatically when started here. Keep the entire skill folder: it includes the scripts, references, and assets needed to make videos.
+
+### Set up the video toolkit
+
+Before running setup, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
+
+From the repository root, install the Ruby gems, npm packages, and local Python environment:
+
+```sh
+ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb setup
+```
+
+For paid generation, provide your Fal API key through the `FAL_KEY` environment variable before starting Claude Code, or save it in `~/.fal_ai_api_key`. Keep the key out of prompts, project configuration, and Git commits.
+
+Check the environment, then start Claude Code:
+
+```sh
+ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb doctor
+claude
+```
+
+`doctor` reports dependency checks as JSON booleans. Resolve missing dependencies needed for your workflow; use `STRICT=1` before the command to make missing checks fail. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details.
+
+Inside Claude Code, invoke:
+
+```text
+/motion-graphics-music-video
+```
+
+Supply a song attachment or local path and a creative prompt. The skill creates a separate video project and asks you to approve its plan and budget before new paid generation.
+
+### Optional: make the skill available in every project
+
+On macOS or Linux, run these commands from the cloned repository root:
+
+```sh
+mkdir -p ~/.claude/skills
+ln -s "$PWD/.claude/skills/motion-graphics-music-video" \
+  ~/.claude/skills/motion-graphics-music-video
+```
+
+You can then start Claude Code in another project and invoke `/motion-graphics-music-video`. Keep the clone in its current location because the link points to it. If the destination already exists, inspect your existing installation before replacing it. Claude Code supports both [project and personal skills, including symlinked folders](https://code.claude.com/docs/en/skills#choose-where-skills-load).
+
+### Update
+
+From the cloned repository root:
+
+```sh
+git pull --ff-only
+ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb setup
+```
+
+The optional personal-skill link uses the updated files automatically.
+
 ## Videos created with this skill
 
 - [You knew how to fork - @joshcirre](https://youtu.be/Nxhg23_fheY) — A developer-culture satire, with the song credited to @joshcirre with Suno in the video description.
