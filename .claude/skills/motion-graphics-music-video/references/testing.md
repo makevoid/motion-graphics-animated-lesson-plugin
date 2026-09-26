@@ -16,12 +16,14 @@ The repository root also has `rake test`. `PROFILE=all` (default) runs all non-l
 
 | Profile | Observable behavior |
 |---|---|
-| core | skill metadata/reference links, CLI help/task discovery, intake/initialization and overwrite rejection, literal shell arguments, subprocess errors, plan approval invalidation, wave progression/dependencies/resume, noncontiguous assembly rejection, Fal HTTP submit/poll/result/cache, schema rejection and queue errors |
-| media | real FFmpeg/ffprobe + ImageMagick + Python audio duration/silence/energy, cut detection, character/keyframe/H3 adapter workflow with synthetic Fal responses, green alpha edges, p5 sprite bounds/placement, actual moving pixels, deterministic repeat, overlay/assembly frame counts and soundtrack correlation, SFX timing/peak behavior, mouth-alignment diagnostic |
+| core | skill metadata/reference links, CLI help/task discovery, intake/initialization and overwrite rejection, literal shell arguments, subprocess errors, plan approval invalidation, wave progression/dependencies/resume, monitored worker journals, identity import with byte/provenance validation, noncontiguous assembly rejection, Fal HTTP submit/poll/result/cache, schema rejection and queue errors |
+| media | real FFmpeg/ffprobe + ImageMagick + Python audio duration/silence/energy, local soundtrack processing without a Fal client, full-song cue offsets and first-render overlay manifests, cut detection, character/keyframe/H3 adapter workflow with synthetic Fal responses, green alpha edges, p5 sprite bounds/placement, actual moving pixels, deterministic repeat, overlay/assembly frame counts and soundtrack correlation, SFX timing/peak behavior, mouth-alignment diagnostic |
 | swift | real Swift build and character-scene VFX render, cue-on/cue-off pixel/luminance checks, audio/frame preservation and invalid effect rejection |
 | live | paid real Sunburst character → edit → H3 1080P animation, real Whisper/Demucs/SFX audio outputs and a local composition/VFX pass using the generated assets |
 
 Offline synthetic media is deliberately simple so placement/alpha/timing are measurable. Generated projects retain a `.skill/` copy of the instructions and references, so their copied test suite can validate the documentation as well. Mocked Fal responses verify client and pipeline plumbing; they cannot demonstrate the provider's current output quality or lipsync. Live generation is stochastic: tests enforce media/schema/placement invariants and save artifacts for visual review rather than asserting subjective beauty.
+
+The media profile also checks seeded alpha-component cleanup through the public Ruby task: retained subject RGBA and soft alpha remain exact, detached lettering disappears, the original file remains unchanged, and invalid/missing seeds fail without publishing a partial sequence.
 
 ## Paid live E2E
 
@@ -35,7 +37,7 @@ Supply `FAL_KEY` via environment or the normal key file. Budget per run: one Sun
 
 ## Behavioral rehearsal for the Markdown workflow
 
-Executable tests check document links/interfaces; they do not prove an agent will obey creative prose. Rehearse these scenarios using the skill with a disposable project and no paid calls until the user approves:
+Executable tests check document links/interfaces; they do not prove an agent will obey creative prose. Rehearse these scenarios using the skill with a disposable project. Paid calls require authorization; preserve authorization already given for a bounded regeneration:
 
 1. “Make a music video” without a song/prompt: request the two missing inputs.
 2. Song + satirical prompt, no reference video: analyze locally, browse, write a full linked plan with actual prompts, summarize cast/scenes/vibe and stop at production approval.
@@ -44,5 +46,6 @@ Executable tests check document links/interfaces; they do not prove an agent wil
 5. Replace a character halfway through: create a new identity version and update affected dependencies without overwriting unrelated accepted work.
 6. Inject failed clips, lip timing drift, unreadable overlays, missing frames or a VFX no-op: reject, repair and review before accepting the wave.
 7. Interrupt during Fal polling: reuse the saved queue receipt and finish the original task.
+8. Regenerate an approved video's opening: identify the complete lyric boundary, publish exact worker frame ranges, import the current identity versions from manifests, generate fresh scene assets with at least two workers when requested, monitor their logs and review the assembled excerpt. Record reused inputs and new model requests separately.
 
 Review the generated plan against the user's actual taste and listen/watch opening and peak clips. Record behavioral findings in a review document; do not describe a structural Markdown check as full agent evaluation.

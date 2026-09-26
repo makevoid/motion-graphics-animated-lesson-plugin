@@ -45,7 +45,11 @@ Choreography recipes: a mascot runs at the head of a curve leaving a trail; a fa
 
 ## Character cutouts and lipsync
 
+Remove detached generated captions from an existing alpha sequence with `media:keep_component[source_dir,new_out_dir,seed_x,seed_y]` through the Ruby CLI. It keeps exact RGBA values of the four-connected nonzero-alpha silhouette containing the seed; no dilation joins text back to hair or props. Choose a torso pixel occupied in every frame. Missing/transparent seeds fail explicitly, and sources remain unchanged. This cannot remove lettering touching the body, instrument or hair: use a deliberate mask or revise the asset. Inspect all motion afterward, including semi-transparent edges and moving limbs.
+
 Use chroma green for cream/white faces/clothes; paper keying can erase them. Inspect the alpha matte, hair, hands, feet and spill over light/dark backgrounds. `media:sprite_box` helps estimate source-pixel bounds; `box` is a crop and `seed` chooses the connected paper-key component. Recut locally before paying to regenerate a good H3 performance.
+
+H3 may invent captions or interface elements even when the prompt forbids text. Inspect the entire performance, including initially empty space. Disconnected text in a keyed sprite can be removed locally with a reviewed mask/component filter; check moving fingers, hair and instrument tips before accepting the cleanup. A deliberately designed opaque p5 panel can cover unwanted background UI when it preserves the subject and fits the composition. If unwanted text intersects the face/body and cannot be repaired cleanly, use the approved regeneration allowance. Keep lyric typography under p5 control.
 
 Use Demucs vocals aligned to the full song, not separately offset clips. Set `audio_at` in section-local seconds; the service adds `music_offset`. Gate modestly only if instrumental bleed causes mouthing in pauses. Short tail audio must be padded to meet H3's two-second input minimum. Use visible lips, jaw motion, brows, head/shoulder acting, anticipation and follow-through. At song peaks synchronize articulation and the acting accent, then add p5 camera/graphics around it.
 

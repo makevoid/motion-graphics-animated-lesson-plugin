@@ -26,6 +26,8 @@ Prompt structure: identity/style → framing → exact lyric/performance → two
 
 Example: same approved singer, medium close-up; articulates the supplied lyric with a closed mouth during its pause, raises one eyebrow on the punchline and turns toward the prop on the final word. Keep the whole face visible. For a cutout: locked camera, feet/limbs within frame, perfectly flat chroma green #00B140 throughout, no green clothes, no shadows on the background, no text, no extra people, preserve the graphic style.
 
+If a take invents lyric captions despite the exclusion, inspect whether they touch the character or props before choosing a repair. For a retry, keep the aligned vocal input and acting beats but remove the quoted transcript from the visual prompt; the model may otherwise render those words. This is a prompt adjustment to review, not a guarantee. Keep the exact lyric/timing transcript in the plan and p5 cue data.
+
 Use `audio:` as a full-song-aligned vocal WAV and `audio_at:` in **section-local seconds**. The Ruby Clips service adds `music_offset` before cutting audio. Place it with `clip.at(section_local_t)` so the local offset is honored. H3 requires target audio at least two seconds long; pad a short ending with silence rather than shifting the words. Gate bleed only after listening; do not cut soft consonants.
 
 Fal describes `target_audio_url` as soundtrack pinning. It is not a contractual guarantee of phoneme-accurate lipsync. Inspect opening and peak performance at normal speed, slow playback and mouth crops. The local mouth-energy heuristic only helps find gross lag/continued talking in pauses; it cannot certify visemes. Re-prompt/regenerate within the allowance if the visible performance is wrong.

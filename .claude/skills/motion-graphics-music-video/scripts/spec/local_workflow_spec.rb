@@ -24,5 +24,8 @@ RSpec.describe "Local soundtrack and prepared overlay", :media do
     result = overlay.render!
     expect(project[:overlay]["frames_dir"]).to eq(result[:frames_dir])
     expect(ff.summary(result[:path]).dig(:video,:frames)).to eq(4)
+    sheet = file("new-review-directory/contact.jpg")
+    ff.contact_sheet(result[:path], sheet, cols: 2, rows: 1, width: 160)
+    expect(ff.summary(sheet).dig(:video, :w)).to be > 300
   end
 end

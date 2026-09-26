@@ -31,6 +31,7 @@ module Toolkit
       "media:cuts" => "Detect picture cuts [video,out.json] (Python)",
       "media:mouth" => "Mouth alignment [clip_dir,vocals.wav,song_start,x,y,w,h] (Python)",
       "media:cutout" => "Cut out sprite [source,out_dir,green|paper] (Python)",
+      "media:keep_component" => "Keep seeded alpha silhouette [source_dir,out_dir,seed_x,seed_y] (Python)",
       "media:sprite_box" => "Detect sprite bounds [source,green|paper] (Python)",
       "media:split_row" => "Split a character sheet [source,out_prefix,x1,x2,...] (Python)",
         "media:track" => "Track template [video,out.json,x,y,size,search,from_frame]",
@@ -101,6 +102,7 @@ module Toolkit
       when "media:mouth"
         required(a, 7); result = py.run(py.executable, File.join(Media::Python::SCRIPTS, "mouth_sync.py"), *a); emit JSON.parse(result.lines.last)
       when "media:cutout" then required(a, 3); emit py.cutout(*a)
+      when "media:keep_component" then required(a, 4); emit Media::SpriteComponents.new.keep(*a)
       when "media:sprite_box" then required(a, 2); emit py.call("sprite_box.py", *a)
       when "media:split_row" then required(a, 3); emit(summary: py.run(py.executable, File.join(Media::Python::SCRIPTS, "split_row.py"), *a))
         when "media:track"

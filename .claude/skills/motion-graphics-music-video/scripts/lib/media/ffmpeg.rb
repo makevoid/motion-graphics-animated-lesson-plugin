@@ -27,6 +27,7 @@ module Media
 
     # Grid of evenly spaced frames (default 5x2 = 10 frames) for visual review.
     def contact_sheet(video, out, cols: 5, rows: 2, width: 384)
+      FileUtils.mkdir_p(File.dirname(out))
       n = cols * rows
       rate = n / duration(video)
       label = filter?("drawtext") ? ",drawtext=fontfile='#{FONT}':text='%{pts\\:hms}':x=6:y=6:fontsize=16:fontcolor=white:box=1:boxcolor=black@0.6" : ""
@@ -50,12 +51,14 @@ module Media
     end
 
     def frame_at(video, seconds, out)
+      FileUtils.mkdir_p(File.dirname(out))
       run("ffmpeg", "-y", "-v", "error", "-ss", seconds.to_s, "-i", video, "-frames:v", "1", out)
       out
     end
 
     # Close-up crop sequence of a region (e.g. the mouth) for lipsync review.
     def crop_strip(video, out, crop:, fps: 4, cols: 10, rows: 4)
+      FileUtils.mkdir_p(File.dirname(out))
       run("ffmpeg", "-y", "-v", "error", "-i", video,
           "-vf", "fps=#{fps},crop=#{crop},scale=160:-2,tile=#{cols}x#{rows}:padding=2", "-frames:v", "1", out)
       out
@@ -147,6 +150,7 @@ module Media
 
     # Frame number n of `video` as a still.
     def frame_index(video, n, out)
+      FileUtils.mkdir_p(File.dirname(out))
       run("ffmpeg", "-y", "-v", "error", "-i", video, "-vf", "select=eq(n\\,#{n})", "-frames:v", "1", out, quiet: true)
       out
     end
