@@ -18,6 +18,10 @@ RSpec.describe "Configured Fal credentials and MCP delivery", :core do
       require "json"
       require "digest"
       task = ARGV.last
+      if ENV["RUN"] == "utf8"
+        puts JSON.generate(encoding: Encoding.default_external.name,
+          approval: JSON.parse(File.read("config/approval.json"))["user_approval"])
+      end
       if ENV["RUN"] == "wait"
         $stdout.sync = true
         puts "waiting"
@@ -96,6 +100,52 @@ RSpec.describe "Configured Fal credentials and MCP delivery", :core do
     expect { runner.start(project: prepared_project, task: "gen:ref_base") }.to raise_error(/Configure the plugin/)
     result = wait_for_job(runner, runner.start(project: prepared_project, task: "doctor")[:job_id])
     expect(JSON.parse(result[:output])["key_digest"]).to eq(Digest::SHA256.hexdigest(""))
+  end
+
+  it "preserves UTF-8 approval, MCP arguments and worker output under a US-ASCII locale" do
+    task_runner
+    project = prepared_project + " — café"
+    FileUtils.mv(prepared_project, project)
+    FileUtils.mkdir_p(File.join(project, "docs"))
+    File.write(File.join(project, "docs/PLAN.md"), "Bloom — 音楽", encoding: "UTF-8")
+    note = "Approve wave 2 — café / 音楽"
+    Workflow::Approval.new(root: project).record!(note)
+    server = file("ascii_server.rb")
+    File.write(server, <<~RUBY)
+      require #{File.join(RT, "lib/toolkit/mcp_server").inspect}
+      abort "Expected US-ASCII" unless Encoding.default_external == Encoding::US_ASCII
+      tasks = Toolkit::CredentialTasks.new(entry: #{file("server/fixture.rb").inspect}, api_key: "fixture-only")
+      Toolkit::McpServer.new(tasks: tasks).run
+    RUBY
+    task = "media:upload[art — café.png]"
+    Open3.popen3({"LC_ALL" => "C", "LANG" => "C"}, RbConfig.ruby, "-EUS-ASCII", server) do |input, output, errors, waiter|
+      rpc = lambda do |name, arguments|
+        input.puts(JSON.generate(jsonrpc: "2.0", id: 1, method: "tools/call", params: {name: name, arguments: arguments}))
+        input.flush
+        response = JSON.parse(output.gets)
+        expect(response).not_to have_key("error")
+        expect(response.dig("result", "isError")).not_to be(true)
+        JSON.parse(response.dig("result", "content", 0, "text"))
+      end
+      Timeout.timeout(5) do
+        id = rpc.call("run_task", {project: project, task: task, options: {RUN: "utf8"}}).fetch("job_id")
+        loop do
+          result = rpc.call("task_status", {job_id: id})
+          if result["state"] != "running"
+            expect(result["state"]).to eq("completed")
+            lines = result.fetch("output").lines.map { |line| JSON.parse(line) }
+            expect(lines.first).to eq("encoding" => "UTF-8", "approval" => note)
+            expect(lines.last).to include("task" => task, "cwd" => project)
+            break
+          end
+          sleep 0.01
+        end
+      end
+    ensure
+      input.close unless input.closed?
+      expect(errors.read).to eq("")
+      expect(waiter.value.success?).to be(true)
+    end
   end
 
   it "prefers the plugin option and falls back to an exported key when it is unset" do

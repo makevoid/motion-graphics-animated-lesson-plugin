@@ -49,9 +49,12 @@ module Toolkit
         id = SecureRandom.hex(12)
         # No shell command string, user-supplied executable, or secret argument.
         environment = OPTIONS.to_h { |key| [key, nil] }.merge(options).merge("FAL_AI_API_KEY" => configured? ? @api_key : nil, PLUGIN_KEY => nil)
-        stdin, output, waiter = Open3.popen2e(environment, RbConfig.ruby, @entry,
+        # Desktop MCP launchers can inherit a C/US-ASCII locale. Project text
+        # and worker logs use UTF-8 regardless of the launcher's locale.
+        stdin, output, waiter = Open3.popen2e(environment, RbConfig.ruby, "-EUTF-8", @entry,
           "--project", project, task, chdir: project, pgroup: true)
         stdin.close
+        output.set_encoding(Encoding::UTF_8)
         job = { state: "running", output: "", waiter: waiter, started: Process.clock_gettime(Process::CLOCK_MONOTONIC) }
         @jobs[id] = job
         job[:reader] = Thread.new do
@@ -133,6 +136,9 @@ module Toolkit
 
     def initialize(input: $stdin, output: $stdout, tasks: CredentialTasks.new)
       @input, @output, @tasks = input, output, tasks
+      # MCP's newline-delimited JSON is UTF-8, independent of Ruby's defaults.
+      @input.set_encoding(Encoding::UTF_8)
+      @output.set_encoding(Encoding::UTF_8)
     end
 
     def run

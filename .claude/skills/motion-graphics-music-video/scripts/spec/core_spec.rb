@@ -50,6 +50,26 @@ RSpec.describe "Skill contracts and Ruby entry", :core do
       expect { Workflow::Approval.new.check! }.to raise_error(/Plan changed/)
     end
   end
+  it "reads and records UTF-8 approval files independently of the locale" do
+    with_workspace do
+      approve
+      File.write("docs/PLAN.md", "Bloom — 音楽", encoding: "UTF-8")
+      note = "Approve wave 2 — café / 音楽"
+      Workflow::Approval.new.record!(note)
+      script = <<~RUBY
+        # encoding: UTF-8
+        require #{File.join(RT, "lib/workflow/approval").inspect}
+        abort "Expected US-ASCII" unless Encoding.default_external == Encoding::US_ASCII
+        approval = Workflow::Approval.new
+        approval.check!
+        approval.record!(#{note.inspect})
+        approval.check!
+      RUBY
+      _, err, status = Open3.capture3({"LC_ALL" => "C", "LANG" => "C"}, RbConfig.ruby, "-EUS-ASCII", "-e", script)
+      expect(status.success?).to be(true), err
+      expect(JSON.parse(File.read("config/approval.json", encoding: "UTF-8"))["user_approval"]).to eq(note)
+    end
+  end
   it "allocates reviewed dependency waves 2,4,8,10,10 and resumes an active wave" do
     with_workspace do
       FileUtils.mkdir_p("config")
