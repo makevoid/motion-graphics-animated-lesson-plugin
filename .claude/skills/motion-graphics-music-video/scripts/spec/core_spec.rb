@@ -13,7 +13,7 @@ RSpec.describe "Skill contracts and Ruby entry", :core do
     end
   end
   it "shows help without credentials and lists executable tasks" do
-    out, err, status = cli("--help", env: {"FAL_KEY" => ""})
+    out, err, status = cli("--help", env: {"FAL_AI_API_KEY" => ""})
     expect(status.exitstatus).to eq(0), err
     expect(out).to include("--project", "Exit:")
     out, err, status = cli("-T")

@@ -31,6 +31,8 @@ motion-graphics-music-video/
 
 All examples below are executed from the skill directory. Replace `/absolute/project` with the real initialized project path. `ruby scripts/mv.rb --project /absolute/project 'TASK[...]'` and, inside the project, `bundle exec rake 'TASK[...]'` are equivalent. CLI flags precede/follow the task; task arguments use Rake brackets. Quote bracket expressions in zsh. For file names containing commas, rename/copy the input in Ruby before using Rake's comma-separated arguments.
 
+For plugin use, adapt Fal-facing recipes to the `music-video` server's `run_task` tool and poll `task_status`, as described in [credentials.md](credentials.md). The MCP process receives the sensitive plugin key; ordinary Bash calls do not. Local recipes keep using the resolved absolute Ruby entry path from `SKILL.md`.
+
 ## Setup and inspection
 
 ```sh
@@ -42,7 +44,7 @@ ruby scripts/mv.rb --project /absolute/project openapi:fetch
 ruby scripts/mv.rb --project /absolute/project openapi:summary
 ```
 
-`setup` calls Bundler, npm ci and Python venv/pip through Ruby. Install system Ruby, Node 22+, Chrome, FFmpeg/ffprobe and ImageMagick beforehand. On macOS install Swift/Xcode command line tools for VFX. `MV_PYTHON` overrides the local `.venv/bin/python3`; `CHROME_PATH` and `MEDIA_FONT` override detected Chrome/font paths. Keep `FAL_KEY` in the environment or `~/.fal_ai_api_key`; never in prompts/config/commits. `doctor` prints JSON booleans; `STRICT=1` makes missing dependencies fail. Tests require the full selected profile's tools and do not silently skip missing dependencies.
+`setup` calls Bundler, npm ci and Python venv/pip through Ruby. Install system Ruby, Node 22+, Chrome, FFmpeg/ffprobe and ImageMagick beforehand. On macOS install Swift/Xcode command line tools for VFX. `MV_PYTHON` overrides the local `.venv/bin/python3`; `CHROME_PATH` and `MEDIA_FONT` override detected Chrome/font paths. Configure the plugin's sensitive `FAL_AI_API_KEY` option, or set `FAL_AI_API_KEY` in the environment for direct developer CLI calls; never put the key in prompts/config/commits. `doctor` prints JSON booleans; `STRICT=1` makes missing dependencies fail. Tests require the full selected profile's tools and do not silently skip missing dependencies.
 
 ## New run configuration
 

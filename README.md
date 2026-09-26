@@ -1,5 +1,7 @@
 # Motion graphics music video plugin
 
+<img src=".claude-plugin/icon.svg" width="128" height="128" alt="Motion graphics music video icon">
+
 A Claude Code plugin containing a self-contained music video skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
 
 Install the plugin below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
@@ -23,7 +25,15 @@ The user-scoped installation makes the plugin available across your projects. Cl
 
 Before generating a video, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
 
-For paid generation, provide your Fal API key through the `FAL_KEY` environment variable before starting Claude Code, or save it in `~/.fal_ai_api_key`. Keep the key out of prompts, project configuration, and Git commits.
+When enabling the plugin, enter your Fal API key in its **Fal API key** configuration prompt. The required `FAL_AI_API_KEY` option is marked sensitive: Claude Code masks it and stores it in secure credential storage. The plugin passes it through the environment to its bundled Ruby MCP server, which runs Fal tasks without placing the key in prompts or tool arguments. Change it through the plugin's configuration interface and restart/reconnect the server afterward.
+
+For standalone development, set the environment variable in your terminal before running the Ruby toolkit:
+
+```sh
+export FAL_AI_API_KEY='your-fal-api-key'
+```
+
+This developer setting applies to direct CLI calls or a directly launched `scripts/mcp.rb`; installed plugin users configure the sensitive option. The old `FAL_KEY` variable and home-directory key file are no longer used. Keep actual keys out of chat, source files, and commits. See [credential setup and MCP task usage](.claude/skills/motion-graphics-music-video/references/credentials.md).
 
 Start a new Claude Code session in the directory where you want to work:
 
@@ -39,7 +49,7 @@ Inside Claude Code, invoke:
 
 Supply a song attachment or local path and a creative prompt. The skill creates a separate video project, runs `setup` to install Ruby gems, npm packages, and a local Python environment there, then runs `doctor` to check dependencies. It asks you to approve its plan and budget before new paid generation. Dependencies and production files stay in the video project, outside the plugin installation.
 
-`doctor` reports dependency checks as JSON booleans. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
+`doctor` reports dependency checks as JSON booleans. Plugin sessions run it through the MCP server to include the configured key; a direct Bash invocation cannot see the plugin's sensitive option. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
 
 ### Update the plugin
 
@@ -121,3 +131,7 @@ ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb test
 ```
 
 `rake test` is also a thin delegate to the Ruby entry point. All normal tests are local and make no paid Fal calls. Live tests require explicit paid-test opt-in; see the testing guide. The local full suite requires macOS for Swift VFX, Chrome, FFmpeg, ImageMagick, Node, Python and Ruby. No original project outputs, songs, secrets or generated characters are bundled. Fonts retain their license files.
+
+## License
+
+The plugin's original code and documentation are [MIT licensed](LICENSE). Bundled fonts retain their accompanying SIL Open Font License or Apache 2.0 terms. The [icon generation record](docs/icon-generation.md) documents the Sunburst xhigh image and its resized PNG and SVG versions.

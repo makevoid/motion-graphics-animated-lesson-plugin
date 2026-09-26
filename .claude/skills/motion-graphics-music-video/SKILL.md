@@ -1,7 +1,8 @@
 ---
 name: motion-graphics-music-video
 description: Create and revise animated character music videos from a supplied song and creative prompt, with researched storyboards, Fal character and video generation, p5 motion graphics, audio editing, and Swift VFX. Use for full music videos or revisions to their characters, scenes, animation, sound, and effects.
-compatibility: Designed for Claude Code. Requires Ruby 3.2+, Bundler, web search and sub-agent tools. Media tasks require FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Swift VFX requires macOS 14+ and Swift 5.9+. Fal generation requires FAL_KEY.
+license: MIT
+compatibility: Designed for Claude Code. Requires Ruby 3.2+, Bundler, web search and sub-agent tools. Media tasks require FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Swift VFX requires macOS 14+ and Swift 5.9+. Fal generation requires the plugin's sensitive FAL_AI_API_KEY option or that environment variable for local development.
 ---
 
 # Motion graphics music video
@@ -16,6 +17,8 @@ File editing, inspecting images/video/audio, web search, conversation and agent 
 
 Available executable: **`${CLAUDE_SKILL_DIR}/scripts/mv.rb`** (relative location: `scripts/mv.rb`). Claude Code substitutes the skill directory when loading these instructions; it is not a shell environment variable. Use the resulting quoted absolute path in commands and worker briefs, including when adapting the `ruby scripts/mv.rb` shorthand in reference recipes. In a host without substitution, resolve `scripts/mv.rb` relative to this `SKILL.md` before invoking it. `--help` documents its CLI; `-T` lists all rake tasks. It has noninteractive arguments, actionable errors and exit codes; prompts and approval happen in chat. Use absolute paths for `init` inputs. Task file paths resolve in `--project`, or in the bundled `scripts/` runtime when it is omitted. Create projects outside the installed skill/plugin directory, and run setup and production with `--project` so dependencies and generated files stay in the project.
 
+**Plugin credentials:** read [credentials.md](references/credentials.md) before the first Fal task. The plugin's `music-video` MCP server receives the sensitive key and delegates supported tasks to the same Ruby entry point. Use its `run_task` and `task_status` tools for Fal-facing recipes, including uploads, paid reviews, and `pipeline:all`; keep local initialization, setup, plan approval, and local media tasks in the Ruby CLI. Never request the key in chat or read credential files. For intentional standalone/developer use, the CLI reads only `FAL_AI_API_KEY` from its environment. If the plugin tools are unavailable, resolve plugin configuration instead of silently trying a key file.
+
 ## 1. Intake and analysis
 
 On invocation, request a song attachment or local path and a creative prompt **if they were not already supplied**. Optional preferences: references, must-keep characters, aspect ratio, intended audience, budget. Default to 16:9, 24fps and a 1080p deliverable. This runtime assumes 24fps landscape; implement and test any requested format change before generation.
@@ -28,6 +31,8 @@ ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/project setup
 ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/project doctor
 ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/project 'audio:analyze[audio/source.mp3,audio]'
 ```
+
+For a plugin installation, check `credential_status` and run `doctor` through the MCP server to verify the configured key. A direct CLI `doctor` can report `fal_key: false` because the plugin key is scoped to the MCP process; other dependency checks still apply.
 
 Use the actual source extension returned by init. Listen to the whole song; mark its opening, verses, hook, drop, peaks, innuendos and ending. Use local beat/energy analysis before paid analysis. If reference video is supplied, identify cuts and inspect each motion segment at 10–12fps through Ruby tasks; record camera, acting, layering and timings. If there is no reference video, invent the visual direction from the song, brief and research.
 

@@ -173,7 +173,7 @@ module Toolkit
       checks["python_packages"] = system(py.executable, "-c", "import PIL, numpy", out: File::NULL, err: File::NULL)
       checks["node_packages"] = File.directory?("node_modules/p5") && File.directory?("node_modules/puppeteer-core")
       checks["chrome"] = [ENV["CHROME_PATH"], "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "/usr/bin/google-chrome", "/usr/bin/chromium"].compact.any? { |p| File.file?(p) }
-      checks["fal_key"] = !ENV["FAL_KEY"].to_s.empty? || File.file?(Fal::Client::KEY_PATH)
+      checks["fal_key"] = !ENV["FAL_AI_API_KEY"].to_s.strip.empty?
       emit checks
       raise "Missing prerequisites; see references/testing.md and run setup" if ENV["STRICT"] == "1" && checks.values.any? { |v| !v }
     end

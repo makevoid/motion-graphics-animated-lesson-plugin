@@ -25,13 +25,12 @@ module Fal
   class Client
     QUEUE_HOST = "https://queue.fal.run".freeze
     STORAGE_INITIATE = "https://rest.alpha.fal.ai/storage/upload/initiate?storage_type=fal-cdn-v3".freeze
-    KEY_PATH = File.expand_path("~/.fal_ai_api_key").freeze
 
     attr_reader :logger
 
     def initialize(api_key: nil, logger: Logger.new($stderr), poll_interval: 3, timeout: 1800)
-      @api_key = api_key || ENV["FAL_KEY"] || (File.read(KEY_PATH).strip if File.file?(KEY_PATH))
-      raise Error, 'Missing FAL_KEY (or ~/.fal_ai_api_key)' if @api_key.to_s.empty?
+      @api_key = api_key || ENV["FAL_AI_API_KEY"]
+      raise Error, 'Missing FAL_AI_API_KEY; configure the plugin or set this environment variable for local development' if @api_key.to_s.strip.empty?
       @logger = logger
       @poll_interval = poll_interval
       @timeout = timeout
