@@ -39,22 +39,25 @@ Follow the quick start below, then supply a song and creative prompt. The agent 
 
 That's it. The plugin's `music-video` MCP server runs every Fal AI task with your key. Claude Code keeps the key in secure credential storage and passes it only to that server, so the Claude session never sees it.
 
-## Installation
+## Usage
 
-### Install the plugin (recommended)
-
-With Git and Claude Code installed, run these commands in your terminal:
-
-```sh
-claude plugin marketplace add makevoid/motion-graphics-music-video-skill
-claude plugin install motion-graphics-music-video@makevoid-music-video --scope user
-```
-
-The user-scoped installation makes the plugin available across your projects. Claude Code downloads it from GitHub; you do not need a separate clone or symlink. See [Claude Code plugin installation](https://code.claude.com/docs/en/plugins/install) for other installation scopes.
-
-### Prerequisites and first run
+### Requirements
 
 Before generating a video, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
+
+### Running the skill
+
+In a Claude Desktop **Code** session with folder access, or a `claude` terminal session in the folder where you want to work, invoke:
+
+```text
+/motion-graphics-music-video:motion-graphics-music-video
+```
+
+Supply a song attachment or local path and a creative prompt. The skill creates a separate video project, runs `setup` to install Ruby gems, npm packages, and a local Python environment there, then runs `doctor` to check dependencies. It asks you to approve its plan and budget before new paid generation. Dependencies and production files stay in the video project, outside the plugin installation.
+
+`doctor` reports dependency checks as JSON booleans. Plugin sessions run it through the MCP server to include the configured key; a direct Bash invocation cannot see the plugin's sensitive option. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
+
+### Fal API key
 
 Enter your Fal API key in the plugin's **Fal API key** option, via its configuration prompt or `/plugin configure motion-graphics-music-video`. The `FAL_AI_API_KEY` option is marked sensitive: Claude Code masks it and stores it in secure credential storage. The plugin passes it through the environment to its bundled Ruby MCP server, which runs Fal tasks without placing the key in prompts or tool arguments. The option is optional so the `music-video` server always starts: when it is unset, the server falls back to a `FAL_AI_API_KEY` exported in the environment that launched Claude Code, and `credential_status` reports `configured: false` if neither is present. Change it through the plugin's configuration interface and restart/reconnect the server afterward.
 
@@ -66,22 +69,6 @@ export FAL_AI_API_KEY='your-fal-api-key'
 
 This setting applies to direct CLI calls, a directly launched `scripts/mcp.rb`, and the installed plugin's server when its option is unset; a configured plugin option takes precedence. The old `FAL_KEY` variable and home-directory key file are no longer used. Keep actual keys out of chat, source files, and commits. See [credential setup and MCP task usage](.claude/skills/motion-graphics-music-video/references/credentials.md).
 
-Start a new Claude Code session in the directory where you want to work:
-
-```sh
-claude
-```
-
-Inside Claude Code, invoke:
-
-```text
-/motion-graphics-music-video:motion-graphics-music-video
-```
-
-Supply a song attachment or local path and a creative prompt. The skill creates a separate video project, runs `setup` to install Ruby gems, npm packages, and a local Python environment there, then runs `doctor` to check dependencies. It asks you to approve its plan and budget before new paid generation. Dependencies and production files stay in the video project, outside the plugin installation.
-
-`doctor` reports dependency checks as JSON booleans. Plugin sessions run it through the MCP server to include the configured key; a direct Bash invocation cannot see the plugin's sensitive option. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
-
 ### Update the plugin
 
 ```sh
@@ -90,6 +77,25 @@ claude plugin update motion-graphics-music-video@makevoid-music-video --scope us
 ```
 
 Restart Claude Code after updating. Existing video projects retain their copied toolkit; updating the plugin affects future project initialization.
+
+## Installation (legacy)
+
+With Git and Claude Code installed, run these commands in your terminal:
+
+```sh
+claude plugin marketplace add makevoid/motion-graphics-music-video-skill
+claude plugin install motion-graphics-music-video@makevoid-music-video --scope user
+```
+
+The user-scoped installation makes the plugin available across your projects. Claude Code downloads it from GitHub; you do not need a separate clone or symlink. See [Claude Code plugin installation](https://code.claude.com/docs/en/plugins/install) for other installation scopes.
+
+To run it from the terminal instead of Claude Desktop, start a new Claude Code session in the directory where you want to work:
+
+```sh
+claude
+```
+
+Then invoke `/motion-graphics-music-video:motion-graphics-music-video` as described in [Usage](#usage).
 
 ## Local development and manual installation
 
