@@ -1,0 +1,5 @@
+source "https://rubygems.org"
+gem "excon", "~> 1.7"
+gem "json", "~> 3.0"
+gem "rake", "~> 13.4"
+gem "rspec", "~> 3.13"

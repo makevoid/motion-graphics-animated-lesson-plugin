@@ -1,0 +1,15 @@
+work/
+**/node_modules/
+**/.venv/
+**/vfx/.build/
+**/output/
+**/tmp/
+**/specs/
+**/.bundle/
+.env
+.DS_Store
+
+**/__pycache__/
+*.pyc
+**/prompts/e2e-*/
+**/prompts/live-vfx-*/
