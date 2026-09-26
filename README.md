@@ -8,9 +8,36 @@ Example made with this skill: [“You knew how to fork” (@joshcirre)](https://
 
 <a href="https://youtu.be/b70F1bWZlwE"><img src="https://i.ytimg.com/vi/b70F1bWZlwE/hqdefault.jpg" width="480" alt="Thumbnail of the “You knew how to fork” music video made with this skill"></a>
 
-Install the plugin below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
+Follow the quick start below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
 
 [Skill instructions](.claude/skills/motion-graphics-music-video/SKILL.md) · [Task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) · [Testing](.claude/skills/motion-graphics-music-video/references/testing.md)
+
+## Quick start
+
+1. Install the plugin from your terminal:
+
+   ```sh
+   claude plugin marketplace add makevoid/motion-graphics-music-video-skill
+   claude plugin install motion-graphics-music-video@makevoid-music-video --scope user
+   ```
+
+2. Start `claude` in the terminal and set your Fal API key:
+
+   ```text
+   /plugin configure motion-graphics-music-video
+   ```
+
+   Enter your Fal AI key in the **Fal API key** field.
+
+3. Open Claude Desktop, select **Code**, and start a new code session with access to a folder.
+
+4. Run the skill, then supply your song and creative prompt:
+
+   ```text
+   /motion-graphics-music-video:motion-graphics-music-video
+   ```
+
+That's it. The plugin's `music-video` MCP server runs every Fal AI task with your key. Claude Code keeps the key in secure credential storage and passes it only to that server, so the Claude session never sees it.
 
 ## Installation
 
