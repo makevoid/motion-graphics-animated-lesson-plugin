@@ -48,7 +48,7 @@ module Pipeline
             skip: spec["from_run"] ? spec["start_frame"] : 0 }
         end
         plate = ffmpeg.concat_shots(segments, project.path("04_plate.mp4"), fps: FPS)
-        { path: ffmpeg.mux(plate, project[:music]["path"], project.path("final.mp4")), plate: plate }
+        { path: ffmpeg.mux(plate, project[:music]["path"], project.path("final.mp4"), shortest: false), plate: plate }
       end
 
       def review

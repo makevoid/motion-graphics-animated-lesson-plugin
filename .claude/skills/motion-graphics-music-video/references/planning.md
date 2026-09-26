@@ -2,6 +2,8 @@
 
 Two supported paths come from the original toolkit: P(doom) used reference-video analysis; wife/boyfriend used a song, creative prompt and web research. Neither path requires the previous projects' files or characters.
 
+For a requested regeneration, begin from the established storyboard and latest approved identity versions. Preserve its meaningful scene actions (for example, a sleepless character reclining in bed for “lie awake”) unless the user requested a remix. A polished but different desk pose is not automatically faithful. Check exported character sheets against the current manifest and storyboard: an export can still contain an older design after a later character edit. Use `ref:import` to verify provenance, and deliberately resolve version mismatches before prompting. Record reused references versus newly generated frames/clips in the evaluation report.
+
 ## Song-first planning
 
 1. Preserve the original in `audio/source.<extension>`. `audio:analyze` decodes it once to `audio/song.wav`, produces beats/onsets and loudness/energy reports. Listen to confirm section boundaries: the simple beat detector assumes a steady 4/4 grid and is advisory for tempo changes.

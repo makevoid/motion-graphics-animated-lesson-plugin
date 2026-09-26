@@ -22,14 +22,32 @@ module Pipeline
         base_data(result).merge(render!)
       end
 
+      # Reuse approved global word timings without another paid transcription.
+      def prepare!(words_path = nil)
+        raw = words_path ? JSON.parse(File.read(words_path)) : []
+        chunks = raw.is_a?(Array) ? raw : raw.fetch("chunks") { raw.fetch("words", []) }
+        offset = project.generation.fetch(:music_offset, 0)
+        words = chunks.filter_map do |chunk|
+          first = chunk["s"] || chunk.dig("timestamp", 0) || chunk["start"]
+          last = chunk["e"] || chunk.dig("timestamp", 1) || chunk["end"]
+          next unless first && last && last > offset && first < offset + project.duration
+          { w: (chunk["w"] || chunk["text"] || chunk["word"]).to_s.strip,
+            s: [first - offset, 0].max, e: [last - offset, project.duration].min }
+        end
+        File.write(data_path(:words), JSON.pretty_generate(words))
+        track!
+        { words: data_path(:words), count: words.size, local_offset: offset }
+      end
+
       # Render all frames and composite, from the saved words.json / track files (no fal call): rake anim:overlay.
       def render!
         dir = project.path("05_overlay", "frames")
         FileUtils.rm_rf(dir)
         summary = anim.render(sketch, dir, **plate_format, data: data_files)
         path = ffmpeg.overlay_frames(plate, dir, project.path(OUT), fps: plate_format[:fps])
-        project.record(key, path: path) if project[key]
-        { path: path, frames_dir: dir, sketch: sketch, render_ms: summary["ms"] }
+        data = { path: path, frames_dir: dir, sketch: sketch, render_ms: summary["ms"] }
+        project.record(key, data.merge(review: nil))
+        data
       end
 
       # Render only `frames` and composite each over its plate frame into one board: rake anim:preview[0,48,96].

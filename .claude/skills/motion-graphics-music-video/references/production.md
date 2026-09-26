@@ -24,6 +24,23 @@ For each returned job, spawn a worker with:
 
 Respect actual agent-slot and provider concurrency limits; queue a large wave in smaller concurrent groups. Reference generation dependencies do not disappear merely because more slots are available.
 
+## Scene ownership and monitored logs
+
+Before spawning workers, save an assignment table with worker ID, workspace/RUN, source-song path, fps, inclusive start frame, exclusive end frame, lyric/strophe and reasons for the cut. For example, `[0,242)` and `[242,388)` at 24fps give two contiguous sections ending at 16.167s; 15s would cut the final lyric short. Derive these numbers from the actual song. Require agreement before either worker shifts a shared boundary. Local animation time is `song_time - start_frame / fps`; neither worker may add a fade or pad to change the agreed length.
+
+For a disposable evaluation, initialize projects under a gitignored `work/<evaluation>/` outside the skill. Keep all prompts, media, plans, worker logs and comparison renders there. Only reusable fixes and their tests return to the skill. In a regeneration test, record which identity/song/timing inputs were reused and which scene assets were newly generated; do not pass off an old scene render as regeneration.
+
+Each worker starts a log immediately, then appends on plan/boundary confirmation, model submission/completion (request ID), local render completion, findings, retries and delivery. Log a heartbeat/next action during long waits. Use one file per worker; never include credentials. Through the Ruby CLI:
+
+```sh
+LOG_DIR=/absolute/evaluation/logs AGENT=scene-a EVENT=submitted MESSAGE='Opening H3 animation queued; checking in shortly' REQUEST_ID=actual-id ruby scripts/mv.rb --project /absolute/project work:log
+LOG_DIR=/absolute/evaluation/logs LIMIT=3 ruby scripts/mv.rb work:watch
+```
+
+The coordinator reads these logs after dispatch, during long model/render waits, and before accepting a wave. Record its own review/steering decisions. An unchanged log is a reason to check the agent/process, not proof of failure or permission to submit the same paid request again. Inspect actual returned images and timed motion samples; send concrete corrections (coordinates, occlusions, timing, crop) and review the correction before final assembly.
+
+For the first pilot wave, each production worker generates one representative keyframe, reports its path, and waits for coordinator visual review before expanding paid work. Preparation of local graphics/timing may continue. A user's instruction to regenerate an existing video already authorizes that bounded execution; retain the creative plan and actual request as evidence instead of asking for the same permission again.
+
 ## Review and advancement
 
 Inspect the assets and opening/peak playback. A contact sheet alone cannot prove acting or lipsync. Save `docs/reviews/<job>.md` with actual inspected paths, problems and decisions. Run relevant `review:*` tasks and retain their metrics. `JOB=... EVIDENCE=... work:accept` records coordinator acceptance. Failed jobs remain active; fix and review them before advancing. The program requires an evidence file but cannot judge its truthfulness or replace human/agent visual review.

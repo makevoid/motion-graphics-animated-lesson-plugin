@@ -1,5 +1,7 @@
 require_relative "../workflow/approval"
 require_relative "../workflow/waves"
+require_relative "../workflow/journal"
+require_relative "../pipeline/reference_importer"
 module Toolkit
   class Operations
     TASKS = {
@@ -10,11 +12,14 @@ module Toolkit
       "plan:approve" => "Record actual user approval: NOTE='approved wording'",
       "work:next" => "Allocate/resume next dependency-ready wave; SIZE=2/3..4/4..8/6..10",
       "work:accept" => "Accept reviewed job: JOB=id EVIDENCE=review.md",
+      "work:log" => "Append worker progress: AGENT=id EVENT=event MESSAGE=text; LOG_DIR optional",
+      "work:watch" => "Show recent worker log entries; LOG_DIR and LIMIT optional",
       "pipeline:status" => "Show RUN's generated/reviewed steps",
       "pipeline:all" => "Generate and review all configured steps of RUN",
       "anim:render" => "Render sketch: [sketch,out,frames,width,height] (local)",
       "anim:preview" => "Preview RUN's overlay frames: [0,48,96] (local)",
       "anim:overlay" => "Render RUN's saved overlay data (local)",
+      "anim:prepare" => "Prepare local overlay cues from optional full-song [words.json], without Fal",
       "audio:analyze" => "Decode and analyze song beats/energy: [audio,out_dir] (local)",
       "audio:transcribe" => "Word timestamps with Fal Whisper: [audio,out.json] (paid)",
       "media:stems" => "Fal Demucs: [audio,out_dir,vocals,...] (paid)",
@@ -37,6 +42,7 @@ module Toolkit
       "media:youtube" => "4K delivery [video,out.mp4] (local encode only)",
       "media:twitter" => "1080p delivery [video,out.mp4] (local encode only)",
       "media:upload" => "Upload [path] to Fal CDN",
+      "ref:import" => "Reuse existing hosted identity [new_run,local_image,original_manifest.json] (no upload)",
       "vfx:build" => "Build Swift Core Image renderer (macOS)",
       "vfx:analyze" => "Analyze VFX source beats and cuts; VFX=name",
       "vfx:stills" => "Preview cued VFX frames [0,24,...]; VFX=name",
@@ -67,12 +73,15 @@ module Toolkit
       when "plan:approve" then emit Workflow::Approval.new.record!(ENV["NOTE"])
       when "work:next" then Workflow::Approval.new.check!; emit Workflow::Waves.new.next!(ENV["SIZE"])
       when "work:accept" then emit Workflow::Waves.new.accept!(ENV.fetch("JOB"), ENV["EVIDENCE"])
+      when "work:log" then emit Workflow::Journal.new.append(agent: ENV["AGENT"], event: ENV["EVENT"], message: ENV["MESSAGE"], artifact: ENV["ARTIFACT"], request_id: ENV["REQUEST_ID"])
+      when "work:watch" then emit Workflow::Journal.new.snapshot(limit: Integer(ENV.fetch("LIMIT", "5")))
       when "pipeline:status" then emit Pipeline::Project.new.manifest
       when "pipeline:all" then Pipeline::Project.new.steps.each { |s| generate(s); s.new.review! }
       when "anim:render"
         required(a, 3); emit Media::Anim.new.render(a[0], a[1], frames: Integer(a[2]), width: Integer(a[3] || 1920), height: Integer(a[4] || 1080), fps: 24)
       when "anim:preview" then required(a, 1); Pipeline::Steps::Overlay.new.preview!(a.map { |x| Integer(x) })
       when "anim:overlay" then emit Pipeline::Steps::Overlay.new.render!
+      when "anim:prepare" then emit Pipeline::Steps::Overlay.new.prepare!(a[0])
       when "audio:analyze" then required(a, 2); analyze_audio(*a)
       when "audio:transcribe"
         required(a, 2); c = Fal::Client.new; result = Fal::Models::Whisper.new(client: c).transcribe(audio_url: c.upload(a[0]), chunk_level: "word")
@@ -104,6 +113,7 @@ module Toolkit
       when "media:youtube" then required(a, 2); emit ff.youtube_4k(*a)
       when "media:twitter" then required(a, 2); emit ff.twitter_1080(*a)
       when "media:upload" then required(a, 1); emit(url: Fal::Client.new.upload(a[0]))
+      when "ref:import" then required(a, 3); emit Pipeline::ReferenceImporter.new.import(run: a[0], image: a[1], manifest: a[2])
       when "vfx:build" then emit Media::Vfx.new.build
       when "vfx:analyze" then emit Media::Vfx.new.analyze
       when "vfx:stills" then required(a, 1); emit Media::Vfx.new.stills(a.map { |x| Integer(x) })

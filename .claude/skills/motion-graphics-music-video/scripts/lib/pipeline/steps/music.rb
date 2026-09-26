@@ -31,7 +31,7 @@ module Pipeline
         fitted = ffmpeg.fit_audio(raw, project.path(format("03_music_%gs.wav", project.duration)), seconds: project.duration, fade: fade)
         base_data(result).merge(
           raw_url: audio["url"], raw_path: raw, model_duration: result.output["duration"], seed: result.output["seed"],
-          path: fitted, url: client.upload(fitted)
+          path: fitted, url: project.generation.fetch(:upload_music, true) ? client.upload(fitted) : nil
         )
       end
 
@@ -79,6 +79,7 @@ module Pipeline
 
       # Whisper transcript of the fitted master, with segment timestamps.
       def transcribe
+        return { text: "", segments: [], skipped: "upload_music: false; local audio review only" } unless project[key]["url"]
         out = Fal::Models::Whisper.new(client: client).transcribe(audio_url: project[key]["url"]).output
         { text: out["text"].to_s.strip, segments: Array(out["chunks"]).map { |c| "#{c["timestamp"]&.join("-")}s #{c["text"].to_s.strip}" } }
       end

@@ -46,6 +46,16 @@ ruby scripts/mv.rb --project /absolute/project openapi:summary
 
 ## New run configuration
 
+When regenerating a video with approved character sheets and their original Fal manifests, register those identities locally without uploading again:
+
+```sh
+ruby scripts/mv.rb --project /absolute/project 'ref:import[char-dev-v1,/absolute/dev.png,/absolute/original-run/manifest.json]'
+```
+
+The service verifies that the supplied image exactly matches the source manifest's local image, copies it into the new project's run and retains its existing HTTPS URL, model and request ID as provenance. Repeated identical imports are safe; a different identity must use a new versioned RUN. Both source files must exist for verification. If a hosted URL has expired, use the normal authorized upload flow and record the replacement; do not assume that an old URL still works. This imports an identity, not a finished scene. The new project can then use `import: { ref_base: "char-dev-v1" }` and generate fresh keyframes.
+
+Invoke each import (and each differently parameterized call to the same Rake task) in a separate Ruby CLI process. Rake runs a task name once per process, even if it appears again with different bracket arguments.
+
 `config/generations.rb` evaluates inside `Pipeline` and returns a Hash. It contains configuration, never rake bodies or shell commands:
 
 ```ruby
@@ -67,6 +77,8 @@ ruby scripts/mv.rb --project /absolute/project openapi:summary
 For a new identity version edited from a prior character, add a run with `steps: [Steps::RefBase], edit_from: "char-singer-v1"` and write its edit instructions in `01_ref_base.txt`. `edit_from: "s01/approved-edit"` can instead promote an existing edited keyframe. The RefBase service selects the Sunburst edit endpoint, records a new identity and leaves the source untouched. Point dependent runs at the new ID after review.
 
 `section(at, frames)` uses full `audio/song.wav`, offset `at/24.0`, integer frame length and an empty expected-lyrics list. Set `lyrics:` to selected recognizable words if desired. A single H3 plate uses `Video` and a 5–15 second integer duration; multi-shot plates use `Keyframes, Shots, Overlay` with no `plate:`. Sprite scenes use `Clips, Overlay` with a still keyframe `plate:`. `track:` optionally maps names to `[x,y,size,search,from_frame]` for tracked graphics. `reference:` is an optional local reference-video path.
+
+Set `upload_music: false` when a section only needs its local soundtrack for compositing (for example a nonsinging H3 shot with `audio: false` plus existing timed captions). `gen:music` then cuts/fits the local WAV without constructing a Fal client. Use `anim:prepare` for existing cues. `review:music` runs local metrics and marks transcription skipped; expected lyrics cannot be verified without a transcript. A `Video`, an audio-driven `Shots` item or paid `gen:overlay` that reads `music.url` requires the default upload behavior. `Clips` with a separate vocal stem uploads just its actual needed stem interval.
 
 Prompt files per run:
 
@@ -121,6 +133,7 @@ Example `04_clips.yml`:
 ```sh
 NOTE='User approved the linked plan and its generation allowance' ruby scripts/mv.rb --project /absolute/project plan:approve
 ruby scripts/mv.rb --project /absolute/project work:next
+LOG_DIR=/absolute/evaluation/logs LIMIT=3 ruby scripts/mv.rb work:watch
 JOB=singer-v1 EVIDENCE=docs/reviews/singer-v1.md ruby scripts/mv.rb --project /absolute/project work:accept
 RUN=char-singer-v1 ruby scripts/mv.rb --project /absolute/project gen:ref_base
 RUN=char-singer-v1 ruby scripts/mv.rb --project /absolute/project review:ref_base
@@ -128,11 +141,14 @@ RUN=s01 ruby scripts/mv.rb --project /absolute/project pipeline:all
 RUN=s01 ONLY=sing FORCE=1 ruby scripts/mv.rb --project /absolute/project gen:clips
 RUN=s01 RECUT=1 ONLY=sing FORCE=1 ruby scripts/mv.rb --project /absolute/project gen:clips
 RUN=s01 ruby scripts/mv.rb --project /absolute/project 'anim:preview[0,24,96,239]'
+RUN=s01 ruby scripts/mv.rb --project /absolute/project 'anim:prepare[audio/words.json]'
 RUN=s01 ruby scripts/mv.rb --project /absolute/project anim:overlay
 ruby scripts/mv.rb --project /absolute/project 'media:preview[output/clean.mp4,s01,s02]'
 ```
 
 `gen:ref_base`, `gen:keyframes`, `gen:video`, `gen:shots`, H3 `gen:clips`, generated music, `gen:overlay`, `review:music`, stems and SFX may call paid Fal endpoints. `gen:music` for an imported song is local processing plus CDN upload; `gen:overlay` uses paid Whisper unless re-rendering saved cues through `anim:overlay`. Reviews other than music are local. `pipeline:all` includes paid review calls; allocate them in the plan.
+
+For existing reliable word timings, use `anim:prepare[full-song-words.json]` after the plate prerequisites exist, then `anim:preview`/`anim:overlay`. It accepts Whisper `chunks` or an array of `{w,s,e}` / `{word,start,end}`, selects this section and subtracts its song offset. With no argument it writes an empty cue list for sketches with explicitly authored timing. It also prepares configured tracks locally. `anim:overlay` records a complete manifest even on the first local render, so `review:overlay` works without a paid `gen:overlay` call.
 
 `FORCE=1` changes cached work; `ONLY` confines ItemsStep work to named assets. A selected partial item set will not build the complete step's board until all items exist. `NEW_REQUEST=1` allows a new identical paid request; normal retries reuse saved receipts. `history[step]`, `adopt[step,request_id]`, `pick[step,index]`, `import[step,source_run]` support recovery and reuse. ItemsStep recovery uses per-item stored request IDs and reruns; adopt/pick are for single-output steps.
 
