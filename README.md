@@ -60,6 +60,24 @@ claude plugin update motion-graphics-music-video@makevoid-music-video --scope us
 
 Restart Claude Code after updating. Existing video projects retain their copied toolkit; updating the plugin affects future project initialization.
 
+## External services and data sharing
+
+**Yes: this skill sends data to external services.** The declared `music-video` MCP server runs locally, but its Ruby toolkit makes outbound requests to Fal. Standalone CLI tasks can make the same requests. The skill also uses web research and downloads dependencies as described below.
+
+| Service / destination | Data sent and purpose |
+| --- | --- |
+| **Fal inference API** (`queue.fal.run`, plus provider-returned status/result URLs) | The Fal API key authenticates API requests. Generation requests include prompts, lyrics when applicable, model settings, and input media URLs; polling includes request identifiers. Fal handles image, video, music, and sound-effect generation, plus audio transcription and stem separation. The bundled model adapters call these models through Fal. |
+| **Fal media storage** (`rest.alpha.fal.ai` and provider-returned upload/download URLs, including `*.fal.media`) | Uploads send filenames, content types, and selected file contents: songs or audio segments, stems, reference images, keyframes, and other media required by the chosen task. Generated assets are downloaded and may be uploaded again for subsequent processing. |
+| **Fal model schemas** (`fal.ai/api/openapi/queue/openapi.json`) | Schema lookup sends the model endpoint identifier to retrieve its input/output specification. This lookup does not require song contents or creative prompts. |
+| **Web research through Claude's available search/browser tools** | Search queries derived from the creative brief, reference URLs, and page requests go to the configured search provider and visited websites. Destinations vary with the research; the plugin does not bundle a separate search service. |
+| **Dependency registries during `setup`** | Bundler, npm, and pip contact RubyGems, the npm registry, and PyPI / Python package download hosts (or configured mirrors). They send package/dependency information and ordinary request metadata to install the toolkit's dependencies. These setup steps do not intentionally upload creative media. |
+
+Claude Code also contacts GitHub to install or update this plugin. Normal Claude conversation and tool-result handling still applies when you use the skill.
+
+Fal uploads return media URLs used as model inputs. Treat these as shareable links: anyone with a URL may be able to access its media. The toolkit does not automatically delete remote uploads or generated assets; Fal's handling and retention are governed by its [privacy policy](https://fal.ai/legal/privacy-policy). The production workflow asks for plan and budget approval before new paid generation.
+
+Audio analysis, p5 rendering, FFmpeg editing, ImageMagick processing, and Swift VFX run locally. The bundled code has no maintainer-operated telemetry endpoint. YouTube and Twitter export tasks encode local files; they do not publish videos to those platforms.
+
 ## Local development and manual installation
 
 To work on the plugin locally, clone the repository and validate both manifests:
