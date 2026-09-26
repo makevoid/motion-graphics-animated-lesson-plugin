@@ -1,12 +1,12 @@
 # Plugin icon
 
-Generated through the repository's Fal adapter with `openai/gpt-image-2.5/sunburst/text-to-image`, quality `xhigh`, one 1024×1024 PNG. Request ID: `01a0defd-73f8-7da2-ac3a-d6a12764e340`.
+Generated through the repository's Fal adapter with [`fal-ai/nano-banana-2`](https://fal.ai/models/fal-ai/nano-banana-2/api), `thinking_level: high`, one 2048×2048 PNG (`resolution: 2K`, `aspect_ratio: 1:1`). Request ID: `01a0df1d-5db4-7ad2-a483-749410e335e7`.
 
-The output was resized to 256×256 and stripped of metadata with ImageMagick. VTracer converted that PNG into a compact SVG for the directory. The SVG contains paths, with no embedded bitmap, external resources, or scripts.
+The output was resized to 256×256 and stripped of metadata with ImageMagick. The directory SVG reproduces a 256-color version as colored pixel paths to preserve the glass shading. It contains no embedded bitmap, external resources, or scripts. The README uses the PNG for full shading fidelity.
 
-- [256×256 PNG](../.claude-plugin/icon.png)
-- [256×256 SVG](../.claude-plugin/icon.svg)
+- [Default PNG icon, 256×256](../.claude-plugin/icon.png), displayed at 128×128 in the README.
+- [Default directory SVG icon, 256×256](../.claude-plugin/icon.svg).
 
 ## Generation prompt
 
-Create a polished square app icon for a motion graphics music video creation plugin. A single bold play-triangle integrated with a musical note and three rhythmic motion trails, forming one coherent compact symbol. Flat vector-style illustration, clean geometric silhouettes, crisp smooth edges, strong contrast, a restrained vibrant palette on a solid dark background. Centered, generous safe padding, readable at 32 pixels. No typography, letters, numbers, border text, watermark, gradients, tiny details, mockup, or extra objects. Entire canvas is the icon, straight-on view.
+Create a single square mobile app icon for a music video creation plugin: a chat bubble in iOS glassmorphism style, inside a rounded square frame made of frosted glass. Monochromatic orange palette only, from deep burnt orange to luminous pale orange, against a pure black background. Inside the chat bubble, show a simple video editing timeline with a clear play triangle integrated into it. Place a tiny musical note in the top right corner of the icon. Soft top-down lighting, translucent frosted glass layers, refined glossy orange edge highlights, subtle depth and shadows. High-resolution UI icon, polished Dribbble-trending design quality. Straight-on centered composition with safe padding, bold readable forms at small sizes. No words, letters, numbers, watermark, extra icons, phone mockup, or surrounding interface. One finished icon fills the square image.

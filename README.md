@@ -1,6 +1,6 @@
 # Motion graphics music video plugin
 
-<img src=".claude-plugin/icon.svg" width="128" height="128" alt="Motion graphics music video icon">
+<a href=".claude-plugin/icon.png"><img src=".claude-plugin/icon.png" width="128" height="128" alt="Orange glass chat bubble with a timeline play button and music note"></a>
 
 A Claude Code plugin containing a self-contained music video skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
 
@@ -59,24 +59,6 @@ claude plugin update motion-graphics-music-video@makevoid-music-video --scope us
 ```
 
 Restart Claude Code after updating. Existing video projects retain their copied toolkit; updating the plugin affects future project initialization.
-
-## External services and data sharing
-
-**Yes: this skill sends data to external services.** The declared `music-video` MCP server runs locally, but its Ruby toolkit makes outbound requests to Fal. Standalone CLI tasks can make the same requests. The skill also uses web research and downloads dependencies as described below.
-
-| Service / destination | Data sent and purpose |
-| --- | --- |
-| **Fal inference API** (`queue.fal.run`, plus provider-returned status/result URLs) | The Fal API key authenticates API requests. Generation requests include prompts, lyrics when applicable, model settings, and input media URLs; polling includes request identifiers. Fal handles image, video, music, and sound-effect generation, plus audio transcription and stem separation. The bundled model adapters call these models through Fal. |
-| **Fal media storage** (`rest.alpha.fal.ai` and provider-returned upload/download URLs, including `*.fal.media`) | Uploads send filenames, content types, and selected file contents: songs or audio segments, stems, reference images, keyframes, and other media required by the chosen task. Generated assets are downloaded and may be uploaded again for subsequent processing. |
-| **Fal model schemas** (`fal.ai/api/openapi/queue/openapi.json`) | Schema lookup sends the model endpoint identifier to retrieve its input/output specification. This lookup does not require song contents or creative prompts. |
-| **Web research through Claude's available search/browser tools** | Search queries derived from the creative brief, reference URLs, and page requests go to the configured search provider and visited websites. Destinations vary with the research; the plugin does not bundle a separate search service. |
-| **Dependency registries during `setup`** | Bundler, npm, and pip contact RubyGems, the npm registry, and PyPI / Python package download hosts (or configured mirrors). They send package/dependency information and ordinary request metadata to install the toolkit's dependencies. These setup steps do not intentionally upload creative media. |
-
-Claude Code also contacts GitHub to install or update this plugin. Normal Claude conversation and tool-result handling still applies when you use the skill.
-
-Fal uploads return media URLs used as model inputs. Treat these as shareable links: anyone with a URL may be able to access its media. The toolkit does not automatically delete remote uploads or generated assets; Fal's handling and retention are governed by its [privacy policy](https://fal.ai/legal/privacy-policy). The production workflow asks for plan and budget approval before new paid generation.
-
-Audio analysis, p5 rendering, FFmpeg editing, ImageMagick processing, and Swift VFX run locally. The bundled code has no maintainer-operated telemetry endpoint. YouTube and Twitter export tasks encode local files; they do not publish videos to those platforms.
 
 ## Local development and manual installation
 
@@ -152,4 +134,14 @@ ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb test
 
 ## License
 
-The plugin's original code and documentation are [MIT licensed](LICENSE). Bundled fonts retain their accompanying SIL Open Font License or Apache 2.0 terms. The [icon generation record](docs/icon-generation.md) documents the Sunburst xhigh image and its resized PNG and SVG versions.
+The plugin's original code and documentation are [MIT licensed](LICENSE). Bundled fonts retain their accompanying SIL Open Font License or Apache 2.0 terms. The [icon generation record](docs/icon-generation.md) documents the Nano Banana 2 high-thinking image and its resized PNG and SVG versions.
+
+## External services and data sharing
+
+The local MCP server and standalone CLI send data to external services:
+
+- **Fal API and storage** (`queue.fal.run`, `rest.alpha.fal.ai`, provider-returned URLs including `*.fal.media`): API authentication, prompts, lyrics, settings, and selected audio/images/video for generation, transcription, and stem separation. Media URLs may be accessible to anyone with the link; remote assets are not automatically deleted. See [Fal's privacy policy](https://fal.ai/legal/privacy-policy).
+- **Fal schemas** (`fal.ai/api/openapi/queue/openapi.json`): model identifiers for schema lookup.
+- **Web research**: creative-brief search queries and reference URLs go to Claude's configured search provider and visited sites.
+- **Dependencies and updates**: setup contacts RubyGems, npm, and PyPI (or configured mirrors) with package information; plugin installation and updates contact GitHub.
+- **Local processing**: analysis, rendering, editing, and exports run locally. No maintainer telemetry or automatic social publishing is included. Normal Claude conversation and tool-result handling still applies.
