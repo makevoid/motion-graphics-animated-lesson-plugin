@@ -1,0 +1,15 @@
+{
+  "name": "makevoid-music-video",
+  "description": "Motion graphics music video plugin by makevoid.",
+  "owner": {
+    "name": "makevoid",
+    "url": "https://github.com/makevoid"
+  },
+  "plugins": [
+    {
+      "name": "motion-graphics-music-video",
+      "source": "./",
+      "description": "Create animated music videos with Fal generation, p5 motion graphics, audio editing, and Swift VFX."
+    }
+  ]
+}

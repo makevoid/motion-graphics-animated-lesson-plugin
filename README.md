@@ -1,56 +1,69 @@
-# Motion graphics music video skill
+# Motion graphics music video plugin
 
-A self-contained Claude skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
+A Claude Code plugin containing a self-contained music video skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
 
-Invoke `/motion-graphics-music-video` in Claude Code with this repository open. Supply a song and creative prompt when asked. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
+Install the plugin below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
 
 [Skill instructions](.claude/skills/motion-graphics-music-video/SKILL.md) · [Task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) · [Testing](.claude/skills/motion-graphics-music-video/references/testing.md)
 
 ## Installation
 
-### Use in this repository
+### Install the plugin (recommended)
 
-With Git and Claude Code installed, clone the repository:
-
-```sh
-git clone https://github.com/makevoid/motion-graphics-music-video-skill.git
-cd motion-graphics-music-video-skill
-```
-
-Claude Code discovers the skill in `.claude/skills/motion-graphics-music-video/` automatically when started here. Keep the entire skill folder: it includes the scripts, references, and assets needed to make videos.
-
-### Set up the video toolkit
-
-Before running setup, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
-
-From the repository root, install the Ruby gems, npm packages, and local Python environment:
+With Git and Claude Code installed, run these commands in your terminal:
 
 ```sh
-ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb setup
+claude plugin marketplace add makevoid/motion-graphics-music-video-skill
+claude plugin install motion-graphics-music-video@makevoid-music-video --scope user
 ```
+
+The user-scoped installation makes the plugin available across your projects. Claude Code downloads it from GitHub; you do not need a separate clone or symlink. See [Claude Code plugin installation](https://code.claude.com/docs/en/plugins/install) for other installation scopes.
+
+### Prerequisites and first run
+
+Before generating a video, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
 
 For paid generation, provide your Fal API key through the `FAL_KEY` environment variable before starting Claude Code, or save it in `~/.fal_ai_api_key`. Keep the key out of prompts, project configuration, and Git commits.
 
-Check the environment, then start Claude Code:
+Start a new Claude Code session in the directory where you want to work:
 
 ```sh
-ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb doctor
 claude
 ```
-
-`doctor` reports dependency checks as JSON booleans. Resolve missing dependencies needed for your workflow; use `STRICT=1` before the command to make missing checks fail. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details.
 
 Inside Claude Code, invoke:
 
 ```text
-/motion-graphics-music-video
+/motion-graphics-music-video:motion-graphics-music-video
 ```
 
-Supply a song attachment or local path and a creative prompt. The skill creates a separate video project and asks you to approve its plan and budget before new paid generation.
+Supply a song attachment or local path and a creative prompt. The skill creates a separate video project, runs `setup` to install Ruby gems, npm packages, and a local Python environment there, then runs `doctor` to check dependencies. It asks you to approve its plan and budget before new paid generation. Dependencies and production files stay in the video project, outside the plugin installation.
 
-### Optional: make the skill available in every project
+`doctor` reports dependency checks as JSON booleans. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
 
-On macOS or Linux, run these commands from the cloned repository root:
+### Update the plugin
+
+```sh
+claude plugin marketplace update makevoid-music-video
+claude plugin update motion-graphics-music-video@makevoid-music-video --scope user
+```
+
+Restart Claude Code after updating. Existing video projects retain their copied toolkit; updating the plugin affects future project initialization.
+
+## Local development and manual installation
+
+To work on the plugin locally, clone the repository and validate both manifests:
+
+```sh
+git clone https://github.com/makevoid/motion-graphics-music-video-skill.git
+cd motion-graphics-music-video-skill
+claude plugin validate .claude-plugin/plugin.json --strict
+claude plugin validate .claude-plugin/marketplace.json --strict
+```
+
+Load your local plugin for a session with `claude --plugin-dir /absolute/path/to/motion-graphics-music-video-skill` and use the same namespaced command shown above.
+
+The repository also supports standalone skill use: start `claude` in the clone and invoke `/motion-graphics-music-video`. For standalone use across projects on macOS or Linux, run this from the clone's root:
 
 ```sh
 mkdir -p ~/.claude/skills
@@ -58,18 +71,11 @@ ln -s "$PWD/.claude/skills/motion-graphics-music-video" \
   ~/.claude/skills/motion-graphics-music-video
 ```
 
-You can then start Claude Code in another project and invoke `/motion-graphics-music-video`. Keep the clone in its current location because the link points to it. If the destination already exists, inspect your existing installation before replacing it. Claude Code supports both [project and personal skills, including symlinked folders](https://code.claude.com/docs/en/skills#choose-where-skills-load).
+Keep the clone in place because the link points to it. If the destination exists, inspect it before replacing it. Keep the whole skill folder, including its scripts, references, and assets. Update a manual clone with `git pull --ff-only`.
 
-### Update
+### Publishing plugin updates
 
-From the cloned repository root:
-
-```sh
-git pull --ff-only
-ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb setup
-```
-
-The optional personal-skill link uses the updated files automatically.
+The [marketplace catalog](.claude-plugin/marketplace.json) lists this repository's root as the plugin source. The [plugin manifest](.claude-plugin/plugin.json) points to the existing `.claude/skills/` folder. Increment `version` in `plugin.json` for each release, validate both manifests, and commit and push the release files to GitHub. The GitHub installation commands require these manifests to be present on the repository's default branch.
 
 ## Videos created with this skill
 
@@ -83,10 +89,10 @@ Invoking the skill in Claude Code produces output like this:
 
 ```text
 ─────────────────────────────────────────────────────────────────────────────────
-❯ /motion-graphics-music-video
+❯ /motion-graphics-music-video:motion-graphics-music-video
 ─────────────────────────────────────────────────────────────────────────────────
 
-⏺ Skill(motion-graphics-music-video)
+⏺ Skill(motion-graphics-music-video:motion-graphics-music-video)
 Successfully loaded skill
 
 The motion-graphics-music-video skill is loaded. To start, I need two things:

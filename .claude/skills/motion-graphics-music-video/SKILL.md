@@ -1,8 +1,7 @@
 ---
 name: motion-graphics-music-video
 description: Create and revise animated character music videos from a supplied song and creative prompt, with researched storyboards, Fal character and video generation, p5 motion graphics, audio editing, and Swift VFX. Use for full music videos or revisions to their characters, scenes, animation, sound, and effects.
-metadata:
-  compatibility: Requires Ruby 3.2+, Bundler, web search and sub-agent tools. Media tasks require FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Swift VFX requires macOS 14+ and Swift 5.9+. Fal generation requires FAL_KEY.
+compatibility: Designed for Claude Code. Requires Ruby 3.2+, Bundler, web search and sub-agent tools. Media tasks require FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Swift VFX requires macOS 14+ and Swift 5.9+. Fal generation requires FAL_KEY.
 ---
 
 # Motion graphics music video
@@ -11,11 +10,11 @@ Create a hyper quality, visually interesting, potentially very fun and viral mus
 
 ## Execution contract
 
-**Ruby is the only execution entry layer for the agent and every sub-agent.** Run `ruby scripts/mv.rb ...` from this skill's directory, or `bundle exec rake ...` inside an initialized project. Rake tasks are thin delegates to Ruby OOP services. Ruby calls the Fal queue API and shells out with argument arrays to FFmpeg, ImageMagick, Python, Node/p5 and Swift. Never execute those backends directly, use curl for Fal, or replace the Ruby client with a provider SDK. Add a Ruby method and thin task when a capability is missing.
+**Ruby is the only execution entry layer for the agent and every sub-agent.** Run `ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" ...` from any working directory, or `bundle exec rake ...` inside an initialized project. Rake tasks are thin delegates to Ruby OOP services. Ruby calls the Fal queue API and shells out with argument arrays to FFmpeg, ImageMagick, Python, Node/p5 and Swift. Never execute those backends directly, use curl for Fal, or replace the Ruby client with a provider SDK. Add a Ruby method and thin task when a capability is missing.
 
 File editing, inspecting images/video/audio, web search, conversation and agent delegation remain native agent tools; they are not media execution layers. Write sketches and cue files with editing tools, then render them through Ruby. Web search is required for creative research, not a shell command routed through Ruby.
 
-Available executable: **`scripts/mv.rb`**. `--help` documents its CLI; `-T` lists all rake tasks. It has noninteractive arguments, actionable errors and exit codes; prompts and approval happen in chat. Paths in commands are relative to the skill directory, unless `--project` is set; task paths then resolve in that project.
+Available executable: **`${CLAUDE_SKILL_DIR}/scripts/mv.rb`** (relative location: `scripts/mv.rb`). Claude Code substitutes the skill directory when loading these instructions; it is not a shell environment variable. Use the resulting quoted absolute path in commands and worker briefs, including when adapting the `ruby scripts/mv.rb` shorthand in reference recipes. In a host without substitution, resolve `scripts/mv.rb` relative to this `SKILL.md` before invoking it. `--help` documents its CLI; `-T` lists all rake tasks. It has noninteractive arguments, actionable errors and exit codes; prompts and approval happen in chat. Use absolute paths for `init` inputs. Task file paths resolve in `--project`, or in the bundled `scripts/` runtime when it is omitted. Create projects outside the installed skill/plugin directory, and run setup and production with `--project` so dependencies and generated files stay in the project.
 
 ## 1. Intake and analysis
 
@@ -24,10 +23,10 @@ On invocation, request a song attachment or local path and a creative prompt **i
 Read [planning.md](references/planning.md) and [tasks.md](references/tasks.md). Save the prompt to a brief file, then initialize an isolated project:
 
 ```sh
-ruby scripts/mv.rb init --project /absolute/project --song /absolute/song.mp3 --prompt-file /absolute/brief.md
-ruby scripts/mv.rb --project /absolute/project setup
-ruby scripts/mv.rb --project /absolute/project doctor
-ruby scripts/mv.rb --project /absolute/project 'audio:analyze[audio/source.mp3,audio]'
+ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" init --project /absolute/project --song /absolute/song.mp3 --prompt-file /absolute/brief.md
+ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/project setup
+ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/project doctor
+ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/project 'audio:analyze[audio/source.mp3,audio]'
 ```
 
 Use the actual source extension returned by init. Listen to the whole song; mark its opening, verses, hook, drop, peaks, innuendos and ending. Use local beat/energy analysis before paid analysis. If reference video is supplied, identify cuts and inspect each motion segment at 10–12fps through Ruby tasks; record camera, acting, layering and timings. If there is no reference video, invent the visual direction from the song, brief and research.
