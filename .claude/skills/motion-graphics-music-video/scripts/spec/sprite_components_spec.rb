@@ -54,3 +54,22 @@ RSpec.describe "Seeded sprite cleanup through the Ruby CLI", :media do
     expect(Digest::SHA256.file(path).hexdigest).to eq(digest)
   end
 end
+
+RSpec.describe "Sprite bounds through the Ruby CLI", :media do
+  it "reports a green-screen character's box and seed as JSON for a still and a video" do
+    still = character(width: 320, height: 180)
+    [still, video(image: still)].each do |source|
+      stdout, stderr, status = cli("media:sprite_box[#{source},green]")
+      expect(status.success?).to be(true), stderr
+      report = JSON.parse(stdout)
+      x0, y0, x1, y1 = report.fetch("extent")
+      expect(x0).to be_within(3).of(128)
+      expect(x1).to be_within(3).of(192)
+      expect(y0).to be_within(3).of(36)
+      expect(y1).to be_within(3).of(144)
+      bx, by, bw, bh = report.fetch("box")
+      [[bx, x0 - 24], [by, y0 - 24], [bx + bw, x1 + 24], [by + bh, y1 + 24]].each { |got, want| expect(got).to be_within(1).of(want) }
+      expect(report.fetch("seed")).to eq([(x0 + x1) / 2, (y0 + y1) / 2])
+    end
+  end
+end
