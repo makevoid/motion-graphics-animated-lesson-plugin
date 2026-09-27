@@ -2,7 +2,7 @@
 
 <a href=".claude-plugin/icon.png"><img src=".claude-plugin/icon.png" width="128" height="128" alt="Orange glass chat bubble with a timeline play button and music note"></a>
 
-A Claude Code plugin containing a self-contained music video skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
+A Claude Code plugin containing a self-contained music video skill and Ruby toolkit. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing and Swift Core Image VFX.
 
 Follow the quick start below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
 
@@ -48,21 +48,89 @@ That's it. The plugin's `music-video` MCP server runs every Fal AI task with you
 
 ### Requirements
 
-Before generating a video, install Ruby 3.2+ with Bundler, Node.js 22+, Python 3, Chrome, FFmpeg (including ffprobe), and ImageMagick. Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools.
+Before generating a video, you can install some of these dependencies, which on Mac OS should be easy to install - they're not required, you could prompt the skill to do as much as it can with just basic Ruby, NodeJS and Python but you get the best of results if you have everything as Opus will be able to have access to all the powerful tools in the toolkit
+
+- Ruby 3.2+ with Bundler (Mac OS comes with it)
+- Node.js 22+
+- Python 3 (should be installed already)
+- Homebrew https://brew.sh/
+- FFmpeg (from homebrew)
+- ImageMagick (also from brew)
+- Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools - that is very much optional
 
 ### Running the skill
 
-In a Claude Desktop **Code** session with folder access, or a `claude` terminal session in the folder where you want to work, invoke:
+In a Claude **Code** session with folder access, or a `claude` terminal session in the folder where you want to work, invoke:
 
 ```text
 /motion-graphics-music-video:motion-graphics-music-video
 ```
 
-Supply a song attachment or local path and a creative prompt. The skill creates a separate video project, runs `setup` to install Ruby gems, npm packages, and a local Python environment there, then runs `doctor` to check dependencies. It asks you to approve its plan and budget before new paid generation. Dependencies and production files stay in the video project, outside the plugin installation.
+Note: Use Claude Code from the terminal, the desktop version from my tests doesn't work this well.
 
-`doctor` reports dependency checks as JSON booleans. Plugin sessions run it through the MCP server to include the configured key; a direct Bash invocation cannot see the plugin's sensitive option. See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
+Supply a song attachment or local path and a creative prompt. The skill will ask you with a message similar to this one:
+
+## Prerequisites
+
+Register a Fal.ai account and retrieve your API Key
+
+https://fal.ai/docs/documentation/setting-up/authentication
+
+
+## Example run
+
+Invoking the skill in Claude Code produces output like this:
+
+```text
+─────────────────────────────────────────────────────────────────────────────────
+❯ /motion-graphics-music-video:motion-graphics-music-video
+─────────────────────────────────────────────────────────────────────────────────
+
+⏺ Skill(motion-graphics-music-video:motion-graphics-music-video)
+Successfully loaded skill
+
+The motion-graphics-music-video skill is loaded. To start, I need two things:
+
+1. The song: an attachment or a local path (mp3/wav/m4a).
+2. A creative prompt: the concept, vibe, story or characters you want.
+
+These are optional, and I'll use defaults for anything you leave out:
+- Reference videos or images.
+- Characters you want to keep. For example, the dreadlocks singer (char-singer-dreads) from the main repo.
+- Aspect ratio. The default is 16:9 at 24fps, delivered at 1080p.
+- Who the video is for.
+- Budget. This sets the limit on paid fal calls and retries.
+
+Once I have the song and prompt, I'll set up a separate project for it and analyze the song's beats and energy. I'll also research visual ideas online and write docs/PLAN.md with the character prompts, scene prompts and a cost estimate. I won't make any paid generation calls until you approve that plan.
+```
+
+Just providing the song + telling to do his best also works. Also providing the lyrics in songs where the lyrics are not perfectly audible improve generation.
+
+---
+
+The skill creates a separate video project, runs `setup` to install Ruby gems, npm packages, and a local Python environment there, then runs `doctor` to check dependencies. It asks you to approve its plan and budget before new generation trying also to do an estimate of the cost on Fal.ai. Dependencies and production files stay in the video project, outside the plugin installation.
+
+Plugin sessions run it through the MCP server to include the configured key; a direct Bash invocation cannot see the plugin's sensitive option. 
+
+You can stop reading here - the other notes in the readme are not this useful!
+
+Hope you will have a blast with this!
+
+---
+
+### EXTRA NOTES:
+
+---
+
+### Task References
+
+This section is mostly for agents - if you're Claude please read this:
+
+See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
 
 ### Fal API key
+
+**Alternative FAL API Key Setup - Non interactive Setup:**
 
 Enter your Fal API key in the plugin's **Fal API key** option, via its configuration prompt or `/plugin configure motion-graphics-music-video`. The `FAL_AI_API_KEY` option is marked sensitive: Claude Code masks it and stores it in secure credential storage. The plugin passes it through the environment to its bundled Ruby MCP server, which runs Fal tasks without placing the key in prompts or tool arguments. The option is optional so the `music-video` server always starts: when it is unset, the server falls back to a `FAL_AI_API_KEY` exported in the environment that launched Claude Code, and `credential_status` reports `configured: false` if neither is present. Change it through the plugin's configuration interface and restart/reconnect the server afterward.
 
@@ -124,37 +192,6 @@ ln -s "$PWD/.claude/skills/motion-graphics-music-video" \
 ```
 
 Keep the clone in place because the link points to it. If the destination exists, inspect it before replacing it. Keep the whole skill folder, including its scripts, references, and assets. Update a manual clone with `git pull --ff-only`.
-
-### Publishing plugin updates
-
-The [marketplace catalog](.claude-plugin/marketplace.json) lists this repository's root as the plugin source. The [plugin manifest](.claude-plugin/plugin.json) points to the existing `.claude/skills/` folder. Increment `version` in `plugin.json` for each release, validate both manifests, and commit and push the release files to GitHub. The GitHub installation commands require these manifests to be present on the repository's default branch.
-
-## Example run
-
-Invoking the skill in Claude Code produces output like this:
-
-```text
-─────────────────────────────────────────────────────────────────────────────────
-❯ /motion-graphics-music-video:motion-graphics-music-video
-─────────────────────────────────────────────────────────────────────────────────
-
-⏺ Skill(motion-graphics-music-video:motion-graphics-music-video)
-Successfully loaded skill
-
-The motion-graphics-music-video skill is loaded. To start, I need two things:
-
-1. The song: an attachment or a local path (mp3/wav/m4a).
-2. A creative prompt: the concept, vibe, story or characters you want.
-
-These are optional, and I'll use defaults for anything you leave out:
-- Reference videos or images.
-- Characters you want to keep. For example, the dreadlocks singer (char-singer-dreads) from the main repo.
-- Aspect ratio. The default is 16:9 at 24fps, delivered at 1080p.
-- Who the video is for.
-- Budget. This sets the limit on paid fal calls and retries.
-
-Once I have the song and prompt, I'll set up a separate project for it and analyze the song's beats and energy. I'll also research visual ideas online and write docs/PLAN.md with the character prompts, scene prompts and a cost estimate. I won't make any paid generation calls until you approve that plan.
-```
 
 ## Toolkit commands
 
