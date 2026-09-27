@@ -4,13 +4,18 @@
 
 A Claude Code plugin containing a self-contained music video skill and Ruby toolkit extracted from the P(doom) and wife/boyfriend video workflows. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing, Swift Core Image VFX, and RSpec verification.
 
-Example made with this skill: [“You knew how to fork” (@joshcirre)](https://youtu.be/b70F1bWZlwE)
-
-<a href="https://youtu.be/b70F1bWZlwE"><img src="https://i.ytimg.com/vi/b70F1bWZlwE/hqdefault.jpg" width="480" alt="Thumbnail of the “You knew how to fork” music video made with this skill"></a>
-
 Follow the quick start below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
 
 [Skill instructions](.claude/skills/motion-graphics-music-video/SKILL.md) · [Task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) · [Testing](.claude/skills/motion-graphics-music-video/references/testing.md)
+
+## Videos created with this skill
+
+Three examples made with this skill. Click a thumbnail to watch on YouTube.
+
+| You knew how to fork — take 2 | You knew how to fork | Upping my P(doom) — remix #2 |
+| :---: | :---: | :---: |
+| <a href="https://youtu.be/b70F1bWZlwE"><img src="docs/examples/you-knew-how-to-fork-take-2.jpg" width="240" height="135" alt="You knew how to fork — take 2, made with the Claude skill"></a> | <a href="https://youtu.be/Nxhg23_fheY"><img src="docs/examples/you-knew-how-to-fork.jpg" width="240" height="135" alt="You knew how to fork — @joshcirre"></a> | <a href="https://youtu.be/s8PmK6zD5RY"><img src="docs/examples/upping-my-p-doom-remix-2.jpg" width="240" height="135" alt="Upping my P(doom) — Video Remix #2 — Opus 5.5 (et al.)"></a> |
+| @joshcirre · 1:26 | @joshcirre · 1:26 | Remix of donaldjewkes's video remix · 2:22 |
 
 ## Quick start
 
@@ -123,12 +128,6 @@ Keep the clone in place because the link points to it. If the destination exists
 ### Publishing plugin updates
 
 The [marketplace catalog](.claude-plugin/marketplace.json) lists this repository's root as the plugin source. The [plugin manifest](.claude-plugin/plugin.json) points to the existing `.claude/skills/` folder. Increment `version` in `plugin.json` for each release, validate both manifests, and commit and push the release files to GitHub. The GitHub installation commands require these manifests to be present on the repository's default branch.
-
-## Videos created with this skill
-
-- [You knew how to fork - @joshcirre](https://youtu.be/Nxhg23_fheY) — A developer-culture satire, with the song credited to @joshcirre with Suno in the video description.
-- [Upping my P(doom) - Video Remix #2 - Opus 5.5 (et al.)](https://youtu.be/s8PmK6zD5RY) — A remix of donaldjewkes's video remix. The description credits Claude Opus 5.5, GPT Image 2.5 Sunburst, and Minmax H3.
-- [You knew how to fork - @joshcirre - variant #2 - just intro](https://youtu.be/CNKgmle-j1k) — An intro-only second variant of the @joshcirre video.
 
 ## Example run
 
