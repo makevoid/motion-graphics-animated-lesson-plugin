@@ -2,9 +2,13 @@
 
 <a href=".claude-plugin/icon.png"><img src=".claude-plugin/icon.png" width="128" height="128" alt="Orange glass chat bubble with a timeline play button and music note"></a>
 
-A Claude Code plugin containing a self-contained music video skill and Ruby toolkit. It includes Fal image/video/audio adapters, p5 animation, Python analysis/cutouts/audio mixing and Swift Core Image VFX.
+A Claude Code plugin containing a self-contained music video skill and programmatic toolkit. It includes Image generation and editing with GPT 2.5 Sunburts xhigh for generating characters and potentially other graphics, MiniMax H3 to animate the characters and the graphics in a with a greenscreen background and other tools that are helpful to isolate audio for lip-sync and SFX creation - all of these are done via FAL.ai API via video/audio adapters - For the animation Nodejs with P5JS is used, local Python is used for  analysis/cutouts/audio mixing and Swift Core has powerful and fast Image VFX (video effects).
 
-Follow the quick start below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly.
+This is a very powerful toolkit that will generate videos like the ones below with a relatively low budget (~30$ of Fal AI credits and around 3M Tokens of Opus 5.5 for a ~3m long song / video).
+
+Follow the quick start below, then supply a song and creative prompt. The agent researches, writes the character/scene plan for approval, then generates in reviewed sub-agent waves of 2 → 3–4 → 4–8 → 6–10 repeatedly. This let you shorten the generation time substantially still giving enough context to Opus if the generations are going better or worse so that Opus can try to tweak / rework / fix the 
+
+The MP4 HD video file will be generated in the `ouput` directory at the end of the process as a single high quality video. You can open the directory at any time to see the process and intermediate artifacts. 
 
 [Skill instructions](.claude/skills/motion-graphics-music-video/SKILL.md) · [Task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) · [Testing](.claude/skills/motion-graphics-music-video/references/testing.md)
 
@@ -50,13 +54,13 @@ That's it. The plugin's `music-video` MCP server runs every Fal AI task with you
 
 Before generating a video, you can install some of these dependencies, which on Mac OS should be easy to install - they're not required, you could prompt the skill to do as much as it can with just basic Ruby, NodeJS and Python but you get the best of results if you have everything as Opus will be able to have access to all the powerful tools in the toolkit
 
-- Ruby 3.2+ with Bundler (Mac OS comes with it)
-- Node.js 22+
 - Python 3 (should be installed already)
-- Homebrew https://brew.sh/
+- Homebrew https://brew.sh/ - this is needed to install the other dependencies
+- Ruby 3.2+ with Bundler (Mac OS comes with it with 2.6 - this should work as well but the agent will spend some time setting the project up, I recommend you try to install ruby via homebrew)
+- Node.js 22+
 - FFmpeg (from homebrew)
 - ImageMagick (also from brew)
-- Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools - that is very much optional
+- Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools - that is very much optional but recommended
 
 ### Running the skill
 
@@ -122,11 +126,34 @@ Hope you will have a blast with this!
 
 ---
 
+### Contributions
+
+I am looking for any contributions such as: 
+
+- Running the skill and posting the output, upload / link your video and post or DM me on twitter 
+- Adding other tools from Fal that are helpful to create videos
+- Adding Nodejs P5JS effects / overlays / etc
+- Adding Python tools for any kind of generic manipulation - even if they require packages to be installed - they may be worth it
+- Swift VFX effects (I really think there's the most powerful chance here to do something unique as these are very good high quality libs that could create awesome effects that usually are blazing fast to be applied to the video files)
+- other ideas and prompts (e.g. realism / other unexplored avenues)
+
+
+### Note
+
+I have a day job and this means I may have limited time to support / evolve this project.
+
+Disclaimer: Use the code at your own risk.
+
 ### Task References
 
 This section is mostly for agents - if you're Claude please read this:
 
 See the [task reference](.claude/skills/motion-graphics-music-video/references/tasks.md) for environment overrides and setup details. `${CLAUDE_SKILL_DIR}` in the instructions is replaced by Claude Code with the installed skill's path; you do not need to export it in your shell.
+
+### Disk Space
+
+Please have a good amount of hard disk space available in your machine before starting, a 3m video could generate ~5GB in video assets, don't worry, after the video is generated you can delete them all.
+
 
 ### Fal API key
 
