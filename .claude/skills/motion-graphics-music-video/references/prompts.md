@@ -4,7 +4,25 @@ Use this creative directive in each character/scene/H3 prompt and sub-agent brie
 
 > This asset belongs to a hyper quality, very interesting and potentially very fun viral music video. Deliver polished visual detail and expressive character animation, with surprising, relevant ideas from the researched creative plan. The overall video defaults to energetic, chaotic choreography that constantly hooks attention while keeping its main action readable.
 
+The chaos in that directive belongs to the p5 choreography (scale changes, entrances, graphics, cuts), not to the generated frame. Every H3 clip is one clear character performance; every generated image is one clean subject.
+
 For a still image, specify the lively pose/expression that will support animation; do not ask a still generator to produce motion. Do not instruct the generation model to browse: the coordinating agent performs web search and supplies the selected details. Reuse the approved style paragraph in every prompt.
+
+## Self-contained characters (default)
+
+Videos composed from keyed character sprites over p5 graphics perform much better than videos whose scenes are generated whole by H3. H3 redraws a background on every frame, so props morph, colours drift away from the palette, the camera wanders and invented text appears; p5 can no longer place graphics behind the character, reposition the performance or change the scene without paying for a new take. Treat the rules below as constraints, not suggestions:
+
+- **H3 animates characters only.** One character per clip, on perfectly flat chroma green #00B140, locked camera, no zoom, no floor, no cast shadow, no props beyond what the character holds or wears. The whole silhouette stays inside the frame with a margin, including the hands at the widest point of the gesture.
+- **The world belongs to p5 and still plates.** Environments, props, diagrams, text, camera moves, transitions and light are p5 (or Swift VFX). A generated background is a still image plate with no people, generated in the same style paragraph, and held or moved by p5.
+- **Characters meet in p5.** Do not generate two characters in the same H3 clip. Generate each separately, with eyelines and facing direction planned in the keyframe prompts, and composite them. A still image with both characters (a thumbnail, a poster frame) is fine.
+- **One pose per keyframe.** Each keyframe is one character, one framing, one starting pose for one performance. Give framing as a percentage of frame height and state the facing direction.
+- **Full-frame H3 is an exception.** Use it at most once or twice in a video, only where the character must physically interact with a generated object, and justify each use in the plan. Keep it to a plain background in the palette's paper colour, a single prop, a locked camera and a short duration.
+
+## Style bible and palette lock
+
+Write one style paragraph in the plan and paste it verbatim into every image prompt. It must name a limited palette of four or five colours with hex codes, plus the paper/background colour and natural skin tones, and state the line quality, fill style and texture. Forbid gradients and lettering in it unless they are part of the look.
+
+Define the same hex values as constants at the top of every p5 sketch and use them for all graphics, typography accents and light cues. Do not introduce a colour in p5 that the style paragraph does not name. The characters, plates and graphics then read as one designed object, which is what makes the cutout approach look intentional.
 
 ## Identity sheets: GPT Image 2.5 Sunburst xhigh
 
@@ -24,7 +42,7 @@ For an approved swap, create `char-<id>-v2` or a versioned edited keyframe. Revi
 
 Prompt structure: identity/style → framing → exact lyric/performance → two or three timed acting beats → camera → background invariants → exclusions. Describe articulation, jaw and cheek motion, pauses, glances, head tilts, shoulder/hand acting and follow-through. Avoid a floating still portrait with only camera movement.
 
-Example: same approved singer, medium close-up; articulates the supplied lyric with a closed mouth during its pause, raises one eyebrow on the punchline and turns toward the prop on the final word. Keep the whole face visible. For a cutout: locked camera, feet/limbs within frame, perfectly flat chroma green #00B140 throughout, no green clothes, no shadows on the background, no text, no extra people, preserve the graphic style.
+Example: same approved singer, medium close-up; articulates the supplied lyric with a closed mouth during its pause, raises one eyebrow on the punchline and turns toward screen-right on the final word. Keep the whole face visible. Every clip is a cutout unless the plan justifies an exception (see "Self-contained characters"), so every H3 prompt ends with the cutout invariants: locked camera, no camera movement, no zoom, feet/limbs within frame, perfectly flat chroma green #00B140 throughout, no green clothes, no shadows on the background, no floor, no text, no extra people, preserve the graphic style.
 
 If a take invents lyric captions despite the exclusion, inspect whether they touch the character or props before choosing a repair. For a retry, keep the aligned vocal input and acting beats but remove the quoted transcript from the visual prompt; the model may otherwise render those words. This is a prompt adjustment to review, not a guarantee. Keep the exact lyric/timing transcript in the plan and p5 cue data.
 

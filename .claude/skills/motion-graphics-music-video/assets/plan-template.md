@@ -6,7 +6,11 @@ Song path, duration, supplied prompt, intended audience, aspect ratio, 24fps tim
 
 ## Creative direction
 
-The one-sentence premise, opening hook, main peak/drop, emotional arc, ending and recurring visual joke. Palette, line/texture style, typography, camera language, visual density and moments of restraint. Require hyper quality, interesting detail, expressive animation and potential fun/virality without promising audience outcomes.
+The one-sentence premise, opening hook, main peak/drop, emotional arc, ending and recurring visual joke. Line/texture style, typography, camera language, visual density and moments of restraint. Require hyper quality, interesting detail, expressive animation and potential fun/virality without promising audience outcomes.
+
+Style bible: the exact style paragraph pasted into every image prompt, with a locked palette of four or five named hex colours plus the paper/background colour. The p5 sketches use the same hex constants.
+
+Composition rule: characters are generated alone on chroma green and composited by p5 over still plates and drawn graphics. List every full-frame H3 shot with its reason; none is the expected answer.
 
 ## Research
 
@@ -18,12 +22,12 @@ For each cast member: stable ID/version, role, silhouette, face, hair, clothing,
 
 ## Full-song storyboard
 
-| Scene/run | Start frame | Frames/end | Song section/lyrics | Acting/mouth targets | Camera and layers | Graphics/text/callback | VFX/SFX cues | Asset dependencies |
-|---|---|---|---|---|---|---|---|---|
+| Scene/run | Start frame | Frames/end | Song section/lyrics | Acting/mouth targets | Camera and layers | Layer sources (H3 sprite / still plate / p5) | Graphics/text/callback | VFX/SFX cues | Asset dependencies |
+|---|---|---|---|---|---|---|---|---|---|
 
 Repeat an explicit scene block for every row:
 
-- Keyframe/image edit prompts and character references.
+- Keyframe/image edit prompts and character references; one character, one pose and flat chroma green per character keyframe.
 - H3 prompt(s), first/end frame, 1080P, generated seconds, exact stem interval, placement interval and no retiming constraint for singing.
 - p5 placement in normalized coordinates, entrances/exits, focal bounds and layer order.
 - Text copy with timing; research detail and payoff.
