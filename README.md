@@ -24,9 +24,12 @@ Five examples made with this skill. Click a thumbnail to watch on YouTube.
 | :---: | :---: | :---: |
 | <a href="https://youtu.be/Ba9Lh47Tat4"><img src="docs/examples/the-math-of-you.jpg" width="240" height="135" alt="The Math of You — HN - Suno"></a> | <a href="https://youtu.be/b70F1bWZlwE"><img src="docs/examples/you-knew-how-to-fork-take-2.jpg" width="240" height="135" alt="You knew how to fork — take 2, made with the Claude skill"></a> | <a href="https://youtu.be/Nxhg23_fheY"><img src="docs/examples/you-knew-how-to-fork.jpg" width="240" height="135" alt="You knew how to fork — @joshcirre"></a> |
 | HN - Suno · 3:25 | @joshcirre · 1:26 | @joshcirre · 1:26 |
+| <br> | <br>  | <br>  |
 | **Upping my P(doom) — remix #2** | **Symphony** | |
 | <a href="https://youtu.be/s8PmK6zD5RY"><img src="docs/examples/upping-my-p-doom-remix-2.jpg" width="240" height="135" alt="Upping my P(doom) — Video Remix #2 — Opus 5.5 (et al.)"></a> | <a href="https://youtu.be/UGX2KzetGZ0"><img src="docs/examples/symphony.jpg" width="240" height="135" alt="Symphony — Elrosea — Opus 5.5 Music Video Motion Graphics Claude Plugin — SunoAI"></a> | |
 | Remix of donaldjewkes's video remix · 2:22 | Elrosea · Opus 5.5 · SunoAI | |
+
+<br>
 
 ## Quick start
 
