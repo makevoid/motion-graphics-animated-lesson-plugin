@@ -14,8 +14,8 @@ Four examples made with this skill. Click a thumbnail to watch on YouTube.
 
 | The Math of You | You knew how to fork — take 2 | You knew how to fork | Upping my P(doom) — remix #2 |
 | :---: | :---: | :---: | :---: |
-| <a href="https://youtu.be/Ba9Lh47Tat4"><img src="docs/examples/the-math-of-you.jpg" width="180" height="101" alt="The Math of You — made with the Claude skill"></a> | <a href="https://youtu.be/b70F1bWZlwE"><img src="docs/examples/you-knew-how-to-fork-take-2.jpg" width="180" height="101" alt="You knew how to fork — take 2, made with the Claude skill"></a> | <a href="https://youtu.be/Nxhg23_fheY"><img src="docs/examples/you-knew-how-to-fork.jpg" width="180" height="101" alt="You knew how to fork — @joshcirre"></a> | <a href="https://youtu.be/s8PmK6zD5RY"><img src="docs/examples/upping-my-p-doom-remix-2.jpg" width="180" height="101" alt="Upping my P(doom) — Video Remix #2 — Opus 5.5 (et al.)"></a> |
-| @makevoid · 3:25 | @joshcirre · 1:26 | @joshcirre · 1:26 | Remix of donaldjewkes's video remix · 2:22 |
+| <a href="https://youtu.be/Ba9Lh47Tat4"><img src="docs/examples/the-math-of-you.jpg" width="180" height="101" alt="The Math of You — HN - Suno"></a> | <a href="https://youtu.be/b70F1bWZlwE"><img src="docs/examples/you-knew-how-to-fork-take-2.jpg" width="180" height="101" alt="You knew how to fork — take 2, made with the Claude skill"></a> | <a href="https://youtu.be/Nxhg23_fheY"><img src="docs/examples/you-knew-how-to-fork.jpg" width="180" height="101" alt="You knew how to fork — @joshcirre"></a> | <a href="https://youtu.be/s8PmK6zD5RY"><img src="docs/examples/upping-my-p-doom-remix-2.jpg" width="180" height="101" alt="Upping my P(doom) — Video Remix #2 — Opus 5.5 (et al.)"></a> |
+| HN - Suno · 3:25 | @joshcirre · 1:26 | @joshcirre · 1:26 | Remix of donaldjewkes's video remix · 2:22 |
 
 ## Quick start
 
