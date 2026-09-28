@@ -6,9 +6,9 @@ Song path, duration, supplied prompt, intended audience, aspect ratio, 24fps tim
 
 ## Creative direction
 
-The one-sentence premise, opening hook, main peak/drop, emotional arc, ending and recurring visual joke. Line/texture style, typography, camera language, visual density and moments of restraint. Require hyper quality, interesting detail, expressive animation and potential fun/virality without promising audience outcomes.
+The one-sentence premise, opening hook, main peak/drop, emotional arc, ending and recurring visual joke. Visual medium, rendering/materials, lighting, texture, typography if used, camera language, visual density and moments of restraint. Explain how the chosen look suits the song and brief. Require hyper quality, interesting detail, expressive animation and potential fun/virality without promising audience outcomes.
 
-Style bible: the exact style paragraph pasted into every image prompt, with a locked palette of four or five named hex colours plus the paper/background colour. The p5 sketches use the same hex constants.
+Style bible: the exact style paragraph pasted into every image prompt, including background treatment, colour anchors and the permitted shading, gradients or lighting variation. Choose palette size to suit the style; specify hex values where exact matching matters and share those constants with p5. Select typography and textures for this direction rather than inheriting the bundled examples.
 
 Composition rule: characters are generated alone on chroma green and composited by p5 over still plates and drawn graphics. List every full-frame H3 shot with its reason; none is the expected answer.
 

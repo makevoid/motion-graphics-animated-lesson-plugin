@@ -16,13 +16,13 @@ Videos composed from keyed character sprites over p5 graphics perform much bette
 - **The world belongs to p5 and still plates.** Environments, props, diagrams, text, camera moves, transitions and light are p5 (or Swift VFX). A generated background is a still image plate with no people, generated in the same style paragraph, and held or moved by p5.
 - **Characters meet in p5.** Do not generate two characters in the same H3 clip. Generate each separately, with eyelines and facing direction planned in the keyframe prompts, and composite them. A still image with both characters (a thumbnail, a poster frame) is fine.
 - **One pose per keyframe.** Each keyframe is one character, one framing, one starting pose for one performance. Give framing as a percentage of frame height and state the facing direction.
-- **Full-frame H3 is an exception.** Use it at most once or twice in a video, only where the character must physically interact with a generated object, and justify each use in the plan. Keep it to a plain background in the palette's paper colour, a single prop, a locked camera and a short duration.
+- **Full-frame H3 is an exception.** Use it at most once or twice in a video, only where the character must physically interact with a generated object, and justify each use in the plan. Keep it to a plain background consistent with the approved art direction, a single prop, a locked camera and a short duration.
 
-## Style bible and palette lock
+## Style bible and colour consistency
 
-Write one style paragraph in the plan and paste it verbatim into every image prompt. It must name a limited palette of four or five colours with hex codes, plus the paper/background colour and natural skin tones, and state the line quality, fill style and texture. Forbid gradients and lettering in it unless they are part of the look.
+Write one style paragraph in the plan and paste it verbatim into every image prompt. Derive the look from the song, brief and references; specify the rendering medium, forms, materials, lighting, texture, backgrounds and colour treatment that matter for that look. Describe line and fill treatments when applicable. Choose palette size, gradients, tonal range and surface detail to suit the direction. A limited hex palette is useful when the chosen style calls for it; natural shading and colour variation are valid too. Keep generated lettering excluded so final typography remains under p5 control.
 
-Define the same hex values as constants at the top of every p5 sketch and use them for all graphics, typography accents and light cues. Do not introduce a colour in p5 that the style paragraph does not name. The characters, plates and graphics then read as one designed object, which is what makes the cutout approach look intentional.
+Define shared colour constants in p5 for specified palette anchors and accents. Match graphics, typography and light cues to the approved colour treatment, including any planned gradients, shading or scene-specific lighting. Keep characters, plates and graphics visually coherent. Select fonts, weights, text effects and textures for the brief; bundled fonts and helpers are implementation options, not style defaults. Character cutouts describe the compositing method, not a paper-cutout appearance.
 
 ## Identity sheets: GPT Image 2.5 Sunburst xhigh
 
@@ -32,7 +32,7 @@ Inspect the face and hands, anatomy, silhouette and expression range. Accept a r
 
 ## Editing/adding/replacing characters
 
-`Fal::Models::GptImage25Edit` calls `openai/gpt-image-2.5/sunburst/edit` at xhigh. `02_keyframes.yml` can specify `base`, `refs` and `prompt`. State “same character and same illustration style,” with one intentional change per edit. Specify composition by percent of frame, face bounds and empty areas for text. Keep reference image ordering explicit for multiple characters.
+`Fal::Models::GptImage25Edit` calls `openai/gpt-image-2.5/sunburst/edit` at xhigh. `02_keyframes.yml` can specify `base`, `refs` and `prompt`. State “same character and same approved visual style,” with one intentional change per edit. Specify composition by percent of frame, face bounds and empty areas for planned text. Keep reference image ordering explicit for multiple characters.
 
 For an approved swap, create `char-<id>-v2` or a versioned edited keyframe. Review it; update dependent runs/prompts; regenerate only affected keyframes/clips/overlays. Recompute sprite crop boxes and placement when hair, costume or silhouette changes. Preserve v1 and its accepted takes. A newly added cast member gets a separate identity run, linked into the same style bible.
 
@@ -42,7 +42,7 @@ For an approved swap, create `char-<id>-v2` or a versioned edited keyframe. Revi
 
 Prompt structure: identity/style → framing → exact lyric/performance → two or three timed acting beats → camera → background invariants → exclusions. Describe articulation, jaw and cheek motion, pauses, glances, head tilts, shoulder/hand acting and follow-through. Avoid a floating still portrait with only camera movement.
 
-Example: same approved singer, medium close-up; articulates the supplied lyric with a closed mouth during its pause, raises one eyebrow on the punchline and turns toward screen-right on the final word. Keep the whole face visible. Every clip is a cutout unless the plan justifies an exception (see "Self-contained characters"), so every H3 prompt ends with the cutout invariants: locked camera, no camera movement, no zoom, feet/limbs within frame, perfectly flat chroma green #00B140 throughout, no green clothes, no shadows on the background, no floor, no text, no extra people, preserve the graphic style.
+Example: same approved singer, medium close-up; articulates the supplied lyric with a closed mouth during its pause, raises one eyebrow on the punchline and turns toward screen-right on the final word. Keep the whole face visible. Every clip is a cutout unless the plan justifies an exception (see "Self-contained characters"), so every H3 prompt ends with the cutout invariants: locked camera, no camera movement, no zoom, feet/limbs within frame, perfectly flat chroma green #00B140 throughout, no green clothes, no shadows on the background, no floor, no text, no extra people, preserve the approved visual style.
 
 If a take invents lyric captions despite the exclusion, inspect whether they touch the character or props before choosing a repair. For a retry, keep the aligned vocal input and acting beats but remove the quoted transcript from the visual prompt; the model may otherwise render those words. This is a prompt adjustment to review, not a guarantee. Keep the exact lyric/timing transcript in the plan and p5 cue data.
 

@@ -66,12 +66,12 @@ Invoke each import (and each differently parameterized call to the same Rake tas
   "s01" => {
     steps: [Steps::RefBase, Steps::Music, Steps::Keyframes, Steps::Clips, Steps::Overlay],
     import: { ref_base: "char-singer-v1" },
-    **section(0, 240), plate: "paper"
+    **section(0, 240), plate: "background"
   },
   "s02" => {
     steps: [Steps::RefBase, Steps::Music, Steps::Keyframes, Steps::Clips, Steps::Overlay],
     import: { ref_base: "char-singer-v1" },
-    **section(240, 192), plate: "s01/paper"
+    **section(240, 192), plate: "s01/background"
   }
 }
 ```
@@ -98,8 +98,8 @@ Read each step's `prompt` call if adding a new type. The imported `Music3` wrapp
 Example `02_keyframes.yml`:
 
 ```yaml
-paper:
-  prompt: "The same approved print palette. Plain warm paper, no people or text."
+background:
+  prompt: "Background plate matching the approved scene, visual style, lighting and colour treatment; no people or text."
 singer:
   prompt: "SAME approved singer, full body, flat chroma green #00B140, limbs inside frame, no text."
 reaction:
@@ -122,7 +122,7 @@ Example `04_clips.yml`:
   audio_at: 0
   gate: -36
   key: green
-  prompt: "Same singer and print style. Articulate the approved opening lyric; eyebrow raise on its joke. Locked camera, flat green, no text."
+  prompt: "Same singer and approved visual style. Articulate the approved opening lyric; eyebrow raise on its joke. Locked camera, flat green, no text."
 - name: surprise
   still: reaction
   key: green

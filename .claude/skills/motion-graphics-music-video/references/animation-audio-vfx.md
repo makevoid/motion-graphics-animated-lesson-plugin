@@ -6,30 +6,28 @@ H3 supplies expressive, self-contained characters on chroma green; p5 supplies t
 
 ## p5 scenes and overlays
 
-The renderer loads `tools/p5/lib/{core,time,fx,type,paper,riso}.js` and calls a sketch for each frame at `t=frame/24`. Per-frame random seeds make repeats deterministic. Full-scene sketches draw on a held paper plate; overlay sketches leave transparent areas over an H3 plate. Load fonts through `Anim.fonts`; keep TTF licenses when adding fonts. The bundled libraries support other styles; the original print/risograph look is an example, not a mandatory aesthetic.
+The renderer loads `tools/p5/lib/{core,time,fx,type,paper,riso}.js` and calls a sketch for each frame at `t=frame/24`. Per-frame random seeds make repeats deterministic. Full-scene sketches draw on a background plate selected for the scene; overlay sketches leave transparent areas over an H3 plate. Load fonts chosen for the approved art direction through `Anim.fonts`; keep TTF licenses when adding fonts. Select drawing, texture and typography helpers to suit that direction. Library names and bundled examples do not prescribe a visual style.
+
+This minimal example demonstrates sprite placement and a camera transform. Supply the background, graphics, colours and any typography from the scene's approved design.
 
 ```js
 Anim.sketch({
   async load() {
-    this.font = (await Anim.fonts({big: 'ArchivoBlack-Regular.ttf'})).big;
     this.singer = await Anim.clip('sing');
   },
   draw(t, frame) {
     // Scene coordinates here assume the default 1920x1080 plate.
     push();
     translate(960, 540); scale(1 + 0.04 * Math.sin(t)); translate(-960, -540);
-    noStroke(); fill('#e8488f'); ellipse(1500, 450, 360, 360);
     this.singer.draw(this.singer.at(t), 1300, 560, 820);
     pop();
-    textFont(this.font); textSize(120);
-    Anim.at(100, 430, Anim.pop(t, 0.3), () => Anim.knockout('HOOK', 0, 0, {fill:'#2b3a7a', weight:12}));
   }
 });
 ```
 
 `Anim.clip(name).at(t)` uses `audio_at`; `.frame(index)` is clamped unless loop is requested. `.draw(image,x,y,height)` centers the cropped sprite. `.place(image,x,y,width)` preserves its original source-frame position via `box`/`src`. Do not mistake the full cutout canvas bounds for the character's visible bounds. Draw background → distant graphics → behind-character text → sprite → foreground particles/captions.
 
-Useful helpers:
+Optional helpers; choose only those that fit the approved look and choreography:
 
 | Area | API |
 |---|---|
@@ -41,7 +39,7 @@ Useful helpers:
 
 Read implementations for precise optional arguments. Render the bundled smoke sketch through `anim:render` to exercise fonts/helpers. Keep memory bounded: sprites are loaded as PNG sequences, so crop them and reduce `scale` for small on-screen characters. Never shrink the lead's mouth below reviewable resolution.
 
-Choreography recipes: a mascot runs at the head of a curve leaving a trail; a fall accelerates the camera/world while holding the character in the focal area; a reveal zoom shows the whole diagram; a crowd pose swap ripples outward; a word appears behind hair via layer order. Tie entrances to actual words and beat accents. Wide knockout strokes need wider word spacing. Check all important event frames with `anim:preview`, then watch the complete section.
+Choreography recipes: a mascot runs at the head of a curve leaving a trail; a fall accelerates the camera/world while holding the character in the focal area; a reveal zoom shows the whole diagram; a crowd pose swap ripples outward; a word appears behind hair via layer order. Tie entrances to actual words and beat accents. When text is used, check spacing and readability with the selected font and treatment. Check all important event frames with `anim:preview`, then watch the complete section.
 
 ## Character cutouts and lipsync
 
