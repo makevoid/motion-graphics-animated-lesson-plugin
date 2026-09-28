@@ -22,7 +22,7 @@ Six examples made with this skill. Click a thumbnail to watch on YouTube.
 
 | The Math of You | You knew how to fork — take 2 | You knew how to fork |
 | :---: | :---: | :---: |
-| <a href="https://youtu.be/Ba9Lh47Tat4"><img src="docs/examples/the-math-of-you.jpg" width="240" height="135" alt="The Math of You — HN - Suno"></a> | <a href="https://youtu.be/b70F1bWZlwE"><img src="docs/examples/you-knew-how-to-fork-take-2.jpg" width="240" height="135" alt="You knew how to fork — take 2, made with the Claude skill"></a> | <a href="https://youtu.be/Nxhg23_fheY"><img src="docs/examples/you-knew-how-to-fork.jpg" width="240" height="135" alt="You knew how to fork — @joshcirre"></a> |
+| <a href="https://youtu.be/TKXSOnVtfWQ"><img src="docs/examples/the-math-of-you.jpg" width="240" height="135" alt="The Math of You — HN - Suno"></a> | <a href="https://youtu.be/b70F1bWZlwE"><img src="docs/examples/you-knew-how-to-fork-take-2.jpg" width="240" height="135" alt="You knew how to fork — take 2, made with the Claude skill"></a> | <a href="https://youtu.be/Nxhg23_fheY"><img src="docs/examples/you-knew-how-to-fork.jpg" width="240" height="135" alt="You knew how to fork — @joshcirre"></a> |
 | HN - Suno · 3:25 | @joshcirre · 1:26 | @joshcirre · 1:26 |
 | <br> | <br>  | <br>  |
 | **Upping my P(doom) — remix #2** | **Symphony** | **Parterre Girl** |
