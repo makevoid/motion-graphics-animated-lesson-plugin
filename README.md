@@ -4,7 +4,18 @@ Version **0.2.0**.
 
 A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, repository or script. It combines character acting with p5 diagrams, code, captions and camera moves, then adds music ducked under dialogue, a theatrical curtain call and animated credits.
 
-The workflow is based on **Software Archaeology 101**, the 220.125-second lesson in `video-session14`. The plugin includes its reusable artwork, curtain images/animations, animation and timing recipes and all five original music beds. Fonts are not bundled: each project selects TTF/OTF fonts installed on your machine (see [project fonts](.claude/skills/motion-graphics-animated-lesson/references/animation-audio-vfx.md#project-fonts)). New projects are self-contained; the original directory is not required.
+The workflow is based on **Software Archaeology 101** - a video posted on X/Twitter. The plugin includes its reusable artwork, curtain images/animations, animation and timing recipes and all five original music beds. 
+
+
+NOTE: The project is in beta and this readme still needs to be rewritten by a human (e.g. me :)) - In the meantime you could download it, fire Claude Code in a local directory containing this repo and ask Claude to set it up including all dependencies. You should be up and running in little time.
+
+I will try to complete the readme for manual setup soon.
+
+Enjoy
+
+## AI GENERATED README
+
+Fonts are not bundled: each project selects TTF/OTF fonts installed on your machine (see [project fonts](.claude/skills/motion-graphics-animated-lesson/references/animation-audio-vfx.md#project-fonts)). New projects are self-contained; the original directory is not required.
 
 ![Preserved classroom](.claude/skills/motion-graphics-animated-lesson/assets/lesson/plates/classroom.png)
 
