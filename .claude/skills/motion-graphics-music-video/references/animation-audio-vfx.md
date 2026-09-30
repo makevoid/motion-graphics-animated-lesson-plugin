@@ -6,7 +6,31 @@ H3 supplies expressive, self-contained characters on chroma green; p5 supplies t
 
 ## p5 scenes and overlays
 
-The renderer loads `tools/p5/lib/{core,time,fx,type,paper,riso}.js` and calls a sketch for each frame at `t=frame/24`. Per-frame random seeds make repeats deterministic. Full-scene sketches draw on a background plate selected for the scene; overlay sketches leave transparent areas over an H3 plate. Load fonts chosen for the approved art direction through `Anim.fonts`; keep TTF licenses when adding fonts. Select drawing, texture and typography helpers to suit that direction. Library names and bundled examples do not prescribe a visual style.
+The renderer loads `tools/p5/lib/{core,time,fx,type,paper,riso}.js` and calls a sketch for each frame at `t=frame/24`. Per-frame random seeds make repeats deterministic. Full-scene sketches draw on a background plate selected for the scene; overlay sketches leave transparent areas over an H3 plate. Load project fonts chosen for the approved art direction through `Anim.fonts`. Select drawing, texture and typography helpers to suit that direction. Library names and bundled examples do not prescribe a visual style.
+
+### Project fonts
+
+Just before rendering the video, scan installed macOS fonts and copy only the selected faces into the initialized video workspace:
+
+```sh
+ruby scripts/mv.rb --project /absolute/video-workspace fonts:list
+```
+
+This recursively lists `.ttf` and `.otf` files under `/System/Library/Fonts` (including `/System/Library/Fonts/Supplemental`), `/Library/Fonts`, and `~/Library/Fonts`. Choose actual files from the results for the approved typography and required characters. Font collections (`.ttc`) are excluded; do not rename a collection to `.ttf`. On another OS, select installed TTF/OTF files from that system's font directories.
+
+Write `config/fonts.json` in the video workspace, mapping each project filename to its selected absolute source path. For example, **only if this file appeared in the scan**:
+
+```json
+{"title.ttf": "/System/Library/Fonts/Supplemental/Arial Bold.ttf"}
+```
+
+```sh
+ruby scripts/mv.rb --project /absolute/video-workspace 'fonts:copy[config/fonts.json]'
+```
+
+The task copies the selected files to that workspace's `tools/p5/fonts/`, reports source paths and SHA-256 hashes, and refuses to replace different existing font bytes. JSON preserves source paths containing spaces or commas. Record the selection in `docs/PLAN.md`, retain applicable license notices, and keep local font files out of the plugin repository. No font installation or download happens during `setup`.
+
+Load the copied filenames, for example `this.f = await Anim.fonts({ title: "title.ttf" })`, then use `textFont(this.f.title)`. Preview representative lyrics, punctuation and non-Latin characters before rendering the full video. If a requested face is unavailable, resolve the typography choice before rendering rather than silently substituting it.
 
 This minimal example demonstrates sprite placement and a camera transform. Supply the background, graphics, colours and any typography from the scene's approved design.
 
@@ -37,7 +61,7 @@ Optional helpers; choose only those that fit the approved look and choreography:
 | Draw | `sparkle`, `twinkle`, `trace`, `knockout`, `typed`, `karaoke` |
 | Texture | `slip`, `misregister`, `grain` |
 
-Read implementations for precise optional arguments. Render the bundled smoke sketch through `anim:render` to exercise fonts/helpers. Keep memory bounded: sprites are loaded as PNG sequences, so crop them and reduce `scale` for small on-screen characters. Never shrink the lead's mouth below reviewable resolution.
+Read implementations for precise optional arguments. Render the bundled smoke sketch through `anim:render` to exercise typography/helpers with browser system fonts; preview the production sketch separately to verify its copied fonts. Keep memory bounded: sprites are loaded as PNG sequences, so crop them and reduce `scale` for small on-screen characters. Never shrink the lead's mouth below reviewable resolution.
 
 Choreography recipes: a mascot runs at the head of a curve leaving a trail; a fall accelerates the camera/world while holding the character in the focal area; a reveal zoom shows the whole diagram; a crowd pose swap ripples outward; a word appears behind hair via layer order. Tie entrances to actual words and beat accents. When text is used, check spacing and readability with the selected font and treatment. Check all important event frames with `anim:preview`, then watch the complete section.
 

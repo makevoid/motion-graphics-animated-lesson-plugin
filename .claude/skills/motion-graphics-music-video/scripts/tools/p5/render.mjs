@@ -64,7 +64,7 @@ ${LIB.map((m) => `<script src="/tools/p5/lib/${m}.js"></script>`).join("\n")}
 <script src="${sketchUrl}"></script>
 </head><body></body></html>`;
 
-// Static server rooted at the repo so the page can load p5, anim/lib, anim/fonts and the sketch.
+// Static server rooted at the video project for p5, tools/p5/lib, selected tools/p5/fonts and sketches.
 const server = http.createServer((req, res) => {
   const url = decodeURIComponent(new URL(req.url, "http://x").pathname);
   if (url === "/__anim__.html") return res.writeHead(200, { "content-type": "text/html" }).end(page);

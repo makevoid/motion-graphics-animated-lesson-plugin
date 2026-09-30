@@ -2,11 +2,14 @@ require_relative "../workflow/approval"
 require_relative "../workflow/waves"
 require_relative "../workflow/journal"
 require_relative "../pipeline/reference_importer"
+require_relative "fonts"
 module Toolkit
   class Operations
     TASKS = {
       "doctor" => "Check local tools; STRICT=1 fails on missing prerequisites",
       "setup" => "Install gems, npm packages and a local Python venv through Ruby",
+      "fonts:list" => "List installed macOS TTF/OTF files, including Supplemental fonts (local)",
+      "fonts:copy" => "Copy selected fonts into this video project: [selection.json] (local)",
       "openapi:fetch" => "Fetch current Fal input schemas (no generation)",
       "openapi:summary" => "Print saved Fal schema summaries",
       "plan:approve" => "Record actual user approval: NOTE='approved wording'",
@@ -69,6 +72,8 @@ module Toolkit
       case name
       when "doctor" then doctor
       when "setup" then setup
+      when "fonts:list" then emit Fonts.new.list
+      when "fonts:copy" then required(a, 1); emit Fonts.new.copy(a[0])
       when "openapi:fetch" then endpoints.each { |id| Fal::OpenAPI.fetch(id); warn "fetched #{id}" }
       when "openapi:summary" then endpoints.each { |id| puts Fal::OpenAPI.load(id).summary if File.file?(Fal::OpenAPI.spec_path(id)) }
       when "plan:approve" then emit Workflow::Approval.new.record!(ENV["NOTE"])

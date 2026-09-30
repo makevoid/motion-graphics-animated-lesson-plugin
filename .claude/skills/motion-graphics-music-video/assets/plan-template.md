@@ -12,6 +12,8 @@ Style bible: the exact style paragraph pasted into every image prompt, including
 
 Composition rule: characters are generated alone on chroma green and composited by p5 over still plates and drawn graphics. List every full-frame H3 shot with its reason; none is the expected answer.
 
+Typography: selected installed font faces/weights and required glyph coverage. Before rendering, record absolute source paths and copied filenames under the video's `tools/p5/fonts/` (selection in `config/fonts.json`).
+
 ## Research
 
 Link RESEARCH.md. For each selected detail: source URL/date, accurate fact or inspiration, visual treatment and scene ID.

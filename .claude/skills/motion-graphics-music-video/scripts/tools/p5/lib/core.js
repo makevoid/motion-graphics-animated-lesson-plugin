@@ -1,7 +1,7 @@
 // Anim core: owns the p5 lifecycle so a sketch only describes what to draw at time t.
 //
 //   Anim.sketch({
-//     async load() { this.f = await Anim.fonts({ big: "ArchivoBlack-Regular.ttf" }) },
+//     async load() { this.f = await Anim.fonts({ big: "title.ttf" }) },
 //     draw(t, frame) { ... }        // canvas is already cleared (transparent) for every frame
 //   });
 //
@@ -43,10 +43,10 @@ window.Anim = window.Anim || {};
     return document.querySelector("canvas").toDataURL("image/png");
   };
 
-  // { name: "File.ttf" } -> { name: p5.Font }, loaded from anim/fonts/.
+  // { name: "File.ttf" } -> { name: p5.Font }, copied into this project's tools/p5/fonts/.
   Anim.fonts = async (map) => {
     const out = {};
-    for (const [name, file] of Object.entries(map)) out[name] = await loadFont(`/tools/p5/fonts/${file}`);
+    for (const [name, file] of Object.entries(map)) out[name] = await loadFont(`/tools/p5/fonts/${encodeURIComponent(file)}`);
     return out;
   };
 

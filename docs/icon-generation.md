@@ -2,7 +2,7 @@
 
 Generated through the repository's Fal adapter with [`fal-ai/nano-banana-2`](https://fal.ai/models/fal-ai/nano-banana-2/api), `thinking_level: high`, one 2048×2048 PNG (`resolution: 2K`, `aspect_ratio: 1:1`). Request ID: `01a0df1d-5db4-7ad2-a483-749410e335e7`.
 
-The output was resized to 256×256 and stripped of metadata with ImageMagick. The directory SVG reproduces a 256-color version as colored pixel paths to preserve the glass shading. It contains no embedded bitmap, external resources, or scripts. The README uses the PNG for full shading fidelity.
+The output was resized to 256×256 and stripped of metadata with ImageMagick. The directory SVG reproduces a 256-color version as colored pixel paths to preserve the glass shading. Adjacent identical horizontal runs are merged into rectangles to reduce file size without changing any pixels. It contains no embedded bitmap, external resources, or scripts. The README uses the PNG for full shading fidelity.
 
 - [Default PNG icon, 256×256](../.claude-plugin/icon.png), displayed at 128×128 in the README.
 - [Default directory SVG icon, 256×256](../.claude-plugin/icon.svg).

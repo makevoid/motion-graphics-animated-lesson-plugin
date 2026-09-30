@@ -1,8 +1,8 @@
-// Exercises every anim/lib helper over 2s — a quick check that the renderer works:
-//   node anim/render.mjs anim/examples/smoke.js --out tmp/anim_smoke --frames 48 --only 0,12,24,47
+// Exercises typography, timing and graphics helpers with browser system fonts:
+//   ruby scripts/mv.rb 'anim:render[tools/p5/examples/smoke.js,tmp/anim_smoke,48]'
 Anim.sketch({
   async load() {
-    this.f = await Anim.fonts({ big: "ArchivoBlack-Regular.ttf", mono: "SpaceMono-Regular.ttf", serif: "Newsreader-Italic.ttf", sans: "NunitoSans.ttf" });
+    this.f = { big: "sans-serif", mono: "monospace", serif: "serif", sans: "sans-serif" };
     const w = (word, s, e) => ({ w: word, s, e });
     this.cue = Anim.cues([w("hello", 0.1, 0.5), w("print", 0.5, 0.9), w("world", 0.9, 1.4)]);
   },

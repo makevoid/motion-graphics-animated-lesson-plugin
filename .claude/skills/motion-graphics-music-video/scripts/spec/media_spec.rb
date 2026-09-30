@@ -14,7 +14,7 @@ RSpec.describe "Local media end to end", :media do
     expect(File.directory?(File.join(destination,"node_modules"))).to be(false)
     expect(File.directory?(File.join(destination,"tools/vfx/.build"))).to be(false)
   end
-  it "renders bundled typography, fonts, timing and graphics helpers through Ruby" do
+  it "renders typography, timing and graphics helpers without bundled font files" do
     result = Media::Anim.new.render(File.join(RT,"tools/p5/examples/smoke.js"), file("smoke"), width: 1920, height: 1080, fps: 24, frames: 48, only: [0,24,47])
     expect(result["frames"]).to eq(3)
     expect(magick.alpha_coverage(file("smoke/0024.png"))).to be > 0.03

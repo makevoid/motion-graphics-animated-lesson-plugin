@@ -240,11 +240,11 @@ ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb setup
 ruby .claude/skills/motion-graphics-music-video/scripts/mv.rb test
 ```
 
-`rake test` is also a thin delegate to the Ruby entry point. All normal tests are local and make no paid Fal calls. Live tests require explicit paid-test opt-in; see the testing guide. The local full suite requires macOS for Swift VFX, Chrome, FFmpeg, ImageMagick, Node, Python and Ruby. No original project outputs, songs, secrets or generated characters are bundled. Fonts retain their license files.
+`rake test` is also a thin delegate to the Ruby entry point. All normal tests are local and make no paid Fal calls. Live tests require explicit paid-test opt-in; see the testing guide. The local full suite requires macOS for Swift VFX, Chrome, FFmpeg, ImageMagick, Node, Python and Ruby. No original project outputs, songs, secrets or generated characters are bundled. Fonts are selected from the host system and copied into each video workspace immediately before rendering; no font files are bundled.
 
 ## License
 
-The plugin's original code and documentation are [MIT licensed](LICENSE). Bundled fonts retain their accompanying SIL Open Font License or Apache 2.0 terms. The [icon generation record](docs/icon-generation.md) documents the Nano Banana 2 high-thinking image and its resized PNG and SVG versions.
+The plugin's original code and documentation are [MIT licensed](LICENSE). The [icon generation record](docs/icon-generation.md) documents the Nano Banana 2 high-thinking image and its resized PNG and SVG versions.
 
 ## External services and data sharing
 

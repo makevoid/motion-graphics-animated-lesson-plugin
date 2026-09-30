@@ -22,7 +22,7 @@ motion-graphics-music-video/
       media/                     Ruby wrappers that shell out
     tools/
       python/                    analysis, cutouts, tracking and audio mixing
-      p5/                        Node renderer, JS animation library, fonts, examples
+      p5/                        Node renderer, JS animation library, examples; project fonts copied before rendering
       vfx/                       Swift package and Core Image effects
     spec/                        high-level RSpec contracts and E2E tests
 ```
@@ -45,6 +45,8 @@ ruby scripts/mv.rb --project /absolute/project openapi:summary
 ```
 
 `setup` calls Bundler, npm ci and Python venv/pip through Ruby. Install system Ruby, Node 22+, Chrome, FFmpeg/ffprobe and ImageMagick beforehand. On macOS install Swift/Xcode command line tools for VFX. `MV_PYTHON` overrides the local `.venv/bin/python3`; `CHROME_PATH` and `MEDIA_FONT` override detected Chrome/font paths. Configure the plugin's sensitive `FAL_AI_API_KEY` option, or set `FAL_AI_API_KEY` in the environment for direct developer CLI calls; never put the key in prompts/config/commits. `doctor` prints JSON booleans; `STRICT=1` makes missing dependencies fail. Tests require the full selected profile's tools and do not silently skip missing dependencies.
+
+`fonts:list` scans installed macOS TTF/OTF files. Just before rendering, `fonts:copy[config/fonts.json]` copies a JSON mapping of project filenames to absolute source paths into the video's `tools/p5/fonts/`. Run with `--project /absolute/video-workspace`; see [Project fonts](animation-audio-vfx.md#project-fonts). Setup does not fetch fonts.
 
 ## New run configuration
 

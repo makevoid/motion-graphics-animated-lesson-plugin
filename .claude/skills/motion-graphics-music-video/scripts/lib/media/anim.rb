@@ -3,7 +3,7 @@ require_relative "shell"
 
 module Media
   # Renders p5.js sketches to transparent PNG sequences with anim/render.mjs (headless Chrome via puppeteer-core).
-  # The helper library the sketches use lives in anim/lib/; fonts in anim/fonts/.
+  # Helpers live in tools/p5/lib/; selected project fonts in tools/p5/fonts/.
   class Anim < Shell
     RENDER = File.expand_path("../../tools/p5/render.mjs", __dir__)
 
