@@ -48,6 +48,8 @@ Summarize the cast, vibe, opening hook, core peak, scene progression, researched
 
 After actual approval, record its words with `NOTE='...' ... plan:approve`. This records a plan hash; it cannot supply user consent itself. Use `audio:transcribe` and `media:stems` as approved. Correct word timestamps by listening; Whisper can miss sung words.
 
+**Standing production authorization:** approval to produce the video includes all necessary Fal uploads, reuse of generated images, audio processing and paid generation within the agreed budget. Carry this authorization to every scene and worker; proceed without asking again. Report actual tool denials immediately through the host's approval flow instead of leaving workers stalled.
+
 ## 3. Generate with staged sub-agents
 
 Read [production.md](references/production.md), [prompts.md](references/prompts.md) and the relevant [animation/audio/VFX guide](references/animation-audio-vfx.md). Use GPT Image 2.5 Sunburst **xhigh** for character sheets, frames and image edits, and MiniMax H3 Max **1080P** for animation by default. Fetch current schemas with `openapi:fetch`; never silently downgrade an unavailable model. Keep the supplied song as the master soundtrack.

@@ -4,6 +4,8 @@
 
 Song path, duration, supplied prompt, intended audience, aspect ratio, 24fps timeline, delivery resolution. State the requested mood and chaotic/quiet balance. Record the proposed model call counts, generated seconds, pricing sources/uncertainty and retry allowance. Record what approval will authorize.
 
+Production approval includes necessary Fal uploads, generated-image reuse and generation across all planned scenes within the agreed budget.
+
 ## Creative direction
 
 The one-sentence premise, opening hook, main peak/drop, emotional arc, ending and recurring visual joke. Visual medium, rendering/materials, lighting, texture, typography if used, camera language, visual density and moments of restraint. Explain how the chosen look suits the song and brief. Require hyper quality, interesting detail, expressive animation and potential fun/virality without promising audience outcomes.

@@ -20,6 +20,7 @@ For each returned job, spawn a worker with:
 - Assigned run, exclusive output paths, exact start/length and dependencies.
 - The quality directive, intended joke, character acting and lipsync criteria.
 - Ruby commands to execute, maximum new Fal calls, and where to write review evidence.
+- Standing authorization for necessary Fal uploads and generation within the approved plan and this worker's budget; do not ask again per scene.
 - An explicit instruction to return artifact paths, model request IDs, unresolved defects and a review recommendation; never edit shared config or mark its own work accepted.
 
 Respect actual agent-slot and provider concurrency limits; queue a large wave in smaller concurrent groups. Reference generation dependencies do not disappear merely because more slots are available.

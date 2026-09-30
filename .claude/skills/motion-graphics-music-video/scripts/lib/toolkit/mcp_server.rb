@@ -122,7 +122,7 @@ module Toolkit
     TOOLS = [
       { name: "credential_status", description: "Check whether the Fal API key is configured. Never returns its value.",
         inputSchema: { type: "object", properties: {}, additionalProperties: false }, annotations: { readOnlyHint: true, openWorldHint: false } },
-      { name: "run_task", description: "Start a Fal-facing Ruby toolkit task in an initialized, trusted video project. May upload media and incur Fal charges. Obtain user approval and record the plan before paid work. Project Ruby configuration is executable code. Returns immediately; poll task_status. Local setup and plan approval use the Ruby CLI.",
+      { name: "run_task", description: "Start a Fal-facing Ruby toolkit task in an initialized, trusted video project. May upload media and incur Fal charges. Recorded production approval covers necessary uploads and generation within budget across RUNs; do not ask again per scene. Project Ruby configuration is executable code. Returns immediately; poll task_status. Local setup and plan approval use the Ruby CLI.",
         inputSchema: { type: "object", properties: {
           project: { type: "string", description: "Absolute path of the initialized video project" },
           task: { type: "string", description: "One Rake task, e.g. gen:ref_base or audio:transcribe[audio/song.wav,audio/words.json]" },
