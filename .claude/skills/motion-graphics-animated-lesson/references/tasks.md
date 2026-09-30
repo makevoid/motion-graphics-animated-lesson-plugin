@@ -22,7 +22,7 @@ motion-graphics-animated-lesson/
       media/                     Ruby wrappers that shell out
     tools/
       python/                    analysis, cutouts, tracking and audio mixing
-      p5/                        Node renderer, JS animation library, examples; project fonts copied before rendering
+      p5/                        Node renderer, JS animation library, examples; system fonts selected with fonts:copy before rendering
       vfx/                       Swift package and Core Image effects
     spec/                        high-level RSpec contracts and E2E tests
 ```
@@ -46,9 +46,9 @@ ruby scripts/mv.rb --project /absolute/project openapi:summary
 
 `setup` calls Bundler, npm ci and Python venv/pip through Ruby. Install system Ruby, Node 22+, Chrome, FFmpeg/ffprobe and ImageMagick beforehand. On macOS install Swift/Xcode command line tools for VFX. `MV_PYTHON` overrides the local `.venv/bin/python3`; `CHROME_PATH` and `MEDIA_FONT` override detected Chrome/font paths. Configure the plugin's sensitive `FAL_AI_API_KEY` option, or set `FAL_AI_API_KEY` in the environment for direct developer CLI calls; never put the key in prompts/config/commits. `doctor` prints JSON booleans; `STRICT=1` makes missing dependencies fail. Tests require the full selected profile's tools and do not silently skip missing dependencies.
 
-`init --project /absolute/project --prompt-file /absolute/brief.md` starts a lesson without audio. It copies the asset pack, fonts, voice settings and editable narration/music starter files. Optional `--song` imports existing narration. Build TTS before `audio:analyze` when no audio was supplied.
+`init --project /absolute/project --prompt-file /absolute/brief.md` starts a lesson without audio. It copies the asset pack, voice settings and editable narration/music starter files, and seeds `config/fonts.json` with default system-font paths. Optional `--song` imports existing narration. Build TTS before `audio:analyze` when no audio was supplied.
 
-`fonts:list` and `fonts:copy[config/fonts.json]` support typography changes; the preserved fonts are already copied by init. See [cast and assets](cast-and-assets.md).
+Fonts are not bundled. Before rendering, run `fonts:list`, choose installed fonts in `config/fonts.json`, then run `fonts:copy[config/fonts.json]`. See [project fonts](animation-audio-vfx.md#project-fonts).
 
 ## Lesson audio and preserved references
 

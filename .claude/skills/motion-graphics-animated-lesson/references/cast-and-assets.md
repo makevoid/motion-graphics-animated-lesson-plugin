@@ -49,15 +49,15 @@ Use `source:` in a scene's `04_clips.yml` to recut a preserved silent video with
 
 Premium 2D cartoon, about 2.5 heads tall, head around 40%, dark plum-black ink `#1B1A22`, flat cel fills with one soft shadow and warm rim light, matte surfaces. Chalkboard `#1E3B34`, chalk `#F3EFE4`, paper `#F6EEDC`, amber `#FFB53D`. No generated lettering. Character green/teal must not collide with the chroma key. Preserve this style unless the user requests another.
 
-Fonts in `fonts/` are copied automatically into the new project's `tools/p5/fonts/`:
+Fonts are not bundled; they are selected from the machine's installed fonts before rendering (see [project fonts](animation-audio-vfx.md#project-fonts)). The project filenames, their roles and the stock macOS defaults in `fonts/default-selection.json`:
 
 | Files | Purpose |
 |---|---|
 | `chalk.ttf` (Chalkduster) | board headings/write-on |
 | `mono.ttf`, `mono-andale.ttf` (SF Mono, Andale Mono) | code, terminal, precise punctuation |
 | `din-cond.ttf`, `din-alt.ttf` | titles, small credit role headings |
-| `body.ttf`, `body-med.ttf`, `body-black.ttf` (Roboto) | captions, body, emphasis |
+| `body.ttf`, `body-med.ttf`, `body-black.ttf` (Arial, Arial Bold, Arial Black; the original lesson used Roboto) | captions, body, emphasis |
 | `math.otf`, `math-it.otf` (STIX) | equations |
 | `hand.ttf` (Bradley Hand) | handwritten jokes and asides |
 
-`fonts/original-selection.json` preserves original source locations as provenance, not a runtime dependency. `init` writes working project font paths. Load exact names via `Anim.fonts`, then preview punctuation and required language glyphs. Font files retain their originating licenses; preserving these user-supplied project assets does not relicense them under the toolkit's MIT license. Use appropriately licensed substitutions for distribution where needed, and credit actual faces used.
+Any installed TTF/OTF can replace a default. Swap one when it is missing, unsuitable for the art direction, lacks the needed glyphs, or has a licence that does not fit your distribution. Load exact names via `Anim.fonts`, then preview punctuation and the required language glyphs. Credit the faces you actually used.

@@ -10,9 +10,17 @@ The renderer loads `tools/p5/lib/{core,time,fx,type,paper,riso,explainer}.js` an
 
 ### Project fonts
 
-The initializer copies the preserved lesson fonts to `tools/p5/fonts/` and writes project-local `config/fonts.json`. See [cast and assets](cast-and-assets.md) for the exact faces and filenames. Load with `Anim.fonts`, e.g. `{chalk: "chalk.ttf", title: "din-cond.ttf", body: "body-med.ttf", mono: "mono.ttf"}`. Preview punctuation and required language glyphs.
+Fonts are **not bundled**. Any TTF/OTF font installed on the machine can be used. Pick them before creating the video, and choose faces that suit the approved art direction, the language glyphs and the licence you need.
 
-For additional/replacement faces use local `fonts:list`, select actual TTF/OTF files (not TTC collections), then `fonts:copy[config/fonts.json]`. The map uses stable filenames and absolute font source paths. Copy refuses to overwrite different bytes. Retain original license terms and use new filenames for replacements. Setup does not download fonts.
+1. Run `fonts:list`. It scans the common font locations and prints every `.ttf`/`.otf` file:
+   - macOS: `/System/Library/Fonts`, `/System/Library/Fonts/Supplemental`, `/Library/Fonts` (all users), `~/Library/Fonts` (current user)
+   - Linux: `/usr/share/fonts`, `/usr/local/share/fonts`, `~/.local/share/fonts`, `~/.fonts`
+   - Windows: `C:/Windows/Fonts`
+   Filter the long list, e.g. `... fonts:list | grep -iE "chalk|mono|din|stix|hand"`.
+2. Edit `config/fonts.json`. It maps stable project filenames to absolute source paths. `init` seeds it from `assets/lesson/fonts/default-selection.json`, which uses stock macOS fonts (see [cast and assets](cast-and-assets.md) for the roles). Replace any path that is missing or unsuitable on this machine, and add new names for extra faces. Use single-face files, not `.ttc` collections.
+3. Run `fonts:copy[config/fonts.json]`. It copies the selection into `tools/p5/fonts/`, fails on missing paths and refuses to overwrite a filename with different bytes (choose a new filename for a replacement).
+
+Load the fonts in sketches with `Anim.fonts`, e.g. `{chalk: "chalk.ttf", title: "din-cond.ttf", body: "body-med.ttf", mono: "mono.ttf"}`. Preview punctuation and the required language glyphs. Setup never downloads fonts. Credit the faces you actually used and follow their licences.
 
 The bundled `Ex` library supplies `cam`, `withCam`, `img`, `puppet`, `talk`, `chalk`, `chalkLine`, `arrow`, `code`, `window`, `card`, `stamp`, `caption`, `phrases`, `math`, `lowerThird` and palette `C`. Inspect `tools/p5/lib/explainer.js` for exact arguments; see the minimal scene below and [ending motion recipes](ending-motion.md) for usage. Use `async load()` in `Anim.sketch`, not a p5 setup callback. Use `fontWidth()` for advance widths with p5 2.x. Code/caption punctuation must remain legible.
 

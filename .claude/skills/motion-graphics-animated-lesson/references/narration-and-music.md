@@ -38,7 +38,7 @@ For a scene beginning at frame A, a line at master S uses `audio_at = S - A/24`.
 
 ## Background beds
 
-The original five tracks are preserved 1:1 in `assets/lesson/music/`: `intro`, `class`, `blackboard`, `devroom`, `titles` (WAV). Starter `music.yml` uses `file: .skill/assets/lesson/music/<name>.wav`; fill its measured `segments` and run `music:bed` locally, with no provider call. Reuse intro for the opening and titles for curtain/credits by default. `FORCE` never regenerates a `file:` track. SHA-256 hashes are in the asset manifest. Sidecar metadata preserves original prompt, duration and request ID. The following generated-track recipe is optional when different music is requested.
+The original five tracks are bundled in `assets/lesson/music/`: `intro`, `class`, `blackboard`, `devroom`, `titles` (MP3, 192 kbps CBR, re-encoded from the original WAVs). Starter `music.yml` uses `file: .skill/assets/lesson/music/<name>.mp3`; fill its measured `segments` and run `music:bed` locally, with no provider call. Reuse intro for the opening and titles for curtain/credits by default. `FORCE` never regenerates a `file:` track. SHA-256 hashes are in the asset manifest. Sidecar metadata preserves original prompt, duration and request ID. The following generated-track recipe is optional when different music is requested.
 
 
 Provider: [Fal ElevenLabs Music v2.5 API](https://fal.ai/models/elevenlabs/music/v2.5/api). `Fal::Models::ElevenMusic` defaults to instrumental output. Use `music:gen` directly through MCP (now allow-listed); `sfx:gen` is reserved for TTS/SFX. Do not carry forward the source project's workaround that routed music through `sfx:gen`.

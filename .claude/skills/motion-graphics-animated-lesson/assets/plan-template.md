@@ -12,7 +12,7 @@ Cold-open mystery/demo, title/host, concepts/examples, complication/peak, synthe
 
 Roles needed/omitted and explicit overrides. Professor = George / 0.45 / 11; developer = Liam / 0.5 / 41 when retained. Record sheet paths, no-change identity anchors, hand/prop canon, additional characters and their voices. Preserve source sheets; version intentional replacements. Full keyframe/acting prompts include image references.
 
-Warm cel cartoon style paragraph and palette shared with p5, or user-requested replacement. Character on flat green, still plates for settings, p5 for exact text/diagrams/cameras. Fonts: bundled project filenames, purpose, glyph coverage and any substitutions. Load ending layout PNGs and curtain images as visual references.
+Warm cel cartoon style paragraph and palette shared with p5, or user-requested replacement. Character on flat green, still plates for settings, p5 for exact text/diagrams/cameras. Fonts: chosen system font per project filename (from `fonts:list`), purpose, glyph coverage and any substitutions. Load ending layout PNGs and curtain images as visual references.
 
 ## Research
 

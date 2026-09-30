@@ -4,7 +4,7 @@ description: Create and revise narrated cartoon lessons and educational explaine
 license: MIT
 metadata:
   version: "0.2.0"
-  compatibility: Designed for Claude Code and adaptable to Codex. Requires Ruby 3.2+, Bundler, FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Optional Swift VFX requires macOS 14+ and Swift 5.9+. Fal tasks use the sensitive FAL_AI_API_KEY plugin option or the environment variable in standalone development. Bundled media and fonts retain their own provenance and terms.
+  compatibility: Designed for Claude Code and adaptable to Codex. Requires Ruby 3.2+, Bundler, FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Optional Swift VFX requires macOS 14+ and Swift 5.9+. Fal tasks use the sensitive FAL_AI_API_KEY plugin option or the environment variable in standalone development. Bundled media retain their own provenance and terms; fonts come from the machine and keep their own licenses.
 ---
 
 # Cartoon animated lessons
@@ -19,7 +19,7 @@ Create a clear, engaging lesson with expressive cartoon acting, a concrete openi
 
 These are **optional defaults, not compulsory roles**. Use both when the lesson needs a lecturer and a developer. Omit the developer for a lesson without a developer/demo role; omit the professor for a brief without a host. Explicit replacements, different voices, new casts and character-free lessons override the defaults. Bundle only the professor and developer; create other characters only when explicitly requested. Keep jokes relevant to the lesson. Keep default identity and voice settings whenever their roles are retained.
 
-Reuse the actual bundled sheets, classroom, props, fonts and silent loops; do not recreate their identity from prose or require the original `video-session14` directory. Read [cast and assets](references/cast-and-assets.md) before preparing characters. Read [the reference lesson study](references/reference-lesson.md) to understand the staging and animation techniques.
+Reuse the actual bundled sheets, classroom, props and silent loops, and select fonts from those installed on the machine; do not recreate their identity from prose or require the original `video-session14` directory. Read [cast and assets](references/cast-and-assets.md) before preparing characters. Read [the reference lesson study](references/reference-lesson.md) to understand the staging and animation techniques.
 
 ## Execution and project setup
 
@@ -33,7 +33,7 @@ ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/lesson setup
 ruby "${CLAUDE_SKILL_DIR}/scripts/mv.rb" --project /absolute/lesson doctor
 ```
 
-Initialization copies the runtime, reusable asset pack, starter voice/timeline configs and preserved fonts. `--song /absolute/narration.wav` optionally imports an existing narration master; the old flag is retained for compatibility. Do not run audio analysis until that file exists or TTS has built it. `audio/song.wav` and `gen:music` are legacy runtime names for the **narration master** and its local section cuts; background music uses `music:gen` and `music:bed`.
+Initialization copies the runtime, reusable asset pack and starter voice/timeline configs, and seeds `config/fonts.json` with a default system-font selection. Fonts are not bundled: before creating the video, run `fonts:list`, pick installed faces for each role, edit `config/fonts.json`, then run `fonts:copy[config/fonts.json]` (see [project fonts](references/animation-audio-vfx.md#project-fonts)). `--song /absolute/narration.wav` optionally imports an existing narration master; the old flag is retained for compatibility. Do not run audio analysis until that file exists or TTS has built it. `audio/song.wav` and `gen:music` are legacy runtime names for the **narration master** and its local section cuts; background music uses `music:gen` and `music:bed`.
 
 Read [credentials](references/credentials.md) before Fal work. The `animated-lesson` MCP server exposes `run_task`/`task_status` with the plugin key. Use it for TTS, music generation, images, clips and reference uploads; use the Ruby CLI for local setup, plan records, rendering and mixing. Never read key files or ask for secrets in chat. CLI developer mode reads `FAL_AI_API_KEY` from its environment.
 
@@ -67,7 +67,7 @@ Use timed gestures, blinks, reactions and speaker exchanges; keep one visual foc
 
 ## 4. Assemble, score and end on a high note
 
-Join exact-length sections with `media:preview` against one unbroken narration master. Reuse the five original instrumental beds byte-for-byte by default, especially `intro.wav` for the hook and `titles.wav` for curtain/credits. New music is optional. `music:bed` loops/fades these sources and ducks them smoothly under speech. Mix sparse SFX last. Preserve narration-only, narration+music and final SFX versions.
+Join exact-length sections with `media:preview` against one unbroken narration master. Reuse the five bundled instrumental beds (MP3) unchanged by default, especially `intro.mp3` for the hook and `titles.mp3` for curtain/credits. New music is optional. `music:bed` loops/fades these sources and ducks them smoothly under speech. Mix sparse SFX last. Preserve narration-only, narration+music and final SFX versions.
 
 Read [ending and credits](references/ending-and-credits.md) and [the text/image layout template](assets/templates/ending/TEMPLATE.md); inspect its PNGs and use them as model references when generating visual layers. Default finish: callback joke/last line → music stops → **2.0 s silent reaction** → tada + **1.0 s iris to black** → red velvet curtain closes/folds, holds and reopens → lesson-specific end card and cast parade → animated film credits → final short callback. Reuse the bundled curtain clips. An optional three-second rewind uses the new lesson's own frames. Keep the end-card clock continuous across sections; retime cues from measured boundaries rather than copying source timestamps.
 

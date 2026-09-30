@@ -305,72 +305,6 @@
       "bytes": 532409
     },
     {
-      "path": "fonts/chalk.ttf",
-      "source": "tools/p5/fonts/chalk.ttf",
-      "sha256": "0579613b4e9911c66ccf70a8bc047f2a75d6fc36b32f660d9264f3015b377ef7",
-      "bytes": 486880
-    },
-    {
-      "path": "fonts/math.otf",
-      "source": "tools/p5/fonts/math.otf",
-      "sha256": "5add3f3f2bd7fd897d2fa5ccbe468607c52111dc44cdfaaf2d851a574f5357a7",
-      "bytes": 369156
-    },
-    {
-      "path": "fonts/body-black.ttf",
-      "source": "tools/p5/fonts/body-black.ttf",
-      "sha256": "2e33768362fd357e781d01670db1d226dfb484c6f2b769f3b798469ee1f82ad6",
-      "bytes": 168060
-    },
-    {
-      "path": "fonts/body-med.ttf",
-      "source": "tools/p5/fonts/body-med.ttf",
-      "sha256": "4ac8e03606ffa4c37f61a6510a2080f1f37a7054f4726c214887d3b23f72e369",
-      "bytes": 168644
-    },
-    {
-      "path": "fonts/din-cond.ttf",
-      "source": "tools/p5/fonts/din-cond.ttf",
-      "sha256": "36958182a424e1e8a1307b2636a615a6323ce1bbfadda136735ab4fb3bd26ceb",
-      "bytes": 212040
-    },
-    {
-      "path": "fonts/mono.ttf",
-      "source": "tools/p5/fonts/mono.ttf",
-      "sha256": "55caaed55254a28ac793847e8976be16c5ba7cbad1ec2ee2d5d86d4e6b3fa0c1",
-      "bytes": 223892
-    },
-    {
-      "path": "fonts/math-it.otf",
-      "source": "tools/p5/fonts/math-it.otf",
-      "sha256": "7f6bf9cab728febe4ce111bbfbcd16253806dcab0bbe1940ede2782cfc319a72",
-      "bytes": 141844
-    },
-    {
-      "path": "fonts/body.ttf",
-      "source": "tools/p5/fonts/body.ttf",
-      "sha256": "319cff6e7a31f0f2a41c475dca42890aa5d19fe16017e2290f8c1d4e14f76481",
-      "bytes": 168260
-    },
-    {
-      "path": "fonts/din-alt.ttf",
-      "source": "tools/p5/fonts/din-alt.ttf",
-      "sha256": "78e816b9938fc40dd5383f4a91b598494798e2fa1d526abbd9e7ff7e5b9bf0ee",
-      "bytes": 152012
-    },
-    {
-      "path": "fonts/hand.ttf",
-      "source": "tools/p5/fonts/hand.ttf",
-      "sha256": "ea54acf02ee9cc276e0e44ce6b2bf60e8eee0a4517468f0e989db55fc1ffe19c",
-      "bytes": 596736
-    },
-    {
-      "path": "fonts/mono-andale.ttf",
-      "source": "tools/p5/fonts/mono-andale.ttf",
-      "sha256": "ca436a8f07f6699107542ebe19dcc9478f12aa666927699e9fa10115e7d2ee95",
-      "bytes": 109700
-    },
-    {
       "path": "loops/face_prof.mp4",
       "source": "output/s10/04_clip_face_prof.mp4",
       "sha256": "ef7d4ef4c925df876cff940cdae8ecac54d9fa39e2b20faf573b284730841e9e",
@@ -389,40 +323,40 @@
       "bytes": 6749104
     },
     {
-      "path": "fonts/original-selection.json",
-      "source": "config/fonts.json",
-      "sha256": "fa4c796ee78a74ee1b7ccac7bad54c7cd1cb16cb3dee7b0268279455c5f3d871",
-      "bytes": 735
+      "path": "fonts/default-selection.json",
+      "source": "stock macOS font paths; edit per machine",
+      "sha256": "1014bea527696492ac6c0b1234d0c4a912443f7c0c444485c59532477146d79b",
+      "bytes": 782
     },
     {
-      "path": "music/intro.wav",
+      "path": "music/intro.mp3",
       "source": "output/finish-music/tracks/intro.wav",
-      "sha256": "3aa6e453aded4a86b68c2d86d8fed4c08f0a60446930aa210c904f450ccb5fbf",
-      "bytes": 11525722
+      "sha256": "79b0e8f3a3e3a9a4563cae1ad576392ee86f38f5f1c68040e28d87627eb00d96",
+      "bytes": 1442349
     },
     {
-      "path": "music/class.wav",
+      "path": "music/class.mp3",
       "source": "output/finish-music/tracks/class.wav",
-      "sha256": "b8616af6befd49b27d38d6d6e30d71dbc44a7d76bc6e32171d9ddc685799ea91",
-      "bytes": 11525722
+      "sha256": "6422f7942846f243bd7889274f59d91a244a1506fbcc5352b225fdd0ef705117",
+      "bytes": 1442349
     },
     {
-      "path": "music/blackboard.wav",
+      "path": "music/blackboard.mp3",
       "source": "output/finish-music/tracks/blackboard.wav",
-      "sha256": "286423b0246db50363205b2cbf0412b6d2728620a98c4c5e5a16569937eb7787",
-      "bytes": 11525722
+      "sha256": "9257da73830148930220e44701dfe7d2933967122ad7bf3d8a56456d7f1eb909",
+      "bytes": 1442349
     },
     {
-      "path": "music/devroom.wav",
+      "path": "music/devroom.mp3",
       "source": "output/finish-music/tracks/devroom.wav",
-      "sha256": "f38251b42fb2c79d695edc79160960f8c8f0c5dec84a641e60ebd2e81729c09b",
-      "bytes": 11525722
+      "sha256": "62a21941e7a5f980797b588e713459d263afb9e4c2e6b901921bcb0e2389caed",
+      "bytes": 1442349
     },
     {
-      "path": "music/titles.wav",
+      "path": "music/titles.mp3",
       "source": "output/finish-music/tracks/titles.wav",
-      "sha256": "32bb28b80d9d64fd1a544097c4367ef3973e62854112c13974f772a587cfd5aa",
-      "bytes": 11525722
+      "sha256": "94fd85981cd67fc04fff7f10f4a217a428be6f98939e501155632d87dcf6ed71",
+      "bytes": 1442349
     }
   ]
 }

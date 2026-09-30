@@ -3,7 +3,7 @@ require_relative "../lib/toolkit/initializer"
 require_relative "../lib/toolkit/mcp_server"
 
 RSpec.describe "Portable lesson workflow", :core do
-  it "initializes from a brief alone with preserved identities, voices, fonts, layout references and original music" do
+  it "initializes from a brief alone with preserved identities, voices, a font selection, layout references and original music" do
     File.write(file("brief.md"), "Explain database indexes with a worked example")
     project = file("lesson")
     Toolkit::Initializer.new(RT).create(project: project, prompt: file("brief.md"))
@@ -18,7 +18,8 @@ RSpec.describe "Portable lesson workflow", :core do
     music = YAML.safe_load_file(File.join(project, "prompts/finish-music/music.yml"))
     expect(music["tracks"].keys).to contain_exactly("intro", "class", "blackboard", "devroom", "titles")
     music["tracks"].each_value { |track| expect(File.file?(File.join(project, track.fetch("file")))).to be(true) }
-    expect(File.file?(File.join(project, "tools/p5/fonts/chalk.ttf"))).to be(true)
+    expect(JSON.parse(File.read(File.join(project, "config/fonts.json")))).to include("chalk.ttf" => "/System/Library/Fonts/Supplemental/Chalkduster.ttf")
+    expect(Dir.children(File.join(project, "tools/p5/fonts"))).to be_empty
     expect(File.file?(File.join(project, ".skill/assets/templates/ending/end-card.png"))).to be(true)
   end
 
@@ -67,9 +68,11 @@ RSpec.describe "Portable lesson workflow", :core do
 end
 
 RSpec.describe "Narration and reusable background beds", :media do
-  it "renders the explainer typography, code, diagram, card and caption helpers with preserved fonts" do
-    fonts = File.join(SKILL, "assets/lesson/fonts")
-    FileUtils.cp_r(fonts, file("fonts"))
+  it "renders the explainer typography, code, diagram, card and caption helpers with the default system fonts" do
+    selection = JSON.parse(File.read(File.join(SKILL, "assets/lesson/fonts/default-selection.json")))
+    skip "default system fonts not installed" unless selection.values.all? { |path| File.file?(path) }
+    FileUtils.mkdir_p(file("fonts"))
+    selection.each { |name, path| FileUtils.cp(path, file("fonts/#{name}")) }
     sketch = File.read(File.join(RT, "tools/p5/examples/ex_smoke.js"))
     mapping = {chalk: "chalk.ttf", mono: "mono.ttf", tag: "din-alt.ttf", title: "din-cond.ttf", body: "body.ttf", math: "math-it.otf"}
     base = fixtures.delete_prefix(RT) + "/fonts/"

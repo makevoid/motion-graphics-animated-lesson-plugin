@@ -8,7 +8,7 @@ module Toolkit
     TASKS = {
       "doctor" => "Check local tools; STRICT=1 fails on missing prerequisites",
       "setup" => "Install gems, npm packages and a local Python venv through Ruby",
-      "fonts:list" => "List installed macOS TTF/OTF files, including Supplemental fonts (local)",
+      "fonts:list" => "List installed TTF/OTF files from macOS, Linux and Windows font folders (local)",
       "fonts:copy" => "Copy selected fonts into this video project: [selection.json] (local)",
       "openapi:fetch" => "Fetch current Fal input schemas (no generation)",
       "openapi:summary" => "Print saved Fal schema summaries",

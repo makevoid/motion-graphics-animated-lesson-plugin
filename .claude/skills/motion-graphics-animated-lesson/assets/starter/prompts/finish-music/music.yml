@@ -7,13 +7,13 @@ attack: 0.06
 release: 0.45
 hold: 0.25
 lookahead: 0.12
-# Original lesson music, preserved byte-for-byte. No generation call is needed.
+# Original lesson music (192 kbps CBR MP3), reused unchanged. No generation call is needed.
 tracks:
-  intro: {file: .skill/assets/lesson/music/intro.wav}
-  class: {file: .skill/assets/lesson/music/class.wav}
-  blackboard: {file: .skill/assets/lesson/music/blackboard.wav}
-  devroom: {file: .skill/assets/lesson/music/devroom.wav}
-  titles: {file: .skill/assets/lesson/music/titles.wav}
+  intro: {file: .skill/assets/lesson/music/intro.mp3}
+  class: {file: .skill/assets/lesson/music/class.mp3}
+  blackboard: {file: .skill/assets/lesson/music/blackboard.mp3}
+  devroom: {file: .skill/assets/lesson/music/devroom.mp3}
+  titles: {file: .skill/assets/lesson/music/titles.mp3}
 # Fill from the measured lesson timing. Default to intro for the hook and titles for curtain/credits.
 # Stop the teaching bed at the final spoken joke; preserve the 2-second silent pause.
 # Start titles at the curtain with fade_in: 0.8, duck: false; only disable ducking with no speech.

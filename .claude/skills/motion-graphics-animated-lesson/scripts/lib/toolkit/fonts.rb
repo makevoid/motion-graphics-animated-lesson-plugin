@@ -4,7 +4,10 @@ require "digest"
 
 module Toolkit
   class Fonts
-    ROOTS = ["/System/Library/Fonts", "/Library/Fonts", File.expand_path("~/Library/Fonts")].freeze
+    # macOS (system, Supplemental, all-users, per-user), then common Linux and Windows locations.
+    ROOTS = ["/System/Library/Fonts", "/Library/Fonts", File.expand_path("~/Library/Fonts"),
+             "/usr/share/fonts", "/usr/local/share/fonts", File.expand_path("~/.local/share/fonts"), File.expand_path("~/.fonts"),
+             "C:/Windows/Fonts"].freeze
 
     def list(roots = ROOTS)
       roots.flat_map { |root| Dir.glob(File.join(root, "**", "*")) }
