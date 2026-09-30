@@ -14,7 +14,7 @@ The initializer copies the preserved lesson fonts to `tools/p5/fonts/` and write
 
 For additional/replacement faces use local `fonts:list`, select actual TTF/OTF files (not TTC collections), then `fonts:copy[config/fonts.json]`. The map uses stable filenames and absolute font source paths. Copy refuses to overwrite different bytes. Retain original license terms and use new filenames for replacements. Setup does not download fonts.
 
-The bundled `Ex` library supplies `cam`, `withCam`, `img`, `puppet`, `talk`, `chalk`, `chalkLine`, `arrow`, `code`, `window`, `card`, `stamp`, `caption`, `phrases`, `math`, `lowerThird` and palette `C`. Inspect `tools/p5/lib/explainer.js` for exact arguments; see `assets/lesson/examples/` for actual usage. Use `async load()` in `Anim.sketch`, not a p5 setup callback. Use `fontWidth()` for advance widths with p5 2.x. Code/caption punctuation must remain legible.
+The bundled `Ex` library supplies `cam`, `withCam`, `img`, `puppet`, `talk`, `chalk`, `chalkLine`, `arrow`, `code`, `window`, `card`, `stamp`, `caption`, `phrases`, `math`, `lowerThird` and palette `C`. Inspect `tools/p5/lib/explainer.js` for exact arguments; see the minimal scene below and [ending motion recipes](ending-motion.md) for usage. Use `async load()` in `Anim.sketch`, not a p5 setup callback. Use `fontWidth()` for advance widths with p5 2.x. Code/caption punctuation must remain legible.
 
 This minimal example demonstrates sprite placement and a camera transform. Supply the background, graphics, colours and any typography from the scene's approved design.
 

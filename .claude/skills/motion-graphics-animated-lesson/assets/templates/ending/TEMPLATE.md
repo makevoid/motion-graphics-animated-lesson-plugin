@@ -6,19 +6,19 @@ Use this text together with the PNGs in this directory and the original curtain 
 
 | New asset/layout | Attach or inspect | Purpose |
 |---|---|---|
-| End card | `end-card.png` + `reference-end-card.png` | thesis at top; a callback diagram; actual sources; cast parade at bottom |
-| Credit title | `credits-title.png` + `reference-credits-title.png` | large condensed title, chalk subtitle, artifact line |
-| Cast credits | `credits-cast.png` + `reference-credits-cast.png` | alternating face vignettes, name, voice/model, character-specific aside |
+| End card | `end-card.png` | thesis at top; a callback diagram; actual sources; cast parade at bottom |
+| Credit title | `credits-title.png` | large condensed title, chalk subtitle, artifact line |
+| Cast credits | `credits-cast.png` | alternating face vignettes, name, voice/model, character-specific aside |
 | Crew/technology | `credits-production.png` + `reference-credits-production.png` | two columns, amber roles above light text |
-| Final joke | `final-joke-card.png` + `reference-final-joke.png` | readable closing hold, a small callback, punchline/music stop |
+| Final joke | `final-joke-card.png` | readable closing hold, a small callback, punchline/music stop |
 | Curtain design | `../../lesson/curtain/closed.png` + `../../lesson/curtain/open.png` | exact red velvet, folds, gold fringe, matching valance |
 | Curtain choreography | `reference-curtain-folding.png`, `reference-curtain-closed.png`, `reference-curtain-reveal.png` | close/fold, hold, reopen over the end card |
 
-`reference-*.png` are frames of the original finished lesson, not content for the next video. Their Software Archaeology text and credits demonstrate placement. Replace all dates, names, sources, producer lines, jokes and model claims with the current production's data. The simplified cast guide deliberately gives fewer characters more breathing room.
+`reference-*.png` are frames of the original finished lesson, not content for the next video. Their Software Archaeology text and credits demonstrate placement. Replace all dates, names, sources, producer lines, jokes and model claims with the current production's data. The cast guide includes only professor and developer slots; omit any unused role. Original frames containing other characters are excluded.
 
 ## Text template for an image/edit model
 
-> Reference image 1 is the layout guide; reference image 2 is the original lesson frame for style and spacing; subsequent images are the approved character or curtain references. Preserve their identity and the warm cel cartoon style. Create only the requested clean visual layer: {curtain / background / one character pose}. Keep {named layout regions and coordinates} clear for typography composited later. Do not render the guide labels, coordinates, lesson text, credits, logos or captions into the image. Keep the supplied curtain's gold valance and red folds consistent across open and closed states. For an open curtain, the stage opening alone is flat chroma green #00B140; no green on the velvet. All type will be drawn exactly in p5.
+> Reference image 1 is the layout guide; subsequent images are the approved professor/developer identity sheets or curtain references. When supplied, an original character-free lesson frame demonstrates style and spacing. Preserve their identity and the warm cel cartoon style. Create only the requested clean visual layer: {curtain / background / one character pose}. Keep {named layout regions and coordinates} clear for typography composited later. Do not render the guide labels, coordinates, lesson text, credits, logos or captions into the image. Keep the supplied curtain's gold valance and red folds consistent across open and closed states. For an open curtain, the stage opening alone is flat chroma green #00B140; no green on the velvet. All type will be drawn exactly in p5.
 
 Use image references in the actual generation request (`image_urls`/keyframe `refs`), not only filenames in a text prompt. Prefer the original curtain assets/performances unchanged when no redesign is requested. To create a different curtain, register its reference images and edit them; generate opening/closing H3 with the first/end images swapped. Reuse does not require model calls.
 
@@ -51,4 +51,4 @@ Use exact integer section frames and measured clip landmarks; the above offsets 
 
 ## Reference frame provenance
 
-Source: `video-session14/aicodegen/output/with-sfx.mp4`, 5283 frames, 220.125 s, 1920×1080/24fps. Extracted at: folding 178.5 s; closed 180.4 s; reveal 182.5 s; end card 185 s; title 191.5 s; cast 196 s; production 208 s; final joke 219.5 s. These are source-study timestamps only.
+Source: `video-session14/aicodegen/output/with-sfx.mp4`, 5283 frames, 220.125 s, 1920×1080/24fps. Retained frames extracted at: folding 178.5 s; closed 180.4 s; reveal 182.5 s; production 208 s. These are source-study timestamps only.

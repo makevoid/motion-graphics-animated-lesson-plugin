@@ -19,9 +19,7 @@ Defaults apply only if those roles are needed; remove unused roles from cast, sc
 
 This uploads the exact local bytes, records provenance and is idempotent for the same identity. It rejects overwriting a different identity in that RUN. Register the developer similarly when used. Define identity runs with `steps: [Steps::RefBase]` and import their `ref_base` into scenes, or use `refs: ["char-prof-v1"]` on keyframes. A `ref:register` upload supplies the URL expected by those references. Only register selected cast.
 
-## Optional supporting cast
-
-Preserved identity PNGs and original prompts also exist for `bot-gpt3-v1` (Callum, 0.95, 31), `bot-chatgpt-v1` (Jessica, 0.5, 51), `bot-claude-v1` (River, 0.5, 21), `bot-codex-v1` (Eric, 0.5, 61), `snake-py-v1` and `atom-react-v1` (non-speaking). These are choices for relevant software lessons, never an automatic cast list. GPT-3 has screen eyes, no mouth and tank treads; Chatty has no green/teal character details; Reacty's tilted rings stay clear of the face.
+Only the professor and developer are bundled. Additional or replacement characters require an explicit brief and their own approved identity, voice and assets.
 
 ## World and reusable performances
 
@@ -30,8 +28,7 @@ Preserved identity PNGs and original prompts also exist for `bot-gpt3-v1` (Callu
 - `props/`: transparent props, independent gears and diagram pieces with original indices. Index `path` values preserve source-project locations; resolve each sprite as `.skill/assets/lesson/props/<run>/<name>.png` in a new project. Generated object counts may differ from prompt; measure pivots/teeth before animation.
 - `curtain/closed.png`, `curtain/open.png`: original full-quality image templates. `curtain/close.mp4`, `curtain/open.mp4`: silent source H3 clips, ready for local green keying.
 - `loops/face_prof.mp4`, `loops/face_luca.mp4`, `loops/run_luca.mp4`: silent credits/reaction loops. They do not represent spoken performances for a new script.
-- `review/reference-contact-sheet.jpg`: overall lesson staging reference.
-- `examples/`: original scene sketches, keyframe/clip YAML and audio cue examples. These demonstrate timing/layout algorithms; they reference source-only paths, other clips and old lesson facts. Adapt them, do not execute them unchanged or claim every dependency is bundled.
+- [Ending motion recipes](ending-motion.md): extracted iris, curtain, loop anchoring and credit-scroll techniques, with no dependency on the original supporting cast. Use `assets/starter/` for portable project and audio templates.
 
 Set `plate_file: ".skill/assets/lesson/plates/classroom.png"` in a scene generation to reuse the classroom directly, without a generated keyframe or reference upload. In p5 load `/.skill/assets/lesson/plates/classroom.png` when drawing it inside your camera. Character-free scenes omit the RefBase, Keyframes and Clips steps.
 

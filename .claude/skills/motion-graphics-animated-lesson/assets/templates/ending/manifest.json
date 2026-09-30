@@ -8,8 +8,8 @@
   "files": [
     {
       "path": "TEMPLATE.md",
-      "sha256": "bcf034eba03db185ef25cec99333f9fb2d51a909744e0ee027b8e7941158578e",
-      "bytes": 5590
+      "sha256": "cc6d95bf388bda245b5ea6fe95e27bfa8561ad51d33550dde74e043721e4ef56",
+      "bytes": 5524
     },
     {
       "path": "credits-cast.png",
@@ -67,19 +67,9 @@
       "bytes": 3944
     },
     {
-      "path": "reference-credits-cast.png",
-      "sha256": "6c4c9ed28fdeb9e3d84f3219581c2160cdb5ce26f3e2ec7a20a1dda9955e0462",
-      "bytes": 882005
-    },
-    {
       "path": "reference-credits-production.png",
       "sha256": "d577357182a520e4f272a99d593b367ed36a9b853257d32eddbe5fe2e4739136",
       "bytes": 590588
-    },
-    {
-      "path": "reference-credits-title.png",
-      "sha256": "832a7f26016335c951fe97451c801cc46b8b1f27f1509b4b568a14c4c20a37b9",
-      "bytes": 549040
     },
     {
       "path": "reference-curtain-closed.png",
@@ -95,16 +85,6 @@
       "path": "reference-curtain-reveal.png",
       "sha256": "816099da65b55e2e4b00b542e1594f9541a5db066e4cd59c3cc2881970c816c0",
       "bytes": 1282192
-    },
-    {
-      "path": "reference-end-card.png",
-      "sha256": "37c5831806c7d43a1fd5c30858d06dbf4f894499848d63b4bea6332fd46d4d34",
-      "bytes": 696242
-    },
-    {
-      "path": "reference-final-joke.png",
-      "sha256": "f01453f676212f88ef0181b28036ee4cf2922306e911bd554b42b61e2720ca00",
-      "bytes": 389796
     }
   ]
 }

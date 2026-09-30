@@ -4,11 +4,11 @@ Version **0.2.0**.
 
 A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, repository or script. It combines character acting with p5 diagrams, code, captions and camera moves, then adds music ducked under dialogue, a theatrical curtain call and animated credits.
 
-The workflow is based on **Software Archaeology 101**, the 220.125-second lesson in `video-session14`. The plugin includes its reusable artwork, fonts, curtain images/animations, scene-code examples and all five original music beds. New projects are self-contained; the original directory is not required.
+The workflow is based on **Software Archaeology 101**, the 220.125-second lesson in `video-session14`. The plugin includes its reusable artwork, fonts, curtain images/animations, animation and timing recipes and all five original music beds. New projects are self-contained; the original directory is not required.
 
-![Reference lesson](.claude/skills/motion-graphics-animated-lesson/assets/lesson/review/reference-contact-sheet.jpg)
+![Preserved classroom](.claude/skills/motion-graphics-animated-lesson/assets/lesson/plates/classroom.png)
 
-The default lecturer is **Prof. Otto Regress**, voiced by **George** with ElevenLabs Eleven v4. The default developer uses **Liam**. Their original identity sheets and voice settings are preserved. Either role can be omitted or replaced by the prompt; unrelated lessons do not automatically acquire a developer or software robots.
+The default lecturer is **Prof. Otto Regress**, voiced by **George** with ElevenLabs Eleven v4. The default developer uses **Liam**. Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role can be omitted or replaced by the prompt.
 
 ## Install and invoke
 

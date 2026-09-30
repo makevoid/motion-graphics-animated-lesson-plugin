@@ -49,9 +49,9 @@ RSpec.describe "Character to animated scene pipeline", :media do
     stub_const("Pipeline::GENERATIONS", {run => generation})
     project = Pipeline::Project.new(run)
     prompt_dir = File.join(RT, "prompts", run); FileUtils.mkdir_p(prompt_dir)
-    File.write(File.join(prompt_dir, "01_ref_base.txt"), "Expressive red robot character sheet; fixture")
-    File.write(File.join(prompt_dir, "02_keyframes.yml"), YAML.dump({"pose" => {"prompt" => "Same robot, raise hand"}, "later" => {"prompt" => "Same robot, grin"}}))
-    File.write(File.join(prompt_dir, "04_clips.yml"), YAML.dump([{"name" => "sing", "image" => "pose", "seconds" => 5, "key" => "green", "audio" => song, "audio_at" => 0, "frames" => 24, "prompt" => "Animate the same robot with clear singing mouth movements"}]))
+    File.write(File.join(prompt_dir, "01_ref_base.txt"), "Expressive cartoon professor character sheet; fixture")
+    File.write(File.join(prompt_dir, "02_keyframes.yml"), YAML.dump({"pose" => {"prompt" => "Same professor, raise hand"}, "later" => {"prompt" => "Same professor, grin"}}))
+    File.write(File.join(prompt_dir, "04_clips.yml"), YAML.dump([{"name" => "sing", "image" => "pose", "seconds" => 5, "key" => "green", "audio" => song, "audio_at" => 0, "frames" => 24, "prompt" => "Animate the same professor with clear speaking mouth movements"}]))
     client = SyntheticFal.new(image: image, video: movie)
     with_workspace do
       approve

@@ -23,12 +23,12 @@ RSpec.describe "Skill contracts and Ruby entry", :core do
   it "rejects incomplete intake without prompting or overwriting an existing project" do
     _, _, status = cli("init")
     expect(status.exitstatus).to eq(2)
-    File.write(file("song.wav"), "fixture"); File.write(file("brief.md"), "Dancing robot")
+    File.write(file("song.wav"), "fixture"); File.write(file("brief.md"), "Professor explaining a concept")
     dir = file("project")
     out, err, status = cli("init", "--project", dir, "--song", file("song.wav"), "--prompt-file", file("brief.md"))
     expect(status.exitstatus).to eq(0), err
     expect(JSON.parse(out)["project"]).to eq(dir)
-    expect(File.read(File.join(dir, "docs/BRIEF.md"))).to eq("Dancing robot")
+    expect(File.read(File.join(dir, "docs/BRIEF.md"))).to eq("Professor explaining a concept")
     _, _, status = cli("init", "--project", dir, "--song", file("song.wav"), "--prompt-file", file("brief.md"))
     expect(status.exitstatus).to eq(2)
   end

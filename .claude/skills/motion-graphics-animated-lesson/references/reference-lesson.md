@@ -2,7 +2,7 @@
 
 Studied source: `video-session14/aicodegen`, its thirteen production-guide chapters, character prompts, source sketches, timing/config and final-frame examples. Final deliverable verified by ffprobe: **5283 frames, 220.125 s, 24fps, 1920×1080**. Earlier source notes call it 217 s; that predates the rewind insertion. The portable artifacts here remove the need for that original directory.
 
-The viewed contact sheet shows a warm classroom with a large board and professor staged at the lower edge; code/few-shot cards appear on the board; diagram scenes dive into the mechanism; a developer desk and later lab establish changes of context; a split-board synthesis returns to the classroom. Separate character cutouts allow the same world, exact text and diagrams to stay stable. Generated whole-scene video would make these precise exhibits harder to revise.
+The studied reference frames show a warm classroom with a large board and professor staged at the lower edge; code/few-shot cards appear on the board; diagram scenes dive into the mechanism; a developer desk and later lab establish changes of context; a split-board synthesis returns to the classroom. Separate character cutouts allow the same world, exact text and diagrams to stay stable. Generated whole-scene video would make these precise exhibits harder to revise.
 
 The source uses a terminal/date mystery first, then title/host, prompt examples, a mechanical pipeline/repair loop, developer demo, increasingly frantic copy/paste montage, agent lab, synthesis, stop-token gag and theatrical ending. The joke and keyboard prop recur with new meaning. New lessons should reuse that setup/payoff method, not the software-history content.
 
@@ -16,7 +16,7 @@ Animation techniques worth preserving:
 - p5 text advance uses `fontWidth()`, fixing collapsed code punctuation. Cards/credits need readable holds; motion should not compete with explanation.
 - A two-second silent pause makes the final joke land; iris, folding curtain and upbeat titles music give the lesson a theatrical finish.
 
-Original scene frame ranges (inclusive start/exclusive end), useful only for studying the bundled sketches:
+Original scene frame ranges (inclusive start/exclusive end), retained as a pacing study rather than a fixed new-lesson schedule:
 
 | Scene | Frames | Function |
 |---|---|---|
@@ -33,4 +33,4 @@ Original scene frame ranges (inclusive start/exclusive end), useful only for stu
 | s09t | 4491–4563 | rewind |
 | s10 | 4563–5283 | animated credits/final callback |
 
-Preserved study material lives in `assets/lesson/examples/`, the [cast catalogue](cast-and-assets.md), and [ending template](../assets/templates/ending/TEMPLATE.md). Samples are source code for adaptation, not standalone new-project templates. `assets/starter/` contains the actual portable initializer templates.
+Preserved study material lives in the [cast catalogue](cast-and-assets.md), [ending motion recipes](ending-motion.md), and [ending template](../assets/templates/ending/TEMPLATE.md). The archived scenes, narration and screenshots featuring other characters are omitted. `assets/starter/` contains the portable initializer templates; the only bundled cast is the professor and developer.

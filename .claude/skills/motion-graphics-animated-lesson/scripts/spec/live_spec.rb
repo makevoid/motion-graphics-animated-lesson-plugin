@@ -12,10 +12,10 @@ RSpec.describe "Paid Fal and local finishing", :live do
       File.write("docs/PLAN.md", "Paid test: one image, one edit, one H3 5s, one Whisper, one Demucs and one SFX. No rerolls.")
       Workflow::Approval.new.record!("LIVE_FAL=1 supplied by test operator")
       image_model = Fal::Models::GptImage25.new(client: client)
-      generated = image_model.generate(prompt: "Hyper quality polished playful 2D music video character: red cartoon robot singer, expressive face with clear mouth, full body centered, flat green #00B140 background. No text, no extra characters, no green clothing.")
+      generated = image_model.generate(prompt: "Hyper quality polished playful 2D lesson character: cartoon professor, expressive face with clear mouth, full body centered, flat green #00B140 background. No text, no extra characters, no green clothing.")
       image = client.download(generated.output.fetch("images").first.fetch("url"), file("identity.png"))
       expect(magick.identify(image)[:w]).to be >= 1920
-      edited = Fal::Models::GptImage25Edit.new(client: client).edit(prompt: "The SAME robot character and style, same flat chroma green. Keep the face clearly visible, raise one hand in an expressive singing pose. Hyper quality polished detail, no text.", image_urls: [generated.output["images"][0]["url"]])
+      edited = Fal::Models::GptImage25Edit.new(client: client).edit(prompt: "The SAME professor character and style, same flat chroma green. Keep the face clearly visible, raise one hand in an expressive teaching pose. Hyper quality polished detail, no text.", image_urls: [generated.output["images"][0]["url"]])
       client.download(edited.output["images"][0]["url"], file("pose.png"))
       input = ff.extract_audio(song, file("song.wav"), seconds: 5)
       input = ff.fit_audio(input, file("padded.wav"), seconds: 5, fade: 0) if ff.duration(input) < 5
@@ -30,7 +30,7 @@ RSpec.describe "Paid Fal and local finishing", :live do
       # Harness check only: 768P keeps this paid test cheap (5 s is the H3 minimum).
       # AI agents: when this spec runs inside a generated video project (not the plugin harness), change it back to 1080P:
       # drop `resolution: "768P"`, expect "1080P" and a clip height >= 1060. Never copy this 768P override into production calls.
-      animation = Fal::Models::H3MaxImageToVideo.new(client: client).animate(prompt: "The SAME robot performs the supplied lyric with articulated mouth motion and expressive eyebrow/hand acting, perfect flat green, locked camera, entire face visible. Hyper quality very interesting and fun music video performance, no text.", image_url: edited.output["images"][0]["url"], duration: 5, resolution: "768P", target_audio_url: client.upload(vocals))
+      animation = Fal::Models::H3MaxImageToVideo.new(client: client).animate(prompt: "The SAME professor performs the supplied spoken line with articulated mouth motion and expressive eyebrow/hand acting, perfect flat green, locked camera, entire face visible. Hyper quality very interesting and fun lesson performance, no text.", image_url: edited.output["images"][0]["url"], duration: 5, resolution: "768P", target_audio_url: client.upload(vocals))
       clip = client.download(animation.output.fetch("video").fetch("url"), file("h3.mp4"))
       expect(animation.input[:resolution]).to eq("768P")
       expect(ff.summary(clip).dig(:video,:h)).to be >= 700

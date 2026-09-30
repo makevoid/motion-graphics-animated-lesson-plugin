@@ -2,7 +2,7 @@ require_relative "spec_helper"
 RSpec.describe "Local media end to end", :media do
   it "executes the documented intake and audio-analysis task in a fresh project" do
     song = tone(duration: 3)
-    File.write(file("brief.md"), "A robot band, visual puns and dramatic drop")
+    File.write(file("brief.md"), "A professor and developer, visual examples and a callback joke")
     destination = file("new project")
     _, err, status = cli("init", "--project", destination, "--song", song, "--prompt-file", file("brief.md"))
     expect(status.exitstatus).to eq(0), err
