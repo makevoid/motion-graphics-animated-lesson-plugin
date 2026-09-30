@@ -8,7 +8,7 @@ The workflow is based on **Software Archaeology 101**, the 220.125-second lesson
 
 ![Preserved classroom](.claude/skills/motion-graphics-animated-lesson/assets/lesson/plates/classroom.png)
 
-The default lecturer is **Prof. Otto Regress**, voiced by **George** with ElevenLabs Eleven v4. The default developer uses **Liam**. Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role can be omitted or replaced by the prompt.
+The default lecturer is **Prof. Otto Regress**, voiced by **George** with ElevenLabs Eleven v4. The default character is a young male developer ( the voice uses **Liam** ). Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role  **can be** omitted or  **replaced by the prompt**. 
 
 ## Install and invoke
 
