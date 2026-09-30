@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#1B1A22"/>
+<rect x="96" y="54" width="1728" height="972" rx="10" fill="none" stroke="#586575" stroke-width="2" stroke-dasharray="12 10"/>
+<rect x="240" y="240" width="1440" height="180" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="260" y="285" font-family="Arial" font-size="27" fill="#F3EFE4">LESSON TITLE</text>
+<text x="260" y="318" font-family="Arial" font-size="21" fill="#AAB7B1">x240 y240 / 1440 x 180</text>
+<rect x="300" y="455" width="1320" height="80" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="320" y="500" font-family="Arial" font-size="27" fill="#F3EFE4">SUBTITLE / LEARNING OUTCOME</text>
+<text x="320" y="533" font-family="Arial" font-size="21" fill="#AAB7B1">x300 y455 / 1320 x 80</text>
+<rect x="300" y="560" width="1320" height="60" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="320" y="605" font-family="Arial" font-size="27" fill="#F3EFE4">TOPIC / ARTIFACT / SOURCE DATE</text>
+<text x="320" y="638" font-family="Arial" font-size="21" fill="#AAB7B1">x300 y560 / 1320 x 60</text>
+<rect x="420" y="715" width="1080" height="70" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="440" y="760" font-family="Arial" font-size="27" fill="#F3EFE4">CREATOR / PRODUCER (ACTUAL)</text>
+<text x="440" y="793" font-family="Arial" font-size="21" fill="#AAB7B1">x420 y715 / 1080 x 70</text>
+<text x="100" y="35" font-family="Arial" font-size="22" fill="#FFB53D">LAYOUT GUIDE - 1920 x 1080 - 24 FPS - TEXT IS COMPOSITED IN P5</text>
+</svg>

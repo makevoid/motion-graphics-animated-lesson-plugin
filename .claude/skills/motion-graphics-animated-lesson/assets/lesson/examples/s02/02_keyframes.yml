@@ -1,0 +1,58 @@
+---
+prof_talk:
+  prompt: |-
+    This asset belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Deliver polished visual detail and expressive character acting with surprising, relevant details from the researched plan.
+
+    SAME professor as image 1, same approved visual style, same proportions and costume. Single pose: medium shot from the waist up, the character occupies 85% of the frame height, centred slightly left of centre, facing the viewer with the chest turned a little toward screen-left, wooden pointer in the right hand held at chest height, left hand open in a warm welcoming gesture, eyebrows raised, mouth slightly open mid-word, both hands fully inside the frame.
+
+    Background: one character, one pose, on perfectly flat chroma green #00B140 filling the entire background edge to edge, no floor, no cast shadow, no gradient, whole silhouette inside the frame with at least 6% margin on every side, no green anywhere on the character.
+
+    STYLE: premium 2D animated-explainer illustration. Characters are semi-super-deformed, halfway between anime chibi and a Western cartoon: about 2.5 heads tall, a big head roughly 40% of total height, a small rounded body, large expressive eyes with simple highlights, readable hands with four fingers and a thumb. Clean, confident dark plum-black ink linework (#1B1A22) with slight weight variation; flat cel colour with one soft shadow tone and a subtle warm rim light; gentle gradients only in highlights; matte materials; crisp edges. Not photorealistic, not a 3D render, no halftone, no paper texture, no film grain. Colour world: slate-green chalkboard #1E3B34, warm chalk white #F3EFE4, paper cream #F6EEDC, terminal amber #FFB53D, with each character's own accent colours. No text, no letters, no numbers, no logos, no watermarks, no captions anywhere in the image.
+claude_peek:
+  base: false
+  refs:
+  - bot-claude-v1
+  prompt: |-
+    This asset belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Deliver polished visual detail and expressive character acting with surprising, relevant details from the researched plan.
+
+    SAME robot as image 1, same approved visual style, colours and details (terracotta body, cream face plate, starburst antenna, terminal chest panel with amber cursor, utility belt). Single pose: full body, the robot occupies 72% of the frame height, centred, leaning eagerly forward toward screen-left with one hand raised high in an enthusiastic "can I help?" wave, eyes wide and bright, mouth line slightly open, facing screen-left.
+
+    Background: one character, one pose, on perfectly flat chroma green #00B140 filling the entire background edge to edge, no floor, no cast shadow, no gradient, whole silhouette inside the frame with at least 6% margin on every side, no green anywhere on the character.
+
+    STYLE: premium 2D animated-explainer illustration. Characters are semi-super-deformed, halfway between anime chibi and a Western cartoon: about 2.5 heads tall, a big head roughly 40% of total height, a small rounded body, large expressive eyes with simple highlights, readable hands with four fingers and a thumb. Clean, confident dark plum-black ink linework (#1B1A22) with slight weight variation; flat cel colour with one soft shadow tone and a subtle warm rim light; gentle gradients only in highlights; matte materials; crisp edges. Not photorealistic, not a 3D render, no halftone, no paper texture, no film grain. Colour world: slate-green chalkboard #1E3B34, warm chalk white #F3EFE4, paper cream #F6EEDC, terminal amber #FFB53D, with each character's own accent colours. No text, no letters, no numbers, no logos, no watermarks, no captions anywhere in the image.
+claude_sit:
+  base: false
+  refs:
+  - bot-claude-v1
+  prompt: |-
+    This asset belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Deliver polished visual detail and expressive character acting with surprising, relevant details from the researched plan.
+
+    SAME robot as image 1, same approved visual style, colours and details. Single pose: full body, the robot occupies 65% of the frame height, centred, sitting upright on an invisible seat (knees bent at 90 degrees, feet together), hands resting politely on its knees, head slightly bowed, sheepish sideways glance, facing the viewer.
+
+    Background: one character, one pose, on perfectly flat chroma green #00B140 filling the entire background edge to edge, no floor, no cast shadow, no gradient, whole silhouette inside the frame with at least 6% margin on every side, no green anywhere on the character.
+
+    STYLE: premium 2D animated-explainer illustration. Characters are semi-super-deformed, halfway between anime chibi and a Western cartoon: about 2.5 heads tall, a big head roughly 40% of total height, a small rounded body, large expressive eyes with simple highlights, readable hands with four fingers and a thumb. Clean, confident dark plum-black ink linework (#1B1A22) with slight weight variation; flat cel colour with one soft shadow tone and a subtle warm rim light; gentle gradients only in highlights; matte materials; crisp edges. Not photorealistic, not a 3D render, no halftone, no paper texture, no film grain. Colour world: slate-green chalkboard #1E3B34, warm chalk white #F3EFE4, paper cream #F6EEDC, terminal amber #FFB53D, with each character's own accent colours. No text, no letters, no numbers, no logos, no watermarks, no captions anywhere in the image.
+codex_peek:
+  base: false
+  refs:
+  - bot-codex-v1
+  prompt: |-
+    This asset belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Deliver polished visual detail and expressive character acting with surprising, relevant details from the researched plan.
+
+    SAME robot as image 1, same approved visual style, colours and details (matte graphite and white, terminal-window head with tall white rectangular eyes, indigo seams, cloud backpack, hover boots). Single pose: full body, the robot occupies 72% of the frame height, centred, standing with arms crossed and weight on one leg, head tilted, cool sidelong glance toward screen-left, a confident smirk implied by the eye shapes.
+
+    Background: one character, one pose, on perfectly flat chroma green #00B140 filling the entire background edge to edge, no floor, no cast shadow, no gradient, whole silhouette inside the frame with at least 6% margin on every side, no green anywhere on the character.
+
+    STYLE: premium 2D animated-explainer illustration. Characters are semi-super-deformed, halfway between anime chibi and a Western cartoon: about 2.5 heads tall, a big head roughly 40% of total height, a small rounded body, large expressive eyes with simple highlights, readable hands with four fingers and a thumb. Clean, confident dark plum-black ink linework (#1B1A22) with slight weight variation; flat cel colour with one soft shadow tone and a subtle warm rim light; gentle gradients only in highlights; matte materials; crisp edges. Not photorealistic, not a 3D render, no halftone, no paper texture, no film grain. Colour world: slate-green chalkboard #1E3B34, warm chalk white #F3EFE4, paper cream #F6EEDC, terminal amber #FFB53D, with each character's own accent colours. No text, no letters, no numbers, no logos, no watermarks, no captions anywhere in the image.
+codex_sit:
+  base: false
+  refs:
+  - bot-codex-v1
+  prompt: |-
+    This asset belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Deliver polished visual detail and expressive character acting with surprising, relevant details from the researched plan.
+
+    SAME robot as image 1, same approved visual style, colours and details. Single pose: full body, the robot occupies 65% of the frame height, centred, slumped sitting on an invisible seat, legs stretched forward, arms crossed, eyes half-lidded and bored, facing the viewer.
+
+    Background: one character, one pose, on perfectly flat chroma green #00B140 filling the entire background edge to edge, no floor, no cast shadow, no gradient, whole silhouette inside the frame with at least 6% margin on every side, no green anywhere on the character.
+
+    STYLE: premium 2D animated-explainer illustration. Characters are semi-super-deformed, halfway between anime chibi and a Western cartoon: about 2.5 heads tall, a big head roughly 40% of total height, a small rounded body, large expressive eyes with simple highlights, readable hands with four fingers and a thumb. Clean, confident dark plum-black ink linework (#1B1A22) with slight weight variation; flat cel colour with one soft shadow tone and a subtle warm rim light; gentle gradients only in highlights; matte materials; crisp edges. Not photorealistic, not a 3D render, no halftone, no paper texture, no film grain. Colour world: slate-green chalkboard #1E3B34, warm chalk white #F3EFE4, paper cream #F6EEDC, terminal amber #FFB53D, with each character's own accent colours. No text, no letters, no numbers, no logos, no watermarks, no captions anywhere in the image.

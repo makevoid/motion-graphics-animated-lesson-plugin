@@ -1,0 +1,72 @@
+[
+  {
+    "name": "keyboard",
+    "path": "output/props-a-v1/sprites/keyboard.png",
+    "box": [
+      48,
+      152,
+      1024,
+      576
+    ]
+  },
+  {
+    "name": "desk",
+    "path": "output/props-a-v1/sprites/desk.png",
+    "box": [
+      1156,
+      40,
+      788,
+      780
+    ]
+  },
+  {
+    "name": "stool",
+    "path": "output/props-a-v1/sprites/stool.png",
+    "box": [
+      2096,
+      136,
+      531,
+      652
+    ]
+  },
+  {
+    "name": "chalk",
+    "path": "output/props-a-v1/sprites/chalk.png",
+    "box": [
+      108,
+      968,
+      616,
+      435
+    ]
+  },
+  {
+    "name": "pointer",
+    "path": "output/props-a-v1/sprites/pointer.png",
+    "box": [
+      728,
+      876,
+      688,
+      576
+    ]
+  },
+  {
+    "name": "stamp",
+    "path": "output/props-a-v1/sprites/stamp.png",
+    "box": [
+      1456,
+      924,
+      428,
+      492
+    ]
+  },
+  {
+    "name": "calendar",
+    "path": "output/props-a-v1/sprites/calendar.png",
+    "box": [
+      2036,
+      832,
+      652,
+      620
+    ]
+  }
+]

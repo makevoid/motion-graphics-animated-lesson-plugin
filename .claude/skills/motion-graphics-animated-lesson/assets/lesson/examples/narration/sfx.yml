@@ -1,0 +1,30 @@
+# Narration + character dialogue, ElevenLabs v4 via Fal (SFX=narration sfx:gen). Built into audio/source.wav by narration:build.
+# source/out are unused for narration (no mix step); cues stay empty.
+source: output/clean.mp4
+out: output/unused.mp4
+cues: []
+sounds:
+  p01: {tts: "November fourteenth, twenty twenty-two. Six fifty-five in the morning. A developer types two words.", voice: George, stability: 0.45, seed: 11}
+  p02: {tts: "Initial commit. Sixteen days before ChatGPT.", voice: George, stability: 0.45, seed: 11}
+  p03: {tts: "Good morning, class. I'm Professor Otto Regress, and this is software archaeology: how we wrote code with AI before Claude Code, before Codex... before the model could hold the keyboard.", voice: George, stability: 0.45, seed: 11}
+  c01: {tts: "Can I help?", voice: River, stability: 0.5, seed: 21}
+  p04: {tts: "Not yet. Sit down.", voice: George, stability: 0.45, seed: 11}
+  p05: {tts: "Meet code davinci zero zero two: the original Codex. It doesn't chat. It doesn't take instructions. It continues text.", voice: George, stability: 0.45, seed: 11}
+  p06: {tts: "So you teach it by example. Description, implementation. Description, implementation. Then a new description... and an empty slot.", voice: George, stability: 0.45, seed: 11}
+  g01: {tts: "Implementation.", voice: Callum, stability: 0.95, seed: 31}
+  p07: {tts: "A stop token cuts it off before it invents another example. Temperature zero point three. Six hundred tokens, max.", voice: George, stability: 0.45, seed: 11}
+  p08: {tts: "This repo chained those templates in Ruby. One prompt turns an idea, an app to save notes and pin them, into a spec. Then one call per model, per method, per route. Sleep thirty seconds. Stitch the files, boot the server... and pray for status OK.", voice: George, stability: 0.45, seed: 11}
+  p09: {tts: "For crashes, there was a template: code, error, fix. A repair loop, written by hand.", voice: George, stability: 0.45, seed: 11}
+  p10: {tts: "Then, November thirtieth: ChatGPT. A million users in five days. And for our React, FastAPI and Postgres developer, the workflow became... this.", voice: George, stability: 0.45, seed: 11}
+  d01: {tts: "Write a FastAPI endpoint that saves a note to Postgres.", voice: Liam, stability: 0.5, seed: 41}
+  ch01: {tts: "Certainly! Here's an example.", voice: Jessica, stability: 0.5, seed: 51}
+  p11: {tts: "Copy. Paste. Run. Traceback. Copy the traceback. Paste it back.", voice: George, stability: 0.45, seed: 11}
+  ch02: {tts: "I apologize for the confusion. Here's the corrected code.", voice: Jessica, stability: 0.5, seed: 51}
+  p12: {tts: "Now the React form doesn't match the new schema, so you paste that too. The chat forgets your models. You forget which version you pasted. The context window was about four thousand tokens... and the real context window was you.", voice: George, stability: 0.45, seed: 11}
+  p13: {tts: "Today, the loop runs itself. Claude Code and Codex read the repository, run the tests, read the errors, and fix them. Think. Act. Observe. Repeat.", voice: George, stability: 0.45, seed: 11}
+  cl01: {tts: "Three tests failing. Fixing the migration.", voice: River, stability: 0.5, seed: 21}
+  cx01: {tts: "Patch ready. Opening a pull request.", voice: Eric, stability: 0.5, seed: 61}
+  p14: {tts: "It's the same recipe this repo wrote by hand in twenty twenty-two: examples, a pipeline, a fix-error loop. What changed is who holds the keyboard.", voice: George, stability: 0.45, seed: 11}
+  p15: {tts: "Class dismissed.", voice: George, stability: 0.45, seed: 11}
+  g02: {tts: "Description. Write a lecture about...", voice: Callum, stability: 0.95, seed: 31}
+  p16: {tts: "Stop token!", voice: George, stability: 0.4, seed: 12}

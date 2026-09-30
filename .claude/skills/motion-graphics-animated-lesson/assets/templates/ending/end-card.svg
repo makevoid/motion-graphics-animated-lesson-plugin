@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#1B1A22"/>
+<rect x="96" y="54" width="1728" height="972" rx="10" fill="none" stroke="#586575" stroke-width="2" stroke-dasharray="12 10"/>
+<rect x="300" y="80" width="1320" height="180" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="320" y="125" font-family="Arial" font-size="27" fill="#F3EFE4">LESSON TAKEAWAY / COMMAND</text>
+<text x="320" y="158" font-family="Arial" font-size="21" fill="#AAB7B1">x300 y80 / 1320 x 180</text>
+<rect x="300" y="285" width="1320" height="105" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="320" y="330" font-family="Arial" font-size="27" fill="#F3EFE4">DIAGRAM / CALLBACK RIBBON</text>
+<text x="320" y="363" font-family="Arial" font-size="21" fill="#AAB7B1">x300 y285 / 1320 x 105</text>
+<rect x="300" y="420" width="1320" height="370" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="320" y="465" font-family="Arial" font-size="27" fill="#F3EFE4">SOURCES: CURRENT LESSON ONLY</text>
+<text x="320" y="498" font-family="Arial" font-size="21" fill="#AAB7B1">x300 y420 / 1320 x 370</text>
+<rect x="80" y="860" width="1760" height="160" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="100" y="905" font-family="Arial" font-size="27" fill="#F3EFE4">CAST PARADE / SILENT REACTIONS</text>
+<text x="100" y="938" font-family="Arial" font-size="21" fill="#AAB7B1">x80 y860 / 1760 x 160</text>
+<text x="100" y="35" font-family="Arial" font-size="22" fill="#FFB53D">LAYOUT GUIDE - 1920 x 1080 - 24 FPS - TEXT IS COMPOSITED IN P5</text>
+</svg>

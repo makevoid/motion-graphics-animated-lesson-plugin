@@ -1,0 +1,22 @@
+---
+- name: prof_recipe
+  image: prof_smile
+  seconds: 11
+  audio: audio/stems/prof.wav
+  audio_at: 0.0
+  key: green
+  prompt: >-
+    This clip belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Expressive, appealing character acting with clear readable poses, crisp lip articulation and natural follow-through.
+    SAME professor as the image: bald crown with white hair halo, round tortoiseshell glasses, bushy white eyebrows, white moustache,
+    brown herringbone tweed jacket with elbow patches, mustard vest, burgundy bow tie; wooden pointer in his RIGHT hand, a stick of white chalk in his LEFT hand.
+    Framed from the knees up, small in the frame with lots of empty green above his head, three-quarter view turned toward screen-right.
+    A warm, wise lecturer's summing-up, lip-synced to the audio, speaking:
+    "It's the same recipe this repo wrote by hand in twenty twenty-two: examples, a pipeline, a fix-error loop. What changed is who holds the keyboard."
+    Beats: 0.2-1.4 s his left hand opens palm-up toward the viewer, chalk resting in the palm, warm smile, on "It's the same recipe";
+    1.4-4.6 s the right hand keeps the pointer aimed up toward screen-right and gives it two small taps, a proud little nod on "wrote by hand in twenty twenty-two";
+    4.7-8.4 s he raises his left hand and counts on its fingers, one finger up on "examples" (4.7 s), two fingers on "pipeline" (6.0 s), three fingers on "fix-error loop" (6.9 s), holding the three fingers up to 8.3 s;
+    8.5-9.4 s the left hand lowers, eyebrows lift, on "What changed is";
+    9.5-10.9 s he turns his face fully to the viewer with a warm, knowing look over his glasses, a slight head tilt and a gentle smile under the moustache on "who holds the keyboard";
+    10.9-11 s mouth closed, soft smile. Clear jaw and lip shapes on every word, moustache follows the mouth, natural blinks between phrases, gentle breathing.
+    The character stays exactly the same size and position in frame for the whole clip; the camera never pushes in or reframes.
+    Locked camera, no camera movement, no zoom, whole body and hands within frame, perfectly flat chroma green #00B140 background throughout, no green on the character, no shadows on the background, no floor, no text, no captions, no extra people or objects, preserve the approved visual style exactly: clean confident ink outlines, flat cel colour with one soft shadow tone, simplified flat tweed pattern that does not shimmer.

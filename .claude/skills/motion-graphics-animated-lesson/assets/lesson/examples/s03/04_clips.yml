@@ -1,0 +1,63 @@
+---
+- name: prof_intro
+  image: prof_point
+  seconds: 10
+  audio: audio/stems/prof.wav
+  audio_at: 0.3
+  key: green
+  prompt: >-
+    This clip belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Expressive, appealing character acting with clear readable poses, crisp lip articulation and natural follow-through.
+    SAME professor as the image: bald crown with white hair halo, round tortoiseshell glasses, bushy white eyebrows, white moustache,
+    brown herringbone tweed jacket with elbow patches, mustard vest, burgundy bow tie; wooden pointer in his RIGHT hand, white chalk in his LEFT hand.
+    Knees-up shot, three-quarter view turned toward screen-right, a showman introducing a star guest standing off-frame to the right.
+    He speaks, lip-synced to the audio: "Meet code davinci zero zero two: the original Codex. It doesn't chat. It doesn't take instructions. It continues text."
+    Beats: 0.2-1.6 s his left hand opens into an introducing palm toward screen-right on "Meet code davinci", eyebrows high, delighted;
+    1.7-4.8 s the pointer taps the air three times in rhythm on "zero zero two", then a proud little nod on "the original Codex";
+    5.0-6.2 s he wags his left index finger side to side, a mock-stern frown, on "It doesn't chat";
+    6.3-8.1 s head shake, eyebrows down, a small shrug on "It doesn't take instructions";
+    8.2-9.8 s his flat left hand sweeps slowly from left to right at chest height, as if smoothing an endless line, on "It continues text";
+    9.8-10 s mouth closed, a knowing half-smile. Clear jaw and lip shapes on every word, moustache follows the mouth, blinks between phrases.
+    The character stays exactly the same size and position in frame for the whole clip; the camera never pushes in or reframes.
+    Locked camera, no camera movement, no zoom, whole body and hands within frame, perfectly flat chroma green #00B140 background throughout, no green on the character, no shadows on the background, no floor, no text, no captions, no extra people or objects, preserve the approved visual style exactly: clean confident ink outlines, flat cel colour with one soft shadow tone, simplified flat tweed pattern that does not shimmer.
+- name: gpt3_print
+  image: gpt3_print
+  seconds: 8
+  audio: audio/stems/gpt3.wav
+  audio_at: 19.5
+  key: green
+  prompt: >-
+    This clip belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Expressive, appealing character acting with clear readable poses and natural follow-through.
+    SAME robot as the image: boxy putty-beige CRT-monitor head with darker bezels, dark screen face with two amber pixel-block eyes,
+    black velvet beret, tiny paintbrush antenna at the viewer's right, beige torso with a dot-matrix printer slot, black accordion-hose arms
+    with beige three-finger grippers, dark rubber tank treads. The robot has NO mouth and never grows one: the screen shows only the two amber pixel eyes.
+    Full body, three-quarter front view. It "speaks" with its screen and printer, earnest and literal, a machine that cannot stop continuing things.
+    Beats: 0-1.6 s the amber pixel eyes blink twice, the whole body gives a small mechanical shudder and the printer starts feeding: the blank tractor-feed paper
+    begins streaming out of the slot, rippling onto the growing pile; 1.9-3.4 s the screen flashes brighter and both eyes pulse wide for one monotone word
+    ("Implementation."), the head gives one stiff nod; 3.4-8 s the printer keeps shuddering rhythmically and blank paper keeps streaming out faster and faster,
+    the eyes blink once and narrow in concentration, the gripper hand lifts slightly as if about to add more. The paper stays completely blank.
+    The character stays exactly the same size and position in frame for the whole clip; the camera never pushes in or reframes.
+    Locked camera, no camera movement, no zoom, whole body and hands within frame, perfectly flat chroma green #00B140 background throughout, no green on the character, no shadows on the background, no floor, no text, no captions, no extra people or objects, preserve the approved visual style exactly: clean confident ink outlines, flat cel colour with one soft shadow tone, matte putty-beige panels, the amber eye glow stays inside the screen and does not bloom.
+- name: prof_point
+  still: prof_point
+  key: green
+- name: gpt3_still
+  still: gpt3_print
+  key: green
+- name: prof_intro_b
+  image: prof_point
+  seconds: 5
+  audio: audio/stems/prof.wav
+  audio_at: 5.2
+  key: green
+  prompt: >-
+    This clip belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Expressive, appealing character acting with clear readable poses, crisp lip articulation and natural follow-through.
+    SAME professor as the image: bald crown with white hair halo, round tortoiseshell glasses, bushy white eyebrows, white moustache,
+    brown herringbone tweed jacket with elbow patches, mustard vest, burgundy bow tie. The wooden pointer stays in his RIGHT hand for the whole clip,
+    held raised and pointing toward screen-right; it never changes hands and is never put down. His LEFT hand holds the white chalk and does all the other gestures.
+    Knees-up shot, three-quarter view turned toward screen-right. He speaks, lip-synced to the audio: "It doesn't chat. It doesn't take instructions. It continues text."
+    Beats: 0.1-1.3 s he wags his LEFT index finger side to side (chalk tucked in the same hand), a mock-stern frown, on "It doesn't chat";
+    1.4-3.2 s a small head shake, eyebrows down, a little shrug of the left shoulder on "It doesn't take instructions";
+    3.3-4.9 s his flat LEFT hand sweeps slowly from left to right at chest height, as if smoothing an endless line of text, on "It continues text", eyebrows rising with a knowing look.
+    Clear jaw and lip shapes on every word, moustache follows the mouth, blinks between phrases.
+    The character stays exactly the same size and position in frame for the whole clip; the camera never pushes in or reframes; his knees stay at the bottom edge of the frame.
+    Locked camera, no camera movement, no zoom, whole body and hands within frame, perfectly flat chroma green #00B140 background throughout, no green on the character, no shadows on the background, no floor, no text, no captions, no extra people or objects, preserve the approved visual style exactly: clean confident ink outlines, flat cel colour with one soft shadow tone, simplified flat tweed pattern that does not shimmer.

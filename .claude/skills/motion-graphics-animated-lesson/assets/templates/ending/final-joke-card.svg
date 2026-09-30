@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#1B1A22"/>
+<rect x="96" y="54" width="1728" height="972" rx="10" fill="none" stroke="#586575" stroke-width="2" stroke-dasharray="12 10"/>
+<rect x="240" y="300" width="1440" height="160" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="260" y="345" font-family="Arial" font-size="27" fill="#F3EFE4">CLASS DISMISSED / CLOSING LINE</text>
+<text x="260" y="378" font-family="Arial" font-size="21" fill="#AAB7B1">x240 y300 / 1440 x 160</text>
+<rect x="400" y="510" width="1120" height="90" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="420" y="555" font-family="Arial" font-size="27" fill="#F3EFE4">FINAL TAKEAWAY / CALLBACK</text>
+<text x="420" y="588" font-family="Arial" font-size="21" fill="#AAB7B1">x400 y510 / 1120 x 90</text>
+<rect x="400" y="630" width="1120" height="60" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="420" y="675" font-family="Arial" font-size="27" fill="#F3EFE4">LESSON / HOST SIGNATURE</text>
+<text x="420" y="708" font-family="Arial" font-size="21" fill="#AAB7B1">x400 y630 / 1120 x 60</text>
+<rect x="1200" y="775" width="600" height="245" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="1220" y="820" font-family="Arial" font-size="27" fill="#F3EFE4">SMALL GAG + REACTION</text>
+<text x="1220" y="853" font-family="Arial" font-size="21" fill="#AAB7B1">x1200 y775 / 600 x 245</text>
+<text x="100" y="35" font-family="Arial" font-size="22" fill="#FFB53D">LAYOUT GUIDE - 1920 x 1080 - 24 FPS - TEXT IS COMPOSITED IN P5</text>
+</svg>

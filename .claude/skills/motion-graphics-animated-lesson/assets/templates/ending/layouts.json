@@ -1,0 +1,211 @@
+{
+  "format": {
+    "width": 1920,
+    "height": 1080,
+    "fps": 24,
+    "safe_area": [
+      96,
+      54,
+      1728,
+      972
+    ],
+    "background": "#1B1A22",
+    "text": "#F3EFE4",
+    "accent": "#FFB53D"
+  },
+  "layouts": {
+    "end-card": {
+      "description": "Lesson thesis, takeaway or topic-specific command; compact sources; optional cast parade below.",
+      "regions": [
+        [
+          "LESSON TAKEAWAY / COMMAND",
+          300,
+          80,
+          1320,
+          180
+        ],
+        [
+          "DIAGRAM / CALLBACK RIBBON",
+          300,
+          285,
+          1320,
+          105
+        ],
+        [
+          "SOURCES: CURRENT LESSON ONLY",
+          300,
+          420,
+          1320,
+          370
+        ],
+        [
+          "CAST PARADE / SILENT REACTIONS",
+          80,
+          860,
+          1760,
+          160
+        ]
+      ]
+    },
+    "credits-title": {
+      "description": "Title card at the start of the credit roll; hold before scrolling.",
+      "regions": [
+        [
+          "LESSON TITLE",
+          240,
+          240,
+          1440,
+          180
+        ],
+        [
+          "SUBTITLE / LEARNING OUTCOME",
+          300,
+          455,
+          1320,
+          80
+        ],
+        [
+          "TOPIC / ARTIFACT / SOURCE DATE",
+          300,
+          560,
+          1320,
+          60
+        ],
+        [
+          "CREATOR / PRODUCER (ACTUAL)",
+          420,
+          715,
+          1080,
+          70
+        ]
+      ]
+    },
+    "credits-cast": {
+      "description": "Alternate animated face vignettes and character name, real voice and relevant joke tag; scroll as a block.",
+      "regions": [
+        [
+          "PROF FACE",
+          220,
+          175,
+          240,
+          240
+        ],
+        [
+          "CHARACTER NAME / VOICE / ASIDE",
+          520,
+          190,
+          1130,
+          190
+        ],
+        [
+          "NAME / VOICE / ASIDE",
+          270,
+          625,
+          1130,
+          190
+        ],
+        [
+          "DEV FACE",
+          1460,
+          600,
+          240,
+          240
+        ]
+      ]
+    },
+    "credits-production": {
+      "description": "Two columns: small amber role above light tool/model credits; list actual production only.",
+      "regions": [
+        [
+          "IMAGES: MODEL / VERSION / QUALITY",
+          150,
+          140,
+          770,
+          160
+        ],
+        [
+          "ANIMATION: MODEL / RESOLUTION",
+          1000,
+          140,
+          770,
+          160
+        ],
+        [
+          "VOICES: MODEL + CAST MAPPING",
+          150,
+          340,
+          770,
+          160
+        ],
+        [
+          "MUSIC / SFX: USED MODELS",
+          1000,
+          340,
+          770,
+          160
+        ],
+        [
+          "COMPOSITING / TYPOGRAPHY",
+          150,
+          540,
+          770,
+          160
+        ],
+        [
+          "RUNTIME / INFERENCE / CREW",
+          1000,
+          540,
+          770,
+          160
+        ],
+        [
+          "FONTS / SOURCES",
+          150,
+          740,
+          770,
+          160
+        ],
+        [
+          "TOPIC-SPECIFIC JOKE CREDIT",
+          1000,
+          740,
+          770,
+          160
+        ]
+      ]
+    },
+    "final-joke-card": {
+      "description": "Readable final card holds still, then a small cast-specific callback; stop music with the punchline.",
+      "regions": [
+        [
+          "CLASS DISMISSED / CLOSING LINE",
+          240,
+          300,
+          1440,
+          160
+        ],
+        [
+          "FINAL TAKEAWAY / CALLBACK",
+          400,
+          510,
+          1120,
+          90
+        ],
+        [
+          "LESSON / HOST SIGNATURE",
+          400,
+          630,
+          1120,
+          60
+        ],
+        [
+          "SMALL GAG + REACTION",
+          1200,
+          775,
+          600,
+          245
+        ]
+      ]
+    }
+  }
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "machine",
+    "path": "output/diagram-c-v1/sprites/machine.png",
+    "box": [
+      40,
+      228,
+      752,
+      456
+    ]
+  },
+  {
+    "name": "mill",
+    "path": "output/diagram-c-v1/sprites/mill.png",
+    "box": [
+      865,
+      92,
+      623,
+      648
+    ]
+  },
+  {
+    "name": "hourglass",
+    "path": "output/diagram-c-v1/sprites/hourglass.png",
+    "box": [
+      1568,
+      144,
+      368,
+      588
+    ]
+  },
+  {
+    "name": "server",
+    "path": "output/diagram-c-v1/sprites/server.png",
+    "box": [
+      2124,
+      140,
+      508,
+      588
+    ]
+  },
+  {
+    "name": "prayer",
+    "path": "output/diagram-c-v1/sprites/prayer.png",
+    "box": [
+      148,
+      824,
+      468,
+      556
+    ]
+  },
+  {
+    "name": "slots",
+    "path": "output/diagram-c-v1/sprites/slots.png",
+    "box": [
+      760,
+      820,
+      648,
+      592
+    ]
+  },
+  {
+    "name": "gem",
+    "path": "output/diagram-c-v1/sprites/gem.png",
+    "box": [
+      1536,
+      944,
+      392,
+      388
+    ]
+  },
+  {
+    "name": "gears",
+    "path": "output/diagram-c-v1/sprites/gears.png",
+    "box": [
+      2084,
+      828,
+      560,
+      547
+    ]
+  }
+]

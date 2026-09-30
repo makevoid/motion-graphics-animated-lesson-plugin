@@ -1,0 +1,15 @@
+{
+  "lesson_title": "",
+  "subtitle": "",
+  "creator": null,
+  "producer": null,
+  "cast": [],
+  "cast_entry_fields": ["character", "reference_asset", "voice", "voice_model", "joke_aside", "silent_loop"],
+  "production": [],
+  "production_entry_fields": ["role", "actual_tool_or_model", "version_or_quality", "evidence_manifest", "reused_asset"],
+  "typefaces_used": [],
+  "sources": [],
+  "joke_credits": [],
+  "final_callback": "",
+  "notes": "Fill with actual current production. Remove unused fields; do not credit every bundled character or tool."
+}

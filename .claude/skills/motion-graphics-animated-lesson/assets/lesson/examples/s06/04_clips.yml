@@ -1,0 +1,56 @@
+---
+- name: dev_frantic
+  image: dev_panic
+  seconds: 10
+  key: green
+  prompt: >-
+    This clip belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Expressive, appealing character acting with clear readable poses, snappy comic timing and natural follow-through.
+    SAME young man as the image ("Luca", an adult developer drawn chibi): messy dark-brown hair with a cowlick, flat soft stubble tone,
+    charcoal hoodie with drawstrings, black headphones around the neck, blue jeans, white sneakers, sitting on an invisible chair with
+    the open silver sticker laptop on his knees, three-quarter view toward screen-right. No speech, no lip-sync: he is silent, mouth
+    in a clenched, wobbly panic grimace, muttering without words.
+    Frantic copy-paste acting in fast, punchy beats: 0-1.5 s his left hand jabs a two-finger keyboard shortcut twice, snap-snap,
+    while his eyes dart left and right between two unseen screens; 1.5-2.5 s he slams one key with a single finger, leans back
+    hopeful for a beat, then his eyes bulge in horror; 2.5-4.5 s he hunches in and hammers the keys even faster, hoodie and
+    drawstrings swaying, headphones bouncing on his neck, sweat drop wobbling; 4.5-6 s his right hand leaves the keyboard and
+    tugs a fistful of his own hair in despair, cowlick springing up, then the hand drops back; 6-8.5 s shortcut jabs again,
+    snap-snap-snap, eyes darting, head bobbing with each jab; 8.5-10 s he settles back into the exact starting pose, hunched over
+    the laptop, hands on the keys, so the clip can loop.
+    The character stays exactly the same size and position in frame for the whole clip; the camera never pushes in or reframes.
+    Locked camera, no camera movement, no zoom, whole body and hands within frame, perfectly flat chroma green #00B140 background
+    throughout, no green on the character, no shadows on the background, no floor, no text, no captions, no extra people or
+    objects, preserve the approved visual style exactly: clean confident ink outlines, flat cel colour with one soft shadow tone,
+    hair and hoodie drawn as flat shapes that do not shimmer.
+- name: chat_sorry
+  image: chat_sorry
+  seconds: 5
+  audio: audio/stems/chat.wav
+  audio_at: 5.98
+  key: green
+  prompt: >-
+    This clip belongs to a hyper quality, very interesting and potentially very fun viral animated explainer video. Expressive, appealing character acting with clear readable poses, crisp lip articulation and natural follow-through.
+    SAME robot as the image: pearl-white rounded speech-bubble head with a small tail at the lower left, glossy charcoal visor with
+    two large soft warm-white oval eyes and a small warm-white glowing mouth line on the lower visor, dark-grey joints, white cartoon
+    gloved hands, floating on a soft pale-blue thruster glow with no legs. No green or teal. Full body, facing the viewer.
+    It speaks with its visor, lip-synced to the audio: the glowing mouth line on the visor opens into a soft rounded shape and closes
+    on every syllable, closed between words. It says, earnestly contrite and a little too eager: "I apologize for the confusion.
+    Here's the corrected code."
+    Beats: 0.0-0.2 s holds the pleading bow, mouth closed; 0.25-1.05 s "I apologize" a deep bow forward with hands pressed together,
+    sad droopy eyes; 1.1-1.35 s bobs back up a little; 1.37-2.41 s "for the confusion" a second, even deeper bow, gloved fingers
+    fidgeting and rubbing together nervously; 2.49-3.93 s "Here's the corrected code" it pops upright with bright hopeful eyes and
+    presents both open palms forward as if offering something wonderful; 3.95-5 s mouth closed, a quick sheepish mini-bow and a
+    nervous little finger-twiddle, thruster flickering.
+    The character stays exactly the same size and position in frame for the whole clip; the camera never pushes in or reframes.
+    Locked camera, no camera movement, no zoom, whole body and hands within frame, perfectly flat chroma green #00B140 background
+    throughout, no green on the character, no shadows on the background, no floor, no text, no captions, no extra people or
+    objects, preserve the approved visual style exactly: clean confident ink outlines, flat cel colour with one soft shadow tone,
+    glossy white shell with compact highlights, the thruster glow stays small and pale blue and does not bloom.
+- name: py_throw
+  still: py_throw
+  key: green
+- name: atom_catch
+  still: atom_catch
+  key: green
+- name: prof_deadpan
+  still: prof_deadpan
+  key: green

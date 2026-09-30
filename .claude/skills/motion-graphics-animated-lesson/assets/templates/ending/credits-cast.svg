@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#1B1A22"/>
+<rect x="96" y="54" width="1728" height="972" rx="10" fill="none" stroke="#586575" stroke-width="2" stroke-dasharray="12 10"/>
+<rect x="220" y="175" width="240" height="240" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="240" y="220" font-family="Arial" font-size="27" fill="#F3EFE4">PROF FACE</text>
+<text x="240" y="253" font-family="Arial" font-size="21" fill="#AAB7B1">x220 y175 / 240 x 240</text>
+<rect x="520" y="190" width="1130" height="190" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="540" y="235" font-family="Arial" font-size="27" fill="#F3EFE4">CHARACTER NAME / VOICE / ASIDE</text>
+<text x="540" y="268" font-family="Arial" font-size="21" fill="#AAB7B1">x520 y190 / 1130 x 190</text>
+<rect x="270" y="625" width="1130" height="190" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="290" y="670" font-family="Arial" font-size="27" fill="#F3EFE4">NAME / VOICE / ASIDE</text>
+<text x="290" y="703" font-family="Arial" font-size="21" fill="#AAB7B1">x270 y625 / 1130 x 190</text>
+<rect x="1460" y="600" width="240" height="240" rx="16" fill="#263A36" stroke="#FFB53D" stroke-width="3"/>
+<text x="1480" y="645" font-family="Arial" font-size="27" fill="#F3EFE4">DEV FACE</text>
+<text x="1480" y="678" font-family="Arial" font-size="21" fill="#AAB7B1">x1460 y600 / 240 x 240</text>
+<text x="100" y="35" font-family="Arial" font-size="22" fill="#FFB53D">LAYOUT GUIDE - 1920 x 1080 - 24 FPS - TEXT IS COMPOSITED IN P5</text>
+</svg>

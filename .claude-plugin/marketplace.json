@@ -1,15 +1,16 @@
 {
-  "name": "makevoid-music-video",
-  "description": "Motion graphics music video plugin by makevoid.",
+  "name": "makevoid-animated-lesson",
+  "description": "Motion Graphics Animated Lesson: narrated cartoon lessons by makevoid.",
   "owner": {
     "name": "makevoid",
     "url": "https://github.com/makevoid"
   },
   "plugins": [
     {
-      "name": "motion-graphics-music-video",
+      "name": "motion-graphics-animated-lesson",
       "source": "./",
-      "description": "Create animated music videos with Fal generation, p5 motion graphics, audio editing, and Swift VFX."
+      "description": "Create narrated cartoon lessons with recurring characters, ElevenLabs voices, timed diagrams, ducked music, curtain calls and animated credits.",
+      "version": "0.2.0"
     }
   ]
 }

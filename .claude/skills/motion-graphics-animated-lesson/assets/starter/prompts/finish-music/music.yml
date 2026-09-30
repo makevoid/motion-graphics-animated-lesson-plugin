@@ -1,0 +1,23 @@
+source: output/clean.mp4
+out: output/clean_music.mp4
+voice: audio/song.wav
+base_db: -30
+duck_db: -9
+attack: 0.06
+release: 0.45
+hold: 0.25
+lookahead: 0.12
+# Original lesson music, preserved byte-for-byte. No generation call is needed.
+tracks:
+  intro: {file: .skill/assets/lesson/music/intro.wav}
+  class: {file: .skill/assets/lesson/music/class.wav}
+  blackboard: {file: .skill/assets/lesson/music/blackboard.wav}
+  devroom: {file: .skill/assets/lesson/music/devroom.wav}
+  titles: {file: .skill/assets/lesson/music/titles.wav}
+# Fill from the measured lesson timing. Default to intro for the hook and titles for curtain/credits.
+# Stop the teaching bed at the final spoken joke; preserve the 2-second silent pause.
+# Start titles at the curtain with fade_in: 0.8, duck: false; only disable ducking with no speech.
+# - {from: 0, to: 14, track: intro}
+# - {from: 14, to: 100, track: class}
+# - {from: 103, to: 140, track: titles, restart: true, duck: false, fade_in: 0.8}
+segments: []

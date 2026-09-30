@@ -1,0 +1,72 @@
+[
+  {
+    "name": "clipboard",
+    "path": "output/props-d-v1/sprites/clipboard.png",
+    "box": [
+      196,
+      52,
+      716,
+      808
+    ]
+  },
+  {
+    "name": "sheet",
+    "path": "output/props-d-v1/sprites/sheet.png",
+    "box": [
+      1004,
+      112,
+      672,
+      683
+    ]
+  },
+  {
+    "name": "qa",
+    "path": "output/props-d-v1/sprites/qa.png",
+    "box": [
+      1856,
+      144,
+      768,
+      607
+    ]
+  },
+  {
+    "name": "tumbleweed",
+    "path": "output/props-d-v1/sprites/tumbleweed.png",
+    "box": [
+      44,
+      888,
+      600,
+      596
+    ]
+  },
+  {
+    "name": "elephant",
+    "path": "output/props-d-v1/sprites/elephant.png",
+    "box": [
+      672,
+      824,
+      716,
+      648
+    ]
+  },
+  {
+    "name": "keycaps",
+    "path": "output/props-d-v1/sprites/keycaps.png",
+    "box": [
+      1420,
+      1032,
+      680,
+      307
+    ]
+  },
+  {
+    "name": "warning",
+    "path": "output/props-d-v1/sprites/warning.png",
+    "box": [
+      2128,
+      900,
+      580,
+      512
+    ]
+  }
+]

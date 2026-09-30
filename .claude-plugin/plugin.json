@@ -1,29 +1,40 @@
 {
-  "name": "motion-graphics-music-video",
-  "version": "0.2.4",
+  "name": "motion-graphics-animated-lesson",
+  "version": "0.2.0",
   "license": "MIT",
-  "description": "Create animated music videos with researched storyboards, Fal generation, p5 motion graphics, audio editing, and Swift VFX.",
+  "description": "Create narrated cartoon lessons with recurring characters, ElevenLabs voices, timed diagrams, ducked music, curtain calls and animated credits.",
   "author": {
     "name": "makevoid",
     "url": "https://github.com/makevoid"
   },
-  "homepage": "https://github.com/makevoid/motion-graphics-music-video-skill#readme",
-  "repository": "https://github.com/makevoid/motion-graphics-music-video-skill",
-  "keywords": ["music-video", "motion-graphics", "fal", "p5", "video"],
-  "skills": ["./.claude/skills/"],
+  "homepage": "https://github.com/makevoid/motion-graphics-animated-lesson-plugin#readme",
+  "repository": "https://github.com/makevoid/motion-graphics-animated-lesson-plugin",
+  "keywords": [
+    "animated-lesson",
+    "cartoon",
+    "education",
+    "elevenlabs",
+    "fal",
+    "p5"
+  ],
+  "skills": [
+    "./.claude/skills/"
+  ],
   "userConfig": {
     "FAL_AI_API_KEY": {
       "type": "string",
       "title": "Fal API key",
-      "description": "Your Fal API key for image, video, and audio generation. Paid tasks require an approved production plan.",
+      "description": "Your Fal API key for lesson character images, animation, ElevenLabs narration, music and sound effects.",
       "sensitive": true,
       "required": false
     }
   },
   "mcpServers": {
-    "music-video": {
+    "animated-lesson": {
       "command": "ruby",
-      "args": ["${CLAUDE_PLUGIN_ROOT}/.claude/skills/motion-graphics-music-video/scripts/mcp.rb"],
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/.claude/skills/motion-graphics-animated-lesson/scripts/mcp.rb"
+      ],
       "env": {
         "FAL_AI_API_KEY_PLUGIN": "${user_config.FAL_AI_API_KEY}"
       }

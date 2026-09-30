@@ -13,4 +13,4 @@ work/
 *.pyc
 **/prompts/e2e-*/
 **/prompts/live-vfx-*/
-.claude/skills/motion-graphics-music-video/scripts/tools/p5/fonts/
+.claude/skills/motion-graphics-animated-lesson/scripts/tools/p5/fonts/

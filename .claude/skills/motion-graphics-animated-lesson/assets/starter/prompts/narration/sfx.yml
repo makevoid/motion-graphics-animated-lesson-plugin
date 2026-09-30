@@ -1,0 +1,6 @@
+# Write one sound per spoken turn. The voice settings in config/cast.json are authoring defaults;
+# copy them into each line (the generator does not resolve cast.json automatically).
+# p01: {tts: "Your opening line.", voice: George, stability: 0.45, seed: 11}
+# d01: {tts: "Your demo response.", voice: Liam, stability: 0.5, seed: 41}
+sounds: {}
+cues: []

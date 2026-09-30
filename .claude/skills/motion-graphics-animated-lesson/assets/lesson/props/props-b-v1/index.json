@@ -1,0 +1,62 @@
+[
+  {
+    "name": "paper",
+    "path": "output/props-b-v1/sprites/paper.png",
+    "box": [
+      128,
+      60,
+      672,
+      660
+    ]
+  },
+  {
+    "name": "scissors",
+    "path": "output/props-b-v1/sprites/scissors.png",
+    "box": [
+      965,
+      100,
+      843,
+      612
+    ]
+  },
+  {
+    "name": "cards",
+    "path": "output/props-b-v1/sprites/cards.png",
+    "box": [
+      1992,
+      144,
+      676,
+      532
+    ]
+  },
+  {
+    "name": "stopsign",
+    "path": "output/props-b-v1/sprites/stopsign.png",
+    "box": [
+      188,
+      772,
+      532,
+      684
+    ]
+  },
+  {
+    "name": "orb",
+    "path": "output/props-b-v1/sprites/orb.png",
+    "box": [
+      1093,
+      800,
+      562,
+      636
+    ]
+  },
+  {
+    "name": "beret",
+    "path": "output/props-b-v1/sprites/beret.png",
+    "box": [
+      1893,
+      860,
+      786,
+      548
+    ]
+  }
+]

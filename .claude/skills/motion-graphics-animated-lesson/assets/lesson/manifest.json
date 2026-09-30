@@ -1,0 +1,746 @@
+{
+  "source_project": "video-session14/aicodegen",
+  "lesson": "Software Archaeology 101",
+  "files": [
+    {
+      "path": "characters/char-prof-v1.png",
+      "source": "output/char-prof-v1/01_ref_base.png",
+      "sha256": "4ba71ea2c4421c27d4900afbd4a901f8e211b8ab3116bc6308769d2a85709924",
+      "bytes": 4999056
+    },
+    {
+      "path": "prompts/char-prof-v1.txt",
+      "source": "prompts/char-prof-v1/01_ref_base.txt",
+      "sha256": "32f16c404fc7ef05ad1796499bacb6d84080d3af58c45ca35fff09f283b2163d",
+      "bytes": 2149
+    },
+    {
+      "path": "characters/char-dev-v1.png",
+      "source": "output/char-dev-v1/01_ref_base.png",
+      "sha256": "8cf2e39ccabe8d949f0d205b246200abe167ca252d47c2343b483d2ae7e58bbb",
+      "bytes": 4171592
+    },
+    {
+      "path": "prompts/char-dev-v1.txt",
+      "source": "prompts/char-dev-v1/01_ref_base.txt",
+      "sha256": "bda771eda79c8800e0244ea8de853c7d2044588fd9fd632a12908f175093c0b6",
+      "bytes": 2294
+    },
+    {
+      "path": "characters/bot-gpt3-v1.png",
+      "source": "output/bot-gpt3-v1/01_ref_base.png",
+      "sha256": "e9d2c50563b419abb508c47ed6014b57de7f6cbb23040433b630002eab5027e3",
+      "bytes": 3872999
+    },
+    {
+      "path": "prompts/bot-gpt3-v1.txt",
+      "source": "prompts/bot-gpt3-v1/01_ref_base.txt",
+      "sha256": "179bf0bddad1be6e21f5cbb04b27d00f86aa1f1570a8c57ac0970d9f0a1738d9",
+      "bytes": 2225
+    },
+    {
+      "path": "characters/bot-chatgpt-v1.png",
+      "source": "output/bot-chatgpt-v1/01_ref_base.png",
+      "sha256": "85fa5701b126c6289503c2e0498f2da15c406754768e0a20a3126a728fbb872e",
+      "bytes": 3632014
+    },
+    {
+      "path": "prompts/bot-chatgpt-v1.txt",
+      "source": "prompts/bot-chatgpt-v1/01_ref_base.txt",
+      "sha256": "eac73852fbaadbe6ae5f14efc3894b1d6711b941a3dd434c3774758faeef4caa",
+      "bytes": 1987
+    },
+    {
+      "path": "characters/bot-claude-v1.png",
+      "source": "output/bot-claude-v1/01_ref_base.png",
+      "sha256": "311926f8629fa14db9408bbd3c9a90600fcfed249dff04c5378cbb30705fc81c",
+      "bytes": 3598813
+    },
+    {
+      "path": "prompts/bot-claude-v1.txt",
+      "source": "prompts/bot-claude-v1/01_ref_base.txt",
+      "sha256": "92dda6988f54f85df3bfb5bc764b542d6e8560a21cbfb53b2dd7905217eae7fe",
+      "bytes": 2092
+    },
+    {
+      "path": "characters/bot-codex-v1.png",
+      "source": "output/bot-codex-v1/01_ref_base.png",
+      "sha256": "28ba11d842e342f0593236dd54c3c31eaae47077e386b916657f3bec761b988c",
+      "bytes": 3806471
+    },
+    {
+      "path": "prompts/bot-codex-v1.txt",
+      "source": "prompts/bot-codex-v1/01_ref_base.txt",
+      "sha256": "8ff16f7c816b558a4d8a37e9c8f42ae6df1b98ef2257b90d948620b51cb9b104",
+      "bytes": 2053
+    },
+    {
+      "path": "characters/snake-py-v1.png",
+      "source": "output/snake-py-v1/01_ref_base.png",
+      "sha256": "2337648aefd03eaf5e5c9c6c1abd71859ec5e01e70db2ea907d1a93a65d6dcf8",
+      "bytes": 4017210
+    },
+    {
+      "path": "prompts/snake-py-v1.txt",
+      "source": "prompts/snake-py-v1/01_ref_base.txt",
+      "sha256": "f0ee202f2fa9853dd89c90844e98f524174c0b25965850b9af4049aa676b41da",
+      "bytes": 1819
+    },
+    {
+      "path": "characters/atom-react-v1.png",
+      "source": "output/atom-react-v1/01_ref_base.png",
+      "sha256": "f3be55a77faf4e4759a938806b05c74fb880a987d8b1de9c14a74d4f6527e6b4",
+      "bytes": 3866510
+    },
+    {
+      "path": "prompts/atom-react-v1.txt",
+      "source": "prompts/atom-react-v1/01_ref_base.txt",
+      "sha256": "77b674984bb34de44f2d9bd6049d288e8240761a8b200c6df9eb6a9957655e9b",
+      "bytes": 2155
+    },
+    {
+      "path": "plates/classroom.png",
+      "source": "output/s01/02_kf_hall.png",
+      "sha256": "1af0f990dbf726f2785013bcb0d7e40601c04dc44e16e4907b657b9089c0d9e1",
+      "bytes": 4455258
+    },
+    {
+      "path": "plates/developer-room.png",
+      "source": "output/s05/02_kf_desk2022.png",
+      "sha256": "fccd9fc14e26c9f6f3abba49898be212efa26deb3f70734bcc197166249f1e7b",
+      "bytes": 3732959
+    },
+    {
+      "path": "plates/agent-lab.png",
+      "source": "output/s07/02_kf_lab.png",
+      "sha256": "0c26665ae6c3c0ecae70500ac4014978b48687f53d3aaa2a27a5703f2cbde9f7",
+      "bytes": 3872371
+    },
+    {
+      "path": "curtain/closed.png",
+      "source": "output/curtain-v1/01_ref_base.png",
+      "sha256": "eca540bcb2ccdcc4e3e3272c2ec80d6490d90d123d9b1b5a78146a37c4de17cc",
+      "bytes": 3665253
+    },
+    {
+      "path": "curtain/open.png",
+      "source": "output/s09c/02_kf_open.png",
+      "sha256": "91057fad447d63fc8bb4e4c7c32ad67c6064fb6727e00c2f4dbda88f4782e3b6",
+      "bytes": 3303753
+    },
+    {
+      "path": "curtain/close.mp4",
+      "source": "output/s09c/04_clip_curtain_close.mp4",
+      "sha256": "8d128c3979e6622b40ecbaf9a7c15a366764131d0acd805d2acb77f7bfd6bcc5",
+      "bytes": 11064404
+    },
+    {
+      "path": "curtain/open.mp4",
+      "source": "output/s09c/04_clip_curtain_open.mp4",
+      "sha256": "db97ff7cb2700c4adc7ac4af0ad0a30ccdd5134008bbde017ffac6126b1f3d99",
+      "bytes": 10261063
+    },
+    {
+      "path": "review/reference-contact-sheet.jpg",
+      "source": "output/review/final_sheet.jpg",
+      "sha256": "bfab8de6bb8647ca737ec34af400df94d692c431e178316300d5ecf0984ff877",
+      "bytes": 103388
+    },
+    {
+      "path": "props/props-a-v1/desk.png",
+      "source": "output/props-a-v1/sprites/desk.png",
+      "sha256": "75d11db200b90ac46b1fe3f28f0c55983144bbd904e9780209436edf190900fb",
+      "bytes": 600069
+    },
+    {
+      "path": "props/props-a-v1/keyboard.png",
+      "source": "output/props-a-v1/sprites/keyboard.png",
+      "sha256": "e272f53511b5264b360030879932031e1faace60b5fc3d6a8df551b557d2236e",
+      "bytes": 726022
+    },
+    {
+      "path": "props/props-a-v1/pointer.png",
+      "source": "output/props-a-v1/sprites/pointer.png",
+      "sha256": "decff46acd2d5315f0a3ef5f93e0f159e514fd730845e96a078b81ab7053d329",
+      "bytes": 270775
+    },
+    {
+      "path": "props/props-a-v1/stool.png",
+      "source": "output/props-a-v1/sprites/stool.png",
+      "sha256": "4feee332e1175ae57a76a67655bc8e420d82f0aeda1d0d08424f3b36f48f9de0",
+      "bytes": 343344
+    },
+    {
+      "path": "props/props-a-v1/stamp.png",
+      "source": "output/props-a-v1/sprites/stamp.png",
+      "sha256": "6d6dd6bc41d2df95cca99bef85ffa1f69e3916781dbcbda76a7e1ce78fe56e33",
+      "bytes": 227197
+    },
+    {
+      "path": "props/props-a-v1/calendar.png",
+      "source": "output/props-a-v1/sprites/calendar.png",
+      "sha256": "9c15afad5a9f789184c1d391ff6ab17e5e6e4a0480fe61ec84e831394290e9f9",
+      "bytes": 364679
+    },
+    {
+      "path": "props/props-a-v1/board.png",
+      "source": "output/props-a-v1/sprites/board.png",
+      "sha256": "b74d89a07cba0c927ef2d2706af2ab7a98abfd1205c75dbcdaf03bd3d2a1cde7",
+      "bytes": 586203
+    },
+    {
+      "path": "props/props-a-v1/chalk.png",
+      "source": "output/props-a-v1/sprites/chalk.png",
+      "sha256": "bac6e45a275767418001ea4547c8883ec01c1912cc16eb4e637b71d744807223",
+      "bytes": 387422
+    },
+    {
+      "path": "props/props-a-v1/index.json",
+      "source": "output/props-a-v1/sprites/index.json",
+      "sha256": "985094d8630b6708eb7d40e50eb872286e64d38f44c33c3e98f1cec839f332b1",
+      "bytes": 1020
+    },
+    {
+      "path": "props/props-b-v1/paper.png",
+      "source": "output/props-b-v1/sprites/paper.png",
+      "sha256": "b03fcec05387980864d05641be6ecdd8d55d3faaf57627a6a0f001a82b1e1d42",
+      "bytes": 363727
+    },
+    {
+      "path": "props/props-b-v1/stopsign.png",
+      "source": "output/props-b-v1/sprites/stopsign.png",
+      "sha256": "729bd0de502ca25ad72c4314f372ccafd0edbf11f76846a16b081d08563de631",
+      "bytes": 255310
+    },
+    {
+      "path": "props/props-b-v1/orb.png",
+      "source": "output/props-b-v1/sprites/orb.png",
+      "sha256": "7e95a6e1d3b63c4a4abebd185737b2ab2600afdaa6b86531effbfee760d7b244",
+      "bytes": 332309
+    },
+    {
+      "path": "props/props-b-v1/scissors.png",
+      "source": "output/props-b-v1/sprites/scissors.png",
+      "sha256": "cece4f6eb87d73b2f0385335bb36d118fbca20cdf920f65c8a08832de6b19406",
+      "bytes": 461025
+    },
+    {
+      "path": "props/props-b-v1/cards.png",
+      "source": "output/props-b-v1/sprites/cards.png",
+      "sha256": "19c9e18abf708bce995d386b079e167761c55c532051cbe2f7dfdd132fadb6b4",
+      "bytes": 271563
+    },
+    {
+      "path": "props/props-b-v1/board.png",
+      "source": "output/props-b-v1/sprites/board.png",
+      "sha256": "7b314a65aa9c7e39f32b741a894d72d79221d5ade37f38423cc427c97242a921",
+      "bytes": 423972
+    },
+    {
+      "path": "props/props-b-v1/beret.png",
+      "source": "output/props-b-v1/sprites/beret.png",
+      "sha256": "05f0eea1c438e630727bfea60395c9fb37342da5067ca4431e0ab70e99878047",
+      "bytes": 407334
+    },
+    {
+      "path": "props/props-b-v1/index.json",
+      "source": "output/props-b-v1/sprites/index.json",
+      "sha256": "496f92eb37ebe6d5791c7242dda4a611312382a40fddb5ec302146f1e581c25f",
+      "bytes": 870
+    },
+    {
+      "path": "props/props-d-v1/warning.png",
+      "source": "output/props-d-v1/sprites/warning.png",
+      "sha256": "88dd39b4e7ecd272b6ccdd500e9f93ceb3840efd2448f93026fe15b75c0e172d",
+      "bytes": 251420
+    },
+    {
+      "path": "props/props-d-v1/keycaps.png",
+      "source": "output/props-d-v1/sprites/keycaps.png",
+      "sha256": "24f235b5b8ef2cf804157329addf90f0ba59333c81b1f107709c0fd574c00f71",
+      "bytes": 178514
+    },
+    {
+      "path": "props/props-d-v1/clipboard.png",
+      "source": "output/props-d-v1/sprites/clipboard.png",
+      "sha256": "ef94bf4dcb6ba6f8ca826c30eb8defa16a2318dccc49bbd8bc15aa619c8222e2",
+      "bytes": 529665
+    },
+    {
+      "path": "props/props-d-v1/elephant.png",
+      "source": "output/props-d-v1/sprites/elephant.png",
+      "sha256": "47208223a73d1ef7d64d69f38bf146325f9f3ddff38db8710a612683d31a749d",
+      "bytes": 551902
+    },
+    {
+      "path": "props/props-d-v1/sheet.png",
+      "source": "output/props-d-v1/sprites/sheet.png",
+      "sha256": "9e34b26e8ea33009fd87db8e2711f0df963032135463075474980d89ba0f3847",
+      "bytes": 364089
+    },
+    {
+      "path": "props/props-d-v1/qa.png",
+      "source": "output/props-d-v1/sprites/qa.png",
+      "sha256": "ba55224c4b6fa272d93bfa1b3404934a7c0e268f92486387f301badcacfabb2e",
+      "bytes": 347182
+    },
+    {
+      "path": "props/props-d-v1/board.png",
+      "source": "output/props-d-v1/sprites/board.png",
+      "sha256": "cce7888028b63233a483a084359173fa26bcab0f8212342552280e513599cf9c",
+      "bytes": 672984
+    },
+    {
+      "path": "props/props-d-v1/tumbleweed.png",
+      "source": "output/props-d-v1/sprites/tumbleweed.png",
+      "sha256": "40db456fa7d96068217897ed4258a5ce85e6bff8a797410f309d2e08befddcdb",
+      "bytes": 692401
+    },
+    {
+      "path": "props/props-d-v1/index.json",
+      "source": "output/props-d-v1/sprites/index.json",
+      "sha256": "050181dde5c024abae34fede9807dbec6e732abf71600d029f0338b96a937076",
+      "bytes": 1032
+    },
+    {
+      "path": "props/diagram-c-v1/machine.png",
+      "source": "output/diagram-c-v1/sprites/machine.png",
+      "sha256": "43156b94d5a4293b28c3ada3b42ab564d706bcd6da3376c42b55f8c0310f21c6",
+      "bytes": 336436
+    },
+    {
+      "path": "props/diagram-c-v1/gears.png",
+      "source": "output/diagram-c-v1/sprites/gears.png",
+      "sha256": "82262451074bda3b914f97d046f40a687d4d07e6d5c5559790b33c9f6250885f",
+      "bytes": 410353
+    },
+    {
+      "path": "props/diagram-c-v1/server.png",
+      "source": "output/diagram-c-v1/sprites/server.png",
+      "sha256": "0ffec37eaf12e45b73e3601d4c863a8b637dcbfadf150f7ff82435b696c526e0",
+      "bytes": 324627
+    },
+    {
+      "path": "props/diagram-c-v1/mill.png",
+      "source": "output/diagram-c-v1/sprites/mill.png",
+      "sha256": "86639857ee0c5c353557467c28079883dcc9b7299a5b595ccf132310a63206fa",
+      "bytes": 483365
+    },
+    {
+      "path": "props/diagram-c-v1/slots.png",
+      "source": "output/diagram-c-v1/sprites/slots.png",
+      "sha256": "301de01bca6c5a3193b69c3d2c1cd854c8a1e4e3baed7fac35b9b65d8562101b",
+      "bytes": 411676
+    },
+    {
+      "path": "props/diagram-c-v1/hourglass.png",
+      "source": "output/diagram-c-v1/sprites/hourglass.png",
+      "sha256": "c04e7821730aa4aed0c54dea781c86ac9aa40f40a77e373dab89a0a99afe3bf8",
+      "bytes": 324861
+    },
+    {
+      "path": "props/diagram-c-v1/prayer.png",
+      "source": "output/diagram-c-v1/sprites/prayer.png",
+      "sha256": "0321b556e74acad19739278a65bf10ae7a054cce46b1fac7453eb7809b041b42",
+      "bytes": 260620
+    },
+    {
+      "path": "props/diagram-c-v1/board.png",
+      "source": "output/diagram-c-v1/sprites/board.png",
+      "sha256": "e10717457b04786520561495b77de94fdca36bd655ef65dd115dbbb665e10a98",
+      "bytes": 836117
+    },
+    {
+      "path": "props/diagram-c-v1/gem.png",
+      "source": "output/diagram-c-v1/sprites/gem.png",
+      "sha256": "9257939ea5156dca6abf6c5a1f4da23b0dbb5bd58015006ecf6bd45f46d53169",
+      "bytes": 182408
+    },
+    {
+      "path": "props/diagram-c-v1/index.json",
+      "source": "output/diagram-c-v1/sprites/index.json",
+      "sha256": "84b9d064b3fa2211f040fc1cec7fa559ab24212cca3be50532ed3d7178dde335",
+      "bytes": 1174
+    },
+    {
+      "path": "props/gears-v1/gear_m.png",
+      "source": "output/gears-v1/sprites/gear_m.png",
+      "sha256": "865895d9cab9ab0bb65f9d6c56b706b3d747806de28eb31c7f5a9ff0ca39b075",
+      "bytes": 894972
+    },
+    {
+      "path": "props/gears-v1/gear_l.png",
+      "source": "output/gears-v1/sprites/gear_l.png",
+      "sha256": "578c7a34fac94401ab7bd6dbe106f93bc3b5d28901a39dfcfbe6fd10e22b698e",
+      "bytes": 1470493
+    },
+    {
+      "path": "props/gears-v1/board.png",
+      "source": "output/gears-v1/sprites/board.png",
+      "sha256": "1dc907ae67664f8c7495aadf6f79fa62d05ce41f68a712eae64a1f4bfda91719",
+      "bytes": 409138
+    },
+    {
+      "path": "props/gears-v1/index.json",
+      "source": "output/gears-v1/sprites/index.json",
+      "sha256": "fb812345039cbe37b169b92060eef812789d5ac9362e9850471c54d7ac88e1fd",
+      "bytes": 434
+    },
+    {
+      "path": "props/gears-v1/gear_s.png",
+      "source": "output/gears-v1/sprites/gear_s.png",
+      "sha256": "6ee5460b1374655a671cd657f6d6dfacf901d8db19e0bd8dfacee723287085ea",
+      "bytes": 532409
+    },
+    {
+      "path": "fonts/chalk.ttf",
+      "source": "tools/p5/fonts/chalk.ttf",
+      "sha256": "0579613b4e9911c66ccf70a8bc047f2a75d6fc36b32f660d9264f3015b377ef7",
+      "bytes": 486880
+    },
+    {
+      "path": "fonts/math.otf",
+      "source": "tools/p5/fonts/math.otf",
+      "sha256": "5add3f3f2bd7fd897d2fa5ccbe468607c52111dc44cdfaaf2d851a574f5357a7",
+      "bytes": 369156
+    },
+    {
+      "path": "fonts/body-black.ttf",
+      "source": "tools/p5/fonts/body-black.ttf",
+      "sha256": "2e33768362fd357e781d01670db1d226dfb484c6f2b769f3b798469ee1f82ad6",
+      "bytes": 168060
+    },
+    {
+      "path": "fonts/body-med.ttf",
+      "source": "tools/p5/fonts/body-med.ttf",
+      "sha256": "4ac8e03606ffa4c37f61a6510a2080f1f37a7054f4726c214887d3b23f72e369",
+      "bytes": 168644
+    },
+    {
+      "path": "fonts/din-cond.ttf",
+      "source": "tools/p5/fonts/din-cond.ttf",
+      "sha256": "36958182a424e1e8a1307b2636a615a6323ce1bbfadda136735ab4fb3bd26ceb",
+      "bytes": 212040
+    },
+    {
+      "path": "fonts/mono.ttf",
+      "source": "tools/p5/fonts/mono.ttf",
+      "sha256": "55caaed55254a28ac793847e8976be16c5ba7cbad1ec2ee2d5d86d4e6b3fa0c1",
+      "bytes": 223892
+    },
+    {
+      "path": "fonts/math-it.otf",
+      "source": "tools/p5/fonts/math-it.otf",
+      "sha256": "7f6bf9cab728febe4ce111bbfbcd16253806dcab0bbe1940ede2782cfc319a72",
+      "bytes": 141844
+    },
+    {
+      "path": "fonts/body.ttf",
+      "source": "tools/p5/fonts/body.ttf",
+      "sha256": "319cff6e7a31f0f2a41c475dca42890aa5d19fe16017e2290f8c1d4e14f76481",
+      "bytes": 168260
+    },
+    {
+      "path": "fonts/din-alt.ttf",
+      "source": "tools/p5/fonts/din-alt.ttf",
+      "sha256": "78e816b9938fc40dd5383f4a91b598494798e2fa1d526abbd9e7ff7e5b9bf0ee",
+      "bytes": 152012
+    },
+    {
+      "path": "fonts/hand.ttf",
+      "source": "tools/p5/fonts/hand.ttf",
+      "sha256": "ea54acf02ee9cc276e0e44ce6b2bf60e8eee0a4517468f0e989db55fc1ffe19c",
+      "bytes": 596736
+    },
+    {
+      "path": "fonts/mono-andale.ttf",
+      "source": "tools/p5/fonts/mono-andale.ttf",
+      "sha256": "ca436a8f07f6699107542ebe19dcc9478f12aa666927699e9fa10115e7d2ee95",
+      "bytes": 109700
+    },
+    {
+      "path": "loops/face_prof.mp4",
+      "source": "output/s10/04_clip_face_prof.mp4",
+      "sha256": "ef7d4ef4c925df876cff940cdae8ecac54d9fa39e2b20faf573b284730841e9e",
+      "bytes": 10614622
+    },
+    {
+      "path": "loops/face_luca.mp4",
+      "source": "output/s10/04_clip_face_luca.mp4",
+      "sha256": "e0500bba4a55e670ce0611f22b6e1bd015ce6aac526f88bb54c642195fcdd890",
+      "bytes": 6516696
+    },
+    {
+      "path": "loops/run_luca.mp4",
+      "source": "output/s10/04_clip_run_luca.mp4",
+      "sha256": "fda5e813dffecb2595b07daeb4c4e57cf0729436e1a90a427c48977401c35013",
+      "bytes": 6749104
+    },
+    {
+      "path": "examples/s01/05_overlay.js",
+      "source": "prompts/s01/05_overlay.js",
+      "sha256": "2c5792c08db311e4f8d4d50dc880453ccf278f4dde6a794e41c889810ea7021d",
+      "bytes": 10036
+    },
+    {
+      "path": "examples/s01/02_keyframes.yml",
+      "source": "prompts/s01/02_keyframes.yml",
+      "sha256": "b80c025c454ee67c871dff78143bb1e4693be6f8b6cebde3d2f24bd3fb943080",
+      "bytes": 6197
+    },
+    {
+      "path": "examples/s01/04_clips.yml",
+      "source": "prompts/s01/04_clips.yml",
+      "sha256": "aad2535d457b6a95c36480874bf00d7d2d958b58bdaa5121a538cacabdb62564",
+      "bytes": 1737
+    },
+    {
+      "path": "examples/s02/05_overlay.js",
+      "source": "prompts/s02/05_overlay.js",
+      "sha256": "312d160d4a1723777fa4a0ebb9159a274624a3a267b76d0c1aea5bc1584eb6b6",
+      "bytes": 13669
+    },
+    {
+      "path": "examples/s02/02_keyframes.yml",
+      "source": "prompts/s02/02_keyframes.yml",
+      "sha256": "f6ce5c5f347fb4f945eef8e575b6f0ebb87b0f3b9d11703ad0cd615c93cd91f0",
+      "bytes": 9187
+    },
+    {
+      "path": "examples/s02/04_clips.yml",
+      "source": "prompts/s02/04_clips.yml",
+      "sha256": "88a3887a8df6e21e16a710d744a2e877ad95bc33ec7919efa24a3181c69c5a76",
+      "bytes": 5133
+    },
+    {
+      "path": "examples/s03/05_overlay.js",
+      "source": "prompts/s03/05_overlay.js",
+      "sha256": "06edf23a494b471925aa9179d0e18b4873823d580710619112909aedbdc6ca01",
+      "bytes": 30050
+    },
+    {
+      "path": "examples/s03/02_keyframes.yml",
+      "source": "prompts/s03/02_keyframes.yml",
+      "sha256": "963a21cc9463a77e662eea349fb53c626de983b351156e3bd5bb70b0a1b41d21",
+      "bytes": 5662
+    },
+    {
+      "path": "examples/s03/04_clips.yml",
+      "source": "prompts/s03/04_clips.yml",
+      "sha256": "290c006d8b395c0cbbe453b34a98d0886ec81e74dc469eaa61dfe0ed15f40cf3",
+      "bytes": 6591
+    },
+    {
+      "path": "examples/s04/05_overlay.js",
+      "source": "prompts/s04/05_overlay.js",
+      "sha256": "01a0a581b5b934abd744e205ff7d0cb7aed2c60d315a7dbc3f9c2def30a73b25",
+      "bytes": 35910
+    },
+    {
+      "path": "examples/s04/02_keyframes.yml",
+      "source": "prompts/s04/02_keyframes.yml",
+      "sha256": "78d6e5ab12f40be37d4476c520d0442d8b50c7083e43a008fe4b1c84f9dbbd7d",
+      "bytes": 5039
+    },
+    {
+      "path": "examples/s04/04_clips.yml",
+      "source": "prompts/s04/04_clips.yml",
+      "sha256": "2199fc7e00bbe587bd1b0cc8e902be9c7c9b3084e602378dc3bf86e46ec52233",
+      "bytes": 2006
+    },
+    {
+      "path": "examples/s05/05_overlay.js",
+      "source": "prompts/s05/05_overlay.js",
+      "sha256": "d423ca3176c5ac9db2d954c2ec3733555e7833b87c7eb1b4fb6df141a8b6f905",
+      "bytes": 26743,
+      "source_sha256": "0570884604f15956a5aa3d21c4662961edada5d2d09a54b7159b035aa9195974",
+      "adaptation": "Removed trailing whitespace from the example sketch."
+    },
+    {
+      "path": "examples/s05/02_keyframes.yml",
+      "source": "prompts/s05/02_keyframes.yml",
+      "sha256": "2f2d919cc6f8646a8d18a232527d5d3a03c7f663e45d69b8b6ed10d03ca693d1",
+      "bytes": 12887
+    },
+    {
+      "path": "examples/s05/04_clips.yml",
+      "source": "prompts/s05/04_clips.yml",
+      "sha256": "179bdad59c417a8d56168bc32af619da90f04775957ec071aa4f22b1cf887887",
+      "bytes": 4560
+    },
+    {
+      "path": "examples/s06/05_overlay.js",
+      "source": "prompts/s06/05_overlay.js",
+      "sha256": "84108894e65a0161d779b3bdb212db4239207e3c59c68a6a488cd80fb0bb489d",
+      "bytes": 44932
+    },
+    {
+      "path": "examples/s06/02_keyframes.yml",
+      "source": "prompts/s06/02_keyframes.yml",
+      "sha256": "f448636af6db4505d6fdbe247af448ac5099b76616afcb0cfe261a37fa904990",
+      "bytes": 12878
+    },
+    {
+      "path": "examples/s06/04_clips.yml",
+      "source": "prompts/s06/04_clips.yml",
+      "sha256": "ef6a0d65b5303f392735a8045c25a2e9283cbcd63af7cc647477ec1dd9c47b4c",
+      "bytes": 4573
+    },
+    {
+      "path": "examples/s07/05_overlay.js",
+      "source": "prompts/s07/05_overlay.js",
+      "sha256": "540180dc5ff27322e65193f526ac0fff879110f4769c376fa8a0e6fc71a5bc18",
+      "bytes": 39985
+    },
+    {
+      "path": "examples/s07/02_keyframes.yml",
+      "source": "prompts/s07/02_keyframes.yml",
+      "sha256": "a31393ed26f80a45a1806c8ebd6dd185570d62dcdf7c0659a23b938c1020f022",
+      "bytes": 7960
+    },
+    {
+      "path": "examples/s07/04_clips.yml",
+      "source": "prompts/s07/04_clips.yml",
+      "sha256": "b67f64bd69583fbd320b969eeda23acc6aed4f200ddc75c1ba54a9133ccde5da",
+      "bytes": 4568
+    },
+    {
+      "path": "examples/s08/05_overlay.js",
+      "source": "prompts/s08/05_overlay.js",
+      "sha256": "ac63b3fc818efc500c118a3fadd9c4be25e15f445730b66a71dc60c54b30e754",
+      "bytes": 20286
+    },
+    {
+      "path": "examples/s08/02_keyframes.yml",
+      "source": "prompts/s08/02_keyframes.yml",
+      "sha256": "253a4d1c6929efac33682081946f7f01ae32a85842d1ea6e605d6e73645f7142",
+      "bytes": 3124
+    },
+    {
+      "path": "examples/s08/04_clips.yml",
+      "source": "prompts/s08/04_clips.yml",
+      "sha256": "bd35a3d33420f2e5f2a2344b5eaa9b26dc58a7f0acc5a9fdf2a1e304c2ecd676",
+      "bytes": 2515
+    },
+    {
+      "path": "examples/s09/05_overlay.js",
+      "source": "prompts/s09/05_overlay.js",
+      "sha256": "b623fb968c22e00c17c9a0668c6b9ed98f90c88840d727ab1ac441c7b972f327",
+      "bytes": 34762
+    },
+    {
+      "path": "examples/s09/02_keyframes.yml",
+      "source": "prompts/s09/02_keyframes.yml",
+      "sha256": "2992fe90466f25abf6b4e54c3c4dedb539321d69afd07ee2e08052e74788e100",
+      "bytes": 2909
+    },
+    {
+      "path": "examples/s09/04_clips.yml",
+      "source": "prompts/s09/04_clips.yml",
+      "sha256": "e820950aabe33c2ff2516c6cc8c0fd89e72d48164d626a13f02158fcb31a25d6",
+      "bytes": 2393
+    },
+    {
+      "path": "examples/s09c/05_overlay.js",
+      "source": "prompts/s09c/05_overlay.js",
+      "sha256": "cc15d2f65e85e40cf882759fedb831eca5ff2620e7949b8ecf0ff1e5ccd8663b",
+      "bytes": 12541
+    },
+    {
+      "path": "examples/s09c/02_keyframes.yml",
+      "source": "prompts/s09c/02_keyframes.yml",
+      "sha256": "57d789a40e47ac8865e70e7752594cb6e8627c180a1093fd3ae1af2362f416e4",
+      "bytes": 1314
+    },
+    {
+      "path": "examples/s09c/04_clips.yml",
+      "source": "prompts/s09c/04_clips.yml",
+      "sha256": "234b2755fb419de429be3cc16ba1bd415ee9d89bb2fd61317d9573c5ef536d91",
+      "bytes": 2595
+    },
+    {
+      "path": "examples/s09t/05_overlay.js",
+      "source": "prompts/s09t/05_overlay.js",
+      "sha256": "452afffd89f2967afff415fb5f0cd2b3dfaa9a089d4276df8129c232793e0950",
+      "bytes": 19217
+    },
+    {
+      "path": "examples/s10/05_overlay.js",
+      "source": "prompts/s10/05_overlay.js",
+      "sha256": "d5af268834cc1a1850b909d8b3e7458bba59eb33af8ec5a36a1176f2eee1c69e",
+      "bytes": 30370
+    },
+    {
+      "path": "examples/s10/02_keyframes.yml",
+      "source": "prompts/s10/02_keyframes.yml",
+      "sha256": "37139043a60c9623bf5f35234fd41e5e2aebb9b14cfb75147ab8c03cdfe84f36",
+      "bytes": 33905
+    },
+    {
+      "path": "examples/s10/04_clips.yml",
+      "source": "prompts/s10/04_clips.yml",
+      "sha256": "ed62ae75fd0e8812b592e7465d3120be4cc17ded59a7a19c8f6c38d93afb2dc3",
+      "bytes": 23077
+    },
+    {
+      "path": "examples/narration/sfx.yml",
+      "source": "prompts/narration/sfx.yml",
+      "sha256": "ce36a36aa4611261ec978933436300372582eae6e64b71e8becdea1a669fa596",
+      "bytes": 3749
+    },
+    {
+      "path": "examples/narration/narration.yml",
+      "source": "prompts/narration/narration.yml",
+      "sha256": "bccaa4b3c080b8f15dfdca630c6c916e531a3c4f8eb4a6c15ce2a1e7c63fef15",
+      "bytes": 1724
+    },
+    {
+      "path": "examples/finish-music/music.yml",
+      "source": "prompts/finish-music/music.yml",
+      "sha256": "3f0275a16ea68c1eb0c9a2ee6e0a3788d4601ac311ecbeb2c2e304215b5c5b7a",
+      "bytes": 4260
+    },
+    {
+      "path": "examples/finish-sfx/sfx.yml",
+      "source": "prompts/finish-sfx/sfx.yml",
+      "sha256": "53dcb847608521d70b8c71dbd79fac064f56792882c4f8fa59dcc05c3952ad96",
+      "bytes": 20752
+    },
+    {
+      "path": "fonts/original-selection.json",
+      "source": "config/fonts.json",
+      "sha256": "fa4c796ee78a74ee1b7ccac7bad54c7cd1cb16cb3dee7b0268279455c5f3d871",
+      "bytes": 735
+    },
+    {
+      "path": "music/intro.wav",
+      "source": "output/finish-music/tracks/intro.wav",
+      "sha256": "3aa6e453aded4a86b68c2d86d8fed4c08f0a60446930aa210c904f450ccb5fbf",
+      "bytes": 11525722
+    },
+    {
+      "path": "music/class.wav",
+      "source": "output/finish-music/tracks/class.wav",
+      "sha256": "b8616af6befd49b27d38d6d6e30d71dbc44a7d76bc6e32171d9ddc685799ea91",
+      "bytes": 11525722
+    },
+    {
+      "path": "music/blackboard.wav",
+      "source": "output/finish-music/tracks/blackboard.wav",
+      "sha256": "286423b0246db50363205b2cbf0412b6d2728620a98c4c5e5a16569937eb7787",
+      "bytes": 11525722
+    },
+    {
+      "path": "music/devroom.wav",
+      "source": "output/finish-music/tracks/devroom.wav",
+      "sha256": "f38251b42fb2c79d695edc79160960f8c8f0c5dec84a641e60ebd2e81729c09b",
+      "bytes": 11525722
+    },
+    {
+      "path": "music/titles.wav",
+      "source": "output/finish-music/tracks/titles.wav",
+      "sha256": "32bb28b80d9d64fd1a544097c4367ef3973e62854112c13974f772a587cfd5aa",
+      "bytes": 11525722
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# Timeline of the spoken master (narration:build). gap = pause before the line (s); overlap = starts before the previous ends.
+sfx: narration
+lead_in: 1.6        # cold open: terminal cursor blinks before the first word
+tail: 46.75        # 2.2 s after "Stop token!" … + 7.42 s curtain call (2026-09-30: 2 s pause, tada iris, H3 curtain close/open) + 6 s end card + 3 s rewind bridge + 30 s credits
+gap: 0.4
+trim_db: -45
+target_db: -20
+out: audio/source.wav
+words: audio/words.json
+stems: audio/stems
+lines:
+  - {sound: p01, speaker: prof}
+  - {sound: p02, speaker: prof, at: 9.63}     # pinned (was gap 0.9) so re-voicing p01 never shifts the timeline
+  - {sound: p03, speaker: prof, gap: 1.1}     # pull-back reveal of the lecture hall
+  - {sound: c01, speaker: claude, gap: 0.35}
+  - {sound: p04, speaker: prof, gap: 0.3}
+  - {sound: p05, speaker: prof, gap: 1.2}     # chapter 1 wipe
+  - {sound: p06, speaker: prof, gap: 0.5}
+  - {sound: g01, speaker: gpt3, gap: 0.35}
+  - {sound: p07, speaker: prof, gap: 0.45}
+  - {sound: p08, speaker: prof, gap: 0.8}
+  - {sound: p09, speaker: prof, gap: 0.6}
+  - {sound: p10, speaker: prof, gap: 1.2}     # chapter 2 wipe
+  - {sound: d01, speaker: dev, gap: 0.5}
+  - {sound: ch01, speaker: chat, gap: 0.35}
+  - {sound: p11, speaker: prof, gap: 0.4}
+  - {sound: ch02, speaker: chat, gap: 0.3}
+  - {sound: p12, speaker: prof, gap: 0.4}
+  - {sound: p13, speaker: prof, gap: 1.2}     # chapter 3 wipe
+  - {sound: cl01, speaker: claude, gap: 0.4}
+  - {sound: cx01, speaker: codex, gap: 0.3}
+  - {sound: p14, speaker: prof, gap: 0.6}
+  - {sound: p15, speaker: prof, gap: 0.7}
+  - {sound: g02, speaker: gpt3, gap: 0.4}
+  - {sound: p16, speaker: prof, overlap: 0.25}  # cuts the robot off

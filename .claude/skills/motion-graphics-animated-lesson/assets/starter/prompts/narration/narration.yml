@@ -1,0 +1,10 @@
+sfx: narration
+lead_in: 1.6
+gap: 0.4
+# Replace this estimate with the planned reaction, iris, curtain, end card and credits duration.
+tail: 45
+trim_db: -45
+target_db: -20
+# - {sound: p01, speaker: prof}
+# - {sound: d01, speaker: dev, gap: 0.2}
+lines: []

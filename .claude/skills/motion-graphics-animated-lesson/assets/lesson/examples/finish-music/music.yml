@@ -1,0 +1,45 @@
+# Background music beds (ElevenLabs Music v2.5, instrumental, 60 s each), looped under the narration and ducked by it.
+# Generate (paid): MCP run_task sfx:gen with SFX=finish-music (or CLI `SFX=finish-music rake music:gen`); mix (local): music:bed.
+# Then prompts/finish-sfx/sfx.yml (source: output/clean_music.mp4) lays the SFX on top.
+source: output/clean.mp4          # joined video + narration master (media:preview)
+out: output/clean_music.mp4
+voice: audio/song.wav             # ducking sidechain
+base_db: -30                      # bed RMS while nobody speaks (the narration sits around -20)
+duck_db: -9                       # extra attenuation under the voice
+voice_lo_db: -48                  # voice level → ducking amount (smoothstep between lo and hi)
+voice_hi_db: -32
+attack: 0.06
+release: 0.45
+hold: 0.25                        # bridges the gaps between words so the bed does not pump
+lookahead: 0.12
+loop_xf: 2.0
+join_xf: 1.2
+end: 219.18                       # dead stop on the final STOP TOKEN stamp
+tracks:
+  intro:
+    seconds: 60
+    prompt: "Mysterious, playful cold-open underscore for an animated cartoon documentary about software archaeology: a soft ticking synth arpeggio like a blinking terminal cursor, warm analog pads, light pizzicato hints and a tiny music-box motif, curious and slightly nostalgic, 90 bpm, steady and minimal, no big drops, no build-ups, loopable, instrumental background music"
+  class:
+    seconds: 60
+    prompt: "Light, cheerful lecture-hall underscore for an animated educational cartoon: bouncy pizzicato strings, soft marimba, a cheeky bassoon line and gentle brushed snare, whimsical and witty like a comedy lesson with an eccentric professor, 100 bpm, steady energy throughout, sparse arrangement that leaves room for a narrator, loopable, instrumental background music"
+  blackboard:
+    seconds: 60
+    prompt: "Curious thinking underscore for an animated explainer while diagrams and gears are drawn on a chalkboard: plucky celesta and glockenspiel motifs, soft upright bass, light clockwork percussion like ticking gears, inventive and focused, 96 bpm, steady, sparse mid-range that leaves room for a voice, loopable, instrumental background music"
+  devroom:
+    seconds: 60
+    prompt: "Late-night 2022 developer bedroom underscore: a mellow lo-fi hip hop beat with dusty vinyl crackle, soft Rhodes electric piano chords, warm sub bass and a faint city-night ambience, slightly caffeinated and cozy, 84 bpm, steady groove, loopable, instrumental background music"
+  titles:
+    seconds: 60
+    gain_db: 8                    # the credits have no narration: the theme carries them (-22 dB RMS)
+    prompt: "Whimsical cartoon end-credits theme after a theatre curtain call: jaunty ragtime piano with pizzicato strings, a playful clarinet melody, light brushed drums and an oom-pah tuba bass, warm, bright vaudeville showbiz feel, 112 bpm, starts immediately on the first beat, confident catchy melody, instrumental"
+segments:                         # song seconds (timeline after the 2026-09-30 curtain call + rewind bridge, 220.125 s)
+  - {from: 0.0,     to: 14.25,   track: intro}        # s01 cold open (terminal, commit slam)
+  - {from: 14.25,   to: 31.333,  track: class}        # s02 title + host
+  - {from: 31.333,  to: 90.958,  track: blackboard}   # s03 board lesson, s04 dive into the pipeline machine
+  - {from: 90.958,  to: 137.125, track: devroom}      # s05, s06 the developer's room
+  - {from: 137.125, to: 167.875, track: blackboard}   # s07 agent lab ReAct loop, s08 split board
+  - {from: 167.875, to: 173.70,  track: class, fade_out: 0.05}   # s09 "Class dismissed" … "Stop token!" — the music stops dead
+  # 173.70–176.875: the 2 s pause in silence, then "tadaaa" (SFX) and the iris
+  - {from: 176.875, to: 187.675, track: titles, duck: false, fade_in: 0.8, tape_stop: 0.45, fade_out: 0.06}   # curtain call, end card + parade; s09t ⏎ → the tape stops (pitch slides down)
+  # 187.675–189.95: the VHS rewind (s09t) — only the vhs_rewind / tape_clunk SFX
+  - {from: 189.95,  to: 219.18,  track: titles, duck: false, restart: true, tape_start: 0.2, fade_in: 0.03}   # ▶ PLAY: the theme restarts from its top as the title card lands (190.125), then the credits

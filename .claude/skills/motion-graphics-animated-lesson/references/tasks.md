@@ -1,0 +1,202 @@
+# Ruby entry points and task recipes
+
+## Directory layers
+
+```text
+motion-graphics-animated-lesson/
+  SKILL.md
+  references/                    agent instructions
+  assets/plan-template.md        planning document template
+  scripts/
+    mv.rb                        Ruby CLI/bootstrap/project initializer
+    Rakefile                     require Ruby task registry; install delegates
+    Gemfile + Gemfile.lock        Ruby dependencies, including RSpec
+    package.json + lockfile      locked p5/Puppeteer dependencies
+    requirements.txt             Python dependencies installed by Ruby setup
+    lib/
+      tasks.rb                   thin rake declarations
+      toolkit/                   task application services and test runner
+      workflow/                  plan approval and wave allocation
+      pipeline/                  project, steps, manifests, generation/editing
+      fal/                       Ruby HTTP queue/storage/model adapters
+      media/                     Ruby wrappers that shell out
+    tools/
+      python/                    analysis, cutouts, tracking and audio mixing
+      p5/                        Node renderer, JS animation library, examples; project fonts copied before rendering
+      vfx/                       Swift package and Core Image effects
+    spec/                        high-level RSpec contracts and E2E tests
+```
+
+`init` copies the executable toolkit to a new project with the same `Rakefile → lib → tools` layers and adds `config/`, `audio/`, `prompts/`, `docs/`, `output/`. It excludes installed dependencies, build caches, generated outputs and test scratch data. Each project is self-contained; install dependencies there with `setup`. Ruby 3.2+ is required by the OOP code. Run the CLI using the same Ruby used for Bundler.
+
+All examples below are executed from the skill directory. Replace `/absolute/project` with the real initialized project path. `ruby scripts/mv.rb --project /absolute/project 'TASK[...]'` and, inside the project, `bundle exec rake 'TASK[...]'` are equivalent. CLI flags precede/follow the task; task arguments use Rake brackets. Quote bracket expressions in zsh. For file names containing commas, rename/copy the input in Ruby before using Rake's comma-separated arguments.
+
+For plugin use, adapt Fal-facing recipes to the `animated-lesson` server's `run_task` tool and poll `task_status`, as described in [credentials.md](credentials.md). The MCP process receives the sensitive plugin key; ordinary Bash calls do not. Local recipes keep using the resolved absolute Ruby entry path from `SKILL.md`.
+
+## Setup and inspection
+
+```sh
+ruby scripts/mv.rb --help
+ruby scripts/mv.rb -T
+ruby scripts/mv.rb --project /absolute/project setup
+ruby scripts/mv.rb --project /absolute/project doctor
+ruby scripts/mv.rb --project /absolute/project openapi:fetch
+ruby scripts/mv.rb --project /absolute/project openapi:summary
+```
+
+`setup` calls Bundler, npm ci and Python venv/pip through Ruby. Install system Ruby, Node 22+, Chrome, FFmpeg/ffprobe and ImageMagick beforehand. On macOS install Swift/Xcode command line tools for VFX. `MV_PYTHON` overrides the local `.venv/bin/python3`; `CHROME_PATH` and `MEDIA_FONT` override detected Chrome/font paths. Configure the plugin's sensitive `FAL_AI_API_KEY` option, or set `FAL_AI_API_KEY` in the environment for direct developer CLI calls; never put the key in prompts/config/commits. `doctor` prints JSON booleans; `STRICT=1` makes missing dependencies fail. Tests require the full selected profile's tools and do not silently skip missing dependencies.
+
+`init --project /absolute/project --prompt-file /absolute/brief.md` starts a lesson without audio. It copies the asset pack, fonts, voice settings and editable narration/music starter files. Optional `--song` imports existing narration. Build TTS before `audio:analyze` when no audio was supplied.
+
+`fonts:list` and `fonts:copy[config/fonts.json]` support typography changes; the preserved fonts are already copied by init. See [cast and assets](cast-and-assets.md).
+
+## Lesson audio and preserved references
+
+| Task | Execution | Purpose |
+|---|---|---|
+| `ref:register[run,image]` | MCP | Upload/register an exact bundled identity without regeneration |
+| `sfx:gen`, `SFX=narration` | MCP | Eleven v4 dialogue with voice and alignment metadata |
+| `narration:build` | local | Master, full-length speaker stems, words/line timing |
+| `audio:analyze[audio/source.wav,audio]` | local | Decode master into the runtime's `audio/song.wav` |
+| `media:split_sheet[sheet,out,names,min_area]` | local | Key/slice props; names separated with semicolons |
+| `music:gen`, `SFX=finish-music` | MCP | Generate new instrumental beds; skips `file:` tracks |
+| `music:bed`, `SFX=finish-music` | local | Reuse/generate track sources, loop, duck and mux |
+| `sfx:gen` / `sfx:mix`, `SFX=finish-sfx` | MCP / local | One-shot effects and final mix |
+
+See [narration and music](narration-and-music.md) for YAML. Local file beds need no generation call. Starter configs need the actual script and measured segment ranges before execution.
+
+## New run configuration
+
+When regenerating a video with approved character sheets and their original Fal manifests, register those identities locally without uploading again:
+
+```sh
+ruby scripts/mv.rb --project /absolute/project 'ref:import[char-dev-v1,/absolute/dev.png,/absolute/original-run/manifest.json]'
+```
+
+The service verifies that the supplied image exactly matches the source manifest's local image, copies it into the new project's run and retains its existing HTTPS URL, model and request ID as provenance. Repeated identical imports are safe; a different identity must use a new versioned RUN. Both source files must exist for verification. If a hosted URL has expired, use the normal authorized upload flow and record the replacement; do not assume that an old URL still works. This imports an identity, not a finished scene. The new project can then use `import: { ref_base: "char-dev-v1" }` and generate fresh keyframes.
+
+Invoke each import (and each differently parameterized call to the same Rake task) in a separate Ruby CLI process. Rake runs a task name once per process, even if it appears again with different bracket arguments.
+
+`config/generations.rb` evaluates inside `Pipeline` and returns a Hash. It contains configuration, never rake bodies or shell commands:
+
+```ruby
+{
+  "char-prof-v1" => { steps: [Steps::RefBase], image_model: Fal::Models::GptImage25 },
+  "s01" => {
+    steps: [Steps::RefBase, Steps::Music, Steps::Keyframes, Steps::Clips, Steps::Overlay],
+    import: { ref_base: "char-prof-v1" },
+    **section(0, 240), upload_music: false, plate_file: ".skill/assets/lesson/plates/classroom.png"
+  },
+  "s02" => {
+    steps: [Steps::RefBase, Steps::Music, Steps::Keyframes, Steps::Clips, Steps::Overlay],
+    import: { ref_base: "char-prof-v1" },
+    **section(240, 192), upload_music: false, plate_file: ".skill/assets/lesson/plates/classroom.png"
+  }
+}
+```
+
+For a new identity version edited from a prior character, add a run with `steps: [Steps::RefBase], edit_from: "char-prof-v1"` and write its edit instructions in `01_ref_base.txt`. `edit_from: "s01/approved-edit"` can instead promote an existing edited keyframe. The RefBase service selects the Sunburst edit endpoint, records a new identity and leaves the source untouched. Point dependent runs at the new ID after review.
+
+`section(at, frames)` uses full `audio/song.wav`, offset `at/24.0`, integer frame length and an empty expected-word list. Set `lyrics:` (legacy config key) to selected recognizable words if desired. Use `plate_file: ".skill/assets/lesson/plates/classroom.png"` for a preserved local plate with no generated keyframe. Character-free scenes can use `steps: [Steps::Music, Steps::Overlay]`, `plate_file:`, and a p5 sketch, omitting RefBase/Keyframes/Clips entirely. Sprite scenes are the default: `Clips, Overlay` with a still keyframe `plate:`, as in the example above. The full-frame paths are exceptions that the plan must justify (see "Self-contained characters" in [prompts.md](prompts.md)): a single H3 plate uses `Video` and a 5–15 second integer duration; multi-shot plates use `Keyframes, Shots, Overlay` with no `plate:`. `track:` optionally maps names to `[x,y,size,search,from_frame]` for tracked graphics. `reference:` is an optional local reference-video path.
+
+Set `upload_music: false` when a section only needs its local soundtrack for compositing (for example a nonspeaking H3 shot with `audio: false` plus existing timed captions). `gen:music` then cuts/fits the local WAV without constructing a Fal client. Use `anim:prepare` for existing cues. `review:music` runs local metrics and marks transcription skipped; expected spoken words cannot be verified without a transcript. A `Video`, an audio-driven `Shots` item or paid `gen:overlay` that reads `music.url` requires the default upload behavior. `Clips` with a separate vocal stem uploads just its actual needed stem interval.
+
+Prompt files per run:
+
+| File | Purpose |
+|---|---|
+| `01_ref_base.txt` (or `.json`) | Character prompt; JSON is sent as prompt text, not model options |
+| `02_keyframes.yml` | Named image edit prompts, `base`, `refs` |
+| `04_video.txt` | Single-shot H3 prompt (the Video step reads this stem) |
+| `04_shots.yml` | Ordered shots, images, frames, optional audio/retime |
+| `04_clips.yml` | H3/still/source sprite specifications and chroma/crop |
+| `05_overlay.js` | p5 sketch, rendered through Ruby |
+
+Read each step's `prompt` call if adding a new type. The legacy `Music3` wrapper remains available for compatibility; the lesson workflow builds narration first and reuses local instrumental beds.
+
+Example `02_keyframes.yml`:
+
+```yaml
+background:
+  prompt: "Background plate matching the approved scene, visual style, lighting and colour treatment; no people or text."
+speaker:
+  prompt: "SAME approved speaker, full body, flat chroma green #00B140, limbs inside frame, no text."
+reaction:
+  base: speaker
+  prompt: "Same speaker and framing; change only the expression to surprised."
+guest:
+  base: false
+  refs: [char-guest-v1]
+  prompt: "One approved guest alone on flat green, no other characters."
+```
+
+`base: false` omits the current ref_base; combine with `refs`. `base: other-run/keyframe` reuses an edited frame. An earlier same-run keyframe must appear before any dependent edit.
+
+Example `04_clips.yml`:
+
+```yaml
+- name: talk
+  image: speaker
+  seconds: 5
+  audio: audio/stems/prof.wav
+  audio_at: 0
+  gate: -36
+  key: green
+  prompt: "Same speaker and approved visual style. Articulate the approved opening spoken-line; eyebrow raise on its joke. Locked camera, flat green, no text."
+- name: surprise
+  still: reaction
+  key: green
+```
+
+`audio_at` is section-local, not the master time. Omit `gate` if it damages consonants. `box: [x,y,w,h]`, `seed: [x,y]`, `frames`, `start`, `scale` are cutout options. Use the approved full prompt directive, style and performance details in real files; these abbreviated examples only show the schema.
+
+## Production and review commands
+
+```sh
+NOTE='User approved the linked plan and its generation allowance' ruby scripts/mv.rb --project /absolute/project plan:approve
+ruby scripts/mv.rb --project /absolute/project work:next
+LOG_DIR=/absolute/evaluation/logs LIMIT=3 ruby scripts/mv.rb work:watch
+JOB=prof-reference EVIDENCE=docs/reviews/prof-reference.md ruby scripts/mv.rb --project /absolute/project work:accept
+RUN=char-prof-v1 ruby scripts/mv.rb --project /absolute/project gen:ref_base
+RUN=char-prof-v1 ruby scripts/mv.rb --project /absolute/project review:ref_base
+RUN=s01 ruby scripts/mv.rb --project /absolute/project gen:music
+RUN=s01 ruby scripts/mv.rb --project /absolute/project 'anim:prepare[audio/words.json]'
+RUN=s01 ruby scripts/mv.rb --project /absolute/project anim:overlay
+RUN=s01 ONLY=talk FORCE=1 ruby scripts/mv.rb --project /absolute/project gen:clips
+RUN=s01 RECUT=1 ONLY=talk FORCE=1 ruby scripts/mv.rb --project /absolute/project gen:clips
+RUN=s01 ruby scripts/mv.rb --project /absolute/project 'anim:prepare[audio/words.json]'
+RUN=s01 ruby scripts/mv.rb --project /absolute/project 'anim:preview[0,24,96,239]'
+RUN=s01 ruby scripts/mv.rb --project /absolute/project anim:overlay
+ruby scripts/mv.rb --project /absolute/project 'media:preview[output/clean.mp4,s01,s02]'
+```
+
+`gen:ref_base`, `gen:keyframes`, `gen:video`, `gen:shots`, H3 `gen:clips`, generated music, `gen:overlay`, `review:music`, stems and SFX may call paid Fal endpoints. `gen:music` for a narration section is local processing plus CDN upload; `gen:overlay` uses paid Whisper unless re-rendering saved cues through `anim:overlay`. Reviews other than music are local. `pipeline:all` includes paid review calls; allocate them in the plan.
+
+For existing reliable word timings, use `anim:prepare[full-master-words.json]` after the plate prerequisites exist, then `anim:preview`/`anim:overlay`. It accepts Whisper `chunks` or an array of `{w,s,e}` / `{word,start,end}`, selects this section and subtracts its master offset. With no argument it writes an empty cue list for sketches with explicitly authored timing. It also prepares configured tracks locally. `anim:overlay` records a complete manifest even on the first local render, so `review:overlay` works without a paid `gen:overlay` call.
+
+`FORCE=1` changes cached work; `ONLY` confines ItemsStep work to named assets. A selected partial item set will not build the complete step's board until all items exist. `NEW_REQUEST=1` allows a new identical paid request; normal retries reuse saved receipts. `history[step]`, `adopt[step,request_id]`, `pick[step,index]`, `import[step,source_run]` support recovery and reuse. ItemsStep recovery uses per-item stored request IDs and reruns; adopt/pick are for single-output steps.
+
+## Analysis, finishing and utility tasks
+
+```sh
+ruby scripts/mv.rb --project /absolute/project 'audio:analyze[audio/source.mp3,audio]'
+ruby scripts/mv.rb --project /absolute/project 'audio:transcribe[audio/song.wav,audio/words.json]'
+ruby scripts/mv.rb --project /absolute/project 'media:stems[audio/song.wav,audio/stems,vocals]'
+ruby scripts/mv.rb --project /absolute/project 'media:frames[reference.mp4,output/reference_frames,12,480]'
+ruby scripts/mv.rb --project /absolute/project 'media:cuts[reference.mp4,output/cuts.json]'
+ruby scripts/mv.rb --project /absolute/project 'media:mouth[output/s01/04_clips/talk,audio/stems/prof.wav,0,120,60,40,20]'
+ruby scripts/mv.rb --project /absolute/project 'anim:render[tools/p5/examples/smoke.js,tmp/smoke,48,1920,1080]'
+SFX=finish-sfx ruby scripts/mv.rb --project /absolute/project sfx:gen
+SFX=finish-sfx ruby scripts/mv.rb --project /absolute/project sfx:mix
+VFX=finish-vfx ruby scripts/mv.rb --project /absolute/project vfx:analyze
+VFX=finish-vfx ruby scripts/mv.rb --project /absolute/project 'vfx:stills[0,24,120]'
+VFX=finish-vfx ruby scripts/mv.rb --project /absolute/project 'vfx:clip[96,144]'
+VFX=finish-vfx ruby scripts/mv.rb --project /absolute/project vfx:render
+ruby scripts/mv.rb --project /absolute/project 'media:twitter[output/finished.mp4,output/delivery-1080.mp4]'
+```
+
+`media:probe`, `media:sheet`, `media:frame`, `media:cut`, `media:cutout`, `media:sprite_box`, `media:style`, `media:concat`, `media:mux`, `media:upload` and `media:youtube` are listed by `-T` with their arguments. Export names denote encoding presets; they do not publish to platforms. For unlisted operations, add an OOP service under `lib/` and a thin registry delegate. Keep backend code under `tools/` and tests in `spec/`.
+
+For detached lettering or debris in an RGBA sprite sequence, run `ruby scripts/mv.rb --project /absolute/project 'media:keep_component[output/raw-sprite,output/clean-sprite,320,400]'`. The seed is an integer pixel coordinate inside the intended subject in **every** input frame. The task preserves its four-connected nonzero-alpha component exactly and clears other alpha; it never expands or bridges components. Output must be a different, new or empty directory. Out-of-bounds or transparent seeds fail the whole sequence without publishing partial output. Touching text remains part of the subject and needs a separate mask; inspect the cleaned motion before use.
+
+The packaging follows [Agent Skills script guidance](https://agentskills.io/skill-creation/using-scripts): relative entry paths, explicit prerequisites, noninteractive arguments, help, meaningful failure codes and compact results. Ruby OOP methods own execution and delegate backend work.

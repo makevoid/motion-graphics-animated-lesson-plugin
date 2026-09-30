@@ -1,0 +1,32 @@
+[
+  {
+    "name": "gear_l",
+    "path": "output/gears-v1/sprites/gear_l.png",
+    "box": [
+      44,
+      228,
+      1055,
+      1008
+    ]
+  },
+  {
+    "name": "gear_m",
+    "path": "output/gears-v1/sprites/gear_m.png",
+    "box": [
+      1172,
+      340,
+      807,
+      792
+    ]
+  },
+  {
+    "name": "gear_s",
+    "path": "output/gears-v1/sprites/gear_s.png",
+    "box": [
+      2097,
+      445,
+      607,
+      603
+    ]
+  }
+]

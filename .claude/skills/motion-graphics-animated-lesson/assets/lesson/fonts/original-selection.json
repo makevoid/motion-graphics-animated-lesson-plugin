@@ -1,0 +1,13 @@
+{
+  "chalk.ttf": "/System/Library/Fonts/Supplemental/Chalkduster.ttf",
+  "mono.ttf": "/System/Library/Fonts/SFNSMono.ttf",
+  "mono-andale.ttf": "/System/Library/Fonts/Supplemental/Andale Mono.ttf",
+  "din-cond.ttf": "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
+  "din-alt.ttf": "/System/Library/Fonts/Supplemental/DIN Alternate Bold.ttf",
+  "body.ttf": "/Library/Fonts/Roboto-Regular.ttf",
+  "body-med.ttf": "/Library/Fonts/Roboto-Medium.ttf",
+  "body-black.ttf": "/Library/Fonts/Roboto-Black.ttf",
+  "math.otf": "/System/Library/Fonts/Supplemental/STIXGeneral.otf",
+  "math-it.otf": "/System/Library/Fonts/Supplemental/STIXGeneralItalic.otf",
+  "hand.ttf": "/System/Library/Fonts/Supplemental/Bradley Hand Bold.ttf"
+}

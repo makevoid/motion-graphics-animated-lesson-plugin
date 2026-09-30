@@ -1,0 +1,6 @@
+{
+  "model": "elevenlabs/tts/eleven-v4",
+  "policy": "Use these defaults only when the corresponding role is needed; explicit user cast and voice choices override them.",
+  "prof": {"name": "Prof. Otto Regress", "role": "lecturer", "reference": ".skill/assets/lesson/characters/char-prof-v1.png", "voice": "George", "stability": 0.45, "seed": 11},
+  "dev": {"name": "the developer", "reference_lesson_name": "makevoid", "role": "developer/demo", "reference": ".skill/assets/lesson/characters/char-dev-v1.png", "voice": "Liam", "stability": 0.5, "seed": 41}
+}
