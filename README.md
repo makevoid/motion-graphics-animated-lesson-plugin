@@ -13,6 +13,7 @@ I will try to complete the readme for manual setup soon.
 
 Enjoy
 
+See 9 examples on X: https://x.com/makevoid/status/2105673599046598834
 
 ## Install and invoke
 
