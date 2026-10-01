@@ -4,7 +4,7 @@ Version **0.2.0**.
 
 A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, repository or script. It combines character acting with p5 diagrams, code, captions and camera moves, then adds music ducked under dialogue, a theatrical curtain call and animated credits.
 
-The workflow is based on **Software Archaeology 101** - a video posted on X/Twitter. The plugin includes its reusable artwork, curtain images/animations, animation and timing recipes and all five original music beds. 
+The plugin includes its reusable artwork, curtain images/animations, animation and timing recipes and all five original music beds. 
 
 
 NOTE: The project is in beta and this readme still needs to be rewritten by a human (e.g. me :)) - In the meantime you could download it, fire Claude Code in a local directory containing this repo and ask Claude to set it up including all dependencies. You should be up and running in little time.
