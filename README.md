@@ -4,7 +4,7 @@ Version **0.2.0**.
 
 A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, repository or script. It combines character acting with p5 diagrams, code, captions and camera moves, then adds music ducked under dialogue, a theatrical curtain call and animated credits.
 
-The plugin includes its reusable artwork, curtain images/animations, animation and timing recipes and all five original music beds. 
+The plugin includes its reusable artwork, curtain still images, animation and timing recipes and all five original music beds.
 
 
 NOTE: The project is in beta and this readme still needs to be rewritten by a human (e.g. me :)) - In the meantime you could download it, fire Claude Code in a local directory containing this repo and ask Claude to set it up including all dependencies. You should be up and running in little time.
@@ -52,10 +52,14 @@ Here follows a draft readme that will be updated soon for human consumption:
 
 The default lecturer is Professor. Otto, voiced by **George** voice on ElevenLabs Eleven v4. The default character is a young male developer ( the voice uses **Liam** ). Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role  **can be** omitted or  **replaced by the prompt**. 
 
+## Assets to regenerate
+
+The five curtain/character MP4s and the optional agent-lab background are omitted to keep the plugin within directory size limits. Regenerate only those needed for a lesson, inside the initialized project, before rendering scenes that use them. The character sheets, curtain stills, classroom, developer room, props, ending guides and five music beds remain bundled. See [the omitted asset list and regeneration instructions](.claude/skills/motion-graphics-animated-lesson/references/cast-and-assets.md#assets-to-regenerate). Generation requires a configured Fal API key and production authorization; initialization does not generate media.
+
 ## Preserved templates and media
 
 - [Skill workflow](.claude/skills/motion-graphics-animated-lesson/SKILL.md)
-- [Cast, classroom, props, font roles and silent loops](.claude/skills/motion-graphics-animated-lesson/references/cast-and-assets.md)
+- [Cast, classroom, props, font roles and regeneration recipes](.claude/skills/motion-graphics-animated-lesson/references/cast-and-assets.md)
 - [Ending text template, PNG/SVG layouts and original frames](.claude/skills/motion-graphics-animated-lesson/assets/templates/ending/TEMPLATE.md)
 - [Narration, Eleven v4 and ducked music recipes](.claude/skills/motion-graphics-animated-lesson/references/narration-and-music.md)
 - [Asset provenance and exact hashes](.claude/skills/motion-graphics-animated-lesson/assets/lesson/manifest.json)

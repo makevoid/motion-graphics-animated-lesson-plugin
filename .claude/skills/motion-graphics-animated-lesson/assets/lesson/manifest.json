@@ -39,12 +39,6 @@
       "bytes": 3732959
     },
     {
-      "path": "plates/agent-lab.png",
-      "source": "output/s07/02_kf_lab.png",
-      "sha256": "0c26665ae6c3c0ecae70500ac4014978b48687f53d3aaa2a27a5703f2cbde9f7",
-      "bytes": 3872371
-    },
-    {
       "path": "curtain/closed.png",
       "source": "output/curtain-v1/01_ref_base.png",
       "sha256": "eca540bcb2ccdcc4e3e3272c2ec80d6490d90d123d9b1b5a78146a37c4de17cc",
@@ -55,18 +49,6 @@
       "source": "output/s09c/02_kf_open.png",
       "sha256": "91057fad447d63fc8bb4e4c7c32ad67c6064fb6727e00c2f4dbda88f4782e3b6",
       "bytes": 3303753
-    },
-    {
-      "path": "curtain/close.mp4",
-      "source": "output/s09c/04_clip_curtain_close.mp4",
-      "sha256": "8d128c3979e6622b40ecbaf9a7c15a366764131d0acd805d2acb77f7bfd6bcc5",
-      "bytes": 11064404
-    },
-    {
-      "path": "curtain/open.mp4",
-      "source": "output/s09c/04_clip_curtain_open.mp4",
-      "sha256": "db97ff7cb2700c4adc7ac4af0ad0a30ccdd5134008bbde017ffac6126b1f3d99",
-      "bytes": 10261063
     },
     {
       "path": "props/props-a-v1/desk.png",
@@ -305,24 +287,6 @@
       "bytes": 532409
     },
     {
-      "path": "loops/face_prof.mp4",
-      "source": "output/s10/04_clip_face_prof.mp4",
-      "sha256": "ef7d4ef4c925df876cff940cdae8ecac54d9fa39e2b20faf573b284730841e9e",
-      "bytes": 10614622
-    },
-    {
-      "path": "loops/face_luca.mp4",
-      "source": "output/s10/04_clip_face_luca.mp4",
-      "sha256": "e0500bba4a55e670ce0611f22b6e1bd015ce6aac526f88bb54c642195fcdd890",
-      "bytes": 6516696
-    },
-    {
-      "path": "loops/run_luca.mp4",
-      "source": "output/s10/04_clip_run_luca.mp4",
-      "sha256": "fda5e813dffecb2595b07daeb4c4e57cf0729436e1a90a427c48977401c35013",
-      "bytes": 6749104
-    },
-    {
       "path": "fonts/default-selection.json",
       "source": "stock macOS font paths; edit per machine",
       "sha256": "1014bea527696492ac6c0b1234d0c4a912443f7c0c444485c59532477146d79b",
@@ -357,6 +321,56 @@
       "source": "output/finish-music/tracks/titles.wav",
       "sha256": "94fd85981cd67fc04fff7f10f4a217a428be6f98939e501155632d87dcf6ed71",
       "bytes": 1442349
+    }
+  ],
+  "regenerate_when_needed": [
+    {
+      "path": "plates/agent-lab.png",
+      "source": "output/s07/02_kf_lab.png",
+      "sha256": "0c26665ae6c3c0ecae70500ac4014978b48687f53d3aaa2a27a5703f2cbde9f7",
+      "bytes": 3872371,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+    },
+    {
+      "path": "curtain/close.mp4",
+      "source": "output/s09c/04_clip_curtain_close.mp4",
+      "sha256": "8d128c3979e6622b40ecbaf9a7c15a366764131d0acd805d2acb77f7bfd6bcc5",
+      "bytes": 11064404,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+    },
+    {
+      "path": "curtain/open.mp4",
+      "source": "output/s09c/04_clip_curtain_open.mp4",
+      "sha256": "db97ff7cb2700c4adc7ac4af0ad0a30ccdd5134008bbde017ffac6126b1f3d99",
+      "bytes": 10261063,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+    },
+    {
+      "path": "loops/face_prof.mp4",
+      "source": "output/s10/04_clip_face_prof.mp4",
+      "sha256": "ef7d4ef4c925df876cff940cdae8ecac54d9fa39e2b20faf573b284730841e9e",
+      "bytes": 10614622,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+    },
+    {
+      "path": "loops/face_luca.mp4",
+      "source": "output/s10/04_clip_face_luca.mp4",
+      "sha256": "e0500bba4a55e670ce0611f22b6e1bd015ce6aac526f88bb54c642195fcdd890",
+      "bytes": 6516696,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+    },
+    {
+      "path": "loops/run_luca.mp4",
+      "source": "output/s10/04_clip_run_luca.mp4",
+      "sha256": "fda5e813dffecb2595b07daeb4c4e57cf0729436e1a90a427c48977401c35013",
+      "bytes": 6749104,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
     }
   ]
 }

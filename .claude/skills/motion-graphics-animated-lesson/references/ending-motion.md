@@ -31,7 +31,7 @@ function iris(t, start, end) {
 
 ## Folding curtain and continuous card clock
 
-Prepare `curtain_close` and `curtain_open` through `source:` clips with `key: green`, then load both with `await Anim.clip(name)` inside `async load()`. The source timing maps are pairs of `[section time, clip time]`:
+First [regenerate the omitted curtain videos](cast-and-assets.md#assets-to-regenerate). Prepare `curtain_close` and `curtain_open` through `source:` clips with `key: green`, then load both with `await Anim.clip(name)` inside `async load()`. The following archived timing maps must be remeasured for regenerated clips; they are pairs of `[section time, clip time]`:
 
 ```js
 const curtainClose = [[0.15, 0.4], [2.5, 2.75], [3.6, 4.4]];
@@ -53,7 +53,7 @@ The original section lasted 246 frames. If retaining that length, the next secti
 
 ## Developer run and animated credit faces
 
-Prepare only selected loops:
+The following files are not bundled. [Regenerate only selected loops](cast-and-assets.md#assets-to-regenerate) and save them at these project-local paths before preparing them:
 
 ```yaml
 - name: face_prof

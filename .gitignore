@@ -14,3 +14,11 @@ work/
 **/prompts/e2e-*/
 **/prompts/live-vfx-*/
 .claude/skills/motion-graphics-animated-lesson/scripts/tools/p5/fonts/
+
+# Large media is regenerated inside lesson projects, not shipped in the plugin.
+/.claude/skills/motion-graphics-animated-lesson/assets/lesson/curtain/close.mp4
+/.claude/skills/motion-graphics-animated-lesson/assets/lesson/curtain/open.mp4
+/.claude/skills/motion-graphics-animated-lesson/assets/lesson/loops/face_luca.mp4
+/.claude/skills/motion-graphics-animated-lesson/assets/lesson/loops/face_prof.mp4
+/.claude/skills/motion-graphics-animated-lesson/assets/lesson/loops/run_luca.mp4
+/.claude/skills/motion-graphics-animated-lesson/assets/lesson/plates/agent-lab.png
