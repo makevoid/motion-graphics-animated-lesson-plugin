@@ -13,11 +13,9 @@ I will try to complete the readme for manual setup soon.
 
 Enjoy
 
-## AI GENERATED README
+## Draft Readme
 
-Fonts are not bundled: each project selects TTF/OTF fonts installed on your machine (see [project fonts](.claude/skills/motion-graphics-animated-lesson/references/animation-audio-vfx.md#project-fonts)). New projects are self-contained; the original directory is not required.
-
-![Preserved classroom](.claude/skills/motion-graphics-animated-lesson/assets/lesson/plates/classroom.png)
+### Characters
 
 The default lecturer is **Prof. Otto Regress**, voiced by **George** with ElevenLabs Eleven v4. The default character is a young male developer ( the voice uses **Liam** ). Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role  **can be** omitted or  **replaced by the prompt**. 
 
@@ -70,4 +68,16 @@ PROFILE=core rake test
 
 Routine tests use local media and mocked network calls. Paid live tests are opt-in. See [verification guidance](.claude/skills/motion-graphics-animated-lesson/references/testing.md).
 
+### Minor notes
+
+
+Fonts are not bundled: each project selects TTF/OTF fonts installed on your machine (see [project fonts](.claude/skills/motion-graphics-animated-lesson/references/animation-audio-vfx.md#project-fonts)). New projects are self-contained; the original directory is not required.
+
+
+### License
+
 The toolkit code is MIT licensed. Preserved user-supplied artwork and model outputs retain their original provenance and applicable terms. System fonts selected into a project keep their own licenses.
+
+---
+
+Feel free to contribute to this repo and enjoy using this plugin!
