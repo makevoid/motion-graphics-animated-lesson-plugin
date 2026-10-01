@@ -13,11 +13,6 @@ I will try to complete the readme for manual setup soon.
 
 Enjoy
 
-## Draft Readme
-
-### Characters
-
-The default lecturer is Professor. Otto, voiced by **George** voice on ElevenLabs Eleven v4. The default character is a young male developer ( the voice uses **Liam** ). Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role  **can be** omitted or  **replaced by the prompt**. 
 
 ## Install and invoke
 
@@ -42,6 +37,17 @@ ruby .claude/skills/motion-graphics-animated-lesson/scripts/mv.rb --project /abs
 ```
 
 Then research/script/plan, record existing production authorization, generate the dialogue through MCP, build narration and measured scene timing, produce/review scenes, assemble, mix and deliver. Optional `--song` imports an existing narration master. `audio/song.wav` and `gen:music` retain their historical names but represent narration and its section cuts; background beds use `music:bed`.
+
+
+---
+
+Here follows a draft readme that will be updated soon for human consumption:
+
+## DRAFT Readme 
+
+### Characters
+
+The default lecturer is Professor. Otto, voiced by **George** voice on ElevenLabs Eleven v4. The default character is a young male developer ( the voice uses **Liam** ). Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role  **can be** omitted or  **replaced by the prompt**. 
 
 ## Preserved templates and media
 
