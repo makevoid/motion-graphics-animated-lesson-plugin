@@ -94,3 +94,14 @@ The toolkit code is MIT licensed. Preserved user-supplied artwork and model outp
 ---
 
 Feel free to contribute to this repo and enjoy using this plugin!
+
+## External services and data sharing
+
+The local MCP server and CLI use these external services:
+
+- **Fal API and storage** (`queue.fal.run`, `rest.alpha.fal.ai`, and provider-returned media URLs): authentication, prompts, narration/lyrics, settings, and selected images/audio/video for generation, transcription, and stem separation. Uploaded media links may be accessible to anyone with the link; the plugin does not automatically delete remote assets.
+- **Fal schemas** (`fal.ai/api/openapi/queue/openapi.json`): model identifiers for schema lookup.
+- **Web research:** search queries and reference URLs go to Claude's configured search provider and visited sites.
+- **Setup and updates:** package requests go to RubyGems, npm, and PyPI (or configured mirrors); plugin installation and updates contact GitHub.
+
+Editing, rendering, mixing, and exports run locally. Project files retain briefs, scripts, media, and generation metadata, including personal data supplied in that content. No maintainer telemetry or automatic social publishing is included. Normal Claude conversation and tool-result handling still applies.
