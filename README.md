@@ -46,7 +46,12 @@ The plugin will load and you will be good to go to prompt away!
 
 You can follow the question that Claude asks one by one or you can just test a prompt such as "create a minecraft viral video on something about computer science, use 480p vertical format, 30s video no intro no outro, make a banger!" (this should cost circa 4-5$ of Fal AI MiniMax H3 credits).
 
-Check the `output` directory when claude is finished or just ask claude to show you the video if you are in the Claude desktop app.
+<img width="851" height="584" alt="Screenshot 2026-10-02 at 15 53 37" src="https://github.com/user-attachments/assets/0a7cf6c9-eff0-40b2-8fee-a730e9c66173" />
+
+This example data: Opus 5.5 Medium - 355k Token Used - Fal AI usage: 3 $ - Note it reused the guidelines of the 2 default character contained in the skill, feel free to prompt to override them at the beginning of this process.
+
+
+Check the `output` directory when claude is finished or just ask claude to show you the video if you are in the Claude desktop app and it didn't show the video to you.
 
 Note - for continuing on Claude Code do the same but on a terminal.
 
