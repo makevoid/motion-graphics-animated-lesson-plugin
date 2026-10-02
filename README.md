@@ -44,7 +44,7 @@ The plugin will load and you will be good to go to prompt away!
 
 <img width="742" height="560" alt="Screenshot 2026-10-02 at 15 20 07" src="https://github.com/user-attachments/assets/68a61d3b-78cc-4b09-85bd-a364f5eb9a30" />
 
-You can follow the question that Claude asks one by one or you can just test a prompt such as "create a minecraft viral video on something about computer science, use 480p vertical format, 30s video no intro no outro, make a banger!" (this should cost circa 4-5$ of Fal AI MiniMax H3 credits).
+You can follow the question that Claude asks one by one or you can just test a prompt such as "create a minecraft viral video on something about computer science, use 480p vertical format, 30s video no intro no outro, make a banger!" (this should cost max 5$ of Fal AI MiniMax H3 credits).
 
 <img width="851" height="584" alt="Screenshot 2026-10-02 at 15 53 37" src="https://github.com/user-attachments/assets/0a7cf6c9-eff0-40b2-8fee-a730e9c66173" />
 
