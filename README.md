@@ -6,12 +6,7 @@ A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, 
 
 The plugin includes its reusable artwork, curtain still images, animation and timing recipes and all five original music beds.
 
-
-NOTE: The project is in beta and this readme still needs to be rewritten by a human (e.g. me :)) - In the meantime you could download it, fire Claude Code in a local directory containing this repo and ask Claude to set it up including all dependencies. You should be up and running in little time.
-
-I will try to complete the readme for manual setup soon.
-
-Enjoy
+### Samples:
 
 See 10 examples on X: (1-9) https://x.com/makevoid/status/2105673599046598834
 
