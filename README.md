@@ -22,69 +22,40 @@ See 10 examples on X: (1-9) https://x.com/makevoid/status/2105673599046598834
 From a local checkout in Claude Code:
 
 ```sh
-claude --plugin-dir /absolute/path/to/motion-graphics-animated-lesson-plugin
+claude plugin marketplace add makevoid/motion-graphics-animated-lesson-plugin
+claude plugin install motion-graphics-animated-lesson@makevoid-animated-lesson
+/plugin configure motion-graphics-animated-lesson@makevoid-animated-lesson 
 ```
 
-Invoke `/motion-graphics-animated-lesson:motion-graphics-animated-lesson`, or ask for a cartoon animated lesson. Configure `FAL_AI_API_KEY` through the plugin configuration UI for generation; the `animated-lesson` MCP server holds the key. Local reuse/rendering does not need a generation call. Developer CLI usage can receive the key from the environment.
+Then execute `/plugin configure motion-graphics-animated-lesson@makevoid-animated-lesson` in the same session.
 
-Example brief:
+Enter your Fal AI API key and the setup is done!
 
-> Make a three-minute lesson explaining database indexes. Use the professor and developer, show a worked example, reuse the classroom and original intro/ending music, and end with a callback joke and curtain-call credits.
+Now you can proceed on Claude Code TUI or on close the terminal and use the Claude desktop app. 
 
-A new lesson begins without a song:
+### Claude Desktop instructions
 
-```sh
-ruby .claude/skills/motion-graphics-animated-lesson/scripts/mv.rb init \
-  --project /absolute/new-lesson --prompt-file /absolute/brief.md
-ruby .claude/skills/motion-graphics-animated-lesson/scripts/mv.rb --project /absolute/new-lesson setup
+Open a new Claude Code session, add a folder to it and then execute: 
+
+```
+/motion-graphics-animated-lesson
 ```
 
-Then research/script/plan, record existing production authorization, generate the dialogue through MCP, build narration and measured scene timing, produce/review scenes, assemble, mix and deliver. Optional `--song` imports an existing narration master. `audio/song.wav` and `gen:music` retain their historical names but represent narration and its section cuts; background beds use `music:bed`.
+
+<img width="696" height="146" alt="Screenshot 2026-10-02 at 15 14 45" src="https://github.com/user-attachments/assets/abfdb1e6-4e16-4a3c-ae54-f97bf01e3c63" />
 
 
----
+The plugin will load and you will be good to go to prompt away!
 
-Here follows a draft readme that will be updated soon for human consumption:
+<img width="742" height="560" alt="Screenshot 2026-10-02 at 15 20 07" src="https://github.com/user-attachments/assets/68a61d3b-78cc-4b09-85bd-a364f5eb9a30" />
 
-## DRAFT Readme 
+You can follow the question that Claude asks one by one or you can just test a prompt such as "create a minecraft viral video on something about computer science, use 480p vertical format, 30s video no intro no outro, make a banger!" (this should cost circa 4-5$ of Fal AI MiniMax H3 credits).
 
-### Characters
+Check the `output` directory when claude is finished or just ask claude to show you the video if you are in the Claude desktop app.
 
-The default lecturer is Professor. Otto, voiced by **George** voice on ElevenLabs Eleven v4. The default character is a young male developer ( the voice uses **Liam** ). Their original identity sheets and voice settings are preserved. These are the only bundled characters. Either role  **can be** omitted or  **replaced by the prompt**. 
+Note - for continuing on Claude Code do the same but on a terminal.
 
-## Assets to regenerate
-
-The five curtain/character MP4s and the optional agent-lab background are omitted to keep the plugin within directory size limits. Regenerate only those needed for a lesson, inside the initialized project, before rendering scenes that use them. The character sheets, curtain stills, classroom, developer room, props, ending guides and five music beds remain bundled. See [the omitted asset list and regeneration instructions](.claude/skills/motion-graphics-animated-lesson/references/cast-and-assets.md#assets-to-regenerate). Generation requires a configured Fal API key and production authorization; initialization does not generate media.
-
-## Preserved templates and media
-
-- [Skill workflow](.claude/skills/motion-graphics-animated-lesson/SKILL.md)
-- [Cast, classroom, props, font roles and regeneration recipes](.claude/skills/motion-graphics-animated-lesson/references/cast-and-assets.md)
-- [Ending text template, PNG/SVG layouts and original frames](.claude/skills/motion-graphics-animated-lesson/assets/templates/ending/TEMPLATE.md)
-- [Narration, Eleven v4 and ducked music recipes](.claude/skills/motion-graphics-animated-lesson/references/narration-and-music.md)
-- [Asset provenance and exact hashes](.claude/skills/motion-graphics-animated-lesson/assets/lesson/manifest.json)
-- [Lesson plan template](.claude/skills/motion-graphics-animated-lesson/assets/plan-template.md)
-
-All five original music beds (intro, class, blackboard, devroom and titles) are bundled as 192 kbps CBR MP3s. Use MP3 for any new bundled audio. Initialized projects default to those local files, with the intro and titles intended for the opening and ending. Set measured segment ranges and run `music:bed` locally. The source tracks stay unchanged; looping, fades and narration ducking happen in the mix.
-
-Ending templates preserve 1920×1080/24fps layout, curtain folds/open/closed states, takeaway/source card, title card, alternating character/voice credits, two-column production credits and final joke. Future lessons reuse the layout and image references while supplying their own facts, cast and actual production credits.
-
-## Runtime and verification
-
-Ruby 3.2+, Bundler, FFmpeg/ffprobe, ImageMagick, Python 3, Node.js 22+ and Chrome. Ruby invokes all media backends. Optional Swift effects require macOS 14+ and Swift 5.9+. Fal adapters include ElevenLabs Eleven v4 TTS, ElevenLabs Music v2.5, GPT Image 2.5 Sunburst and MiniMax H3 Max; fetch current schemas before generation.
-
-```sh
-rake test
-# or PROFILE=core / media / swift
-PROFILE=core rake test
-```
-
-Routine tests use local media and mocked network calls. Paid live tests are opt-in. See [verification guidance](.claude/skills/motion-graphics-animated-lesson/references/testing.md).
-
-### Minor notes
-
-
-Fonts are not bundled: each project selects TTF/OTF fonts installed on your machine (see [project fonts](.claude/skills/motion-graphics-animated-lesson/references/animation-audio-vfx.md#project-fonts)). New projects are self-contained; the original directory is not required.
+Enjoy!
 
 
 ### License
