@@ -58,6 +58,18 @@ Note - for continuing on Claude Code do the same but on a terminal.
 Enjoy!
 
 
+### Tools the plugin uses
+
+Before generating a video, you can install some of these dependencies, which on Mac OS should be easy to install - they're not required, you could prompt the skill to do as much as it can with just basic Ruby, NodeJS and Python but you get the best of results if you have everything as Opus will be able to have access to all the powerful tools in the toolkit. The skill if you don't have some will work as well but if you want it to work best I recommend you do them all, you can leave the VFX one out, that's really optional. NodeJS is highly recommended to have as you will get much better in-frame animations with it.
+
+- Python 3 (should be installed already)
+- Homebrew https://brew.sh/ - this is needed to install the other dependencies
+- Ruby 3.2+ with Bundler (Mac OS comes with it with 2.6 - this should work as well but the agent will spend some time setting the project up, I recommend you try to install ruby via homebrew)
+- Node.js 22+ - https://nodejs.org/en/download
+- FFmpeg (from homebrew)
+- ImageMagick (also from brew)
+- Swift VFX and the full test suite require macOS 14+ with Swift 5.9+ / Xcode command line tools - that is very much optional but recommended
+
 ### License
 
 The toolkit code is MIT licensed. Preserved user-supplied artwork and model outputs retain their original provenance and applicable terms. System fonts selected into a project keep their own licenses.
