@@ -14,15 +14,19 @@ See 10 examples on X: (1-9) https://x.com/makevoid/status/2105673599046598834
 
 ## Install and invoke
 
-From a local checkout in Claude Code:
+Open your Terminal and paste the installation commands:
 
-```sh
+```
 claude plugin marketplace add makevoid/motion-graphics-animated-lesson-plugin
 claude plugin install motion-graphics-animated-lesson@makevoid-animated-lesson
+```
+
+Then start  Claude Code by executing `claude` and then paste:
+
+```sh
 /plugin configure motion-graphics-animated-lesson@makevoid-animated-lesson 
 ```
 
-Then execute `/plugin configure motion-graphics-animated-lesson@makevoid-animated-lesson` in the same session.
 
 Enter your Fal AI API key and the setup is done!
 
