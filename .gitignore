@@ -22,3 +22,8 @@ work/
 /.claude/skills/motion-graphics-animated-lesson/assets/lesson/loops/face_prof.mp4
 /.claude/skills/motion-graphics-animated-lesson/assets/lesson/loops/run_luca.mp4
 /.claude/skills/motion-graphics-animated-lesson/assets/lesson/plates/agent-lab.png
+
+# Regenerated lesson media belong in separate lesson projects.
+/.claude-plugin/*.png
+/.claude/skills/motion-graphics-animated-lesson/assets/**/*.png
+/.claude/skills/motion-graphics-animated-lesson/assets/**/*.mp3

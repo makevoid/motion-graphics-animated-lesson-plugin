@@ -1,0 +1,6 @@
+Optional icon reconstruction brief
+
+The readable vector source is .claude-plugin/icon.svg. Open that SVG in a local image editor and export a 256-by-256 PNG if a separate upload needs one. Keep the exported image outside the distributed plugin; no raster icon is needed at installation.
+
+For a redesigned raster icon, use this prompt in an explicitly authorized design task:
+A polished square app icon on black: a softly rounded smoky glass tile with warm upper-right highlights. Center a luminous orange speech bubble in sculpted glass, with a short film-timeline bar and triangular play symbol inside. A small warm musical note floats in the tile's upper-right corner. Rounded edges, translucent amber depth, subtle reflections, readable silhouette at small sizes. No lettering, labels, watermark or additional symbols. Output a real 256-by-256 PNG, without embedded prompt text or comments.

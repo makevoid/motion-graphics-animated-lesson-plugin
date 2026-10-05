@@ -33,4 +33,4 @@ Original scene frame ranges (inclusive start/exclusive end), retained as a pacin
 | s09t | 4491–4563 | rewind |
 | s10 | 4563–5283 | animated credits/final callback |
 
-Preserved study material lives in the [cast catalogue](cast-and-assets.md), [ending motion recipes](ending-motion.md), and [ending template](../assets/templates/ending/TEMPLATE.md). The archived scenes, narration and screenshots featuring other characters are omitted. `assets/starter/` contains the portable initializer templates; the only bundled cast is the professor and developer.
+Preserved study material lives in the [cast catalogue](cast-and-assets.md), [ending motion recipes](ending-motion.md), and [ending template](../assets/templates/ending/TEMPLATE.md). The archived scenes, narration and screenshots featuring other characters are omitted. `assets/starter/` contains the portable initializer templates; the default character prompts describe the professor and developer. Character images, plates, curtain stills, music and screenshot references are omitted; generate selected replacements in the lesson project.

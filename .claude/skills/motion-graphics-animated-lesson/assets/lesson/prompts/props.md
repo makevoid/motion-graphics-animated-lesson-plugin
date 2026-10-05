@@ -1,0 +1,15 @@
+# Reusable prop prompts
+
+Generate only needed props in the lesson project after production authorization. Use premium 2D cartoon illustration, dark plum-black outlines #1B1A22, warm cel fills, one soft shadow tone, matte materials and clean silhouettes. Match the accepted cast and plates. No lettering, numbers, logos or watermarks; p5 adds exact symbols and text. Draw each object separately with generous margins and no cast shadow on the background, then produce a transparent PNG with the existing cutout workflow.
+
+Save each reviewed sprite at `.skill/assets/lesson/props/<group>/<name>.png`, or update scene paths to the generated output. The filenames below are output targets, not shipped images. Each group's `board.png` was a contact sheet: recreate it locally from the accepted sprites only if needed for review. The shipped `index.json` files describe the old sheets; regenerate crop boxes and pivots for new images instead of reusing old coordinates.
+
+| Group | Output name → object brief |
+|---|---|
+| `props-a-v1` | `keyboard` → compact cream mechanical keyboard with blank keycaps; `desk` → warm wooden school desk with attached chair and dark metal legs; `stool` → round wooden three-legged stool; `chalk` → white chalk stick and wood-backed felt eraser; `pointer` → slender wooden teaching pointer; `stamp` → large wood-handled rubber stamp with a blank red stamping surface; `calendar` → standing flip calendar with blank cream pages |
+| `props-b-v1` | `paper` → curled blank cream paper sheet; `stopsign` → blank red octagonal stop-sign prop; `orb` → amber glowing glass orb; `scissors` → open craft scissors; `cards` → small fan of blank index cards; `beret` → soft dark artist's beret |
+| `props-d-v1` | `warning` → amber triangular warning-sign shape with a blank center; `keycaps` → a small set of isolated blank keyboard keys; `clipboard` → wooden clipboard holding a blank sheet; `sheet` → blank paper sheet with a folded corner; `qa` → simple quality-check clipboard and magnifier, with empty checkboxes; `tumbleweed` → small tangled dry tumbleweed, clean silhouette |
+| `diagram-c-v1` | `machine` → whimsical compact brass-and-steel computing machine; `gears` → small cluster of visible brass gears for a static diagram; `server` → small dark server cabinet with colored indicator lights and no labels; `mill` → wooden windmill; `slots` → cartoon slot machine with blank reel panels; `hourglass` → wooden hourglass with amber sand; `prayer` → two clasped hands, no extra figure; `gem` → faceted amber gemstone |
+| `gears-v1` | `gear_l`, `gear_m`, `gear_s` → three separate front-facing brass cogwheels, large/medium/small, centered axle holes, clear consistent teeth and no perspective tilt. Keep each wheel isolated so p5 can rotate it independently. Measure tooth counts and pivots, then derive meshing speed ratios from the generated shapes. |
+
+Keep moving gears separate from the static `diagram-c-v1/gears` sprite. A prop that will be held by a character must match the accepted pose; check hands and grip in the edited keyframe.

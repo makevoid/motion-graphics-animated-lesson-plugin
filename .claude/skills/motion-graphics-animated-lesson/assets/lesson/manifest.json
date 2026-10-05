@@ -3,22 +3,35 @@
   "lesson": "Software Archaeology 101",
   "files": [
     {
-      "path": "characters/char-prof-v1.png",
-      "source": "output/char-prof-v1/01_ref_base.png",
-      "sha256": "4ba71ea2c4421c27d4900afbd4a901f8e211b8ab3116bc6308769d2a85709924",
-      "bytes": 4999056
+      "path": "fonts/default-selection.json",
+      "source": "stock macOS font paths; edit per machine",
+      "sha256": "1014bea527696492ac6c0b1234d0c4a912443f7c0c444485c59532477146d79b",
+      "bytes": 782
     },
     {
-      "path": "prompts/char-prof-v1.txt",
-      "source": "prompts/char-prof-v1/01_ref_base.txt",
-      "sha256": "32f16c404fc7ef05ad1796499bacb6d84080d3af58c45ca35fff09f283b2163d",
-      "bytes": 2149
+      "path": "music/blackboard.json",
+      "sha256": "8b7abb6143b907e436cb655136e7835df7bc4cd111fc62818e0316b0dc7fb9d1",
+      "bytes": 454
     },
     {
-      "path": "characters/char-dev-v1.png",
-      "source": "output/char-dev-v1/01_ref_base.png",
-      "sha256": "8cf2e39ccabe8d949f0d205b246200abe167ca252d47c2343b483d2ae7e58bbb",
-      "bytes": 4171592
+      "path": "music/class.json",
+      "sha256": "c20249ffb6cf4dae9ff85f9df442dcf59c0e03a280c71b6de4ec82e26af8cc50",
+      "bytes": 478
+    },
+    {
+      "path": "music/devroom.json",
+      "sha256": "8b3b57c5c4fe2a96457d552eb76f7a6f227b51edfdfdcbeb01ed980e56256151",
+      "bytes": 392
+    },
+    {
+      "path": "music/intro.json",
+      "sha256": "3158a55fe6efe084cd409285b71e27630e2ecd89a99e0b81bbd4987f2b445f8f",
+      "bytes": 480
+    },
+    {
+      "path": "music/titles.json",
+      "sha256": "ea0638772230519468fa684cf5469263d5ba4ad591c4a65be46a5116e8540a13",
+      "bytes": 423
     },
     {
       "path": "prompts/char-dev-v1.txt",
@@ -27,228 +40,25 @@
       "bytes": 2294
     },
     {
-      "path": "plates/classroom.png",
-      "source": "output/s01/02_kf_hall.png",
-      "sha256": "1af0f990dbf726f2785013bcb0d7e40601c04dc44e16e4907b657b9089c0d9e1",
-      "bytes": 4455258
+      "path": "prompts/char-prof-v1.txt",
+      "source": "prompts/char-prof-v1/01_ref_base.txt",
+      "sha256": "32f16c404fc7ef05ad1796499bacb6d84080d3af58c45ca35fff09f283b2163d",
+      "bytes": 2149
     },
     {
-      "path": "plates/developer-room.png",
-      "source": "output/s05/02_kf_desk2022.png",
-      "sha256": "fccd9fc14e26c9f6f3abba49898be212efa26deb3f70734bcc197166249f1e7b",
-      "bytes": 3732959
+      "path": "prompts/curtain.md",
+      "sha256": "5caae872d96adc4dca4c73b82a5c959b10f184368bd52cd383a27282e1a4999b",
+      "bytes": 1862
     },
     {
-      "path": "curtain/closed.png",
-      "source": "output/curtain-v1/01_ref_base.png",
-      "sha256": "eca540bcb2ccdcc4e3e3272c2ec80d6490d90d123d9b1b5a78146a37c4de17cc",
-      "bytes": 3665253
+      "path": "prompts/plates.md",
+      "sha256": "a41a8b1e2f7e4d3f6eb1ad9f1c824d60098e8ed773f0c42ae351cbb8058b2a1f",
+      "bytes": 2354
     },
     {
-      "path": "curtain/open.png",
-      "source": "output/s09c/02_kf_open.png",
-      "sha256": "91057fad447d63fc8bb4e4c7c32ad67c6064fb6727e00c2f4dbda88f4782e3b6",
-      "bytes": 3303753
-    },
-    {
-      "path": "props/props-a-v1/desk.png",
-      "source": "output/props-a-v1/sprites/desk.png",
-      "sha256": "75d11db200b90ac46b1fe3f28f0c55983144bbd904e9780209436edf190900fb",
-      "bytes": 600069
-    },
-    {
-      "path": "props/props-a-v1/keyboard.png",
-      "source": "output/props-a-v1/sprites/keyboard.png",
-      "sha256": "e272f53511b5264b360030879932031e1faace60b5fc3d6a8df551b557d2236e",
-      "bytes": 726022
-    },
-    {
-      "path": "props/props-a-v1/pointer.png",
-      "source": "output/props-a-v1/sprites/pointer.png",
-      "sha256": "decff46acd2d5315f0a3ef5f93e0f159e514fd730845e96a078b81ab7053d329",
-      "bytes": 270775
-    },
-    {
-      "path": "props/props-a-v1/stool.png",
-      "source": "output/props-a-v1/sprites/stool.png",
-      "sha256": "4feee332e1175ae57a76a67655bc8e420d82f0aeda1d0d08424f3b36f48f9de0",
-      "bytes": 343344
-    },
-    {
-      "path": "props/props-a-v1/stamp.png",
-      "source": "output/props-a-v1/sprites/stamp.png",
-      "sha256": "6d6dd6bc41d2df95cca99bef85ffa1f69e3916781dbcbda76a7e1ce78fe56e33",
-      "bytes": 227197
-    },
-    {
-      "path": "props/props-a-v1/calendar.png",
-      "source": "output/props-a-v1/sprites/calendar.png",
-      "sha256": "9c15afad5a9f789184c1d391ff6ab17e5e6e4a0480fe61ec84e831394290e9f9",
-      "bytes": 364679
-    },
-    {
-      "path": "props/props-a-v1/board.png",
-      "source": "output/props-a-v1/sprites/board.png",
-      "sha256": "b74d89a07cba0c927ef2d2706af2ab7a98abfd1205c75dbcdaf03bd3d2a1cde7",
-      "bytes": 586203
-    },
-    {
-      "path": "props/props-a-v1/chalk.png",
-      "source": "output/props-a-v1/sprites/chalk.png",
-      "sha256": "bac6e45a275767418001ea4547c8883ec01c1912cc16eb4e637b71d744807223",
-      "bytes": 387422
-    },
-    {
-      "path": "props/props-a-v1/index.json",
-      "source": "output/props-a-v1/sprites/index.json",
-      "sha256": "985094d8630b6708eb7d40e50eb872286e64d38f44c33c3e98f1cec839f332b1",
-      "bytes": 1020
-    },
-    {
-      "path": "props/props-b-v1/paper.png",
-      "source": "output/props-b-v1/sprites/paper.png",
-      "sha256": "b03fcec05387980864d05641be6ecdd8d55d3faaf57627a6a0f001a82b1e1d42",
-      "bytes": 363727
-    },
-    {
-      "path": "props/props-b-v1/stopsign.png",
-      "source": "output/props-b-v1/sprites/stopsign.png",
-      "sha256": "729bd0de502ca25ad72c4314f372ccafd0edbf11f76846a16b081d08563de631",
-      "bytes": 255310
-    },
-    {
-      "path": "props/props-b-v1/orb.png",
-      "source": "output/props-b-v1/sprites/orb.png",
-      "sha256": "7e95a6e1d3b63c4a4abebd185737b2ab2600afdaa6b86531effbfee760d7b244",
-      "bytes": 332309
-    },
-    {
-      "path": "props/props-b-v1/scissors.png",
-      "source": "output/props-b-v1/sprites/scissors.png",
-      "sha256": "cece4f6eb87d73b2f0385335bb36d118fbca20cdf920f65c8a08832de6b19406",
-      "bytes": 461025
-    },
-    {
-      "path": "props/props-b-v1/cards.png",
-      "source": "output/props-b-v1/sprites/cards.png",
-      "sha256": "19c9e18abf708bce995d386b079e167761c55c532051cbe2f7dfdd132fadb6b4",
-      "bytes": 271563
-    },
-    {
-      "path": "props/props-b-v1/board.png",
-      "source": "output/props-b-v1/sprites/board.png",
-      "sha256": "7b314a65aa9c7e39f32b741a894d72d79221d5ade37f38423cc427c97242a921",
-      "bytes": 423972
-    },
-    {
-      "path": "props/props-b-v1/beret.png",
-      "source": "output/props-b-v1/sprites/beret.png",
-      "sha256": "05f0eea1c438e630727bfea60395c9fb37342da5067ca4431e0ab70e99878047",
-      "bytes": 407334
-    },
-    {
-      "path": "props/props-b-v1/index.json",
-      "source": "output/props-b-v1/sprites/index.json",
-      "sha256": "496f92eb37ebe6d5791c7242dda4a611312382a40fddb5ec302146f1e581c25f",
-      "bytes": 870
-    },
-    {
-      "path": "props/props-d-v1/warning.png",
-      "source": "output/props-d-v1/sprites/warning.png",
-      "sha256": "88dd39b4e7ecd272b6ccdd500e9f93ceb3840efd2448f93026fe15b75c0e172d",
-      "bytes": 251420
-    },
-    {
-      "path": "props/props-d-v1/keycaps.png",
-      "source": "output/props-d-v1/sprites/keycaps.png",
-      "sha256": "24f235b5b8ef2cf804157329addf90f0ba59333c81b1f107709c0fd574c00f71",
-      "bytes": 178514
-    },
-    {
-      "path": "props/props-d-v1/clipboard.png",
-      "source": "output/props-d-v1/sprites/clipboard.png",
-      "sha256": "ef94bf4dcb6ba6f8ca826c30eb8defa16a2318dccc49bbd8bc15aa619c8222e2",
-      "bytes": 529665
-    },
-    {
-      "path": "props/props-d-v1/sheet.png",
-      "source": "output/props-d-v1/sprites/sheet.png",
-      "sha256": "9e34b26e8ea33009fd87db8e2711f0df963032135463075474980d89ba0f3847",
-      "bytes": 364089
-    },
-    {
-      "path": "props/props-d-v1/qa.png",
-      "source": "output/props-d-v1/sprites/qa.png",
-      "sha256": "ba55224c4b6fa272d93bfa1b3404934a7c0e268f92486387f301badcacfabb2e",
-      "bytes": 347182
-    },
-    {
-      "path": "props/props-d-v1/tumbleweed.png",
-      "source": "output/props-d-v1/sprites/tumbleweed.png",
-      "sha256": "40db456fa7d96068217897ed4258a5ce85e6bff8a797410f309d2e08befddcdb",
-      "bytes": 692401
-    },
-    {
-      "path": "props/props-d-v1/index.json",
-      "source": "output/props-d-v1/sprites/index.json",
-      "sha256": "3ee415e081137fd26ba6d4854a12b9bdc3494ecbf687bdd23400cfb90e9b0c14",
-      "bytes": 884,
-      "source_sha256": "050181dde5c024abae34fede9807dbec6e732abf71600d029f0338b96a937076",
-      "adaptation": "Removed supporting-character entries; retained professor/developer assets and non-character props."
-    },
-    {
-      "path": "props/diagram-c-v1/machine.png",
-      "source": "output/diagram-c-v1/sprites/machine.png",
-      "sha256": "43156b94d5a4293b28c3ada3b42ab564d706bcd6da3376c42b55f8c0310f21c6",
-      "bytes": 336436
-    },
-    {
-      "path": "props/diagram-c-v1/gears.png",
-      "source": "output/diagram-c-v1/sprites/gears.png",
-      "sha256": "82262451074bda3b914f97d046f40a687d4d07e6d5c5559790b33c9f6250885f",
-      "bytes": 410353
-    },
-    {
-      "path": "props/diagram-c-v1/server.png",
-      "source": "output/diagram-c-v1/sprites/server.png",
-      "sha256": "0ffec37eaf12e45b73e3601d4c863a8b637dcbfadf150f7ff82435b696c526e0",
-      "bytes": 324627
-    },
-    {
-      "path": "props/diagram-c-v1/mill.png",
-      "source": "output/diagram-c-v1/sprites/mill.png",
-      "sha256": "86639857ee0c5c353557467c28079883dcc9b7299a5b595ccf132310a63206fa",
-      "bytes": 483365
-    },
-    {
-      "path": "props/diagram-c-v1/slots.png",
-      "source": "output/diagram-c-v1/sprites/slots.png",
-      "sha256": "301de01bca6c5a3193b69c3d2c1cd854c8a1e4e3baed7fac35b9b65d8562101b",
-      "bytes": 411676
-    },
-    {
-      "path": "props/diagram-c-v1/hourglass.png",
-      "source": "output/diagram-c-v1/sprites/hourglass.png",
-      "sha256": "c04e7821730aa4aed0c54dea781c86ac9aa40f40a77e373dab89a0a99afe3bf8",
-      "bytes": 324861
-    },
-    {
-      "path": "props/diagram-c-v1/prayer.png",
-      "source": "output/diagram-c-v1/sprites/prayer.png",
-      "sha256": "0321b556e74acad19739278a65bf10ae7a054cce46b1fac7453eb7809b041b42",
-      "bytes": 260620
-    },
-    {
-      "path": "props/diagram-c-v1/board.png",
-      "source": "output/diagram-c-v1/sprites/board.png",
-      "sha256": "e10717457b04786520561495b77de94fdca36bd655ef65dd115dbbb665e10a98",
-      "bytes": 836117
-    },
-    {
-      "path": "props/diagram-c-v1/gem.png",
-      "source": "output/diagram-c-v1/sprites/gem.png",
-      "sha256": "9257939ea5156dca6abf6c5a1f4da23b0dbb5bd58015006ecf6bd45f46d53169",
-      "bytes": 182408
+      "path": "prompts/props.md",
+      "sha256": "d5d93cbf65896fcd67705f84dbea29b9e1af7a6a1cbc7abb182c8b5e69b68d22",
+      "bytes": 3122
     },
     {
       "path": "props/diagram-c-v1/index.json",
@@ -257,70 +67,30 @@
       "bytes": 1174
     },
     {
-      "path": "props/gears-v1/gear_m.png",
-      "source": "output/gears-v1/sprites/gear_m.png",
-      "sha256": "865895d9cab9ab0bb65f9d6c56b706b3d747806de28eb31c7f5a9ff0ca39b075",
-      "bytes": 894972
-    },
-    {
-      "path": "props/gears-v1/gear_l.png",
-      "source": "output/gears-v1/sprites/gear_l.png",
-      "sha256": "578c7a34fac94401ab7bd6dbe106f93bc3b5d28901a39dfcfbe6fd10e22b698e",
-      "bytes": 1470493
-    },
-    {
-      "path": "props/gears-v1/board.png",
-      "source": "output/gears-v1/sprites/board.png",
-      "sha256": "1dc907ae67664f8c7495aadf6f79fa62d05ce41f68a712eae64a1f4bfda91719",
-      "bytes": 409138
-    },
-    {
       "path": "props/gears-v1/index.json",
       "source": "output/gears-v1/sprites/index.json",
       "sha256": "fb812345039cbe37b169b92060eef812789d5ac9362e9850471c54d7ac88e1fd",
       "bytes": 434
     },
     {
-      "path": "props/gears-v1/gear_s.png",
-      "source": "output/gears-v1/sprites/gear_s.png",
-      "sha256": "6ee5460b1374655a671cd657f6d6dfacf901d8db19e0bd8dfacee723287085ea",
-      "bytes": 532409
+      "path": "props/props-a-v1/index.json",
+      "source": "output/props-a-v1/sprites/index.json",
+      "sha256": "985094d8630b6708eb7d40e50eb872286e64d38f44c33c3e98f1cec839f332b1",
+      "bytes": 1020
     },
     {
-      "path": "fonts/default-selection.json",
-      "source": "stock macOS font paths; edit per machine",
-      "sha256": "1014bea527696492ac6c0b1234d0c4a912443f7c0c444485c59532477146d79b",
-      "bytes": 782
+      "path": "props/props-b-v1/index.json",
+      "source": "output/props-b-v1/sprites/index.json",
+      "sha256": "496f92eb37ebe6d5791c7242dda4a611312382a40fddb5ec302146f1e581c25f",
+      "bytes": 870
     },
     {
-      "path": "music/intro.mp3",
-      "source": "output/finish-music/tracks/intro.wav",
-      "sha256": "79b0e8f3a3e3a9a4563cae1ad576392ee86f38f5f1c68040e28d87627eb00d96",
-      "bytes": 1442349
-    },
-    {
-      "path": "music/class.mp3",
-      "source": "output/finish-music/tracks/class.wav",
-      "sha256": "6422f7942846f243bd7889274f59d91a244a1506fbcc5352b225fdd0ef705117",
-      "bytes": 1442349
-    },
-    {
-      "path": "music/blackboard.mp3",
-      "source": "output/finish-music/tracks/blackboard.wav",
-      "sha256": "9257da73830148930220e44701dfe7d2933967122ad7bf3d8a56456d7f1eb909",
-      "bytes": 1442349
-    },
-    {
-      "path": "music/devroom.mp3",
-      "source": "output/finish-music/tracks/devroom.wav",
-      "sha256": "62a21941e7a5f980797b588e713459d263afb9e4c2e6b901921bcb0e2389caed",
-      "bytes": 1442349
-    },
-    {
-      "path": "music/titles.mp3",
-      "source": "output/finish-music/tracks/titles.wav",
-      "sha256": "94fd85981cd67fc04fff7f10f4a217a428be6f98939e501155632d87dcf6ed71",
-      "bytes": 1442349
+      "path": "props/props-d-v1/index.json",
+      "source": "output/props-d-v1/sprites/index.json",
+      "sha256": "3ee415e081137fd26ba6d4854a12b9bdc3494ecbf687bdd23400cfb90e9b0c14",
+      "bytes": 884,
+      "source_sha256": "050181dde5c024abae34fede9807dbec6e732abf71600d029f0338b96a937076",
+      "adaptation": "Removed supporting-character entries; retained professor/developer assets and non-character props."
     }
   ],
   "regenerate_when_needed": [
@@ -330,7 +100,8 @@
       "sha256": "0c26665ae6c3c0ecae70500ac4014978b48687f53d3aaa2a27a5703f2cbde9f7",
       "bytes": 3872371,
       "status": "not_bundled",
-      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/plates.md"
     },
     {
       "path": "curtain/close.mp4",
@@ -338,7 +109,8 @@
       "sha256": "8d128c3979e6622b40ecbaf9a7c15a366764131d0acd805d2acb77f7bfd6bcc5",
       "bytes": 11064404,
       "status": "not_bundled",
-      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/curtain.md"
     },
     {
       "path": "curtain/open.mp4",
@@ -346,7 +118,8 @@
       "sha256": "db97ff7cb2700c4adc7ac4af0ad0a30ccdd5134008bbde017ffac6126b1f3d99",
       "bytes": 10261063,
       "status": "not_bundled",
-      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/curtain.md"
     },
     {
       "path": "loops/face_prof.mp4",
@@ -354,7 +127,8 @@
       "sha256": "ef7d4ef4c925df876cff940cdae8ecac54d9fa39e2b20faf573b284730841e9e",
       "bytes": 10614622,
       "status": "not_bundled",
-      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "../../references/cast-and-assets.md#assets-to-regenerate"
     },
     {
       "path": "loops/face_luca.mp4",
@@ -362,7 +136,8 @@
       "sha256": "e0500bba4a55e670ce0611f22b6e1bd015ce6aac526f88bb54c642195fcdd890",
       "bytes": 6516696,
       "status": "not_bundled",
-      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "../../references/cast-and-assets.md#assets-to-regenerate"
     },
     {
       "path": "loops/run_luca.mp4",
@@ -370,7 +145,414 @@
       "sha256": "fda5e813dffecb2595b07daeb4c4e57cf0729436e1a90a427c48977401c35013",
       "bytes": 6749104,
       "status": "not_bundled",
-      "instructions": "references/cast-and-assets.md#assets-to-regenerate"
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "../../references/cast-and-assets.md#assets-to-regenerate"
+    },
+    {
+      "path": "characters/char-prof-v1.png",
+      "source": "output/char-prof-v1/01_ref_base.png",
+      "sha256": "4ba71ea2c4421c27d4900afbd4a901f8e211b8ab3116bc6308769d2a85709924",
+      "bytes": 4999056,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/char-prof-v1.txt"
+    },
+    {
+      "path": "characters/char-dev-v1.png",
+      "source": "output/char-dev-v1/01_ref_base.png",
+      "sha256": "8cf2e39ccabe8d949f0d205b246200abe167ca252d47c2343b483d2ae7e58bbb",
+      "bytes": 4171592,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/char-dev-v1.txt"
+    },
+    {
+      "path": "plates/classroom.png",
+      "source": "output/s01/02_kf_hall.png",
+      "sha256": "1af0f990dbf726f2785013bcb0d7e40601c04dc44e16e4907b657b9089c0d9e1",
+      "bytes": 4455258,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/plates.md"
+    },
+    {
+      "path": "plates/developer-room.png",
+      "source": "output/s05/02_kf_desk2022.png",
+      "sha256": "fccd9fc14e26c9f6f3abba49898be212efa26deb3f70734bcc197166249f1e7b",
+      "bytes": 3732959,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/plates.md"
+    },
+    {
+      "path": "curtain/closed.png",
+      "source": "output/curtain-v1/01_ref_base.png",
+      "sha256": "eca540bcb2ccdcc4e3e3272c2ec80d6490d90d123d9b1b5a78146a37c4de17cc",
+      "bytes": 3665253,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/curtain.md"
+    },
+    {
+      "path": "curtain/open.png",
+      "source": "output/s09c/02_kf_open.png",
+      "sha256": "91057fad447d63fc8bb4e4c7c32ad67c6064fb6727e00c2f4dbda88f4782e3b6",
+      "bytes": 3303753,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/curtain.md"
+    },
+    {
+      "path": "props/props-a-v1/desk.png",
+      "source": "output/props-a-v1/sprites/desk.png",
+      "sha256": "75d11db200b90ac46b1fe3f28f0c55983144bbd904e9780209436edf190900fb",
+      "bytes": 600069,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/keyboard.png",
+      "source": "output/props-a-v1/sprites/keyboard.png",
+      "sha256": "e272f53511b5264b360030879932031e1faace60b5fc3d6a8df551b557d2236e",
+      "bytes": 726022,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/pointer.png",
+      "source": "output/props-a-v1/sprites/pointer.png",
+      "sha256": "decff46acd2d5315f0a3ef5f93e0f159e514fd730845e96a078b81ab7053d329",
+      "bytes": 270775,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/stool.png",
+      "source": "output/props-a-v1/sprites/stool.png",
+      "sha256": "4feee332e1175ae57a76a67655bc8e420d82f0aeda1d0d08424f3b36f48f9de0",
+      "bytes": 343344,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/stamp.png",
+      "source": "output/props-a-v1/sprites/stamp.png",
+      "sha256": "6d6dd6bc41d2df95cca99bef85ffa1f69e3916781dbcbda76a7e1ce78fe56e33",
+      "bytes": 227197,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/calendar.png",
+      "source": "output/props-a-v1/sprites/calendar.png",
+      "sha256": "9c15afad5a9f789184c1d391ff6ab17e5e6e4a0480fe61ec84e831394290e9f9",
+      "bytes": 364679,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/board.png",
+      "source": "output/props-a-v1/sprites/board.png",
+      "sha256": "b74d89a07cba0c927ef2d2706af2ab7a98abfd1205c75dbcdaf03bd3d2a1cde7",
+      "bytes": 586203,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-a-v1/chalk.png",
+      "source": "output/props-a-v1/sprites/chalk.png",
+      "sha256": "bac6e45a275767418001ea4547c8883ec01c1912cc16eb4e637b71d744807223",
+      "bytes": 387422,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/paper.png",
+      "source": "output/props-b-v1/sprites/paper.png",
+      "sha256": "b03fcec05387980864d05641be6ecdd8d55d3faaf57627a6a0f001a82b1e1d42",
+      "bytes": 363727,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/stopsign.png",
+      "source": "output/props-b-v1/sprites/stopsign.png",
+      "sha256": "729bd0de502ca25ad72c4314f372ccafd0edbf11f76846a16b081d08563de631",
+      "bytes": 255310,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/orb.png",
+      "source": "output/props-b-v1/sprites/orb.png",
+      "sha256": "7e95a6e1d3b63c4a4abebd185737b2ab2600afdaa6b86531effbfee760d7b244",
+      "bytes": 332309,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/scissors.png",
+      "source": "output/props-b-v1/sprites/scissors.png",
+      "sha256": "cece4f6eb87d73b2f0385335bb36d118fbca20cdf920f65c8a08832de6b19406",
+      "bytes": 461025,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/cards.png",
+      "source": "output/props-b-v1/sprites/cards.png",
+      "sha256": "19c9e18abf708bce995d386b079e167761c55c532051cbe2f7dfdd132fadb6b4",
+      "bytes": 271563,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/board.png",
+      "source": "output/props-b-v1/sprites/board.png",
+      "sha256": "7b314a65aa9c7e39f32b741a894d72d79221d5ade37f38423cc427c97242a921",
+      "bytes": 423972,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-b-v1/beret.png",
+      "source": "output/props-b-v1/sprites/beret.png",
+      "sha256": "05f0eea1c438e630727bfea60395c9fb37342da5067ca4431e0ab70e99878047",
+      "bytes": 407334,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-d-v1/warning.png",
+      "source": "output/props-d-v1/sprites/warning.png",
+      "sha256": "88dd39b4e7ecd272b6ccdd500e9f93ceb3840efd2448f93026fe15b75c0e172d",
+      "bytes": 251420,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-d-v1/keycaps.png",
+      "source": "output/props-d-v1/sprites/keycaps.png",
+      "sha256": "24f235b5b8ef2cf804157329addf90f0ba59333c81b1f107709c0fd574c00f71",
+      "bytes": 178514,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-d-v1/clipboard.png",
+      "source": "output/props-d-v1/sprites/clipboard.png",
+      "sha256": "ef94bf4dcb6ba6f8ca826c30eb8defa16a2318dccc49bbd8bc15aa619c8222e2",
+      "bytes": 529665,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-d-v1/sheet.png",
+      "source": "output/props-d-v1/sprites/sheet.png",
+      "sha256": "9e34b26e8ea33009fd87db8e2711f0df963032135463075474980d89ba0f3847",
+      "bytes": 364089,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-d-v1/qa.png",
+      "source": "output/props-d-v1/sprites/qa.png",
+      "sha256": "ba55224c4b6fa272d93bfa1b3404934a7c0e268f92486387f301badcacfabb2e",
+      "bytes": 347182,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/props-d-v1/tumbleweed.png",
+      "source": "output/props-d-v1/sprites/tumbleweed.png",
+      "sha256": "40db456fa7d96068217897ed4258a5ce85e6bff8a797410f309d2e08befddcdb",
+      "bytes": 692401,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/machine.png",
+      "source": "output/diagram-c-v1/sprites/machine.png",
+      "sha256": "43156b94d5a4293b28c3ada3b42ab564d706bcd6da3376c42b55f8c0310f21c6",
+      "bytes": 336436,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/gears.png",
+      "source": "output/diagram-c-v1/sprites/gears.png",
+      "sha256": "82262451074bda3b914f97d046f40a687d4d07e6d5c5559790b33c9f6250885f",
+      "bytes": 410353,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/server.png",
+      "source": "output/diagram-c-v1/sprites/server.png",
+      "sha256": "0ffec37eaf12e45b73e3601d4c863a8b637dcbfadf150f7ff82435b696c526e0",
+      "bytes": 324627,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/mill.png",
+      "source": "output/diagram-c-v1/sprites/mill.png",
+      "sha256": "86639857ee0c5c353557467c28079883dcc9b7299a5b595ccf132310a63206fa",
+      "bytes": 483365,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/slots.png",
+      "source": "output/diagram-c-v1/sprites/slots.png",
+      "sha256": "301de01bca6c5a3193b69c3d2c1cd854c8a1e4e3baed7fac35b9b65d8562101b",
+      "bytes": 411676,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/hourglass.png",
+      "source": "output/diagram-c-v1/sprites/hourglass.png",
+      "sha256": "c04e7821730aa4aed0c54dea781c86ac9aa40f40a77e373dab89a0a99afe3bf8",
+      "bytes": 324861,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/prayer.png",
+      "source": "output/diagram-c-v1/sprites/prayer.png",
+      "sha256": "0321b556e74acad19739278a65bf10ae7a054cce46b1fac7453eb7809b041b42",
+      "bytes": 260620,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/board.png",
+      "source": "output/diagram-c-v1/sprites/board.png",
+      "sha256": "e10717457b04786520561495b77de94fdca36bd655ef65dd115dbbb665e10a98",
+      "bytes": 836117,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/diagram-c-v1/gem.png",
+      "source": "output/diagram-c-v1/sprites/gem.png",
+      "sha256": "9257939ea5156dca6abf6c5a1f4da23b0dbb5bd58015006ecf6bd45f46d53169",
+      "bytes": 182408,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/gears-v1/gear_m.png",
+      "source": "output/gears-v1/sprites/gear_m.png",
+      "sha256": "865895d9cab9ab0bb65f9d6c56b706b3d747806de28eb31c7f5a9ff0ca39b075",
+      "bytes": 894972,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/gears-v1/gear_l.png",
+      "source": "output/gears-v1/sprites/gear_l.png",
+      "sha256": "578c7a34fac94401ab7bd6dbe106f93bc3b5d28901a39dfcfbe6fd10e22b698e",
+      "bytes": 1470493,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/gears-v1/board.png",
+      "source": "output/gears-v1/sprites/board.png",
+      "sha256": "1dc907ae67664f8c7495aadf6f79fa62d05ce41f68a712eae64a1f4bfda91719",
+      "bytes": 409138,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "props/gears-v1/gear_s.png",
+      "source": "output/gears-v1/sprites/gear_s.png",
+      "sha256": "6ee5460b1374655a671cd657f6d6dfacf901d8db19e0bd8dfacee723287085ea",
+      "bytes": 532409,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "prompts/props.md"
+    },
+    {
+      "path": "music/intro.mp3",
+      "source": "output/finish-music/tracks/intro.wav",
+      "sha256": "79b0e8f3a3e3a9a4563cae1ad576392ee86f38f5f1c68040e28d87627eb00d96",
+      "bytes": 1442349,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "music/intro.json"
+    },
+    {
+      "path": "music/class.mp3",
+      "source": "output/finish-music/tracks/class.wav",
+      "sha256": "6422f7942846f243bd7889274f59d91a244a1506fbcc5352b225fdd0ef705117",
+      "bytes": 1442349,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "music/class.json"
+    },
+    {
+      "path": "music/blackboard.mp3",
+      "source": "output/finish-music/tracks/blackboard.wav",
+      "sha256": "9257da73830148930220e44701dfe7d2933967122ad7bf3d8a56456d7f1eb909",
+      "bytes": 1442349,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "music/blackboard.json"
+    },
+    {
+      "path": "music/devroom.mp3",
+      "source": "output/finish-music/tracks/devroom.wav",
+      "sha256": "62a21941e7a5f980797b588e713459d263afb9e4c2e6b901921bcb0e2389caed",
+      "bytes": 1442349,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "music/devroom.json"
+    },
+    {
+      "path": "music/titles.mp3",
+      "source": "output/finish-music/tracks/titles.wav",
+      "sha256": "94fd85981cd67fc04fff7f10f4a217a428be6f98939e501155632d87dcf6ed71",
+      "bytes": 1442349,
+      "status": "not_bundled",
+      "instructions": "references/cast-and-assets.md#assets-to-regenerate",
+      "recipe": "music/titles.json"
     }
-  ]
+  ],
+  "distribution": "Readable prompts and provenance only. Generate selected media in lesson projects; installation and initialization do not download or generate replacements."
 }

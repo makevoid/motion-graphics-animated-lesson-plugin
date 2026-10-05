@@ -1,38 +1,50 @@
-# Preserved cast, classroom and fonts
+# Cast, asset recipes and project continuity
 
-The portable pack is `assets/lesson/`, copied into each initialized project at `.skill/assets/lesson/`. `manifest.json` records bundled files under `files`, with original relative paths, byte counts and SHA-256 values. Its `regenerate_when_needed` entries describe omitted originals for provenance only; their hashes and byte counts are not requirements for newly generated replacements. These files are preserved from `video-session14/aicodegen`; no absolute path to that project is required at runtime.
+The portable pack is `assets/lesson/`, copied into each initialized project at `.skill/assets/lesson/`. It contains readable prompts and JSON provenance, without PNG artwork, MP3 music, video clips or font binaries. `manifest.json` records shipped text files under `files`; `regenerate_when_needed` records omitted media and their recipe paths relative to `assets/lesson/`. Historical hashes and byte counts identify the old outputs, not requirements for replacements. No original `video-session14` directory is needed.
 
-## Default identities
+## Default identities and voices
 
-| Role | Sheet | Voice / stability / seed |
-|---|---|---|
-| Prof. Otto Regress | `characters/char-prof-v1.png` | George / 0.45 / 11 |
-| Developer (makevoid in the source lesson) | `characters/char-dev-v1.png` | Liam / 0.5 / 41 |
+| Role | Project-local output target | Prompt | Eleven v4 voice / stability / seed |
+|---|---|---|---|
+| Prof. Otto Regress | `characters/char-prof-v1.png` | [Professor prompt](../assets/lesson/prompts/char-prof-v1.txt) | George / 0.45 / 11 |
+| Developer (makevoid in the source lesson) | `characters/char-dev-v1.png` | [Developer prompt](../assets/lesson/prompts/char-dev-v1.txt) | Liam / 0.5 / 41 |
 
-Retain professor right-hand pointer/left-hand chalk and developer right-arm laptop, pocket can, adult proportions and flat-tone stubble. Original prompts are in `prompts/char-prof-v1.txt` and `prompts/char-dev-v1.txt`; the developer prompt's early “Luca” name predates the final display-name correction. Use the sheets as identity references, not as whole-scene images or pose sheets for H3. Create one clean pose on green for each performance.
+These image paths are targets under the project's `.skill/assets/lesson/`, not existing files on initialization. Defaults apply only when those roles are needed; remove unused roles from cast, script, generation graph, parade and credits. The developer prompt's early “Luca” name is a legacy identifier, not a different character. Keep the professor's right-hand pointer/left-hand chalk and developer's right-arm laptop, pocket can, adult proportions and flat-tone stubble.
 
-Defaults apply only if those roles are needed; remove unused roles from cast, script, generation graph, parade and credits. Do not regenerate retained identities. Register each selected sheet through MCP after production authorization:
+For a new selected identity, copy its prompt into `prompts/char-<id>-v1/01_ref_base.txt`, define the corresponding identity run with `steps: [Steps::RefBase]`, and generate through `gen:ref_base` after production authorization. See [task/configuration examples](tasks.md) and [identity prompts](prompts.md#identity-sheets-gpt-image-25-sunburst-xhigh). Inspect the sheet before accepting it. Save the accepted image at the target above or update `config/cast.json` to its real output path; `reference_prompt` identifies the source prompt. Never recreate an accepted identity from prose for each scene.
+
+If the user supplies an existing approved sheet, register it without an image-generation call:
 
 ```json
 {"project":"/absolute/lesson","task":"ref:register[char-prof-v1,.skill/assets/lesson/characters/char-prof-v1.png]","options":{}}
 ```
 
-This uploads the exact local bytes, records provenance and is idempotent for the same identity. It rejects overwriting a different identity in that RUN. Register the developer similarly when used. Define identity runs with `steps: [Steps::RefBase]` and import their `ref_base` into scenes, or use `refs: ["char-prof-v1"]` on keyframes. A `ref:register` upload supplies the URL expected by those references. Only register selected cast.
+That command requires the local file to exist. It uploads exact bytes, records provenance, is idempotent for the same identity, and rejects replacing a different identity in that RUN. A freshly generated `gen:ref_base` run already has reference metadata; it does not need a second registration. Import its `ref_base` into scenes or use `refs: ["char-prof-v1"]` for keyframes. Use each selected approved sheet for one clean pose on green, then animate that pose. Additional or replacement characters follow the user's brief.
 
-Only the professor and developer are bundled. Additional or replacement characters require an explicit brief and their own approved identity, voice and assets.
+## Assets to regenerate
 
-## World and reusable performances
+Generate only assets selected in the lesson plan, through the existing MCP workflow after production authorization. Include image, clip and music costs in that plan. Initialization copies text and SVGs only; installation and setup do not fetch or recreate omitted media. Store outputs in the lesson project, never in the installed/distributed plugin. Reuse approved project assets before generating another take.
 
-- `plates/classroom.png`: empty warm lecture hall, board rectangle at **x237 y87 w1430 h529** in 1920×1080 space; stage around y874, foreground desks y900+.
-- `plates/developer-room.png`: bundled optional change of setting. `plates/agent-lab.png` is omitted; regenerate it only if the lesson needs that setting.
-- `props/`: transparent props, independent gears and diagram pieces with original indices. Index `path` values preserve source-project locations; resolve each sprite as `.skill/assets/lesson/props/<run>/<name>.png` in a new project. Generated object counts may differ from prompt; measure pivots/teeth before animation.
-- `curtain/closed.png`, `curtain/open.png`: bundled original full-quality image templates. The corresponding MP4 animations are omitted; generate them from these stills before local green keying.
-- `loops/face_prof.mp4`, `loops/face_luca.mp4`, `loops/run_luca.mp4`: omitted silent credits/reaction loops; regenerate only selected performances. They do not represent spoken performances for a new script.
-- [Ending motion recipes](ending-motion.md): extracted iris, curtain, loop anchoring and credit-scroll techniques, with no dependency on the original supporting cast. Use `assets/starter/` for portable project and audio templates.
+| Output targets relative to project `.skill/assets/lesson/` | Readable source and preparation |
+|---|---|
+| `characters/char-prof-v1.png`, `characters/char-dev-v1.png` | The character prompts above; generate and review only the selected cast. |
+| `plates/classroom.png`, `plates/developer-room.png`, `plates/agent-lab.png` | [Still background prompts](../assets/lesson/prompts/plates.md). Keep teaching areas clear, then measure new board and staging bounds. |
+| `props/<group>/<name>.png`, including each `board.png` contact sheet | [Prop prompts](../assets/lesson/prompts/props.md). Generate isolated transparent sprites; assemble a contact sheet locally only if useful. Original `index.json` crop boxes are historical, so measure new boxes, pivots and gear teeth. |
+| `curtain/closed.png`, `curtain/open.png`, `curtain/close.mp4`, `curtain/open.mp4` | [Curtain prompts](../assets/lesson/prompts/curtain.md). Generate closed first, edit it to open, then animate matching silent close/open clips. |
+| `loops/face_prof.mp4` | From the approved professor sheet, make one close-up pose on green; animate a silent blink, eyebrow lift and small head reaction with a closed mouth. |
+| `loops/face_luca.mp4` | From the approved developer sheet, make one close-up pose on green; animate a silent blink and subtle amused or drowsy reaction returning to the starting pose. |
+| `loops/run_luca.mp4` | From the developer sheet, make a full-body side-facing pose on green, then a silent run cycle in place. Keep the silhouette in frame and the camera locked; p5 supplies travel. |
+| `music/{intro,class,blackboard,devroom,titles}.mp3` (historical targets) | Original prompts and durations are in `music/<name>.json` and the starter `prompts/finish-music/music.yml`. `music:gen` saves new tracks under `output/finish-music/tracks/`; the mixer uses them directly, so no copy into `.skill` is required. See [music generation and local reuse](narration-and-music.md#background-beds). |
 
-Set `plate_file: ".skill/assets/lesson/plates/classroom.png"` in a scene generation to reuse the classroom directly, without a generated keyframe or reference upload. In p5 load `/.skill/assets/lesson/plates/classroom.png` when drawing it inside your camera. Character-free scenes omit the RefBase, Keyframes and Clips steps.
+The ending directory also omits its PNG guides and archived reference frames. Use [ending regeneration recipes](../assets/templates/ending/regeneration.md) to export matching SVGs locally or capture frames of the new ending. These are optional references, not required downloads.
 
-After generating the required videos, use `source:` in a scene's `04_clips.yml` to process those local files:
+For H3 animations, supply actual reviewed project images in the request, normally for a five-second silent clip. Inspect identity, curtain continuity, keying edges and loop seams. Measure new clip landmarks before adapting the [ending motion recipes](ending-motion.md); archived timings describe the omitted originals. Save fresh generation metadata and credit new outputs as newly generated. Historical hashes do not promise byte-identical regeneration.
+
+## Use accepted project assets
+
+After the classroom exists, set `plate_file: ".skill/assets/lesson/plates/classroom.png"` to reuse it without another keyframe or upload. In p5 load `/.skill/assets/lesson/plates/classroom.png` inside your camera. If the accepted image stays under `output/`, use that actual path instead. Character-free scenes omit RefBase, Keyframes and Clips.
+
+After generating selected curtain videos, process them as local sources in a scene's `04_clips.yml`:
 
 ```yaml
 - name: curtain_close
@@ -43,22 +55,7 @@ After generating the required videos, use `source:` in a scene's `04_clips.yml` 
   key: green
 ```
 
-`gen:clips` then creates normal `Anim.clip` metadata and PNG sequences. Reuse bundled identities and already-generated local silent loops, but regenerate spoken acting against the new stems.
-
-## Assets to regenerate
-
-These files are intentionally absent from the plugin. Paths below are relative to the initialized project's `.skill/assets/lesson/`, where replacements may be saved to use the examples above. Alternatively, retain generated files under project `output/` and update the scene's `source:` or `plate_file:` path. Generate only assets selected in the lesson plan, through the existing MCP generation workflow after production authorization; see [image and H3 prompts](prompts.md) and [task/configuration examples](tasks.md). Initialization only copies the bundled files.
-
-| Omitted asset | References and generation brief |
-|---|---|
-| `curtain/close.mp4` | Use bundled `curtain/open.png` as the starting image and `curtain/closed.png` as the closing target. Animate the red velvet panels folding shut, preserve the gold valance, lock the camera, and keep exposed stage areas flat chroma green. |
-| `curtain/open.mp4` | Reverse the still-image roles: start closed, part the panels to reveal flat chroma green, finish open. Match the closing clip's design and framing. |
-| `loops/face_prof.mp4` | Edit `characters/char-prof-v1.png` into one clean close-up pose on green; animate a silent blink, eyebrow lift and small head reaction with a closed mouth. Preserve the professor's identity. |
-| `loops/face_luca.mp4` | Edit `characters/char-dev-v1.png` into one clean close-up pose on green; animate a silent blink and subtle amused or drowsy reaction, returning to the starting pose. `luca` denotes the developer. |
-| `loops/run_luca.mp4` | Use the developer sheet to create a full-body side-facing pose on green, then a silent run cycle in place. Keep the entire silhouette inside the frame and the camera locked; p5 supplies travel across the card. |
-| `plates/agent-lab.png` | Generate an empty 16:9 cartoon agent laboratory using `plates/classroom.png` and `plates/developer-room.png` as style references: warm cel shading, workbenches, machines and blank display areas, with clear staging space. No people or generated lettering. |
-
-For animations, use the configured H3 workflow and current schema, normally a five-second silent clip, with actual reference images supplied in the request. Review identity, curtain continuity, keying edges and loop seams. Measure fresh clip landmarks before adapting the ending timing tables; the archived timings describe the omitted originals. Save generation metadata in the project and credit replacements as newly generated. Do not compare replacements with the original hashes in `regenerate_when_needed`, and keep generated media out of the distributed plugin repository.
+`gen:clips` creates normal `Anim.clip` metadata and PNG sequences. Reuse approved identities and local silent loops, while generating spoken acting against the new narration stems.
 
 ## Style and typography
 

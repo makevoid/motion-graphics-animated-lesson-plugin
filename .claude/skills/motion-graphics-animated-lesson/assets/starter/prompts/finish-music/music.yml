@@ -7,13 +7,25 @@ attack: 0.06
 release: 0.45
 hold: 0.25
 lookahead: 0.12
-# Original lesson music (192 kbps CBR MP3), reused unchanged. No generation call is needed.
+# Original prompts only; no music files are bundled.
+# Generate selected beds with music:gen after production authorization (ONLY=intro,titles, etc.).
+# To reuse local audio without a provider call, replace a prompt entry with file: /absolute/path/to/track.mp3.
 tracks:
-  intro: {file: .skill/assets/lesson/music/intro.mp3}
-  class: {file: .skill/assets/lesson/music/class.mp3}
-  blackboard: {file: .skill/assets/lesson/music/blackboard.mp3}
-  devroom: {file: .skill/assets/lesson/music/devroom.mp3}
-  titles: {file: .skill/assets/lesson/music/titles.mp3}
+  intro:
+    prompt: "Mysterious, playful cold-open underscore for an animated cartoon documentary about software archaeology: a soft ticking synth arpeggio like a blinking terminal cursor, warm analog pads, light pizzicato hints and a tiny music-box motif, curious and slightly nostalgic, 90 bpm, steady and minimal, no big drops, no build-ups, loopable, instrumental background music"
+    seconds: 60
+  class:
+    prompt: "Light, cheerful lecture-hall underscore for an animated educational cartoon: bouncy pizzicato strings, soft marimba, a cheeky bassoon line and gentle brushed snare, whimsical and witty like a comedy lesson with an eccentric professor, 100 bpm, steady energy throughout, sparse arrangement that leaves room for a narrator, loopable, instrumental background music"
+    seconds: 60
+  blackboard:
+    prompt: "Curious thinking underscore for an animated explainer while diagrams and gears are drawn on a chalkboard: plucky celesta and glockenspiel motifs, soft upright bass, light clockwork percussion like ticking gears, inventive and focused, 96 bpm, steady, sparse mid-range that leaves room for a voice, loopable, instrumental background music"
+    seconds: 60
+  devroom:
+    prompt: "Late-night 2022 developer bedroom underscore: a mellow lo-fi hip hop beat with dusty vinyl crackle, soft Rhodes electric piano chords, warm sub bass and a faint city-night ambience, slightly caffeinated and cozy, 84 bpm, steady groove, loopable, instrumental background music"
+    seconds: 60
+  titles:
+    prompt: "Whimsical cartoon end-credits theme after a theatre curtain call: jaunty ragtime piano with pizzicato strings, a playful clarinet melody, light brushed drums and an oom-pah tuba bass, warm, bright vaudeville showbiz feel, 112 bpm, starts immediately on the first beat, confident catchy melody, instrumental"
+    seconds: 60
 # Fill from the measured lesson timing. Default to intro for the hook and titles for curtain/credits.
 # Stop the teaching bed at the final spoken joke; preserve the 2-second silent pause.
 # Start titles at the curtain with fade_in: 0.8, duck: false; only disable ducking with no speech.

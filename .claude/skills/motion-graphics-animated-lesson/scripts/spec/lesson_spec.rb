@@ -3,24 +3,44 @@ require_relative "../lib/toolkit/initializer"
 require_relative "../lib/toolkit/mcp_server"
 
 RSpec.describe "Portable lesson workflow", :core do
-  it "initializes from a brief alone with preserved identities, voices, a font selection, layout references and original music" do
+  it "initializes offline with readable asset recipes, default voices, SVG layouts and music prompts" do
     File.write(file("brief.md"), "Explain database indexes with a worked example")
     project = file("lesson")
+    expect(Fal::Client).not_to receive(:new)
     Toolkit::Initializer.new(RT).create(project: project, prompt: file("brief.md"))
     expect(File.exist?(File.join(project, "audio/source.wav"))).to be(false)
     cast = JSON.parse(File.read(File.join(project, "config/cast.json")))
     expect(cast["prof"].values_at("voice", "stability", "seed")).to eq(["George", 0.45, 11])
     expect(cast["dev"].values_at("voice", "stability", "seed")).to eq(["Liam", 0.5, 41])
-    manifest = JSON.parse(File.read(File.join(project, ".skill/assets/lesson/manifest.json")))
-    manifest.fetch("files").each do |entry|
-      expect(Digest::SHA256.file(File.join(project, ".skill/assets/lesson", entry["path"])).hexdigest).to eq(entry["sha256"])
+    %w[prof dev].each do |role|
+      expect(File.file?(File.join(project, cast[role].fetch("reference")))).to be(false)
+      expect(File.read(File.join(project, cast[role].fetch("reference_prompt"))).strip).not_to be_empty
+    end
+    %w[lesson templates/ending].each do |pack|
+      base = File.join(project, ".skill/assets", pack)
+      manifest = JSON.parse(File.read(File.join(base, "manifest.json")))
+      manifest.fetch("files").each do |entry|
+        path = File.join(base, entry["path"])
+        expect(Digest::SHA256.file(path).hexdigest).to eq(entry["sha256"])
+        expect(File.size(path)).to eq(entry["bytes"])
+        expect(File.read(path, encoding: "UTF-8").valid_encoding?).to be(true)
+      end
+      manifest.fetch("regenerate_when_needed").each do |entry|
+        expect(File.exist?(File.join(base, entry["path"]))).to be(false)
+        recipe = File.expand_path(entry.fetch("recipe").split("#").first, base)
+        expect(File.read(recipe).strip).not_to be_empty
+      end
     end
     music = YAML.safe_load_file(File.join(project, "prompts/finish-music/music.yml"))
     expect(music["tracks"].keys).to contain_exactly("intro", "class", "blackboard", "devroom", "titles")
-    music["tracks"].each_value { |track| expect(File.file?(File.join(project, track.fetch("file")))).to be(true) }
+    music["tracks"].each do |name, track|
+      original = JSON.parse(File.read(File.join(project, ".skill/assets/lesson/music", "#{name}.json")))
+      expect(track).to eq(original.slice("prompt", "seconds"))
+    end
     expect(JSON.parse(File.read(File.join(project, "config/fonts.json")))).to include("chalk.ttf" => "/System/Library/Fonts/Supplemental/Chalkduster.ttf")
     expect(Dir.children(File.join(project, "tools/p5/fonts"))).to be_empty
-    expect(File.file?(File.join(project, ".skill/assets/templates/ending/end-card.png"))).to be(true)
+    expect(File.file?(File.join(project, ".skill/assets/templates/ending/end-card.svg"))).to be(true)
+    expect(Dir[File.join(project, ".skill/assets/**/*.{png,mp3}")]).to be_empty
   end
 
   it "registers original reference bytes once, without generating an image or replacing an identity" do
@@ -68,6 +88,30 @@ RSpec.describe "Portable lesson workflow", :core do
 end
 
 RSpec.describe "Narration and reusable background beds", :media do
+  it "generates only a selected starter music prompt and reuses the accepted track" do
+    File.write(file("brief.md"), "Explain a concept with a blackboard diagram")
+    project = file("lesson")
+    Toolkit::Initializer.new(RT).create(project: project, prompt: file("brief.md"))
+    stub_const("Media::MusicBed::ROOT", project)
+    mp3 = file("provider-fixture.mp3")
+    ff.run("ffmpeg", "-y", "-v", "error", "-i", tone, "-c:a", "libmp3lame", mp3)
+    original = JSON.parse(File.read(File.join(SKILL, "assets/lesson/music/blackboard.json")))
+    client = double("music download")
+    expect(client).to receive(:download).with("https://cdn.test/bed", anything).once { |_, path| FileUtils.cp(mp3, path) }
+    model = double("instrumental music")
+    expect(Fal::Models::ElevenMusic).to receive(:new).with(client: client).once.and_return(model)
+    expect(model).to receive(:compose).with(prompt: original.fetch("prompt"), music_length_ms: 60_000)
+      .and_return(Fal::Models::Base::Result.new(request_id: "bed-1", output: {"audio" => {"url" => "https://cdn.test/bed"}}))
+    bed = Media::MusicBed.new("finish-music")
+    expect(bed.generate(only: ["blackboard"], client: client)).to eq(["blackboard"])
+    accepted_hash = Digest::SHA256.file(bed.wav("blackboard")).hexdigest
+    expect(bed.generate(only: ["blackboard"], client: client)).to eq([])
+    expect(Digest::SHA256.file(bed.wav("blackboard")).hexdigest).to eq(accepted_hash)
+    expect(File.exist?(bed.wav("intro"))).to be(false)
+    expect(File.exist?(bed.wav("titles"))).to be(false)
+    expect(ff.duration(bed.wav("blackboard"))).to be_within(0.05).of(2)
+  end
+
   it "renders the explainer typography, code, diagram, card and caption helpers with the default system fonts" do
     selection = JSON.parse(File.read(File.join(SKILL, "assets/lesson/fonts/default-selection.json")))
     skip "default system fonts not installed" unless selection.values.all? { |path| File.file?(path) }

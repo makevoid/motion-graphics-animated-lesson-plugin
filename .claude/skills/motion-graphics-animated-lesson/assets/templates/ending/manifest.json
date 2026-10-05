@@ -8,13 +8,8 @@
   "files": [
     {
       "path": "TEMPLATE.md",
-      "sha256": "cc6d95bf388bda245b5ea6fe95e27bfa8561ad51d33550dde74e043721e4ef56",
-      "bytes": 5524
-    },
-    {
-      "path": "credits-cast.png",
-      "sha256": "79c0b2fec87317b5e2b6e4007208085b3e9a2feacb4addba826670e1e8ae3324",
-      "bytes": 95484
+      "sha256": "2b20c1f0704633cdd960cc0007e1a00b2ca6480cd34aadee8cb5fe695f40b3cd",
+      "bytes": 5531
     },
     {
       "path": "credits-cast.svg",
@@ -22,19 +17,9 @@
       "bytes": 1640
     },
     {
-      "path": "credits-production.png",
-      "sha256": "5fc05a423451d68bbdcc862f3adb32f0551b1d12f38f7df18423a6b8b6c8cfc3",
-      "bytes": 118789
-    },
-    {
       "path": "credits-production.svg",
       "sha256": "fc865db5b6e555f4f2bf2d6048da387572d3b695dba51a614138b01986847d46",
       "bytes": 2934
-    },
-    {
-      "path": "credits-title.png",
-      "sha256": "f24ad127cdde241c4b85eae1169f0e0e229afd5c1d0d5e84734da60d89e15094",
-      "bytes": 98662
     },
     {
       "path": "credits-title.svg",
@@ -42,19 +27,9 @@
       "bytes": 1663
     },
     {
-      "path": "end-card.png",
-      "sha256": "6c41284caf5eb06ce574495f52aac7207aba370ad476e73edab7a6ac259e7460",
-      "bytes": 101702
-    },
-    {
       "path": "end-card.svg",
       "sha256": "06fe836fdf001ef8895ab7829b17b307b8b3b4eee99ee398efad754a0cfa6ecc",
       "bytes": 1677
-    },
-    {
-      "path": "final-joke-card.png",
-      "sha256": "4cd004fcbfa3c106f42ea984b1b20814546c9edfb939226679ccd16a1d029df9",
-      "bytes": 100501
     },
     {
       "path": "final-joke-card.svg",
@@ -67,24 +42,75 @@
       "bytes": 3944
     },
     {
+      "path": "regeneration.md",
+      "sha256": "63cd1fbfd3e7c54f49dceae64662c5e7b89f87241bea63a46a4f08ace250e7bb",
+      "bytes": 2391
+    }
+  ],
+  "regenerate_when_needed": [
+    {
+      "path": "credits-cast.png",
+      "sha256": "79c0b2fec87317b5e2b6e4007208085b3e9a2feacb4addba826670e1e8ae3324",
+      "bytes": 95484,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
+    },
+    {
+      "path": "credits-production.png",
+      "sha256": "5fc05a423451d68bbdcc862f3adb32f0551b1d12f38f7df18423a6b8b6c8cfc3",
+      "bytes": 118789,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
+    },
+    {
+      "path": "credits-title.png",
+      "sha256": "f24ad127cdde241c4b85eae1169f0e0e229afd5c1d0d5e84734da60d89e15094",
+      "bytes": 98662,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
+    },
+    {
+      "path": "end-card.png",
+      "sha256": "6c41284caf5eb06ce574495f52aac7207aba370ad476e73edab7a6ac259e7460",
+      "bytes": 101702,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
+    },
+    {
+      "path": "final-joke-card.png",
+      "sha256": "4cd004fcbfa3c106f42ea984b1b20814546c9edfb939226679ccd16a1d029df9",
+      "bytes": 100501,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
+    },
+    {
       "path": "reference-credits-production.png",
       "sha256": "d577357182a520e4f272a99d593b367ed36a9b853257d32eddbe5fe2e4739136",
-      "bytes": 590588
+      "bytes": 590588,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
     },
     {
       "path": "reference-curtain-closed.png",
       "sha256": "1eb7d51cd300f6d869fff14d52237084fd9108ad22aeee2fc98223a7c336f8c9",
-      "bytes": 1645318
+      "bytes": 1645318,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
     },
     {
       "path": "reference-curtain-folding.png",
       "sha256": "83841dab306958262af42b8de0c4184585faa80b35f571a3938aaf669646cfe4",
-      "bytes": 1395634
+      "bytes": 1395634,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
     },
     {
       "path": "reference-curtain-reveal.png",
       "sha256": "816099da65b55e2e4b00b542e1594f9541a5db066e4cd59c3cc2881970c816c0",
-      "bytes": 1282192
+      "bytes": 1282192,
+      "status": "not_bundled",
+      "recipe": "regeneration.md"
     }
-  ]
+  ],
+  "distribution": "SVG layout sources, JSON coordinates and text recipes. Export PNG previews only inside lesson projects when needed."
 }

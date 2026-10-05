@@ -23,7 +23,7 @@ The repository root also has `rake test`. `PROFILE=all` (default) runs all non-l
 
 Offline synthetic media is deliberately simple so placement/alpha/timing are measurable. Generated projects retain a `.skill/` copy of the instructions and references, so their copied test suite can validate the documentation as well. Mocked Fal responses verify client and pipeline plumbing; they cannot demonstrate the provider's current output quality or lipsync. Live generation is stochastic: tests enforce media/schema/placement invariants and save artifacts for visual review rather than asserting subjective beauty.
 
-Lesson tests additionally verify topic-only initialization, preserved asset hashes and default voices, v4 request settings and cached alignment, tail extension without word drift, local bed reuse without provider calls, speech ducking, intentional silence, caption speaker metadata, direct local plates and final frame preservation.
+Lesson tests additionally verify topic-only initialization, readable asset hashes, regeneration recipes and default voices, v4 request settings and cached alignment, tail extension without word drift, local bed reuse without provider calls, speech ducking, intentional silence, caption speaker metadata, direct local plates and final frame preservation.
 
 The media profile also checks seeded alpha-component cleanup through the public Ruby task: retained subject RGBA and soft alpha remain exact, detached lettering disappears, the original file remains unchanged, and invalid/missing seeds fail without publishing a partial sequence.
 
@@ -42,12 +42,12 @@ Supply `FAL_AI_API_KEY` via the environment for this explicit developer CLI test
 Executable tests check document links/interfaces; they do not prove an agent will obey creative prose. Rehearse these scenarios using the skill with a disposable project. Paid calls require authorization; preserve authorization already given for a bounded regeneration:
 
 1. Topic + audience, no song: initialize without placeholder audio, research and script, plan a full lesson including its ending.
-2. A software tutorial with default cast: use the exact professor/developer sheets, George/Liam settings, classroom and original intro/titles beds.
+2. A software tutorial with default cast: generate the selected professor/developer sheets and classroom from the supplied prompts, keep George/Liam settings, and generate intro/titles from the original prompts. Reuse approved project images and music thereafter.
 3. A biology lesson with no developer, or a brief with no professor: omit that role from narration, assets and credits. Explicit cast/voice overrides win.
 4. An approved script: generate timestamped turns, build speaker stems, freeze measured scene frames, review the hook and a teaching scene before expanding.
-5. A new ending: inspect the PNG layout guides and original frames, pass actual curtain images as references if generating a change, use current sources/cast/models in credits.
+5. A new ending: inspect the SVG layout guides, export PNG previews locally if needed, generate matching curtain stills from the prompts and pass the accepted images as references, use current sources/cast/models in credits.
 6. Failed clips, drift, unreadable code or missing frames: repair and review. Tail extension must preserve spoken word timing.
 7. Interrupted Fal polling: resume the saved receipt, avoiding another charge.
-8. Reused music: intro/titles files retain identical hashes, local mix ducks under speech and preserves picture/frame count. No paid generation for local tracks.
+8. Reused music: accepted project or user-supplied intro/titles files retain identical hashes, local mix ducks under speech and preserves picture/frame count. No paid generation for local tracks.
 
 Review the generated plan against the user's actual taste and listen/watch opening and peak clips. Record behavioral findings in a review document; do not describe a structural Markdown check as full agent evaluation.

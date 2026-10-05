@@ -71,7 +71,7 @@ Use the full-length per-speaker stems from `narration:build`, not separately off
 
 ## Sound and assembly
 
-Read [narration and music](narration-and-music.md) for Eleven v4 lines, timing and the three-pass narration → ducked beds → SFX flow. The original five beds are bundled; reuse intro/titles by default. `music:gen` generates new beds only when requested; `gen:music` cuts narration sections.
+Read [narration and music](narration-and-music.md) for Eleven v4 lines, timing and the three-pass narration → ducked beds → SFX flow. The original five bed prompts are bundled; generate selected intro/titles or other beds in the project after production authorization, then reuse them. `music:gen` generates beds from those prompts; `gen:music` cuts narration sections.
 
 Keep `audio/song.wav` as the full master. Use integer frame sections; unbroken-master assembly validates each section's frame count and contiguity, joins picture and muxes one continuous narration master. Do not concatenate independently encoded/faded audio segments. Preserve the original input and speaker stems separately. Keep a clean render before sound effects.
 

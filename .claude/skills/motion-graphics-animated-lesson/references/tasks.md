@@ -46,7 +46,7 @@ ruby scripts/mv.rb --project /absolute/project openapi:summary
 
 `setup` calls Bundler, npm ci and Python venv/pip through Ruby. Install system Ruby, Node 22+, Chrome, FFmpeg/ffprobe and ImageMagick beforehand. On macOS install Swift/Xcode command line tools for VFX. `MV_PYTHON` overrides the local `.venv/bin/python3`; `CHROME_PATH` and `MEDIA_FONT` override detected Chrome/font paths. Configure the plugin's sensitive `FAL_AI_API_KEY` option, or set `FAL_AI_API_KEY` in the environment for direct developer CLI calls; never put the key in prompts/config/commits. `doctor` prints JSON booleans; `STRICT=1` makes missing dependencies fail. Tests require the full selected profile's tools and do not silently skip missing dependencies.
 
-`init --project /absolute/project --prompt-file /absolute/brief.md` starts a lesson without audio. It copies the asset pack, voice settings and editable narration/music starter files, and seeds `config/fonts.json` with default system-font paths. Optional `--song` imports existing narration. Build TTS before `audio:analyze` when no audio was supplied.
+`init --project /absolute/project --prompt-file /absolute/brief.md` starts a lesson without audio. It copies readable asset prompts, SVG layout guides, voice settings and editable narration/music starter files, and seeds `config/fonts.json` with default system-font paths. It does not generate or download lesson media. Optional `--song` imports existing narration. Build TTS before `audio:analyze` when no audio was supplied.
 
 Fonts are not bundled. Before rendering, run `fonts:list`, choose installed fonts in `config/fonts.json`, then run `fonts:copy[config/fonts.json]`. See [project fonts](animation-audio-vfx.md#project-fonts).
 
@@ -54,13 +54,13 @@ Fonts are not bundled. Before rendering, run `fonts:list`, choose installed font
 
 | Task | Execution | Purpose |
 |---|---|---|
-| `ref:register[run,image]` | MCP | Upload/register an exact bundled identity without regeneration |
+| `ref:register[run,image]` | MCP | Upload/register an existing approved local identity without regeneration |
 | `sfx:gen`, `SFX=narration` | MCP | Eleven v4 dialogue with voice and alignment metadata |
 | `narration:build` | local | Master, full-length speaker stems, words/line timing |
 | `audio:analyze[audio/source.wav,audio]` | local | Decode master into the runtime's `audio/song.wav` |
 | `media:split_sheet[sheet,out,names,min_area]` | local | Key/slice props; names separated with semicolons |
 | `music:gen`, `SFX=finish-music` | MCP | Generate new instrumental beds; skips `file:` tracks |
-| `music:bed`, `SFX=finish-music` | local | Reuse/generate track sources, loop, duck and mux |
+| `music:bed`, `SFX=finish-music` | local | Mix existing track sources, loop, duck and mux |
 | `sfx:gen` / `sfx:mix`, `SFX=finish-sfx` | MCP / local | One-shot effects and final mix |
 
 See [narration and music](narration-and-music.md) for YAML. Local file beds need no generation call. Starter configs need the actual script and measured segment ranges before execution.
@@ -97,7 +97,7 @@ Invoke each import (and each differently parameterized call to the same Rake tas
 
 For a new identity version edited from a prior character, add a run with `steps: [Steps::RefBase], edit_from: "char-prof-v1"` and write its edit instructions in `01_ref_base.txt`. `edit_from: "s01/approved-edit"` can instead promote an existing edited keyframe. The RefBase service selects the Sunburst edit endpoint, records a new identity and leaves the source untouched. Point dependent runs at the new ID after review.
 
-`section(at, frames)` uses full `audio/song.wav`, offset `at/24.0`, integer frame length and an empty expected-word list. Set `lyrics:` (legacy config key) to selected recognizable words if desired. Use `plate_file: ".skill/assets/lesson/plates/classroom.png"` for a preserved local plate with no generated keyframe. Character-free scenes can use `steps: [Steps::Music, Steps::Overlay]`, `plate_file:`, and a p5 sketch, omitting RefBase/Keyframes/Clips entirely. Sprite scenes are the default: `Clips, Overlay` with a still keyframe `plate:`, as in the example above. The full-frame paths are exceptions that the plan must justify (see "Self-contained characters" in [prompts.md](prompts.md)): a single H3 plate uses `Video` and a 5–15 second integer duration; multi-shot plates use `Keyframes, Shots, Overlay` with no `plate:`. `track:` optionally maps names to `[x,y,size,search,from_frame]` for tracked graphics. `reference:` is an optional local reference-video path.
+`section(at, frames)` uses full `audio/song.wav`, offset `at/24.0`, integer frame length and an empty expected-word list. Set `lyrics:` (legacy config key) to selected recognizable words if desired. Use `plate_file: ".skill/assets/lesson/plates/classroom.png"` after generating or supplying that local plate, with no additional generated keyframe. Character-free scenes can use `steps: [Steps::Music, Steps::Overlay]`, `plate_file:`, and a p5 sketch, omitting RefBase/Keyframes/Clips entirely. Sprite scenes are the default: `Clips, Overlay` with a still keyframe `plate:`, as in the example above. The full-frame paths are exceptions that the plan must justify (see "Self-contained characters" in [prompts.md](prompts.md)): a single H3 plate uses `Video` and a 5–15 second integer duration; multi-shot plates use `Keyframes, Shots, Overlay` with no `plate:`. `track:` optionally maps names to `[x,y,size,search,from_frame]` for tracked graphics. `reference:` is an optional local reference-video path.
 
 Set `upload_music: false` when a section only needs its local soundtrack for compositing (for example a nonspeaking H3 shot with `audio: false` plus existing timed captions). `gen:music` then cuts/fits the local WAV without constructing a Fal client. Use `anim:prepare` for existing cues. `review:music` runs local metrics and marks transcription skipped; expected spoken words cannot be verified without a transcript. A `Video`, an audio-driven `Shots` item or paid `gen:overlay` that reads `music.url` requires the default upload behavior. `Clips` with a separate vocal stem uploads just its actual needed stem interval.
 

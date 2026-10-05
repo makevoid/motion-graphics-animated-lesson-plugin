@@ -1,30 +1,29 @@
 # Ending layout and model reference template
 
-Use this text together with the PNGs in this directory and the original curtain images in `../../lesson/curtain/`. All layouts use **1920×1080, 16:9, 24fps**, origin top-left, 96 px horizontal / 54 px vertical text safety. `layouts.json` contains editable region coordinates; matching SVGs are editable vector guides and PNGs are ready to attach as model references. Background #1B1A22, chalk #F3EFE4, accent #FFB53D.
+Use this text with the editable SVGs and `layouts.json` in this directory. Layouts use **1920×1080, 16:9, 24fps**, origin top-left, 96 px horizontal / 54 px vertical text safety. Background #1B1A22, chalk #F3EFE4, accent #FFB53D. PNG previews, archived film frames and curtain images are not shipped. Follow [regeneration recipes](regeneration.md) to export any PNG guides needed by a model and prepare selected curtain assets in the lesson project.
 
-## Reference-image assignments
+## Reference assignments
 
-| New asset/layout | Attach or inspect | Purpose |
+| New asset/layout | Inspect or export locally | Purpose |
 |---|---|---|
-| End card | `end-card.png` | thesis at top; a callback diagram; actual sources; cast parade at bottom |
-| Credit title | `credits-title.png` | large condensed title, chalk subtitle, artifact line |
-| Cast credits | `credits-cast.png` | alternating face vignettes, name, voice/model, character-specific aside |
-| Crew/technology | `credits-production.png` + `reference-credits-production.png` | two columns, amber roles above light text |
-| Final joke | `final-joke-card.png` | readable closing hold, a small callback, punchline/music stop |
-| Curtain design | `../../lesson/curtain/closed.png` + `../../lesson/curtain/open.png` | exact red velvet, folds, gold fringe, matching valance |
-| Curtain choreography | `reference-curtain-folding.png`, `reference-curtain-closed.png`, `reference-curtain-reveal.png` | close/fold, hold, reopen over the end card |
+| End card | `end-card.svg` | thesis at top; callback diagram; actual sources; cast parade at bottom |
+| Credit title | `credits-title.svg` | large condensed title, chalk subtitle, artifact line |
+| Cast credits | `credits-cast.svg` | alternating face vignettes, name, voice/model, character-specific aside |
+| Crew/technology | `credits-production.svg` | two columns, amber roles above light text |
+| Final joke | `final-joke-card.svg` | readable closing hold, small callback, punchline/music stop |
+| Curtain design/choreography | [Curtain prompts](../../lesson/prompts/curtain.md) and project-local reviewed stills/clips | matching red velvet, folds, gold fringe and fixed valance; close, hold, reopen |
 
-`reference-*.png` are frames of the original finished lesson, not content for the next video. Their Software Archaeology text and credits demonstrate placement. Replace all dates, names, sources, producer lines, jokes and model claims with the current production's data. The cast guide includes only professor and developer slots; omit any unused role. Original frames containing other characters are excluded.
+Replace placeholder dates, names, sources, producer lines, jokes and model claims with the current production's data. Omit unused cast slots. Optional `reference-*.png` files can be captured from the newly rendered ending using [the reconstruction briefs](regeneration.md); do not treat them as recovered original footage.
 
 ## Text template for an image/edit model
 
-> Reference image 1 is the layout guide; subsequent images are the approved professor/developer identity sheets or curtain references. When supplied, an original character-free lesson frame demonstrates style and spacing. Preserve their identity and the warm cel cartoon style. Create only the requested clean visual layer: {curtain / background / one character pose}. Keep {named layout regions and coordinates} clear for typography composited later. Do not render the guide labels, coordinates, lesson text, credits, logos or captions into the image. Keep the supplied curtain's gold valance and red folds consistent across open and closed states. For an open curtain, the stage opening alone is flat chroma green #00B140; no green on the velvet. All type will be drawn exactly in p5.
+> Reference image 1 is the layout guide; subsequent images are the approved professor/developer identity sheets or curtain references. When supplied, an approved character-free project frame demonstrates style and spacing. Preserve their identity and the warm cel cartoon style. Create only the requested clean visual layer: {curtain / background / one character pose}. Keep {named layout regions and coordinates} clear for typography composited later. Do not render the guide labels, coordinates, lesson text, credits, logos or captions into the image. Keep the supplied curtain's gold valance and red folds consistent across open and closed states. For an open curtain, the stage opening alone is flat chroma green #00B140; no green on the velvet. All type will be drawn exactly in p5.
 
-Use image references in the actual generation request (`image_urls`/keyframe `refs`), not only filenames in a text prompt. Reuse the bundled curtain stills when no redesign is requested. The curtain videos are not bundled: [regenerate them](../../../references/cast-and-assets.md#assets-to-regenerate) with opening/closing image roles swapped, then measure their timing. To create a different curtain, first register its reference images and edit them. Already-generated local performances can be reused without another model call.
+Use image references in the actual generation request (`image_urls`/keyframe `refs`), not only filenames in a text prompt. Generate the curtain stills from the supplied prompts once, then reuse the approved project images. [Generate the clips](../../../references/cast-and-assets.md#assets-to-regenerate) with opening/closing image roles swapped and measure their timing. To redesign an existing curtain, edit the actual approved reference images. Already-generated local performances can be reused without another model call.
 
 ## Text template for the p5 scene author
 
-> Build the ending from `layouts.json` and the matching PNGs. Replace the placeholders with verified current-lesson content. Use bundled DIN for titles/roles, Roboto for readable credits, Chalkduster for classroom headings, mono for code, Bradley Hand for jokes. Draw text in p5 with advance widths, wrap long values within their assigned regions, and keep credits readable for at least 2.5 seconds per entry. Draw the card and parade behind the keyed curtain. End-card local time must continue across its section boundaries. Do not scale the reference screenshot as a finished card.
+> Build the ending from `layouts.json` and the matching SVGs, optionally exported to project-local PNGs. Replace the placeholders with verified current-lesson content. Select installed fonts for titles/roles, readable credits, classroom headings, code and jokes through `config/fonts.json`; no fonts are bundled. Draw text in p5 with advance widths, wrap long values within their assigned regions, and keep credits readable for at least 2.5 seconds per entry. Draw the card and parade behind the keyed curtain. End-card local time must continue across its section boundaries. Do not scale the reference screenshot as a finished card.
 
 Fill the following before rendering:
 
@@ -49,6 +48,6 @@ Fill the following before rendering:
 
 Use exact integer section frames and measured clip landmarks; the above offsets are choreography starting points. The source curtain is 10.25 s and its credits 30 s. Do not insert those durations blindly into a shorter lesson.
 
-## Reference frame provenance
+## Historical frame provenance
 
-Source: `video-session14/aicodegen/output/with-sfx.mp4`, 5283 frames, 220.125 s, 1920×1080/24fps. Retained frames extracted at: folding 178.5 s; closed 180.4 s; reveal 182.5 s; production 208 s. These are source-study timestamps only.
+Source: `video-session14/aicodegen/output/with-sfx.mp4`, 5283 frames, 220.125 s, 1920×1080/24fps. The omitted reference frames were extracted at: folding 178.5 s; closed 180.4 s; reveal 182.5 s; production 208 s. These are source-study timestamps only.

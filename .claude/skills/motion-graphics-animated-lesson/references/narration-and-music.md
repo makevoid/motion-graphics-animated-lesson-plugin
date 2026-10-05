@@ -38,8 +38,9 @@ For a scene beginning at frame A, a line at master S uses `audio_at = S - A/24`.
 
 ## Background beds
 
-The original five tracks are bundled in `assets/lesson/music/`: `intro`, `class`, `blackboard`, `devroom`, `titles` (MP3, 192 kbps CBR, re-encoded from the original WAVs). Starter `music.yml` uses `file: .skill/assets/lesson/music/<name>.mp3`; fill its measured `segments` and run `music:bed` locally, with no provider call. Reuse intro for the opening and titles for curtain/credits by default. `FORCE` never regenerates a `file:` track. SHA-256 hashes are in the asset manifest. Sidecar metadata preserves original prompt, duration and request ID. The following generated-track recipe is optional when different music is requested.
+The original five prompts are shipped in `assets/lesson/music/*.json` and seeded into `prompts/finish-music/music.yml`: `intro`, `class`, `blackboard`, `devroom`, `titles`. No MP3s are bundled. Select the needed beds in the plan, include generation cost, and invoke `music:gen` through MCP only after production authorization. For example, options `{"SFX":"finish-music","ONLY":"intro,titles"}` generates only those two tracks. Outputs are cached under `output/finish-music/tracks/`; the local `music:bed` task mixes them after measured segments are filled. Neither installation nor initialization makes provider calls.
 
+Use intro for the opening and titles for curtain/credits by default. Preserve accepted project tracks. To reuse a supplied track instead, replace its prompt entry with `file: /absolute/path/to/music.mp3`; local `file:` tracks never call the provider, even with `FORCE`. JSON sidecars preserve historical prompt, duration and request ID for provenance, not a downloadable asset or a promise to reproduce identical music. The recipe below illustrates a smaller selected set.
 
 Provider: [Fal ElevenLabs Music v2.5 API](https://fal.ai/models/elevenlabs/music/v2.5/api). `Fal::Models::ElevenMusic` defaults to instrumental output. Use `music:gen` directly through MCP (now allow-listed); `sfx:gen` is reserved for TTS/SFX. Do not carry forward the source project's workaround that routed music through `sfx:gen`.
 

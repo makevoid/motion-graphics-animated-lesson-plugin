@@ -12,7 +12,7 @@ Cold-open mystery/demo, title/host, concepts/examples, complication/peak, synthe
 
 Roles needed/omitted and explicit overrides. Professor = George / 0.45 / 11; developer = Liam / 0.5 / 41 when retained. Record sheet paths, no-change identity anchors, hand/prop canon, additional characters and their voices. Preserve source sheets; version intentional replacements. Full keyframe/acting prompts include image references.
 
-Warm cel cartoon style paragraph and palette shared with p5, or user-requested replacement. Character on flat green, still plates for settings, p5 for exact text/diagrams/cameras. Fonts: chosen system font per project filename (from `fonts:list`), purpose, glyph coverage and any substitutions. Load ending layout PNGs and curtain images as visual references.
+Warm cel cartoon style paragraph and palette shared with p5, or user-requested replacement. Character on flat green, still plates for settings, p5 for exact text/diagrams/cameras. Fonts: chosen system font per project filename (from `fonts:list`), purpose, glyph coverage and any substitutions. Inspect the ending SVG layouts. List missing identity sheets, plates, props, curtain stills/clips and any required PNG guide exports; generate only selected assets inside the project before using them as references.
 
 ## Research
 
@@ -27,7 +27,7 @@ For each scene write image/edit prompts, referenced cast, individual H3 windows 
 
 ## Music and finish
 
-Reuse original intro/titles by default; select class/blackboard/devroom as appropriate. List measured segment plan, ducking, sparse SFX and intentional silence. Ending: callback → 2 s pause → 1 s iris/tada → folding curtain close/open → source/takeaway card + parade → optional rewind → cast/crew/joke credits → final callback. Reserve narration tail and budget for the entire ending.
+Generate intro/titles from the supplied prompts when needed, or reuse accepted project/local tracks; select class/blackboard/devroom as appropriate. Include the cost of all selected music and visual asset generation. List measured segment plan, ducking, sparse SFX and intentional silence. Ending: callback → 2 s pause → 1 s iris/tada → folding curtain close/open → source/takeaway card + parade → optional rewind → cast/crew/joke credits → final callback. Reserve narration tail and budget for the entire ending.
 
 Fill `docs/CREDITS.json` from the credits template with actual used cast, voices, model versions, tools, fonts, sources and production attribution. Choose image layouts from `assets/templates/ending/`; original example text is not new-lesson content.
 

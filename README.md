@@ -1,27 +1,27 @@
 # Motion Graphics Animated Lesson
 
-Version **0.2.0**.
+Version **0.2.1**.
 
 A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, repository or script. It combines character acting with p5 diagrams, code, captions and camera moves, then adds music ducked under dialogue, a theatrical curtain call and animated credits.
 
-The plugin includes its reusable artwork, curtain still images, animation and timing recipes and all five original music beds.
+The plugin includes readable character, scene, prop, curtain and music prompts, editable SVG ending layouts, and animation/timing recipes. PNG artwork and MP3 music are generated only in lesson projects when needed; installation and initialization do not download or generate them. See [asset regeneration](.claude/skills/motion-graphics-animated-lesson/references/cast-and-assets.md#assets-to-regenerate). The optional raster icon can be recreated from its [vector source and prompt](docs/icon-prompt.txt).
 
 ## Videos created with this skill
 
-Seven examples made with this skill. Click a thumbnail to watch on YouTube.
+Eight examples made with this skill. Click a thumbnail to watch on YouTube.
 
 | Sample video 1 | Sample video 2 | Sample video 3 |
 | :---: | :---: | :---: |
 | <a href="https://www.youtube.com/shorts/7o23EHl1fnw"><img src="docs/examples/sample-video-1.jpg" width="240" height="135" alt="Sample Video n.1 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/UQequFn0Vzo"><img src="docs/examples/sample-video-2.jpg" width="240" height="135" alt="Sample Video n.2 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/Cg2-ZvbYNHY"><img src="docs/examples/sample-video-3.jpg" width="240" height="135" alt="Sample Video n.3 - motion-graphics-animated-lesson-plugin"></a> |
 | @makevoid · 2:54 | @makevoid · 2:59 | @makevoid · 2:57 |
 | <br> | <br> | <br> |
-| **Sample video 5** | **Sample video 6** | **Sample video 7** |
-| <a href="https://www.youtube.com/shorts/pdTGocsiMRM"><img src="docs/examples/sample-video-5.jpg" width="240" height="135" alt="Sample Video n.5 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/ZW9zP9ST7Vs"><img src="docs/examples/sample-video-6.jpg" width="240" height="135" alt="Sample Video n.6 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/XxAlN73aRS4"><img src="docs/examples/sample-video-7.jpg" width="240" height="135" alt="Sample Video n.7 - motion-graphics-animated-lesson-plugin"></a> |
-| @makevoid · 2:46 | @makevoid · 3:00 | @makevoid · 2:50 |
+| **Sample video 4** | **Sample video 5** | **Sample video 6** |
+| <a href="https://www.youtube.com/shorts/bTu_A8ba0GA"><img src="docs/examples/sample-video-4.jpg" width="240" height="135" alt="Sample Video n.4 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/pdTGocsiMRM"><img src="docs/examples/sample-video-5.jpg" width="240" height="135" alt="Sample Video n.5 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/ZW9zP9ST7Vs"><img src="docs/examples/sample-video-6.jpg" width="240" height="135" alt="Sample Video n.6 - motion-graphics-animated-lesson-plugin"></a> |
+| @makevoid · 2:59 | @makevoid · 2:46 | @makevoid · 3:00 |
 | <br> | <br> | <br> |
-| **Sample video 8** |  |  |
-| <a href="https://www.youtube.com/shorts/5H6qg7669PM"><img src="docs/examples/sample-video-8.jpg" width="240" height="135" alt="Sample Video n.8 - motion-graphics-animated-lesson-plugin"></a> |  |  |
-| @makevoid · 2:55 |  |  |
+| **Sample video 7** | **Sample video 8** |  |
+| <a href="https://www.youtube.com/shorts/XxAlN73aRS4"><img src="docs/examples/sample-video-7.jpg" width="240" height="135" alt="Sample Video n.7 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/5H6qg7669PM"><img src="docs/examples/sample-video-8.jpg" width="240" height="135" alt="Sample Video n.8 - motion-graphics-animated-lesson-plugin"></a> |  |
+| @makevoid · 2:50 | @makevoid · 2:55 |  |
 
 ## Install and invoke
 
@@ -87,7 +87,7 @@ Before generating a video, you can install some of these dependencies, which on 
 
 ### License
 
-The toolkit code is MIT licensed. Preserved user-supplied artwork and model outputs retain their original provenance and applicable terms. System fonts selected into a project keep their own licenses.
+The toolkit code is MIT licensed. User-supplied artwork and generated model outputs retain their original provenance and applicable terms. System fonts selected into a project keep their own licenses.
 
 ---
 

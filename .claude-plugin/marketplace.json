@@ -10,7 +10,7 @@
       "name": "motion-graphics-animated-lesson",
       "source": "./",
       "description": "Create narrated cartoon lessons with recurring characters, ElevenLabs voices, timed diagrams, ducked music, curtain calls and animated credits.",
-      "version": "0.2.0"
+      "version": "0.2.1"
     }
   ]
 }
