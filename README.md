@@ -23,8 +23,6 @@ Seven examples made with this skill. Click a thumbnail to watch on YouTube.
 | <a href="https://www.youtube.com/shorts/UQequFn0Vzo"><img src="docs/examples/sample-video-2.jpg" width="240" height="135" alt="Sample Video n.2 - motion-graphics-animated-lesson-plugin"></a> | | |
 | @makevoid · 2:59 | | |
 
-More samples on X: [examples 1–9](https://x.com/makevoid/status/2105673599046598834) · [example 10](https://x.com/makevoid/status/2105311203715153972?s=46).
-
 ## Install and invoke
 
 Open your Terminal and paste the installation commands:
