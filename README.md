@@ -10,18 +10,18 @@ The plugin includes its reusable artwork, curtain still images, animation and ti
 
 Seven examples made with this skill. Click a thumbnail to watch on YouTube.
 
-| Sample video 1 | Sample video 3 | Sample video 5 |
+| Sample video 1 | Sample video 2 | Sample video 3 |
 | :---: | :---: | :---: |
-| <a href="https://www.youtube.com/shorts/7o23EHl1fnw"><img src="docs/examples/sample-video-1.jpg" width="240" height="135" alt="Sample Video n.1 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/Cg2-ZvbYNHY"><img src="docs/examples/sample-video-3.jpg" width="240" height="135" alt="Sample Video n.3 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/pdTGocsiMRM"><img src="docs/examples/sample-video-5.jpg" width="240" height="135" alt="Sample Video n.5 - motion-graphics-animated-lesson-plugin"></a> |
-| @makevoid · 2:54 | @makevoid · 2:57 | @makevoid · 2:46 |
+| <a href="https://www.youtube.com/shorts/7o23EHl1fnw"><img src="docs/examples/sample-video-1.jpg" width="240" height="135" alt="Sample Video n.1 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/UQequFn0Vzo"><img src="docs/examples/sample-video-2.jpg" width="240" height="135" alt="Sample Video n.2 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/Cg2-ZvbYNHY"><img src="docs/examples/sample-video-3.jpg" width="240" height="135" alt="Sample Video n.3 - motion-graphics-animated-lesson-plugin"></a> |
+| @makevoid · 2:54 | @makevoid · 2:59 | @makevoid · 2:57 |
 | <br> | <br> | <br> |
-| **Sample video 6** | **Sample video 7** | **Sample video 8** |
-| <a href="https://www.youtube.com/shorts/ZW9zP9ST7Vs"><img src="docs/examples/sample-video-6.jpg" width="240" height="135" alt="Sample Video n.6 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/XxAlN73aRS4"><img src="docs/examples/sample-video-7.jpg" width="240" height="135" alt="Sample Video n.7 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/5H6qg7669PM"><img src="docs/examples/sample-video-8.jpg" width="240" height="135" alt="Sample Video n.8 - motion-graphics-animated-lesson-plugin"></a> |
-| @makevoid · 3:00 | @makevoid · 2:50 | @makevoid · 2:55 |
+| **Sample video 5** | **Sample video 6** | **Sample video 7** |
+| <a href="https://www.youtube.com/shorts/pdTGocsiMRM"><img src="docs/examples/sample-video-5.jpg" width="240" height="135" alt="Sample Video n.5 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/ZW9zP9ST7Vs"><img src="docs/examples/sample-video-6.jpg" width="240" height="135" alt="Sample Video n.6 - motion-graphics-animated-lesson-plugin"></a> | <a href="https://www.youtube.com/shorts/XxAlN73aRS4"><img src="docs/examples/sample-video-7.jpg" width="240" height="135" alt="Sample Video n.7 - motion-graphics-animated-lesson-plugin"></a> |
+| @makevoid · 2:46 | @makevoid · 3:00 | @makevoid · 2:50 |
 | <br> | <br> | <br> |
-| **Sample video 2** | | |
-| <a href="https://www.youtube.com/shorts/UQequFn0Vzo"><img src="docs/examples/sample-video-2.jpg" width="240" height="135" alt="Sample Video n.2 - motion-graphics-animated-lesson-plugin"></a> | | |
-| @makevoid · 2:59 | | |
+| **Sample video 8** |  |  |
+| <a href="https://www.youtube.com/shorts/5H6qg7669PM"><img src="docs/examples/sample-video-8.jpg" width="240" height="135" alt="Sample Video n.8 - motion-graphics-animated-lesson-plugin"></a> |  |  |
+| @makevoid · 2:55 |  |  |
 
 ## Install and invoke
 
