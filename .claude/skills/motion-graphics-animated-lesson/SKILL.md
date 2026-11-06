@@ -3,7 +3,7 @@ name: motion-graphics-animated-lesson
 description: Create and revise narrated cartoon lessons and educational explainers from a topic, paper, repository or script, using recurring characters, ElevenLabs dialogue, timed diagrams, music ducking, a curtain-call ending and animated credits. Use for complete lessons or revisions to their script, characters, scenes, animation and sound.
 license: MIT
 metadata:
-  version: "0.2.1"
+  version: "0.2.2"
   compatibility: Designed for Claude Code and adaptable to Codex. Requires Ruby 3.2+, Bundler, FFmpeg, ImageMagick, Python 3, Node.js 22+ and Chrome. Optional Swift VFX requires macOS 14+ and Swift 5.9+. Fal tasks use the sensitive FAL_AI_API_KEY plugin option or the environment variable in standalone development. Lesson media are generated in projects from readable prompts; fonts come from the machine and keep their own licenses.
 ---
 
@@ -57,7 +57,7 @@ In `config/generations.rb`, sections cover the master exactly once using inclusi
 
 ## 3. References, acting and explanatory graphics
 
-Read [prompts](references/prompts.md), [production](references/production.md) and [animation/audio/VFX](references/animation-audio-vfx.md). Default image/edit model: GPT Image 2.5 Sunburst **xhigh**. Default acting: MiniMax H3 Max **1080P**. Fetch current schemas; never silently substitute models. Create missing identities from the supplied character prompts. Existing approved identity images can be registered with `ref:register` without regeneration. Version intentional identity changes and invalidate only their dependents.
+Read [prompts](references/prompts.md), [production](references/production.md) and [animation/audio/VFX](references/animation-audio-vfx.md). Default image/edit model: GPT Image 2.6 Sunburst **high** quality and **high** reasoning effort. Default acting: MiniMax H3 Max **1080P**. Fetch current schemas; never silently substitute models. Create missing identities from the supplied character prompts. Existing approved identity images can be registered with `ref:register` without regeneration. Version intentional identity changes and invalidate only their dependents.
 
 Produce a pilot hook/title and representative teaching moment, inspect them, then expand through dependency-ready review waves. Use sub-agents when available and appropriate; otherwise use the same reviews serially. Keep each RUN owned by one worker, shared config owned by the coordinator, exact frame ranges in each brief and persistent logs. See [production](references/production.md) for wave sizes and recovery. Accept only inspected results.
 

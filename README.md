@@ -1,6 +1,8 @@
 # Motion Graphics Animated Lesson
 
-Version **0.2.1**.
+Version **0.2.2**.
+
+Image generation and editing use GPT Image 2.6 Sunburst with high rendering quality and high reasoning effort. See the [release notes](docs/releases/0.2.2.md).
 
 A Claude Code plugin for creating narrated cartoon lessons from a topic, paper, repository or script. It combines character acting with p5 diagrams, code, captions and camera moves, then adds music ducked under dialogue, a theatrical curtain call and animated credits.
 
